@@ -388,45 +388,124 @@
 </head>
 <body class="antialiased">
 @include('partials._header')
-<div class="relative overflow-hidden bg-white">
-    <div class="mx-auto max-w-7xl">
-        <div
-            class="relative z-10 bg-white pb-8 sm:pb-16 md:pb-20 lg:w-full lg:max-w-2xl lg:pb-28 xl:pb-32 px-4 pt-6 sm:px-6 lg:px-8">
-            <svg class="absolute inset-y-0 right-0 hidden h-full w-48 translate-x-1/2 transform text-white lg:block"
-                 fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                <polygon points="50,0 100,0 50,100 0,100"/>
-            </svg>
-            <main class="mx-auto mt-10 max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-                <div class="sm:text-center lg:text-left">
-                    <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-                        <span class="block xl:inline">Kom onbeperkt autowassen</span>
-                    </h1>
-                    <p class="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
-                        Ervaar hoe makkelijk het is om je auto schoon te houden</p>
-                    <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                        <div class="rounded-md shadow">
-                            <a href="#"
-                               class="flex w-full items-center justify-center rounded-md border border-transparent bg-pink-600 px-8 py-3 text-base font-medium text-white hover:bg-pink-700 md:py-4 md:px-10 md:text-lg">Get
-                                started</a>
-                        </div>
-                        <div class="mt-3 sm:mt-0 sm:ml-3">
-                            <a href="#"
-                               class="flex w-full items-center justify-center rounded-md border border-transparent bg-pink-100 px-8 py-3 text-base font-medium text-pink-700 hover:bg-pink-200 md:py-4 md:px-10 md:text-lg">Vind
-                                jouw locatie</a>
-                        </div>
+@include('partials._hero')
+@include('partials._pricing-section')
+<div class="bg-white py-24 sm:py-32 lg:py-40">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="sm:text-center">
+            <p class="mt-2 text-3xl font-bold tracking-tight text-pink-500 sm:text-4xl">De voordelen van een Basic Wash
+                abonnement</p>
+        </div>
+
+        <div class="mt-20 max-w-lg sm:mx-auto md:max-w-none">
+            <div class="grid grid-cols-1 gap-y-16 md:grid-cols-3 md:gap-x-12 md:gap-y-16">
+                <div class="relative flex flex-col gap-6 sm:flex-row md:flex-col lg:flex-row">
+                    <div
+                        class="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-500 text-white sm:shrink-0">
+                        <!-- Heroicon name: outline/globe-alt -->
+                        <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                             stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"/>
+                        </svg>
+                    </div>
+                    <div class="sm:min-w-0 sm:flex-1">
+                        <p class="text-lg font-semibold leading-8 text-gray-900">24/7 Onbeperkt Autowassen</p>
+                        <p class="mt-2 text-base leading-7 text-gray-600">
+                            Met onze abonnementen kan jij onbeperkt je auto wassen op al onze locaties. Heb je net je
+                            auto gewassen maar hij is al weer vies? Kom gauw weer langs!</p>
                     </div>
                 </div>
-            </main>
+
+                <div class="relative flex flex-col gap-6 sm:flex-row md:flex-col lg:flex-row">
+                    <div
+                        class="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-500 text-white sm:shrink-0">
+                        <!-- Heroicon name: outline/scale -->
+                        <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                             stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z"/>
+                        </svg>
+                    </div>
+                    <div class="sm:min-w-0 sm:flex-1">
+                        <p class="text-lg font-semibold leading-8 text-gray-900">Supersnel wassen</p>
+                        <p class="mt-2 text-base leading-7 text-gray-600">Wij snappen dat je het druk hebt en geen zin
+                            hebt in lange wachttijden of lange wasbeurten. Daarom is elke machine in ons netwerk zo
+                            ingesteld dat jouw auto zo snel mogelijk wordt gewassen.</p>
+                    </div>
+                </div>
+
+                <div class="relative flex flex-col gap-6 sm:flex-row md:flex-col lg:flex-row">
+                    <div
+                        class="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-500 text-white sm:shrink-0">
+                        <!-- Heroicon name: outline/bolt -->
+                        <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                             stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
+                        </svg>
+                    </div>
+                    <div class="sm:min-w-0 sm:flex-1">
+                        <p class="text-lg font-semibold leading-8 text-gray-900">Uitgebreid Netwerk</p>
+                        <p class="mt-2 text-base leading-7 text-gray-600">Met een Basic Wash abonnement kan je bij al
+                            onze locaties wassen. We doen er alles aan om jou op zoveel mogelijk locaties van een schone
+                            auto te kunnen voorzien.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-        <iframe class="elementor-background-video-embed" frameborder="0" allowfullscreen=""
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                title="Basic Wash Breda" width="640" height="360"
-                src="https://www.youtube-nocookie.com/embed/lT4bmAggKEw?autoplay=1&mute=1&enablejsapi=1&controls=0"
-                sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox"
-                id="widget2" style="width: 1067px; height: 600.188px;" data-origwidth="640"
-                data-origheight="360"></iframe>
+</div>
+<div class="bg-gray-50">
+    <div class="mx-auto max-w-7xl py-24 px-6 sm:py-32 lg:px-8 lg:py-40">
+        <div class="mx-auto max-w-3xl text-center">
+            <h2 class="text-3xl font-bold tracking-tight text-pink-600 sm:text-4xl">Gemakkelijk abonnements wassen</h2>
+        </div>
+        <dl class="mt-20 grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8">
+            <div class="relative">
+                <dt>
+                    <!-- Heroicon name: outline/check -->
+                    <svg class="absolute mt-1 h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                         viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                    </svg>
+                    <p class="ml-10 text-lg font-semibold leading-8 text-gray-900">Registreren</p>
+                </dt>
+                <dd class="mt-2 ml-10 text-base leading-7 text-gray-600">Sluit een abonnement af bij Basic Wash, dit kan
+                    gemakkelijk via onze webshop. Zodra je abonnement is afgesloten kan je direct wassen.
+                </dd>
+            </div>
+
+            <div class="relative">
+                <dt>
+                    <!-- Heroicon name: outline/check -->
+                    <svg class="absolute mt-1 h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                         viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                    </svg>
+                    <p class="ml-10 text-lg font-semibold leading-8 text-gray-900">Kenteken herkenning</p>
+                </dt>
+                <dd class="mt-2 ml-10 text-base leading-7 text-gray-600">Je abonnement staat gekoppeld aan het opgegeven
+                    kenteken. Dit kenteken wordt geverifieerd door ons systeem, waardoor je automatisch toegang krijgt
+                    tot de wasstraat.
+                </dd>
+            </div>
+
+            <div class="relative">
+                <dt>
+                    <!-- Heroicon name: outline/check -->
+                    <svg class="absolute mt-1 h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                         viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                    </svg>
+                    <p class="ml-10 text-lg font-semibold leading-8 text-gray-900">Autowassen</p>
+                </dt>
+                <dd class="mt-2 ml-10 text-base leading-7 text-gray-600">Je rijdt de wasstraat in en positioneert de
+                    auto zoals staat aangegeven. Wanneer de auto op de juiste positie staat, begint het wasprogramma
+                    vanzelf.
+                </dd>
+            </div>
+        </dl>
     </div>
 </div>
 

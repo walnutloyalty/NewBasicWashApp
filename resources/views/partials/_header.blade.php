@@ -53,7 +53,7 @@
                         To: "opacity-0 translate-y-1"
                     -->
                     <div x-show="menuItem1" @click.away="menuItem1 = false"
-                        class="absolute z-10 -ml-4 mt-3 w-screen max-w-md transform px-2 sm:px-0 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2">
+                        class="absolute z-50 -ml-4 mt-3 w-screen max-w-md transform px-2 sm:px-0 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2">
                         <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                             <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                                 <a href="#" class="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50">
