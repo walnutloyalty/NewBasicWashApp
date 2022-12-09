@@ -102,7 +102,12 @@
                     </div>
                 </div>
 
-                <div class="divide-y divide-gray-200 rounded-lg border border-gray-200 shadow-sm">
+                <div class="divide-y divide-gray-200 rounded-lg border-2 border-pink-400 shadow-sm">
+                    <div class="flex -translate-y-1/2 transform justify-center">
+                        <span
+                            class="inline-flex bg-pink-600 rounded px-4 py-1 text-base font-semibold text-white">Most
+                            popular</span>
+                    </div>
                     <div class="p-6">
                         <h2 class="text-lg font-medium leading-6 text-gray-900">Premium</h2>
                         <p class="mt-4 text-sm text-gray-500">All the basics for starting a new business</p>
