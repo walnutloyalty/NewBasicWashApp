@@ -6,11 +6,11 @@
             </p>
             <div class="relative mt-6 flex self-center rounded-lg bg-gray-100 p-0.5 sm:mt-8">
                 <button type="button" @click="monthly = true, separate = false"
-                        class="relative w-1/2 whitespace-nowrap rounded-md border-pink-200 bg-pink-600 py-2 text-sm font-medium text-white shadow-sm focus:z-10 focus:outline-none focus:ring-2 focus:ring-pink-500 sm:w-auto sm:px-8 hover:bg-cyan-600">
+                        class="relative w-1/2 whitespace-nowrap rounded-md border-pink-200 bg-pink-600 py-2 text-sm font-medium text-white shadow-sm focus:z-10 focus:outline-none focus:ring-2 focus:ring-cyan-500 sm:w-auto sm:px-8 hover:bg-cyan-600">
                     Monthly billing
                 </button>
                 <button type="button" @click="separate = true, monthly = false"
-                        class="relative ml-0.5 w-1/2 whitespace-nowrap rounded-md border-pink-200 bg-pink-600 py-2 text-sm font-medium text-white focus:z-10 focus:outline-none focus:ring-2 focus:ring-pink-500 sm:w-auto sm:px-8 hover:bg-cyan-600">
+                        class="relative ml-0.5 w-1/2 whitespace-nowrap rounded-md border-pink-200 bg-pink-600 py-2 text-sm font-medium text-white focus:z-10 focus:outline-none focus:ring-2 focus:ring-cyan-500 sm:w-auto sm:px-8 hover:bg-cyan-600">
                     Yearly billing
                 </button>
             </div>
