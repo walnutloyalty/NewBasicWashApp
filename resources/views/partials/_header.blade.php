@@ -1,3 +1,8 @@
+<style>
+    [x-cloak] {
+        display: none !important;
+    }
+</style>
 <div class="relative bg-pink-600">
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
         <div class="flex items-center justify-between py-6 md:justify-start md:space-x-10">
@@ -36,7 +41,7 @@
                                   clip-rule="evenodd"/>
                         </svg>
                     </button>
-                    <div x-show="menuItem1" @click.away="menuItem1 = false"
+                    <div x-show="menuItem1" @click.away="menuItem1 = false" x-cloak
                          class="absolute z-50 -ml-4 mt-3 w-screen max-w-md transform px-2 sm:px-0 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2">
                         <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                             <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
@@ -86,7 +91,7 @@
                                   clip-rule="evenodd"/>
                         </svg>
                     </button>
-                    <div x-show="menuItem2" @click.away="menuItem2 = false"
+                    <div x-show="menuItem2" @click.away="menuItem2 = false" x-cloak
                          class="absolute left-1/2 z-10 mt-3 w-screen max-w-md -translate-x-1/2 transform px-2 sm:px-0">
                         <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                             <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
@@ -154,7 +159,7 @@
                                   clip-rule="evenodd"/>
                         </svg>
                     </button>
-                    <div x-show="menuItem3" @click.away="menuItem3 = false"
+                    <div x-show="menuItem3" @click.away="menuItem3 = false" x-cloak
                          class="absolute left-1/2 z-10 mt-3 w-screen max-w-md -translate-x-1/2 transform px-2 sm:px-0">
                         <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                             <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">

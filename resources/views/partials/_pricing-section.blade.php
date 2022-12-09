@@ -1,17 +1,17 @@
-<div x-data="{ monthly: true, separate: false }" class="bg-gray-50">
+<div x-data="{ monthly: true, yearly: false }" class="bg-gray-50">
     <div class="mx-auto max-w-7xl py-24 px-4 sm:px-6 lg:px-8">
         <div class="sm:align-center sm:flex sm:flex-col">
             <h1 class="text-5xl font-bold tracking-tight text-gray-900 sm:text-center">Pricing Plans</h1>
             <p class="mt-5 text-xl text-gray-500 sm:text-center">Goedkoop autowassen voor iedereen
             </p>
             <div class="relative mt-6 flex self-center rounded-lg bg-gray-100 p-0.5 sm:mt-8">
-                <button type="button" @click="monthly = true, separate = false" :class="monthly ? 'bg-cyan-600' : ''"
+                <button type="button" @click="monthly = true, yearly = false" :class="monthly ? 'bg-cyan-600' : ''"
                         class="relative w-1/2 whitespace-nowrap rounded-md border-pink-200 bg-pink-600 py-2 text-sm font-medium text-white shadow-sm focus:z-10 focus:outline-none focus:ring-2 focus:ring-cyan-500 sm:w-auto sm:px-8 hover:bg-cyan-600">
                     Monthly billing
                 </button>
-                <button type="button" @click="separate = true, monthly = false" :class="separate ? 'bg-cyan-600' : ''"
+                <button type="button" @click="yearly = true, monthly = false" :class="yearly ? 'bg-cyan-600' : ''"
                         class="relative ml-0.5 w-1/2 whitespace-nowrap rounded-md border-pink-200 bg-pink-600 py-2 text-sm font-medium text-white focus:z-10 focus:outline-none focus:ring-2 focus:ring-cyan-500 sm:w-auto sm:px-8 hover:bg-cyan-600">
-                    Separate billing
+                    Yearly billing
                 </button>
             </div>
         </div>
@@ -21,7 +21,7 @@
                 <div class="divide-y divide-gray-200 rounded-lg border border-gray-200 shadow-sm">
                     <div class="p-6">
                         <h2 class="text-lg font-medium leading-6 text-gray-900">Premium Plus</h2>
-                        <p class="mt-4 text-sm text-gray-500">All the basics for starting a new business</p>
+                        <p class="mt-4 text-sm text-gray-500">Of probeer een <a href="#" class="underline">enkele wasbeurt voor 13,50</a></p>
                         <p class="mt-8">
                             <span class="text-4xl font-bold tracking-tight text-gray-900">21,50</span>
                             <span class="text-base font-medium text-gray-500">/mo*</span>
@@ -108,9 +108,9 @@
                             class="inline-flex bg-pink-600 rounded px-4 py-1 text-base font-semibold text-white">Most
                             popular</span>
                     </div>
-                    <div class="p-6">
+                    <div class="px-6 border-none">
                         <h2 class="text-lg font-medium leading-6 text-gray-900">Premium</h2>
-                        <p class="mt-4 text-sm text-gray-500">All the basics for starting a new business</p>
+                        <p class="mt-4 text-sm text-gray-500">Of probeer een <a href="#" class="underline">enkele wasbeurt voor 10,50</a></p>
                         <p class="mt-8">
                             <span class="text-4xl font-bold tracking-tight text-gray-900">17,50</span>
                             <span class="text-base font-medium text-gray-500">/mo*</span>
@@ -195,7 +195,7 @@
                 <div class="divide-y divide-gray-200 rounded-lg border border-gray-200 shadow-sm">
                     <div class="p-6">
                         <h2 class="text-lg font-medium leading-6 text-gray-900">Gold</h2>
-                        <p class="mt-4 text-sm text-gray-500">All the basics for starting a new business</p>
+                        <p class="mt-4 text-sm text-gray-500">Of probeer een <a href="#" class="underline">enkele wasbeurt voor 7,99</a></p>
                         <p class="mt-8">
                             <span class="text-4xl font-bold tracking-tight text-gray-900">13,50</span>
                             <span class="text-base font-medium text-gray-500">/mo*</span>
@@ -261,7 +261,7 @@
                 <div class="divide-y divide-gray-200 rounded-lg border border-gray-200 shadow-sm">
                     <div class="p-6">
                         <h2 class="text-lg font-medium leading-6 text-gray-900">Basic</h2>
-                        <p class="mt-4 text-sm text-gray-500">All the basics for starting a new business</p>
+                        <p class="mt-4 text-sm text-gray-500">Of probeer een <a href="#" class="underline">enkele wasbeurt voor 4,99</a></p>
                         <p class="mt-8">
                             <span class="text-4xl font-bold tracking-tight text-gray-900">9,50</span>
                             <span class="text-base font-medium text-gray-500">/mo*</span>
@@ -304,7 +304,7 @@
             </div>
         </div>
         <div>
-            <div x-show="separate"
+            <div x-show="yearly"
                  class="mt-12 space-y-4 sm:mt-16 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:mx-auto lg:max-w-4xl xl:mx-0 xl:max-w-none xl:grid-cols-4">
                 <div class="divide-y divide-gray-200 rounded-lg border border-gray-200 shadow-sm">
                     <div class="p-6">
