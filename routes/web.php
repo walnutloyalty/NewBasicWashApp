@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MapController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +19,15 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/particulier', function () {
+    return view('webshop/particulier');
+})->name('particulier');
 
+Route::get('/zakelijk', function () {
+    return view('webshop/zakelijk');
+})->name('zakelijk');
+
+Route::get('/breda', [MapController::class, 'index'])->name('breda');
 
 //Route::get('/dashboard', function () {
 //    return view('dashboard');

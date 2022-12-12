@@ -7,10 +7,10 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
         <div class="flex items-center justify-between py-6 md:justify-start md:space-x-10">
             <div class="flex justify-start lg:w-0 lg:flex-1">
-                <a href="#">
+                <a href="/">
                     <span class="sr-only">Basic wash</span>
                     <img class="h-8 w-auto sm:h-14"
-                         src="{{ asset('images/logos/basic-wash-logo.png') }}" alt="">
+                         src="{{ asset('media/logos/basic-wash-logo.png') }}" alt="">
                 </a>
             </div>
             <div class="-my-2 -mr-2 md:hidden">
@@ -45,7 +45,7 @@
                          class="absolute z-50 -ml-4 mt-3 w-screen max-w-md transform px-2 sm:px-0 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2">
                         <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                             <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                                <a href="#" class="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50">
+                                <a href="{{ route('particulier') }}" class="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                          stroke-width="1.5" stroke="currentColor" class="w-6 h-6 flex-shrink-0">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -59,7 +59,7 @@
                                     </div>
                                 </a>
 
-                                <a href="#" class="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50">
+                                <a href="{{ route('zakelijk') }}" class="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                          stroke-width="1.5" stroke="currentColor" class="w-6 h-6 flex-shrink-0">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -95,7 +95,7 @@
                          class="absolute left-1/2 z-10 mt-3 w-screen max-w-md -translate-x-1/2 transform px-2 sm:px-0">
                         <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                             <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                                <a href="#" class="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50">
+                                <a href="{{ route('breda') }}" class="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 flex-shrink-0">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
@@ -257,7 +257,7 @@
             <div class="px-5 pt-5 pb-6">
                 <div class="flex items-center justify-between">
                     <div>
-                        <img class="h-8 w-auto" src="{{ asset('images/logos/basic-wash-logo.png') }}"
+                        <img class="h-8 w-auto" src="{{ asset('media/logos/basic-wash-logo.png') }}"
                              alt="Your Company">
                     </div>
                     <div class="-mr-2">
