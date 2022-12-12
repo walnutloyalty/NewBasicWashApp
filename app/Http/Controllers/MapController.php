@@ -10,7 +10,7 @@ class MapController extends Controller
 {
     public function index()
     {
-        Mapper::map(51.58307608025242, 4.825826871626656);
+        Mapper::map(51.58355531183388, 4.827942575325471);
 
         return view('locaties.breda');
 }

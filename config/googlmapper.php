@@ -103,7 +103,7 @@ return [
     | The default zoom level Googlmapper should use.
     |
     */
-    'zoom' => 8,
+    'zoom' => 14,
 
     /*
     |--------------------------------------------------------------------------
@@ -173,7 +173,7 @@ return [
     | Set if fullscreen control should be displayed by Googlmapper.
     |
     */
-    'fullscreenControl' => false,
+    'fullscreenControl' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -233,7 +233,7 @@ return [
         | Display an animation effect for markers. (NONE|DROP|BOUNCE)
         |
         */
-        'animation' => 'NONE',
+        'animation' => 'DROP',
 
     ],
 
