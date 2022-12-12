@@ -102,11 +102,11 @@
                                     </svg>
                                     <div class="ml-4">
                                         <p class="text-base font-medium text-gray-900">Breda</p>
-                                        <p class="mt-1 text-sm text-gray-500">Minervum 7001-C, 4817 ZL Breda</p>
+                                        <p class="mt-1 text-sm text-gray-500">Minervum 7001-C, 4817 ZJ Breda</p>
                                     </div>
                                 </a>
 
-                                <a href="#" class="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50">
+                                <a href="{{ route('hellevoetsluis') }}" class="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 flex-shrink-0">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
@@ -118,7 +118,7 @@
                                     </div>
                                 </a>
 
-                                <a href="#" class="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50">
+                                <a href="{{ route('sint-willebrord') }}" class="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 flex-shrink-0">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
@@ -130,7 +130,7 @@
                                     </div>
                                 </a>
 
-                                <a href="#" class="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50">
+                                <a href="{{ route('terheijden') }}" class="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 flex-shrink-0">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />

@@ -47,7 +47,7 @@
                         <h3 class="text-base font-extrabold text-white">Locaties</h3>
                         <ul role="list" class="mt-4 space-y-4">
                             <li>
-                                <a href="#" class="text-base text-white hover:underline">Minervum 7001-C, 4817 ZL
+                                <a href="#" class="text-base text-white hover:underline">Minervum 7001-C, 4817 ZJ
                                     Breda</a>
                             </li>
 

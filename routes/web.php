@@ -27,7 +27,13 @@ Route::get('/zakelijk', function () {
     return view('webshop/zakelijk');
 })->name('zakelijk');
 
-Route::get('/breda', [MapController::class, 'index'])->name('breda');
+Route::get('/breda', [MapController::class, 'breda'])->name('breda');
+
+Route::get('/hellevoetsluis', [MapController::class, 'hellevoetsluis'])->name('hellevoetsluis');
+
+Route::get('/sint-willebrord', [MapController::class, 'sint_willebrord'])->name('sint-willebrord');
+
+Route::get('/terheijden', [MapController::class, 'terheijden'])->name('terheijden');
 
 //Route::get('/dashboard', function () {
 //    return view('dashboard');
