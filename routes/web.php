@@ -38,6 +38,10 @@ Route::get('/terheijden', [MapController::class, 'terheijden'])->name('terheijde
 Route::get('/klantenportaal', function () {
     return view('klantenservice/klantenportaal');
 })->name('klantenportaal');
+
+Route::get('/kentekencheck', function () {
+    return view('klantenservice/kentekencheck');
+})->name('kentekencheck');
 //Route::get('/dashboard', function () {
 //    return view('dashboard');
 //})->middleware(['auth', 'verified'])->name('dashboard');
