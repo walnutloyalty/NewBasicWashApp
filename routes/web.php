@@ -42,6 +42,29 @@ Route::get('/klantenportaal', function () {
 Route::get('/kentekencheck', function () {
     return view('klantenservice/kentekencheck');
 })->name('kentekencheck');
+
+Route::get('/FAQ', function () {
+    return view('klantenservice/FAQ');
+})->name('faq');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Route::get('/dashboard', function () {
 //    return view('dashboard');
 //})->middleware(['auth', 'verified'])->name('dashboard');

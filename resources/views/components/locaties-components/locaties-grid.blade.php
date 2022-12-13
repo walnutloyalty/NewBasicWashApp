@@ -4,17 +4,17 @@
     </div>
     <div class="relative mx-auto max-w-7xl">
         <div class="text-center">
-            <h2 class="font-extrabold tracking-tight text-pink-600 sm:text-5xl">{{ $title }}</h2>
-            <p class="mx-auto mt-3 text-xl text-black sm:mt-4">{{ $subtitle }}</p>
+            <h2 class="font-extrabold tracking-tight text-pink-600 sm:text-5xl">{{ $title ?? ''}}</h2>
+            <p class="mx-auto mt-3 text-xl text-black sm:mt-4">{{ $subtitle ?? ''}}</p>
         </div>
         <div class="mx-auto mt-44 grid gap-5 lg:max-w-none lg:grid-cols-3">
             <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
                 <div class="flex flex-1 flex-col justify-between bg-white p-6">
                     <div class="flex-1">
                         <div class="mt-2 block">
-                            <p class="text-xl font-bold text-pink-600">{{ $firstGridTitle }}</p>
-                            <p class="text-black">{{ $openingstijden }}</p>
-                            <p class="mt-3 text-base text-gray-500">{{ $firstGridAdres }}</p>
+                            <p class="text-xl font-bold text-pink-600">{{ $firstGridTitle ?? ''}}</p>
+                            <p class="text-black">{{ $openingstijden ?? ''}}</p>
+                            <p class="mt-3 text-base text-gray-500">{{ $firstGridAdres ?? ''}}</p>
                             <p class="mt-3 text-base text-gray-500 ">{{ $washingExtras ?? ''}}</p>
                         </div>
                     </div>
@@ -23,7 +23,7 @@
             <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
                 <div class="flex-shrink-0">
                     <img class="w-full object-cover"
-                         src="{{ $secondGridImage }}"
+                         src="{{ $secondGridImage ?? ''}}"
                          alt="">
                 </div>
             </div>
