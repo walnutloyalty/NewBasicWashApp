@@ -16,21 +16,21 @@ class MapController extends Controller
     }
     public function hellevoetsluis()
     {
-        Mapper::map(51.58340864627517, 4.827727328060636);
+        Mapper::map(51.83867769826151, 4.134274505423673);
 
         return view('locaties.hellevoetsluis');
     }
 
     public function sint_willebrord()
     {
-        Mapper::map(51.58340864627517, 4.827727328060636);
+        Mapper::map(51.55600050145903, 4.583887819251927);
 
         return view('locaties.sint-willebrord');
     }
 
     public function terheijden()
     {
-        Mapper::map(51.58340864627517, 4.827727328060636);
+        Mapper::map(51.649920028280285, 4.759403662259632);
 
         return view('locaties.terheijden');
     }

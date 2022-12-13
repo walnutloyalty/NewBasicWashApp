@@ -35,6 +35,9 @@ Route::get('/sint-willebrord', [MapController::class, 'sint_willebrord'])->name(
 
 Route::get('/terheijden', [MapController::class, 'terheijden'])->name('terheijden');
 
+Route::get('/klantenportaal', function () {
+    return view('klantenservice/klantenportaal');
+})->name('klantenportaal');
 //Route::get('/dashboard', function () {
 //    return view('dashboard');
 //})->middleware(['auth', 'verified'])->name('dashboard');
