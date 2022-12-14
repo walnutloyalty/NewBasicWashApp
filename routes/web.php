@@ -45,7 +45,29 @@ Route::get('/kentekencheck', function () {
 
 Route::get('/FAQ', function () {
     return view('klantenservice/FAQ');
-})->name('faq');
+})->name('FAQ');
+
+Route::get('/invulformulier', function () {
+    return view('invul-form/index');
+})->name('invulformulier');
+
+Route::get('/over-ons', function () {
+    return view('over-ons/index');
+})->name('over-ons');
+
+Route::get('/contact', function () {
+    return view('contact/index');
+})->name('contact');
+
+Route::get('/algemene-voorwaarden', function () {
+    return view('voorwaarden/algemene');
+})->name('algemene-voorwaarden');
+
+Route::get('/abonnements-voorwaarden', function () {
+    return view('voorwaarden/abonnements');
+})->name('abonnements-voorwaarden');
+
+
 
 
 
