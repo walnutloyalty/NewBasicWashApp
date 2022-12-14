@@ -26,11 +26,11 @@
                         <h3 class="text-base font-extrabold text-white">Webshop</h3>
                         <ul role="list" class="mt-4 space-y-4">
                             <li>
-                                <a href="#" class="text-base text-white hover:underline">Particulier</a>
+                                <a href="{{ route('particulier') }}" class="text-base text-white hover:underline">Particulier</a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-base text-white hover:underline">Zakelijk wassen</a>
+                                <a href="{{ route('zakelijk') }}" class="text-base text-white hover:underline">Zakelijk wassen</a>
                             </li>
                         </ul>
                     </div>
@@ -38,22 +38,22 @@
                         <h3 class="text-base font-extrabold text-white">Locaties</h3>
                         <ul role="list" class="mt-4 space-y-4">
                             <li>
-                                <a href="#" class="text-base text-white hover:underline">Minervum 7001-C, 4817 ZJ
+                                <a href="{{ route('breda') }}" class="text-base text-white hover:underline">Minervum 7001-C, 4817 ZJ
                                     Breda</a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-base text-white hover:underline">Rijksstraatweg 65, 3222 KB
+                                <a href="{{ route('hellevoetsluis') }}" class="text-base text-white hover:underline">Rijksstraatweg 65, 3222 KB
                                     Hellevoetsluis</a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-base text-white hover:underline">Poppestraat 130, 4711 EZ Sint
+                                <a href="{{ route('sint-willebrord') }}" class="text-base text-white hover:underline">Poppestraat 130, 4711 EZ Sint
                                     Willebrord</a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-base text-white hover:underline">Zeggelaan 200, 4844 SK
+                                <a href="{{ route('terheijden') }}" class="text-base text-white hover:underline">Zeggelaan 200, 4844 SK
                                     Terheijden</a>
                             </li>
                         </ul>
@@ -64,25 +64,25 @@
                         <h3 class="text-base font-extrabold text-white">Klantenservice</h3>
                         <ul role="list" class="mt-4 space-y-4">
                             <li>
-                                <a href="#" class="text-base text-white hover:underline">klantenportaal</a>
+                                <a href="{{ route('klantenportaal') }}" class="text-base text-white hover:underline">Klantenportaal</a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-base text-white hover:underline">Kentekencheck</a>
+                                <a href="{{ route('kentekencheck') }}" class="text-base text-white hover:underline">Kentekencheck</a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-base text-white hover:underline">F.A.Q.</a>
+                                <a href="{{ route('FAQ') }}" class="text-base text-white hover:underline">F.A.Q.</a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-base text-white hover:underline">Invulformulier</a>
+                                <a href="{{ route('invulformulier') }}" class="text-base text-white hover:underline">Invulformulier</a>
                             </li>
                             <li>
-                                <a href="#" class="text-base text-white hover:underline">Over ons</a>
+                                <a href="{{ route('over-ons') }}" class="text-base text-white hover:underline">Over ons</a>
                             </li>
                             <li>
-                                <a href="#" class="text-base text-white hover:underline">Contact</a>
+                                <a href="{{ route('contact') }}" class="text-base text-white hover:underline">Contact</a>
                             </li>
                         </ul>
                     </div>

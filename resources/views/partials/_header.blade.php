@@ -296,7 +296,7 @@
                 <div class="flex items-center justify-between">
                     <div>
                         <img class="h-8 w-auto" src="{{ asset('media/logos/basic-wash-logo.png') }}"
-                             alt="Your Company">
+                             alt="Basic Wash">
                     </div>
                     <div class="-mr-2">
                         <button type="button"

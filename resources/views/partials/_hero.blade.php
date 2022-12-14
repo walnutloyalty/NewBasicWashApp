@@ -15,7 +15,7 @@
                         Ervaar hoe makkelijk het is om je auto schoon te houden</p>
                     <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                         <div class="rounded-md shadow">
-                            <a href="#"
+                            <a href="{{ route('particulier') }}"
                                class="flex w-full items-center justify-center rounded-md border border-transparent bg-pink-500 px-8 py-3 text-base font-medium text-white hover:bg-cyan-300  md:py-4 md:px-10 md:text-lg">Get
                                 started</a>
                         </div>
