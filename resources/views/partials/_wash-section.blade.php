@@ -1,7 +1,7 @@
 <div class="bg-gray-50">
     <div class="mx-auto max-w-7xl py-24 px-6 sm:py-32 lg:px-8 lg:py-24">
         <div class="mx-auto max-w-3xl text-center">
-            <h2 class="text-3xl font-bold tracking-tight text-pink-600 sm:text-4xl">Gemakkelijk abonnements wassen</h2>
+            <h2 class="text-3xl font-bold tracking-tight text-pink-600 sm:text-4xl pb-10">Gemakkelijk abonnements wassen</h2>
         </div>
         <dl class="mt-20 grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8">
             <div class="relative">
@@ -20,11 +20,11 @@
 
             <div class="relative">
                 <dt>
-                    <!-- Heroicon name: outline/check -->
-                    <svg class="absolute mt-1 h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none"
-                         viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 absolute text-pink-600">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
                     </svg>
+
                     <p class="ml-10 text-lg font-semibold leading-8 text-gray-900">Kenteken herkenning</p>
                 </dt>
                 <dd class="mt-2 ml-10 text-base leading-7 text-gray-600">Je abonnement staat gekoppeld aan het opgegeven

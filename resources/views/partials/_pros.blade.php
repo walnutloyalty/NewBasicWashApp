@@ -58,7 +58,7 @@
                         <p class="mb-3 font-normal text-gray-700">Met een Basic Wash abonnement kan
                             je bij al onze locaties wassen. We doen er alles aan om jou op zoveel mogelijk locaties van
                             een schone auto te kunnen voorzien.</p>
-                        <a href="#"
+                        <a href="{{ route('locaties') }}"
                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-pink-600 rounded-lg hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-cyan-300">
                             Locaties
                             <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"

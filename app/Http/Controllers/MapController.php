@@ -38,7 +38,7 @@ class MapController extends Controller
 
     public function all_locations()
     {
-        Mapper::map(51.58340864627517, 4.827727328060636);
+        Mapper::map(51.58340864627517, 4.827727328060636, ['zoom' => 8]);
         Mapper::marker(51.58340864627517, 4.827727328060636);
         Mapper::marker(51.83867769826151, 4.134274505423673);
         Mapper::marker(51.55600050145903, 4.583887819251927);

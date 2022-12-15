@@ -56,8 +56,7 @@
 
                                     <div class="ml-4">
                                         <p class="text-base font-medium text-gray-900">Particulier</p>
-                                        <p class="mt-1 text-sm text-gray-500">Get a better understanding of where your
-                                            traffic is coming from.</p>
+                                        <p class="mt-1 text-sm text-gray-500"></p>
                                     </div>
                                 </a>
 
@@ -205,8 +204,7 @@
 
                                     <div class="ml-4">
                                         <p class="text-base font-medium text-gray-900">Klantenportaal</p>
-                                        <p class="mt-1 text-sm text-gray-500">Get all of your questions answered in our
-                                            forums or contact support.</p>
+                                        <p class="mt-1 text-sm text-gray-500">Registreer hier met je personal data.</p>
                                     </div>
                                 </a>
 
@@ -222,8 +220,7 @@
 
                                     <div class="ml-4">
                                         <p class="text-base font-medium text-gray-900">Kentekencheck</p>
-                                        <p class="mt-1 text-sm text-gray-500">Learn how to maximize our platform to get
-                                            the most out of it.</p>
+                                        <p class="mt-1 text-sm text-gray-500">Check hier of je auto geschikt is voor onze wasstraten.</p>
                                     </div>
                                 </a>
 
@@ -237,8 +234,7 @@
 
                                     <div class="ml-4">
                                         <p class="text-base font-medium text-gray-900">F.A.Q.</p>
-                                        <p class="mt-1 text-sm text-gray-500">See what meet-ups and other events we
-                                            might be planning near you.</p>
+                                        <p class="mt-1 text-sm text-gray-500">Heb je een vraag bekijk dan hier of je antwoord er tussen staat.</p>
                                     </div>
                                 </a>
 
@@ -252,8 +248,7 @@
 
                                     <div class="ml-4">
                                         <p class="text-base font-medium text-gray-900">Invulformulier</p>
-                                        <p class="mt-1 text-sm text-gray-500">Understand how we take your privacy
-                                            seriously.</p>
+                                        <p class="mt-1 text-sm text-gray-500">Is er iets waarmee we je kunnen helpen vul dan dit formulier in.</p>
                                     </div>
                                 </a>
                                 <a href="{{ route('over-ons') }}"
@@ -266,8 +261,7 @@
 
                                     <div class="ml-4">
                                         <p class="text-base font-medium text-gray-900">Over ons</p>
-                                        <p class="mt-1 text-sm text-gray-500">Understand how we take your privacy
-                                            seriously.</p>
+                                        <p class="mt-1 text-sm text-gray-500">Wij zijn Basic Wash.</p>
                                     </div>
                                 </a>
                                 <a href="{{ route('contact') }}"
@@ -280,8 +274,7 @@
 
                                     <div class="ml-4">
                                         <p class="text-base font-medium text-gray-900">Contact</p>
-                                        <p class="mt-1 text-sm text-gray-500">Understand how we take your privacy
-                                            seriously.</p>
+                                        <p class="mt-1 text-sm text-gray-500">Wil je nog persoonlijk contact met ons nemen dan zijn we er altijd voor je.</p>
                                     </div>
                                 </a>
 
