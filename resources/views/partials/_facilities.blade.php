@@ -1,4 +1,4 @@
-<div class="bg-white py-24 sm:py-32 lg:py-40">
+<div class="bg-white py-24 sm:py-32 lg:py-24">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="sm:text-center">
             <p class="mt-2 text-3xl font-bold tracking-tight text-pink-500 sm:text-4xl">Faciliteiten</p>

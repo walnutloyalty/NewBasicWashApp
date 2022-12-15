@@ -98,6 +98,19 @@
                          class="absolute left-1/2 z-10 mt-3 w-screen max-w-md -translate-x-1/2 transform px-2 sm:px-0">
                         <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                             <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                                <a href="{{ route('locaties') }}"
+                                   class="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50 @if(Request::routeIs('locaties')) bg-pink-100 @endif">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6 flex-shrink-0">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                              d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"/>
+                                    </svg>
+
+                                    <div class="ml-4">
+                                        <p class="text-base font-medium text-gray-900">Al onze Basic Wash locaties</p>
+                                    </div>
+                                </a>
+
                                 <a href="{{ route('breda') }}"
                                    class="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50 @if(Request::routeIs('breda')) bg-pink-100 @endif">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"

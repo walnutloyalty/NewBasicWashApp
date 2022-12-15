@@ -27,6 +27,8 @@ Route::get('/zakelijk', function () {
     return view('webshop/zakelijk');
 })->name('zakelijk');
 
+Route::get('/locaties', [MapController::class, 'all_locations'])->name('locaties');
+
 Route::get('/breda', [MapController::class, 'breda'])->name('breda');
 
 Route::get('/hellevoetsluis', [MapController::class, 'hellevoetsluis'])->name('hellevoetsluis');

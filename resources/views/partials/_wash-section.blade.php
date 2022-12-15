@@ -1,5 +1,5 @@
 <div class="bg-gray-50">
-    <div class="mx-auto max-w-7xl py-24 px-6 sm:py-32 lg:px-8 lg:py-40">
+    <div class="mx-auto max-w-7xl py-24 px-6 sm:py-32 lg:px-8 lg:py-24">
         <div class="mx-auto max-w-3xl text-center">
             <h2 class="text-3xl font-bold tracking-tight text-pink-600 sm:text-4xl">Gemakkelijk abonnements wassen</h2>
         </div>
