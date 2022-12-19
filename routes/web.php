@@ -58,7 +58,7 @@ Route::get('/over-ons', function () {
 })->name('over-ons');
 
 Route::get('/contact', function () {
-    return view('contact/index');
+    return view('klantenservice/contact');
 })->name('contact');
 
 Route::get('/algemene-voorwaarden', function () {
