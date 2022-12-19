@@ -24,12 +24,12 @@
                             <div class="min-w-0 flex-1">
                                 <label for="kenteken" class="sr-only">Kenteken</label>
                                 <input id="kenteken" type="text" name="kenteken"
-                                       class="block w-full rounded-md border border-transparent px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600"
+                                       class="block w-full rounded-md border border-transparent px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-transparent focus:outline-none focus:ring-offset-2 focus:ring-offset-cyan-500"
                                        placeholder="XX123X">
                             </div>
                             <div class="mt-4 sm:mt-0 sm:ml-3">
                                 <button type="submit"
-                                        class="block w-full rounded-md border border-transparent bg-pink-600 px-5 py-3 text-base font-medium text-white shadow hover:bg-cyan-600 sm:px-10">
+                                        class="block w-full rounded-md border border-transparent bg-cyan-600 px-5 py-3 text-base font-medium text-white shadow hover:bg-pink-600 sm:px-10">
                                     Check
                                 </button>
                             </div>

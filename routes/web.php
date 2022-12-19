@@ -54,7 +54,7 @@ Route::get('/invulformulier', function () {
 })->name('invulformulier');
 
 Route::get('/over-ons', function () {
-    return view('over-ons/index');
+    return view('klantenservice/over-ons');
 })->name('over-ons');
 
 Route::get('/contact', function () {
