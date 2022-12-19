@@ -10,8 +10,8 @@
                     <path stroke-linecap="round" stroke-linejoin="round"
                           d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"/>
                 </svg>
-                <h2 class="text-pink-600 font-extrabold text-4xl">
-                    Al onze locaties
+                <h2 class="text-black font-extrabold text-2xl">
+                    Was onbeperkt je auto op al onze Basic Wash locaties. Hier is ook die van jou te vinden!
                 </h2>
             </div>
             <div class="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-2">
@@ -23,10 +23,10 @@
                     </div>
                     <div class="flex flex-1 flex-col justify-between bg-white p-6">
                         <div class="flex-1">
-                                <p class="text-3xl font-semibold text-pink-600">Locaties</p>
-                                <p class="mt-3 text-base text-black">Was onbeperkt je auto op al onze Basic Wash
-                                    locaties. Hier is ook die van jou te vinden!
-                                </p>
+                            <p class="text-3xl font-semibold text-pink-600">Locaties</p>
+                            <p class="mt-3 text-base text-black">Was onbeperkt je auto op al onze Basic Wash
+                                locaties. Hier is ook die van jou te vinden!
+                            </p>
                         </div>
                     </div>
                 </div>
