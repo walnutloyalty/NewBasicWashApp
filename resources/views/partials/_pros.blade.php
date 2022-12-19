@@ -77,7 +77,7 @@
 <div class="text-center py-8">
     <a href="{{ route('particulier') }}"
        class="text-white bg-pink-600 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm px-8 py-5 mb-8 inline-flex items-center">
-        Kies een abbonement al vanaf € 9,50 per maand
+        Kies een abonnement al vanaf € 9,50 per maand
         <svg aria-hidden="true" class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
              xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd"

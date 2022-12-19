@@ -56,7 +56,7 @@
 
                                     <div class="ml-4">
                                         <p class="text-base font-medium text-gray-900">Particulier</p>
-                                        <p class="mt-1 text-sm text-gray-500"></p>
+                                        <p class="mt-1 text-sm text-gray-500">Al onze abonnement voor jouw behoeftes.</p>
                                     </div>
                                 </a>
 
@@ -70,8 +70,7 @@
 
                                     <div class="ml-4">
                                         <p class="text-base font-medium text-gray-900">Zakelijk wassen</p>
-                                        <p class="mt-1 text-sm text-gray-500">Speak directly to your customers in a more
-                                            meaningful way.</p>
+                                        <p class="mt-1 text-sm text-gray-500">Al onze abonnementen voor jouw zakelijke behoeftes.</p>
                                     </div>
                                 </a>
 
