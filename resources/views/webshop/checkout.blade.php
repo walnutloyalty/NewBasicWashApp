@@ -46,7 +46,7 @@
                                     tabindex="-1" role="listbox" aria-labelledby="listbox-label"
                                     aria-activedescendant="listbox-option-3">
                                     <li @click="selected = 'Breda'"
-                                        class="text-gray-900 relative cursor-default select-none py-2 pl-8 pr-4 hover:bg-cyan-600"
+                                        class="text-gray-900 relative cursor-default select-none py-2 pl-8 pr-4 hover:bg-pink-100"
                                         id="listbox-option-0" role="option">
                                         <span :class="selected === 'Breda' ? 'font-extrabold' : 'font-normal'"
                                               class="block truncate">Breda</span>
@@ -62,7 +62,7 @@
                                         </span>
                                     </li>
                                     <li @click="selected = 'Hellevoetsluis'"
-                                        class="text-gray-900 relative cursor-default select-none py-2 pl-8 pr-4 hover:bg-cyan-600"
+                                        class="text-gray-900 relative cursor-default select-none py-2 pl-8 pr-4 hover:bg-pink-100"
                                         id="listbox-option-1" role="option">
                                         <span :class="selected === 'Hellevoetsluis' ? 'font-extrabold' : 'font-normal'"
                                               class="block truncate">Hellevoetsluis</span>
@@ -78,7 +78,7 @@
                                         </span>
                                     </li>
                                     <li @click="selected = 'Sint willebrord'"
-                                        class="text-gray-900 relative cursor-default select-none py-2 pl-8 pr-4 hover:bg-cyan-600"
+                                        class="text-gray-900 relative cursor-default select-none py-2 pl-8 pr-4 hover:bg-pink-100"
                                         id="listbox-option-2" role="option">
                                         <span :class="selected === 'Sint willebrord' ? 'font-extrabold' : 'font-normal'"
                                               class="block truncate">Sint willebrord</span>
@@ -94,7 +94,7 @@
                                         </span>
                                     </li>
                                     <li @click="selected = 'Terheijden'"
-                                        class="text-gray-900 relative cursor-default select-none py-2 pl-8 pr-4 hover:bg-cyan-600"
+                                        class="text-gray-900 relative cursor-default select-none py-2 pl-8 pr-4 hover:bg-pink-100"
                                         id="listbox-option-3" role="option">
                                         <span :class="selected === 'Terheijden' ? 'font-extrabold' : 'font-normal'"
                                               class="block truncate">Terheijden</span>
@@ -202,6 +202,14 @@
                         </div>
                     </fieldset>
 
+                    <div class="mt-10 border-t border-gray-200 pt-10">
+                        <label for="voucher" class="block text-sm font-medium text-gray-700">Voucher</label>
+                        <div class="mt-1">
+                            <input type="text" name="voucher" id="voucher" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-600 focus:ring-cyan-600 sm:text-sm">
+                        </div>
+                    </div>
+                    <button type="button" class="inline-flex items-center rounded-md border border-transparent bg-pink-100 px-4 py-2 my-4 text-sm font-medium text-pink-700 hover:bg-pink-200 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2">Redeem voucher</button>
+
                 </div>
 
                 <!-- Order summary -->
@@ -211,7 +219,7 @@
                         <ul role="list" class="divide-y divide-gray-200">
                             <li class="flex py-6 px-4 sm:px-6">
                                 <div class="flex-shrink-0">
-                                    <h2 class="text-xl font-bold text-gray-900"> Je mandje</h2>
+                                    <h2 class="text-xl font-bold text-gray-900">Je mandje</h2>
                                 </div>
                             </li>
 
