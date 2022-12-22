@@ -23,6 +23,10 @@ Route::get('/particulier', function () {
     return view('webshop/particulier');
 })->name('particulier');
 
+Route::get('/checkout', function () {
+    return view('webshop/checkout');
+})->name('checkout');
+
 Route::get('/zakelijk', function () {
     return view('webshop/zakelijk');
 })->name('zakelijk');

@@ -27,7 +27,7 @@
                             <span class="text-4xl font-bold tracking-tight text-gray-900">€ 21,50</span>
                             <span class="text-base font-medium text-gray-500">/mo*</span>
                         </p>
-                        <a href="#"
+                        <a href="{{ route('checkout') }}"
                            class="mt-8 block w-full rounded-md border border-pink-600 bg-pink-600 py-2 text-center text-sm font-semibold text-white hover:bg-cyan-600 hover:border-cyan-600">Buy
                             Premium Plus</a>
                     </div>
