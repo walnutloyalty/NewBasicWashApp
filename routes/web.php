@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get('/particulier', function () {
-    return view('webshop/particulier');
+    return view('checkout/particulier');
 })->name('particulier');
 
 Route::get('/checkout', function () {
@@ -28,7 +28,7 @@ Route::get('/checkout', function () {
 })->name('checkout');
 
 Route::get('/zakelijk', function () {
-    return view('webshop/zakelijk');
+    return view('checkout/zakelijk');
 })->name('zakelijk');
 
 Route::get('/locaties', [MapController::class, 'all_locations'])->name('locaties');

@@ -2,12 +2,10 @@
     <div class="bg-gray-50">
         <div class="mx-auto max-w-2xl px-4 pt-16 pb-24 sm:px-6 lg:max-w-7xl lg:px-8">
             <h2 class="sr-only">Checkout</h2>
-
             <form class="lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
                 <div>
                     <div>
                         <h2 class="text-lg font-medium text-gray-900">Kenteken</h2>
-
                         <div class="mt-4">
                             <label for="kenteken" class="block text-sm font-medium text-gray-700">Uw lidmaatschap geldt
                                 voor dit kenteken</label>
@@ -21,7 +19,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="mt-10 border-t border-gray-200 pt-10">
                         <div x-data="{ open: false, selected: 'Kies een locatie' }">
                             <label id="listbox-label" class="block text-sm font-medium text-gray-700">Waar wil je
@@ -113,104 +110,135 @@
                             </div>
                         </div>
                     </div>
-
-                    <!--Subscription choice-->
-                    <fieldset class="mt-10 border-t border-gray-200 pt-10">
-                        <legend class="sr-only">Server size</legend>
-                        <h2 class="block text-sm font-medium text-gray-700">Kies hier je lidmaatschap</h2>
-                        <div x-data="{ choice: 'Premium' }" class="space-y-4">
-                            <label @click="choice = 'Premium plus'"
-                                   class="relative block cursor-pointer rounded-lg border bg-white px-6 py-4 shadow-sm focus:outline-none sm:flex sm:justify-between"
-                                   :class="choice === 'Premium plus' ? 'border-pink-600 ring-2 ring-pink-600' : ''">
-                                <input type="radio" name="premium-plus" class="sr-only"
-                                       aria-labelledby="server-size-0-label"
-                                       aria-describedby="server-size-0-description-0 server-size-0-description-1">
-                                <span class="flex items-center">
-                                    <span class="flex flex-col text-sm">
-                                        <span id="server-size-0-label" class="font-medium text-gray-900">Premium
-                                            plus</span>
-                                        <span id="server-size-0-description-0" class="text-gray-500">
-                                        </span>
-                                    </span>
-                                </span>
-                                <span id="server-size-0-description-1"
-                                      class="mt-2 flex text-sm sm:mt-0 sm:ml-4 sm:flex-col sm:text-right">
-                                    <span class="font-medium text-gray-900">$40</span>
-                                    <span class="ml-1 text-gray-500 sm:ml-0">/mo</span>
-                                </span>
-                                <span class="pointer-events-none absolute -inset-px rounded-lg border-2"
-                                      aria-hidden="true"></span>
-                            </label>
-                            <label @click="choice = 'Premium'"
-                                   class="relative block cursor-pointer rounded-lg border bg-white px-6 py-4 shadow-sm focus:outline-none sm:flex sm:justify-between"
-                                   :class="choice === 'Premium' ? 'border-pink-600 ring-2 ring-pink-600' : ''">
-                                <input type="radio" name="premium" class="sr-only" aria-labelledby="server-size-1-label"
-                                       aria-describedby="server-size-1-description-0 server-size-1-description-1">
-                                <span class="flex items-center">
-                                    <span class="flex flex-col text-sm">
-                                        <span id="server-size-1-label" class="font-medium text-gray-900">Premium</span>
-                                        <span id="server-size-1-description-0" class="text-gray-500">
-                                        </span>
-                                    </span>
-                                </span>
-                                <span id="server-size-1-description-1"
-                                      class="mt-2 flex text-sm sm:mt-0 sm:ml-4 sm:flex-col sm:text-right">
-                                    <span class="font-medium text-gray-900">$80</span>
-                                    <span class="ml-1 text-gray-500 sm:ml-0">/mo</span>
-                                </span>
-                                <span class="pointer-events-none absolute -inset-px rounded-lg border-2"
-                                      aria-hidden="true"></span>
-                            </label>
-                            <label @click="choice = 'Gold'"
-                                   class="relative block cursor-pointer rounded-lg border bg-white px-6 py-4 shadow-sm focus:outline-none sm:flex sm:justify-between"
-                                   :class="choice === 'Gold' ? 'border-pink-600 ring-2 ring-pink-600' : ''">
-                                <input type="radio" name="gold" class="sr-only" aria-labelledby="server-size-2-label"
-                                       aria-describedby="server-size-2-description-0 server-size-2-description-1">
-                                <span class="flex items-center">
-                                    <span class="flex flex-col text-sm">
-                                        <span id="server-size-2-label" class="font-medium text-gray-900">Gold</span>
-                                        <span id="server-size-2-description-0" class="text-gray-500">
-                                        </span>
-                                    </span>
-                                </span>
-                                <span id="server-size-2-description-1"
-                                      class="mt-2 flex text-sm sm:mt-0 sm:ml-4 sm:flex-col sm:text-right">
-                                    <span class="font-medium text-gray-900">$160</span>
-                                    <span class="ml-1 text-gray-500 sm:ml-0">/mo</span>
-                                </span>
-                                <span class="pointer-events-none absolute -inset-px rounded-lg border-2"
-                                      aria-hidden="true"></span>
-                            </label>
-                            <label @click="choice = 'Basic'"
-                                   class="relative block cursor-pointer rounded-lg border bg-white px-6 py-4 shadow-sm focus:outline-none sm:flex sm:justify-between"
-                                   :class="choice === 'Basic' ? 'border-pink-600 ring-2 ring-pink-600' : ''">
-                                <input type="radio" name="basic" class="sr-only" aria-labelledby="server-size-3-label"
-                                       aria-describedby="server-size-3-description-0 server-size-3-description-1">
-                                <span class="flex items-center">
-                                    <span class="flex flex-col text-sm">
-                                        <span id="server-size-3-label" class="font-medium text-gray-900">Basic</span>
-                                    </span>
-                                </span>
-                                <span id="server-size-3-description-1"
-                                      class="mt-2 flex text-sm sm:mt-0 sm:ml-4 sm:flex-col sm:text-right">
-                                    <span class="font-medium text-gray-900">$240</span>
-                                    <span class="ml-1 text-gray-500 sm:ml-0">/mo</span>
-                                </span>
-                                <span class="pointer-events-none absolute -inset-px rounded-lg border-2"
-                                      aria-hidden="true"></span>
-                            </label>
+                    <div x-data="{ billingPeriod: 'maandelijks' }">
+                        <div class="mt-10 border-t border-gray-200 pt-10 flex">
+                            <div @click="billingPeriod = 'maandelijks'" class="flex items-center mr-10">
+                                <input id="maandelijks" name="maandelijks" type="radio" checked
+                                       class="h-4 w-4 border-gray-300"
+                                       :class="billingPeriod === 'maandelijks' ? 'text-pink-600 focus:ring-cyan-600' : ''">
+                                <label for="maandelijks" class="ml-3 block text-sm font-medium text-gray-700">Maandelijks</label>
+                            </div>
+                            <div @click="billingPeriod = 'jaarlijks'" class="flex items-center">
+                                <input id="jaarlijks" name="jaarlijks" type="radio"
+                                       class="h-4 w-4 border-gray-300"
+                                       :class="billingPeriod === 'jaarlijks' ? 'text-pink-600 focus:ring-cyan-600' : ''">
+                                <label for="jaarlijks"
+                                       class="ml-3 block text-sm font-medium text-gray-700">Jaarlijks</label>
+                            </div>
                         </div>
-                    </fieldset>
-
+                        <!--Subscription choice-->
+                        <fieldset class="mt-10 border-t border-gray-200 pt-10">
+                            <legend class="sr-only">Server size</legend>
+                            <h2 class="block text-sm font-medium text-gray-700">Kies hier je lidmaatschap</h2>
+                            <div x-data="{ choice: 'Premium' }" class="space-y-4">
+                                <label @click="choice = 'Premium plus'"
+                                       class="relative block cursor-pointer rounded-lg border bg-white px-6 py-4 shadow-sm focus:outline-none sm:flex sm:justify-between"
+                                       :class="choice === 'Premium plus' ? 'border-pink-600 ring-2 ring-pink-600' : ''">
+                                    <input type="radio" name="premium-plus" class="sr-only"
+                                           aria-labelledby="server-size-0-label"
+                                           aria-describedby="server-size-0-description-0 server-size-0-description-1">
+                                    <span class="flex items-center">
+                                        <span class="flex flex-col text-sm">
+                                            <span id="server-size-0-label" class="font-medium text-gray-900">Premium
+                                                plus</span>
+                                            <span id="server-size-0-description-0" class="text-gray-500">
+                                            </span>
+                                        </span>
+                                    </span>
+                                    <span id="server-size-0-description-1"
+                                          class="mt-2 flex text-sm sm:mt-0 sm:ml-4 sm:flex-col sm:text-right">
+                                        <span class="font-medium text-gray-900"
+                                              x-text="billingPeriod === 'jaarlijks' ? '€ 21,50' : '€ 24,50'"></span>
+                                        <span class="ml-1 text-gray-500 sm:ml-0">/mo</span>
+                                    </span>
+                                    <span class="pointer-events-none absolute -inset-px rounded-lg border-2"
+                                          aria-hidden="true"></span>
+                                </label>
+                                <label @click="choice = 'Premium'"
+                                       class="relative block cursor-pointer rounded-lg border bg-white px-6 py-4 shadow-sm focus:outline-none sm:flex sm:justify-between"
+                                       :class="choice === 'Premium' ? 'border-pink-600 ring-2 ring-pink-600' : ''">
+                                    <input type="radio" name="premium" class="sr-only"
+                                           aria-labelledby="server-size-1-label"
+                                           aria-describedby="server-size-1-description-0 server-size-1-description-1">
+                                    <span class="flex items-center">
+                                        <span class="flex flex-col text-sm">
+                                            <span id="server-size-1-label"
+                                                  class="font-medium text-gray-900">Premium</span>
+                                            <span id="server-size-1-description-0" class="text-gray-500">
+                                            </span>
+                                        </span>
+                                    </span>
+                                    <span id="server-size-1-description-1"
+                                          class="mt-2 flex text-sm sm:mt-0 sm:ml-4 sm:flex-col sm:text-right">
+                                        <span class="font-medium text-gray-900"
+                                              x-text="billingPeriod === 'jaarlijks' ? '€ 17,50' : '€ 20,50'"></span>
+                                        <span class="ml-1 text-gray-500 sm:ml-0">/mo</span>
+                                    </span>
+                                    <span class="pointer-events-none absolute -inset-px rounded-lg border-2"
+                                          aria-hidden="true"></span>
+                                </label>
+                                <label @click="choice = 'Gold'"
+                                       class="relative block cursor-pointer rounded-lg border bg-white px-6 py-4 shadow-sm focus:outline-none sm:flex sm:justify-between"
+                                       :class="choice === 'Gold' ? 'border-pink-600 ring-2 ring-pink-600' : ''">
+                                    <input type="radio" name="gold" class="sr-only"
+                                           aria-labelledby="server-size-2-label"
+                                           aria-describedby="server-size-2-description-0 server-size-2-description-1">
+                                    <span class="flex items-center">
+                                        <span class="flex flex-col text-sm">
+                                            <span id="server-size-2-label" class="font-medium text-gray-900">Gold</span>
+                                            <span id="server-size-2-description-0" class="text-gray-500">
+                                            </span>
+                                        </span>
+                                    </span>
+                                    <span id="server-size-2-description-1"
+                                          class="mt-2 flex text-sm sm:mt-0 sm:ml-4 sm:flex-col sm:text-right">
+                                        <span class="font-medium text-gray-900"
+                                              x-text="billingPeriod === 'jaarlijks' ? '€ 13,50' : '€ 16,50'"></span>
+                                        <span class="ml-1 text-gray-500 sm:ml-0">/mo</span>
+                                    </span>
+                                    <span class="pointer-events-none absolute -inset-px rounded-lg border-2"
+                                          aria-hidden="true"></span>
+                                </label>
+                                <label @click="choice = 'Basic'"
+                                       class="relative block cursor-pointer rounded-lg border bg-white px-6 py-4 shadow-sm focus:outline-none sm:flex sm:justify-between"
+                                       :class="choice === 'Basic' ? 'border-pink-600 ring-2 ring-pink-600' : ''">
+                                    <input type="radio" name="basic" class="sr-only"
+                                           aria-labelledby="server-size-3-label"
+                                           aria-describedby="server-size-3-description-0 server-size-3-description-1">
+                                    <span class="flex items-center">
+                                        <span class="flex flex-col text-sm">
+                                            <span id="server-size-3-label"
+                                                  class="font-medium text-gray-900">Basic</span>
+                                        </span>
+                                    </span>
+                                    <span id="server-size-3-description-1"
+                                          class="mt-2 flex text-sm sm:mt-0 sm:ml-4 sm:flex-col sm:text-right">
+                                        <span class="font-medium text-gray-900"
+                                              x-text="billingPeriod === 'jaarlijks' ? '€ 9,50' : '€ 12,50'"></span>
+                                        <span class="ml-1 text-gray-500 sm:ml-0">/mo</span>
+                                    </span>
+                                    <span class="pointer-events-none absolute -inset-px rounded-lg border-2"
+                                          aria-hidden="true"></span>
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
                     <div class="mt-10 border-t border-gray-200 pt-10">
                         <label for="voucher" class="block text-sm font-medium text-gray-700">Voucher</label>
                         <div class="mt-1">
-                            <input type="text" name="voucher" id="voucher" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-600 focus:ring-cyan-600 sm:text-sm">
+                            <input type="text" name="voucher" id="voucher"
+                                   class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-600 focus:ring-cyan-600 sm:text-sm">
                         </div>
                     </div>
-                    <button type="button" class="inline-flex items-center rounded-md border border-transparent bg-pink-100 px-4 py-2 my-4 text-sm font-medium text-pink-700 hover:bg-pink-200 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2">Redeem voucher</button>
-
+                    <button type="button"
+                            class="inline-flex items-center rounded-md border border-transparent bg-pink-100 px-4 py-2 my-4 text-sm font-medium text-pink-700 hover:bg-pink-200 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2">
+                        Redeem voucher
+                    </button>
+{{--                    <div class="mt-10 border-t border-gray-200 pt-10 text-center">--}}
+{{--                        <button type="button" class="inline-flex items-center rounded-md border border-transparent bg-pink-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2">Voeg nog een kenteken toe</button>--}}
+{{--                    </div>--}}
                 </div>
+
 
                 <!-- Order summary -->
                 <div class="mt-10 lg:mt-0">
@@ -222,7 +250,6 @@
                                     <h2 class="text-xl font-bold text-gray-900">Je mandje</h2>
                                 </div>
                             </li>
-
                             <!-- More products... -->
                         </ul>
                         <dl class="space-y-6 border-t border-gray-200 py-6 px-4 sm:px-6">
@@ -243,7 +270,6 @@
                                 <dd class="text-base font-medium text-gray-900">$75.52</dd>
                             </div>
                         </dl>
-
                         <div class="border-t border-gray-200 py-6 px-4 sm:px-6">
                             <button type="submit"
                                     class="w-full rounded-md border border-transparent bg-pink-600 py-3 px-4 text-base font-medium text-white shadow-sm hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-50">
