@@ -4,7 +4,43 @@
             <h2 class="sr-only">Checkout</h2>
             <form class="lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
                 <div>
-                    <div>
+                    <div class="sm:col-span-3">
+                        <label for="name" class="block text-sm font-medium text-gray-700">Naam</label>
+                        <div class="mt-1">
+                            <input type="text" name="name" id="name"
+                                   class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-600 focus:ring-cyan-600 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="sm:col-span-4 mt-4">
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <div class="mt-1">
+                            <input id="email" name="email" type="email"
+                                   class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-600 focus:ring-cyan-600 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="sm:col-span-4 mt-4">
+                        <label for="telefoonnummer" class="block text-sm font-medium text-gray-700">Telefoonnummer</label>
+                        <div class="mt-1">
+                            <input id="telefoonnummer" name="telefoonnummer" type="tel"
+                                   class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-600 focus:ring-cyan-600 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="sm:col-span-4 mt-4 max-w-[5rem]">
+                        <label for="postcode" class="block text-sm font-medium text-gray-700">Postcode</label>
+                        <div class="mt-1">
+                            <input id="postcode" name="postcode" type="text"
+                                   class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-600 focus:ring-cyan-600 sm:text-sm">
+                        </div>
+                    </div>
+                    <div class="sm:col-span-4 mt-4 max-w-[5rem]">
+                        <label for="huisnummer" class="block text-sm font-medium text-gray-700">Huisnummer</label>
+                        <div class="mt-1">
+                            <input id="huisnummer" name="huisnummer" type="text"
+                                   class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-600 focus:ring-cyan-600 sm:text-sm">
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
                         <h2 class="text-lg font-medium text-gray-900">Kenteken</h2>
                         <div class="mt-4">
                             <label for="kenteken" class="block text-sm font-medium text-gray-700">Uw lidmaatschap geldt
@@ -234,9 +270,6 @@
                             class="inline-flex items-center rounded-md border border-transparent bg-pink-100 px-4 py-2 my-4 text-sm font-medium text-pink-700 hover:bg-pink-200 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2">
                         Redeem voucher
                     </button>
-                    {{--                    <div class="mt-10 border-t border-gray-200 pt-10 text-center">--}}
-                    {{--                        <button type="button" class="inline-flex items-center rounded-md border border-transparent bg-pink-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2">Voeg nog een kenteken toe</button>--}}
-                    {{--                    </div>--}}
                 </div>
 
 

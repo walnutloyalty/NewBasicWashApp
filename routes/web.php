@@ -20,16 +20,20 @@ Route::get('/', function () {
 });
 
 Route::get('/particulier', function () {
-    return view('checkout/particulier');
+    return view('webshop/particulier');
 })->name('particulier');
 
-Route::get('/checkout', function () {
-    return view('webshop/checkout');
-})->name('checkout');
+Route::get('/checkout/particulier', function () {
+    return view('webshop/checkout/particuliere-checkout');
+})->name('particuliere-checkout');
 
 Route::get('/zakelijk', function () {
-    return view('checkout/zakelijk');
+    return view('webshop/zakelijk');
 })->name('zakelijk');
+
+Route::get('/checkout/zakelijk', function () {
+    return view('webshop/checkout/zakelijke-checkout');
+})->name('zakelijke-checkout');
 
 Route::get('/locaties', [MapController::class, 'all_locations'])->name('locaties');
 

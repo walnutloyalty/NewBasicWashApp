@@ -20,7 +20,7 @@
                         <p class="mt-8">
                             <span class="text-4xl font-bold tracking-tight text-gray-900">€ 290,40</span>
                         </p>
-                        <a href="#"
+                        <a href="{{ route('zakelijke-checkout') }}"
                            class="mt-8 block w-full rounded-md border border-pink-600 bg-pink-600 py-2 text-center text-sm font-semibold text-white hover:bg-cyan-600 hover:border-cyan-600">Buy
                             business passengercar</a>
                     </div>
@@ -103,7 +103,7 @@
                         <p class="mt-8">
                             <span class="text-4xl font-bold tracking-tight text-gray-900">€ 363,00</span>
                         </p>
-                        <a href="#"
+                        <a href="{{ route('zakelijke-checkout') }}"
                            class="mt-8 block w-full rounded-md border border-pink-600 bg-pink-600 py-2 text-center text-sm font-semibold text-white hover:bg-cyan-600 hover:border-cyan-600">Buy
                             business van</a>
                     </div>
@@ -187,7 +187,7 @@
                         <p class="mt-8">
                             <span class="text-4xl font-bold tracking-tight text-gray-900">€ 435,60</span>
                         </p>
-                        <a href="#"
+                        <a href="{{ route('zakelijke-checkout') }}"
                            class="mt-8 block w-full rounded-md border border-pink-600 bg-pink-600 py-2 text-center text-sm font-semibold text-white hover:bg-cyan-600 hover:border-cyan-600">Buy
                             business taxi</a>
                     </div>
