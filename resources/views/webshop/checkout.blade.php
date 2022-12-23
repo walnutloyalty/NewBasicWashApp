@@ -113,13 +113,13 @@
                     <div x-data="{ billingPeriod: 'maandelijks' }">
                         <div class="mt-10 border-t border-gray-200 pt-10 flex">
                             <div @click="billingPeriod = 'maandelijks'" class="flex items-center mr-10">
-                                <input id="maandelijks" name="maandelijks" type="radio" checked
+                                <input id="maandelijks" name="period" type="radio" checked
                                        class="h-4 w-4 border-gray-300"
                                        :class="billingPeriod === 'maandelijks' ? 'text-pink-600 focus:ring-cyan-600' : ''">
                                 <label for="maandelijks" class="ml-3 block text-sm font-medium text-gray-700">Maandelijks</label>
                             </div>
                             <div @click="billingPeriod = 'jaarlijks'" class="flex items-center">
-                                <input id="jaarlijks" name="jaarlijks" type="radio"
+                                <input id="jaarlijks" name="period" type="radio"
                                        class="h-4 w-4 border-gray-300"
                                        :class="billingPeriod === 'jaarlijks' ? 'text-pink-600 focus:ring-cyan-600' : ''">
                                 <label for="jaarlijks"
@@ -234,9 +234,9 @@
                             class="inline-flex items-center rounded-md border border-transparent bg-pink-100 px-4 py-2 my-4 text-sm font-medium text-pink-700 hover:bg-pink-200 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2">
                         Redeem voucher
                     </button>
-{{--                    <div class="mt-10 border-t border-gray-200 pt-10 text-center">--}}
-{{--                        <button type="button" class="inline-flex items-center rounded-md border border-transparent bg-pink-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2">Voeg nog een kenteken toe</button>--}}
-{{--                    </div>--}}
+                    {{--                    <div class="mt-10 border-t border-gray-200 pt-10 text-center">--}}
+                    {{--                        <button type="button" class="inline-flex items-center rounded-md border border-transparent bg-pink-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2">Voeg nog een kenteken toe</button>--}}
+                    {{--                    </div>--}}
                 </div>
 
 
