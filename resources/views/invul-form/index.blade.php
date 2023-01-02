@@ -6,7 +6,7 @@
                   d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"/>
         </svg>
     </div>
-    <form class="space-y-8 divide-y divide-gray-200 mx-96 mb-24">
+    <form class="space-y-8 divide-y divide-gray-200 lg:mx-96 mb-24">
         <div class="space-y-8 divide-y divide-gray-200">
             <div>
                 <div class="text-center">
@@ -42,7 +42,7 @@
                     <div class="sm:col-span-3">
                         <label for="onderwerp" class="block text-sm font-medium text-gray-700">Onderwerp</label>
                         <div class="mt-1">
-                            <select id="onderwerp" name="onderwerp" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                            <select id="onderwerp" name="onderwerp" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
                                 <option>Abonnement informatie - Carwash</option>
                                 <option>Wijziging gegevens - Carwash</option>
                                 <option>Betalingen - Carwash</option>
