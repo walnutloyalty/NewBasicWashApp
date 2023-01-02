@@ -196,7 +196,6 @@
                                    required>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -209,5 +208,4 @@
             </div>
         </div>
     </form>
-
 </x-app-layout>
