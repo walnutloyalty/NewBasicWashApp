@@ -23,9 +23,13 @@ Route::get('/particulier', function () {
     return view('webshop/particulier');
 })->name('particulier');
 
-Route::get('/checkout/particulier', function () {
-    return view('webshop/checkout/particuliere-checkout');
-})->name('particuliere-checkout');
+Route::get('/checkout/particulier/step1', function () {
+    return view('webshop/checkout/particuliere-checkout-step1');
+})->name('particuliere-checkout-step1');
+
+Route::get('/checkout/particulier/step2', function () {
+    return view('webshop/checkout/particuliere-checkout-step2');
+})->name('particuliere-checkout-step2');
 
 Route::get('/zakelijk', function () {
     return view('webshop/zakelijk');
