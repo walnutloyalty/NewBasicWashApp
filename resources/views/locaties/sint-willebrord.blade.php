@@ -1,4 +1,5 @@
 <x-app-layout>
+    @section('title', 'De voordeligste wasstraat van Sint Willebrord')
     @component('components.locaties-components.locaties-grid')
         @slot('title')
             De voordeligste carwash van Sint Willebrord, Etten-Leur & Rucphen

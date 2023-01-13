@@ -1,4 +1,5 @@
 <x-app-layout>
+    @section('title', 'De voordeligste wasstraat van Breda')
     @component('components.locaties-components.locaties-grid')
         @slot('title')
             De voordeligste carwash van Breda

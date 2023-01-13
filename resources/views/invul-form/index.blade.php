@@ -1,4 +1,5 @@
 <x-app-layout>
+    @section('title', 'Invulformulier')
     <div class="text-center">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
              class="w-12 h-12 inline mt-24 mb-8 text-pink-600">

@@ -29,7 +29,7 @@
                             </li>
                         </ol>
                     </nav>
-{{--                    <p class="sm:hidden">Step 2 of 4</p>--}}
+                    {{--                    <p class="sm:hidden">Step 2 of 4</p>--}}
                 </div>
             </div>
         </header>
@@ -138,13 +138,13 @@
                         <div class="mt-6">
                             <label for="name" class="block text-sm font-medium text-gray-700">Naam</label>
                             <div class="mt-1">
-                                <input type="text" id="name" name="name" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
+                                <input type="text" id="name" name="name" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                             </div>
                         </div>
                         <div class="mt-6">
                             <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
                             <div class="mt-1">
-                                <input type="email" id="email" name="email" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
+                                <input type="email" id="email" name="email" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                             </div>
                         </div>
                     </section>
@@ -156,7 +156,7 @@
                             <div class="sm:col-span-3">
                                 <label for="telefoonnummer" class="block text-sm font-medium text-gray-700">Telefoonnummer</label>
                                 <div class="mt-1">
-                                    <input type="text" id="telefoonnummer" name="telefoonnummer" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
+                                    <input type="text" id="telefoonnummer" name="telefoonnummer" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                                 </div>
                             </div>
 
@@ -164,13 +164,13 @@
                             <div>
                                 <label for="postal-code" class="block text-sm font-medium text-gray-700">Postcode</label>
                                 <div class="mt-1">
-                                    <input type="text" id="postal-code" name="postal-code" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
+                                    <input type="text" id="postal-code" name="postal-code" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                                 </div>
                             </div>
                             <div>
                                 <label for="huisnummer" class="block text-sm font-medium text-gray-700">Huisnummer</label>
                                 <div class="mt-1">
-                                    <input type="text" id="huisnummer" name="huisnummer" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
+                                    <input type="text" id="huisnummer" name="huisnummer" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                                 </div>
                             </div>
 
@@ -179,15 +179,11 @@
                         <div class="mt-6">
                             <label for="postal-code" class="block text-sm font-medium text-gray-700">Kenteken</label>
                             <div class="mt-1">
-                                <input type="text" id="postal-code" name="postal-code" autocomplete="postal-code" class="block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
+                                <input type="text" id="postal-code" name="postal-code" autocomplete="postal-code" class="block rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                             </div>
                         </div>
                     </section>
 
-                    <div class="mt-10 border-t border-gray-200 pt-6 sm:flex sm:items-center sm:justify-between">
-                        <a href="{{ route('particuliere-checkout-step2') }}" type="submit" class="w-full rounded-md border border-transparent bg-pink-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:order-last sm:ml-6 sm:w-auto">Continue</a>
-                        <p class="mt-4 text-center text-sm text-gray-500 sm:mt-0 sm:text-left">Click here for the next step.</p>
-                    </div>
                 </div>
             </form>
         </main>

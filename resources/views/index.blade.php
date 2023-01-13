@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Basic Wash</title>
+    <title>Basic Wash - Onbeperkt autowassen voor 9,50 per maand</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('media/logos/basic-wash-favicon.png') }}">
 
     <!-- Fonts -->

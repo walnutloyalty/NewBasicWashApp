@@ -1,3 +1,4 @@
+@section('title', 'Contact')
 <div class="bg-white mb-32">
     <header class="relative bg-blue-gray-800 pb-36">
         <div class="absolute inset-0">
@@ -93,5 +94,6 @@
                     </div>
                 </div>
             </section>
-
         </div>
+    </main>
+</div>

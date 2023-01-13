@@ -1,4 +1,5 @@
 <x-app-layout>
+    @section('title', 'Klantenportaal')
     <div class="overflow-hidden bg-gray-50 py-16">
         <div class="mx-auto max-w-7xl space-y-8 px-4 sm:px-6 lg:px-8">
             <div class="mx-auto max-w-prose text-base lg:max-w-none">

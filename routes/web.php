@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\webshop\CheckoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,21 +24,33 @@ Route::get('/particulier', function () {
     return view('webshop/particulier');
 })->name('particulier');
 
-Route::get('/checkout/particulier/step1', function () {
-    return view('webshop/checkout/particuliere-checkout-step1');
-})->name('particuliere-checkout-step1');
+Route::get('/checkout/particulier/step1', [CheckoutController::class, 'index'])->name('particuliere-checkout-step1');
+
+Route::post('/checkout/particulier/step1', [CheckoutController::class, 'store'])->name('particuliere-checkout-step1');
 
 Route::get('/checkout/particulier/step2', function () {
     return view('webshop/checkout/particuliere-checkout-step2');
 })->name('particuliere-checkout-step2');
 
+Route::get('/checkout/particulier/step3', function () {
+    return view('webshop/checkout/particuliere-checkout-step3');
+})->name('particuliere-checkout-step3');
+
 Route::get('/zakelijk', function () {
     return view('webshop/zakelijk');
 })->name('zakelijk');
 
-Route::get('/checkout/zakelijk', function () {
-    return view('webshop/checkout/zakelijke-checkout');
-})->name('zakelijke-checkout');
+Route::get('/checkout/zakelijk/step1', function () {
+    return view('webshop/checkout/zakelijke-checkout-step1');
+})->name('zakelijke-checkout-step1');
+
+Route::get('/checkout/zakelijk/step2', function () {
+    return view('webshop/checkout/zakelijke-checkout-step2');
+})->name('zakelijke-checkout-step2');
+
+Route::get('/checkout/zakelijk/step3', function () {
+    return view('webshop/checkout/zakelijke-checkout-step3');
+})->name('zakelijke-checkout-step3');
 
 Route::get('/locaties', [MapController::class, 'all_locations'])->name('locaties');
 
