@@ -1,4 +1,9 @@
 <x-app-layout>
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
     @section('title', 'Checkout')
     <div class="bg-white">
         <header class="relative border-b border-gray-200 bg-white text-sm font-medium text-gray-700">
@@ -10,7 +15,6 @@
                                 <a href="{{ route('zakelijke-checkout-step1') }}"
                                    class="@if(Request::routeIs('zakelijke-checkout-step1')) text-pink-600 @endif">Contact
                                     informatie</a>
-
                                 <!-- Heroicon name: mini/chevron-right -->
                                 <svg class="ml-4 h-5 w-5 text-gray-300" aria-hidden="true"
                                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -19,12 +23,10 @@
                                           clip-rule="evenodd"/>
                                 </svg>
                             </li>
-
                             <li class="flex items-center">
                                 <a href="{{ route('zakelijke-checkout-step2') }}" aria-current="page"
-                                   class="@if(Request::routeIs('zakelijke-checkout-step2')) text-pink-600 @endif">Betaal
-                                    informatie</a>
-
+                                   class="@if(Request::routeIs('zakelijke-checkout-step2')) text-pink-600 @endif">Abonnement
+                                    keuze</a>
                                 <!-- Heroicon name: mini/chevron-right -->
                                 <svg class="ml-4 h-5 w-5 text-gray-300" aria-hidden="true"
                                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -33,7 +35,6 @@
                                           clip-rule="evenodd"/>
                                 </svg>
                             </li>
-
                             <li class="flex items-center">
                                 <a href="{{ route('zakelijke-checkout-step3') }}"
                                    class="@if(Request::routeIs('zakelijke-checkout-step3')) text-pink-600 @endif">Bevestigen</a>
@@ -44,15 +45,12 @@
                 </div>
             </div>
         </header>
-
         <main class="relative mx-auto grid max-w-7xl grid-cols-1 gap-x-16 lg:grid-cols-2 lg:px-8 xl:gap-x-48">
             <h1 class="sr-only">Order information</h1>
-
             <section aria-labelledby="summary-heading"
                      class="bg-gray-50 px-4 pt-16 pb-10 sm:px-6 lg:col-start-2 lg:row-start-1 lg:bg-transparent lg:px-0 lg:pb-16">
                 <div class="mx-auto max-w-lg lg:max-w-none">
                     <h2 id="summary-heading" class="text-lg font-medium text-gray-900">Jouw mandje</h2>
-
                     <ul role="list" class="divide-y divide-gray-200 text-sm font-medium text-gray-900">
                         <li class="flex items-start space-x-4 py-6">
                             <div class="flex-auto space-y-1">
@@ -61,27 +59,22 @@
                             </div>
                             <p class="flex-none text-base font-medium">$70.00</p>
                         </li>
-
                         <!-- More products... -->
                     </ul>
-
                     <dl class="hidden space-y-6 border-t border-gray-200 pt-6 text-sm font-medium text-gray-900 lg:block">
                         <div class="flex items-center justify-between">
                             <dt class="text-gray-600">Subtotal</dt>
                             <dd>$320.00</dd>
                         </div>
-
                         <div class="flex items-center justify-between">
                             <dt class="text-gray-600">Taxes</dt>
                             <dd>$26.80</dd>
                         </div>
-
                         <div class="flex items-center justify-between border-t border-gray-200 pt-6">
                             <dt class="text-base">Total</dt>
                             <dd class="text-base">$361.80</dd>
                         </div>
                     </dl>
-
                     <div
                         class="fixed inset-x-0 bottom-0 flex flex-col-reverse text-sm font-medium text-gray-900 lg:hidden">
                         <div class="relative z-10 border-t border-gray-200 bg-white px-4 sm:px-6">
@@ -100,7 +93,6 @@
                                 </button>
                             </div>
                         </div>
-
                         <div>
                             <!--
                               Mobile summary overlay, show/hide based on mobile summary state.
@@ -130,12 +122,10 @@
                                         <dt class="text-gray-600">Subtotal</dt>
                                         <dd>$320.00</dd>
                                     </div>
-
                                     <div class="flex items-center justify-between">
                                         <dt class="text-gray-600">Shipping</dt>
                                         <dd>$15.00</dd>
                                     </div>
-
                                     <div class="flex items-center justify-between">
                                         <dt class="text-gray-600">Taxes</dt>
                                         <dd>$26.80</dd>
@@ -146,12 +136,10 @@
                     </div>
                 </div>
             </section>
-
             <form class="px-4 pt-16 pb-36 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 lg:pb-16">
                 <div class="mx-auto max-w-lg lg:max-w-none">
                     <section aria-labelledby="contact-info-heading">
                         <h2 id="contact-info-heading" class="text-lg font-medium text-gray-900">Contact information</h2>
-
                         <div class="mt-6">
                             <label for="name" class="block text-sm font-medium text-gray-700">Naam</label>
                             <div class="mt-1">
@@ -167,10 +155,8 @@
                             </div>
                         </div>
                     </section>
-
                     <section aria-labelledby="shipping-heading" class="mt-10">
                         <h2 id="shipping-heading" class="text-lg font-medium text-gray-900">Overige informatie</h2>
-
                         <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-3">
                             <div class="sm:col-span-3">
                                 <label for="telefoonnummer" class="block text-sm font-medium text-gray-700">Telefoonnummer</label>
@@ -179,8 +165,6 @@
                                            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
                                 </div>
                             </div>
-
-
                             <div>
                                 <label for="postal-code"
                                        class="block text-sm font-medium text-gray-700">Postcode</label>
@@ -197,31 +181,45 @@
                                            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
                                 </div>
                             </div>
-
                         </div>
-                        <div x-data="{ kenteken: true }" class="mt-6">
-                                <div x-show="kenteken">
-                                    <label for="kenteken" class="block text-sm font-medium text-gray-700">Kenteken</label>
-                                    <div class="mt-1 mb-4">
-                                        <input type="text" id="kenteken" name="kenteken"
+                        <div x-data="{ kentekens: [] }" x-cloak class="mt-6">
+                            <div>
+                                <label for="kenteken" class="block text-sm font-medium text-gray-700">Kenteken</label>
+                                <div class="mt-1 mb-4">
+                                    <input type="text" id="kenteken" name="kenteken"
+                                           class="block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
+                                </div>
+                            </div>
+                            <template x-for="i in kentekens.length">
+                                <div>
+                                    <label for="extra-kenteken"
+                                           class="block text-sm font-medium text-gray-700">Extra
+                                        kenteken</label>
+                                    <div class="mt-1 mb-4 flex">
+                                        <input type="text" id="extra-kenteken" name="extra-kenteken"
                                                class="block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
+                                        <a @click="kentekens.pop()" class="cursor-pointer text-red-600"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 ml-2 mt-2">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
+                                            </svg>
+                                        </a>
                                     </div>
                                 </div>
-
-                            <button @click="kenteken = true" class="text-pink-600">
+                            </template>
+                            <a @click="kentekens.push(); console.log(kentekens.push())"
+                                    class="text-pink-600 cursor-pointer">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                                      class="w-5 h-5 inline">
                                     <path
                                         d="M10.75 6.75a.75.75 0 00-1.5 0v2.5h-2.5a.75.75 0 000 1.5h2.5v2.5a.75.75 0 001.5 0v-2.5h2.5a.75.75 0 000-1.5h-2.5v-2.5z"/>
                                 </svg>
-                                Voeg kenteken toe</button>
+                                Voeg kenteken toe
+                            </a>
+
+
                         </div>
-
                     </section>
-
                     <section aria-labelledby="shipping-heading" class="mt-10">
                         <h2 id="shipping-heading" class="text-lg font-medium text-gray-900">Business informatie</h2>
-
                         <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-3">
                             <div class="sm:col-span-3">
                                 <label for="company"
@@ -231,8 +229,6 @@
                                            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
                                 </div>
                             </div>
-
-
                             <div class="sm:col-span-3">
                                 <label for="fin" class="block text-sm font-medium text-gray-700">Fiscaal Identificatie
                                     Nummer</label>
@@ -248,10 +244,8 @@
                                            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
                                 </div>
                             </div>
-
                         </div>
                         <div class="grid grid-cols-1 gap-y-6 gap-x-20 sm:grid-cols-3">
-
                             <div class="mt-6">
                                 <label for="straat" class="block text-sm font-medium text-gray-700">Straat</label>
                                 <div class="mt-1">
@@ -259,7 +253,6 @@
                                            class="block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
                                 </div>
                             </div>
-
                             <div class="mt-6">
                                 <label for="huisnummer"
                                        class="block text-sm font-medium text-gray-700">Huisnummer</label>
@@ -270,7 +263,6 @@
                             </div>
                         </div>
                         <div class="grid grid-cols-1 gap-y-6 gap-x-20 sm:grid-cols-3">
-
                             <div class="mt-6">
                                 <label for="straat" class="block text-sm font-medium text-gray-700">Postcode</label>
                                 <div class="mt-1">
@@ -278,7 +270,6 @@
                                            class="block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
                                 </div>
                             </div>
-
                             <div class="mt-6">
                                 <label for="huisnummer"
                                        class="block text-sm font-medium text-gray-700">Stad</label>
@@ -289,7 +280,6 @@
                             </div>
                         </div>
                     </section>
-
                     <div class="mt-10 border-t border-gray-200 pt-6 sm:flex sm:items-center sm:justify-between">
                         <a href="{{ route('zakelijke-checkout-step2') }}" type="submit"
                            class="w-full rounded-md border border-transparent bg-pink-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:order-last sm:ml-6 sm:w-auto">Continue</a>

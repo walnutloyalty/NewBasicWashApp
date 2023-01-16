@@ -13,10 +13,10 @@
                                 <svg class="ml-4 h-5 w-5 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
                                 </svg>
-                            </li>
+                            </li>+
 
                             <li class="flex items-center">
-                                <a href="{{ route('particuliere-checkout-step2') }}" aria-current="page" class="@if(Request::routeIs('particuliere-checkout-step2')) text-pink-600 @endif">Betaal informatie</a>
+                                <a href="{{ route('particuliere-checkout-step2') }}" aria-current="page" class="@if(Request::routeIs('particuliere-checkout-step2')) text-pink-600 @endif">Abonnement keuze</a>
 
                                 <!-- Heroicon name: mini/chevron-right -->
                                 <svg class="ml-4 h-5 w-5 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -34,9 +34,8 @@
             </div>
         </header>
 
-        <main class="relative mx-auto grid max-w-7xl grid-cols-1 gap-x-16 lg:grid-cols-2 lg:px-8 xl:gap-x-48">
+        <main class="relative mx-auto max-w-lg">
             <h1 class="sr-only">Order information</h1>
-
             <section aria-labelledby="summary-heading" class="bg-gray-50 px-4 pt-16 pb-10 sm:px-6 lg:col-start-2 lg:row-start-1 lg:bg-transparent lg:px-0 lg:pb-16">
                 <div class="mx-auto max-w-lg lg:max-w-none">
                     <h2 id="summary-heading" class="text-lg font-medium text-gray-900">Jouw mandje</h2>
@@ -129,63 +128,7 @@
                     </div>
                 </div>
             </section>
-
-            <form class="px-4 pt-16 pb-36 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 lg:pb-16">
-                <div class="mx-auto max-w-lg lg:max-w-none">
-                    <section aria-labelledby="contact-info-heading">
-                        <h2 id="contact-info-heading" class="text-lg font-medium text-gray-900">Contact information</h2>
-
-                        <div class="mt-6">
-                            <label for="name" class="block text-sm font-medium text-gray-700">Naam</label>
-                            <div class="mt-1">
-                                <input type="text" id="name" name="name" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                            </div>
-                        </div>
-                        <div class="mt-6">
-                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                            <div class="mt-1">
-                                <input type="email" id="email" name="email" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                            </div>
-                        </div>
-                    </section>
-
-                    <section aria-labelledby="shipping-heading" class="mt-10">
-                        <h2 id="shipping-heading" class="text-lg font-medium text-gray-900">Overige informatie</h2>
-
-                        <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-3">
-                            <div class="sm:col-span-3">
-                                <label for="telefoonnummer" class="block text-sm font-medium text-gray-700">Telefoonnummer</label>
-                                <div class="mt-1">
-                                    <input type="text" id="telefoonnummer" name="telefoonnummer" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                                </div>
-                            </div>
-
-
-                            <div>
-                                <label for="postal-code" class="block text-sm font-medium text-gray-700">Postcode</label>
-                                <div class="mt-1">
-                                    <input type="text" id="postal-code" name="postal-code" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                                </div>
-                            </div>
-                            <div>
-                                <label for="huisnummer" class="block text-sm font-medium text-gray-700">Huisnummer</label>
-                                <div class="mt-1">
-                                    <input type="text" id="huisnummer" name="huisnummer" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="mt-6">
-                            <label for="postal-code" class="block text-sm font-medium text-gray-700">Kenteken</label>
-                            <div class="mt-1">
-                                <input type="text" id="postal-code" name="postal-code" autocomplete="postal-code" class="block rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                            </div>
-                        </div>
-                    </section>
-
-                </div>
-            </form>
+            <a href="#" class="bg-pink-600 px-48 py-2 rounded-lg">Finish transaction</a>
         </main>
     </div>
 </x-app-layout>

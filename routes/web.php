@@ -3,6 +3,7 @@
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\webshop\CheckoutController;
+use App\Http\Controllers\webshop\KentekenController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,9 +41,7 @@ Route::get('/zakelijk', function () {
     return view('webshop/zakelijk');
 })->name('zakelijk');
 
-Route::get('/checkout/zakelijk/step1', function () {
-    return view('webshop/checkout/zakelijke-checkout-step1');
-})->name('zakelijke-checkout-step1');
+Route::get('/checkout/zakelijk/step1', [KentekenController::class, 'get'])->name('zakelijke-checkout-step1');
 
 Route::get('/checkout/zakelijk/step2', function () {
     return view('webshop/checkout/zakelijke-checkout-step2');

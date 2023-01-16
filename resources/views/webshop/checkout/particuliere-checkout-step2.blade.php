@@ -7,25 +7,32 @@
                     <nav aria-label="Progress" class="hidden sm:block">
                         <ol role="list" class="flex space-x-4">
                             <li class="flex items-center">
-                                <a href="{{ route('particuliere-checkout-step1') }}" class="@if(Request::routeIs('particuliere-checkout-step1')) text-pink-600 @endif">Contact informatie</a>
-
+                                <a href="{{ route('particuliere-checkout-step1') }}"
+                                   class="@if(Request::routeIs('particuliere-checkout-step1')) text-pink-600 @endif">Contact
+                                    informatie</a>
                                 <!-- Heroicon name: mini/chevron-right -->
-                                <svg class="ml-4 h-5 w-5 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                                <svg class="ml-4 h-5 w-5 text-gray-300" aria-hidden="true"
+                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                          d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                                          clip-rule="evenodd"/>
                                 </svg>
                             </li>
-
                             <li class="flex items-center">
-                                <a href="{{ route('particuliere-checkout-step2') }}" aria-current="page" class="@if(Request::routeIs('particuliere-checkout-step2')) text-pink-600 @endif">Betaal informatie</a>
-
+                                <a href="{{ route('particuliere-checkout-step2') }}" aria-current="page"
+                                   class="@if(Request::routeIs('particuliere-checkout-step2')) text-pink-600 @endif">Abonnement
+                                    keuze</a>
                                 <!-- Heroicon name: mini/chevron-right -->
-                                <svg class="ml-4 h-5 w-5 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                                <svg class="ml-4 h-5 w-5 text-gray-300" aria-hidden="true"
+                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                          d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                                          clip-rule="evenodd"/>
                                 </svg>
                             </li>
-
                             <li class="flex items-center">
-                                <a href="{{ route('particuliere-checkout-step3') }}" class="@if(Request::routeIs('particuliere-checkout-step3')) text-pink-600 @endif">Bevestigen</a>
+                                <a href="{{ route('particuliere-checkout-step3') }}"
+                                   class="@if(Request::routeIs('particuliere-checkout-step3')) text-pink-600 @endif">Bevestigen</a>
                             </li>
                         </ol>
                     </nav>
@@ -33,14 +40,12 @@
                 </div>
             </div>
         </header>
-
         <main class="relative mx-auto grid max-w-7xl grid-cols-1 gap-x-16 lg:grid-cols-2 lg:px-8 xl:gap-x-48">
             <h1 class="sr-only">Order information</h1>
-
-            <section aria-labelledby="summary-heading" class="bg-gray-50 px-4 pt-16 pb-10 sm:px-6 lg:col-start-2 lg:row-start-1 lg:bg-transparent lg:px-0 lg:pb-16">
+            <section aria-labelledby="summary-heading"
+                     class="bg-gray-50 px-4 pt-16 pb-10 sm:px-6 lg:col-start-2 lg:row-start-1 lg:bg-transparent lg:px-0 lg:pb-16">
                 <div class="mx-auto max-w-lg lg:max-w-none">
                     <h2 id="summary-heading" class="text-lg font-medium text-gray-900">Jouw mandje</h2>
-
                     <ul role="list" class="divide-y divide-gray-200 text-sm font-medium text-gray-900">
                         <li class="flex items-start space-x-4 py-6">
                             <div class="flex-auto space-y-1">
@@ -49,41 +54,40 @@
                             </div>
                             <p class="flex-none text-base font-medium">$70.00</p>
                         </li>
-
                         <!-- More products... -->
                     </ul>
-
                     <dl class="hidden space-y-6 border-t border-gray-200 pt-6 text-sm font-medium text-gray-900 lg:block">
                         <div class="flex items-center justify-between">
                             <dt class="text-gray-600">Subtotal</dt>
                             <dd>$320.00</dd>
                         </div>
-
                         <div class="flex items-center justify-between">
                             <dt class="text-gray-600">Taxes</dt>
                             <dd>$26.80</dd>
                         </div>
-
                         <div class="flex items-center justify-between border-t border-gray-200 pt-6">
                             <dt class="text-base">Total</dt>
                             <dd class="text-base">$361.80</dd>
                         </div>
                     </dl>
-
-                    <div class="fixed inset-x-0 bottom-0 flex flex-col-reverse text-sm font-medium text-gray-900 lg:hidden">
+                    <div
+                        class="fixed inset-x-0 bottom-0 flex flex-col-reverse text-sm font-medium text-gray-900 lg:hidden">
                         <div class="relative z-10 border-t border-gray-200 bg-white px-4 sm:px-6">
                             <div class="mx-auto max-w-lg">
-                                <button type="button" class="flex w-full items-center py-6 font-medium" aria-expanded="false">
+                                <button type="button" class="flex w-full items-center py-6 font-medium"
+                                        aria-expanded="false">
                                     <span class="mr-auto text-base">Total</span>
                                     <span class="mr-2 text-base">$361.80</span>
                                     <!-- Heroicon name: mini/chevron-up -->
-                                    <svg class="h-5 w-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd" d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z" clip-rule="evenodd" />
+                                    <svg class="h-5 w-5 text-gray-500" xmlns="http://www.w3.org/2000/svg"
+                                         viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                              d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z"
+                                              clip-rule="evenodd"/>
                                     </svg>
                                 </button>
                             </div>
                         </div>
-
                         <div>
                             <!--
                               Mobile summary overlay, show/hide based on mobile summary state.
@@ -96,7 +100,6 @@
                                 To: "opacity-0"
                             -->
                             <div class="fixed inset-0 bg-black bg-opacity-25" aria-hidden="true"></div>
-
                             <!--
                               Mobile summary, show/hide based on mobile summary state.
 
@@ -113,12 +116,10 @@
                                         <dt class="text-gray-600">Subtotal</dt>
                                         <dd>$320.00</dd>
                                     </div>
-
                                     <div class="flex items-center justify-between">
                                         <dt class="text-gray-600">Shipping</dt>
                                         <dd>$15.00</dd>
                                     </div>
-
                                     <div class="flex items-center justify-between">
                                         <dt class="text-gray-600">Taxes</dt>
                                         <dd>$26.80</dd>
@@ -129,7 +130,6 @@
                     </div>
                 </div>
             </section>
-
             <form class="px-4 pt-16 pb-36 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 lg:pb-16">
                 <div>
                     <div x-data="{ open: false, selected: 'Kies een locatie' }">
@@ -241,7 +241,7 @@
                     </div>
                     <!--Subscription choice-->
                     <fieldset class="mt-10 border-t border-gray-200 pt-10">
-                        <legend class="sr-only">Server size</legend>
+                        <legend class="sr-only">Subscription type</legend>
                         <h2 class="block text-sm font-medium text-gray-700">Kies hier je lidmaatschap</h2>
                         <div x-data="{ choice: 'Premium' }" class="space-y-4">
                             <label @click="choice = 'Premium plus'"
@@ -336,7 +336,6 @@
                         </div>
                     </fieldset>
                 </div>
-
                 <div x-data="{ open: false }" class="flex mt-6">
                     <!-- Trigger -->
                     <span x-on:click="open = true">
@@ -378,11 +377,12 @@
                                 </div>
                                 <!-- Buttons -->
                                 <div class="mt-8 flex space-x-2">
-                                    <button type="button" x-on:click="open = false" class="rounded-md border border-gray-200 bg-white px-5 py-2.5">
+                                    <button type="button" x-on:click="open = false"
+                                            class="rounded-md border border-gray-200 bg-white px-5 py-2.5">
                                         Redeem
                                     </button>
-
-                                    <button type="button" x-on:click="open = false" class="rounded-md border border-gray-200 bg-white px-5 py-2.5">
+                                    <button type="button" x-on:click="open = false"
+                                            class="rounded-md border border-gray-200 bg-white px-5 py-2.5">
                                         Cancel
                                     </button>
                                 </div>
@@ -391,8 +391,10 @@
                     </div>
                 </div>
                 <div class="mt-10 border-t border-gray-200 pt-6 sm:flex sm:items-center sm:justify-between">
-                    <a href="{{ route('particuliere-checkout-step3') }}" type="submit" class="w-full rounded-md border border-transparent bg-pink-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:order-last sm:ml-6 sm:w-auto">Continue</a>
-                    <p class="mt-4 text-center text-sm text-gray-500 sm:mt-0 sm:text-left">Click here to finish your order.</p>
+                    <a href="{{ route('particuliere-checkout-step3') }}" type="submit"
+                       class="w-full rounded-md border border-transparent bg-pink-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:order-last sm:ml-6 sm:w-auto">Continue</a>
+                    <p class="mt-4 text-center text-sm text-gray-500 sm:mt-0 sm:text-left">Click here to finish your
+                        order.</p>
                 </div>
             </form>
         </main>
