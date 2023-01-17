@@ -21,7 +21,7 @@
                 <div class="divide-y divide-gray-200 rounded-lg border border-gray-200 shadow-sm">
                     <div class="p-6">
                         <h2 class="text-lg font-medium leading-6 text-gray-900">Premium Plus</h2>
-                        <p class="mt-4 text-sm text-gray-500">Of probeer een <a href="#" class="underline">enkele
+                        <p class="mt-4 text-sm text-gray-500">Of probeer een <a href="{{ route('locaties') }}" class="underline">enkele
                                 wasbeurt voor € 13,50</a></p>
                         <p class="mt-8">
                             <span class="text-4xl font-bold tracking-tight text-gray-900">€ 21,50</span>
@@ -114,7 +114,7 @@
                     </div>
                     <div class="px-6 border-none">
                         <h2 class="text-lg font-medium leading-6 text-gray-900">Premium</h2>
-                        <p class="mt-4 text-sm text-gray-500">Of probeer een <a href="#" class="underline">enkele
+                        <p class="mt-4 text-sm text-gray-500">Of probeer een <a href="{{ route('locaties') }}" class="underline">enkele
                                 wasbeurt voor € 10,50</a></p>
                         <p class="mt-8">
                             <span class="text-4xl font-bold tracking-tight text-gray-900">€ 17,50</span>
@@ -203,7 +203,7 @@
                 <div class="divide-y divide-gray-200 rounded-lg border border-gray-200 shadow-sm">
                     <div class="p-6">
                         <h2 class="text-lg font-medium leading-6 text-gray-900">Gold</h2>
-                        <p class="mt-4 text-sm text-gray-500">Of probeer een <a href="#" class="underline">enkele
+                        <p class="mt-4 text-sm text-gray-500">Of probeer een <a href="{{ route('locaties') }}" class="underline">enkele
                                 wasbeurt voor € 7,99</a></p>
                         <p class="mt-8">
                             <span class="text-4xl font-bold tracking-tight text-gray-900">€ 13,50</span>
@@ -273,7 +273,7 @@
                 <div class="divide-y divide-gray-200 rounded-lg border border-gray-200 shadow-sm">
                     <div class="p-6">
                         <h2 class="text-lg font-medium leading-6 text-gray-900">Basic</h2>
-                        <p class="mt-4 text-sm text-gray-500">Of probeer een <a href="#" class="underline">enkele
+                        <p class="mt-4 text-sm text-gray-500">Of probeer een <a href="{{ route('locaties') }}" class="underline">enkele
                                 wasbeurt voor € 4,99</a></p>
                         <p class="mt-8">
                             <span class="text-4xl font-bold tracking-tight text-gray-900">€ 9,50</span>

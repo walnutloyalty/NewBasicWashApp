@@ -4,7 +4,7 @@
             <div>
                 <h2 class="text-3xl font-bold tracking-tight text-gray-900">Frequently asked questions</h2>
                 <p class="mt-4 text-lg text-gray-500">Can’t find the answer you’re looking for? Reach out to our <a
-                        href="#" class="font-medium text-pink-600 hover:underline cursor-pointer">customer support</a>
+                        href="{{ route('contact') }}" class="font-medium text-pink-600 hover:underline cursor-pointer">customer support</a>
                     team.</p>
                 <p class="mt-4 text-xl text-black">Algemeen</p>
             </div>
@@ -99,7 +99,7 @@
                                 </li>
                                 <li>De maximum-afmetingen van de locaties niet overschrijdt (zie onze locatiepagina
                                     voor meer informatie of doe de <a class="text-pink-600 hover:underline cursor-pointer"
-                                                                      href="#">kentekencheck</a>)
+                                                                      href="{{ route('kentekencheck') }}">kentekencheck</a>)
                                 </li>
                                 <li>Geen loszittende of niet originele onderdelen heeft (zoals o.a. een imperiaal,
                                     fietsendrager, antenne, bumper, spoiler, siertrips, stootlijsten en
@@ -107,7 +107,7 @@
                                 </li>
                             </ul>
                             <p class="text-base text-gray-500">Twijfel je? Vraag het onze medewerkers op locatie of
-                                neem <a class="text-pink-600 hover:underline cursor-pointer" href="#">hier</a> contact op met de
+                                neem <a class="text-pink-600 hover:underline cursor-pointer" href="{{ route('contact') }}">hier</a> contact op met de
                                 klantenservice!</p>
                         </dd>
                     </div>
@@ -147,7 +147,7 @@
                                 </li>
                             </ul>
                             <p class="text-base text-gray-500">Twijfel je? Vraag het onze medewerkers op locatie of
-                                neem <a class="text-pink-600 hover:underline cursor-pointer" href="#">hier</a> contact op met de
+                                neem <a class="text-pink-600 hover:underline cursor-pointer" href="{{ route('contact') }}">hier</a> contact op met de
                                 klantenservice!</p>
                         </dd>
                     </div>
@@ -199,7 +199,7 @@
                                 komen!
                             </p>
                             <p class="text-base text-gray-500 py-2">Klik <a class="text-pink-600 hover:underline cursor-pointer"
-                                                                            href="#">hier</a> om contact met ons op
+                                                                            href="{{ route('contact') }}">hier</a> om contact met ons op
                                 te
                                 nemen. </p>
                         </dd>

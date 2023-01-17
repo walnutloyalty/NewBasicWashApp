@@ -11,6 +11,6 @@ class KentekenController extends Controller
     public function get()
     {
         $kenteken = DB::table('kenteken')->get();
-        return view('webshop.checkout.zakelijke-checkout-step1', ['kenteken' => $kenteken]);
+        return view('livewire.checkout.zakelijke-checkout-step1', ['kenteken' => $kenteken]);
     }
 }

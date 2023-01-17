@@ -29,11 +29,13 @@
                                 locaties. Hier is ook die van jou te vinden!
                             </p>
                         </div>
+                        <a href="{{ route('kentekencheck') }}" class="bg-pink-600 rounded-lg self-center px-4 py-2 text-white my-6 hover:bg-cyan-600 cursor-pointer">Zeker weten of jouw auto past? Doe de kentekencheck!</a>
+
                     </div>
                 </div>
                 <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
                     <div class="flex-shrink-0">
-                        <div class="h-[27rem]">
+                        <div class="h-[31rem]">
                             {!! Mapper::render() !!}
                         </div>
                     </div>
@@ -41,8 +43,4 @@
             </div>
         </div>
     </div>
-
-
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIlcN7ZprmlKq5h2B_uw6rkbnisRxinb8&libraries=places"></script>
 </x-app-layout>

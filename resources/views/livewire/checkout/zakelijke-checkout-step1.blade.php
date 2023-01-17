@@ -4,6 +4,7 @@
             display: none !important;
         }
     </style>
+    @livewireStyles
     @section('title', 'Checkout')
     <div class="bg-white">
         <header class="relative border-b border-gray-200 bg-white text-sm font-medium text-gray-700">
@@ -136,7 +137,7 @@
                     </div>
                 </div>
             </section>
-            <form class="px-4 pt-16 pb-36 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 lg:pb-16">
+            <div class="px-4 pt-16 pb-36 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 lg:pb-16">
                 <div class="mx-auto max-w-lg lg:max-w-none">
                     <section aria-labelledby="contact-info-heading">
                         <h2 id="contact-info-heading" class="text-lg font-medium text-gray-900">Contact information</h2>
@@ -182,40 +183,56 @@
                                 </div>
                             </div>
                         </div>
-                        <div x-data="{ kentekens: [] }" x-cloak class="mt-6">
+                        <div class="mt-6">
                             <div>
-                                <label for="kenteken" class="block text-sm font-medium text-gray-700">Kenteken</label>
-                                <div class="mt-1 mb-4">
-                                    <input type="text" id="kenteken" name="kenteken"
-                                           class="block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
-                                </div>
-                            </div>
-                            <template x-for="i in kentekens.length">
-                                <div>
-                                    <label for="extra-kenteken"
-                                           class="block text-sm font-medium text-gray-700">Extra
-                                        kenteken</label>
-                                    <div class="mt-1 mb-4 flex">
-                                        <input type="text" id="extra-kenteken" name="extra-kenteken"
+                                <form method="POST" action="{{ route('zakelijke-add-kenteken') }}">
+                                    @csrf
+                                    <label for="kenteken"
+                                           class="block text-sm font-medium text-gray-700">Kenteken</label>
+                                    <div class="mt-1 mb-4">
+                                        <input type="text" id="kenteken" name="kenteken" placeholder="XX-XX-XX"
                                                class="block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
-                                        <a @click="kentekens.pop()" class="cursor-pointer text-red-600"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 ml-2 mt-2">
-                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
-                                            </svg>
-                                        </a>
                                     </div>
-                                </div>
-                            </template>
-                            <a @click="kentekens.push(); console.log(kentekens.push())"
-                                    class="text-pink-600 cursor-pointer">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                                     class="w-5 h-5 inline">
-                                    <path
-                                        d="M10.75 6.75a.75.75 0 00-1.5 0v2.5h-2.5a.75.75 0 000 1.5h2.5v2.5a.75.75 0 001.5 0v-2.5h2.5a.75.75 0 000-1.5h-2.5v-2.5z"/>
-                                </svg>
-                                Voeg kenteken toe
-                            </a>
 
-
+                                    <button type="submit"
+                                            onclick="event.preventDefault();this.closest('form').submit();"
+                                            class="text-pink-600 cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                             fill="currentColor"
+                                             class="w-5 h-5 inline">
+                                            <path
+                                                d="M10.75 6.75a.75.75 0 00-1.5 0v2.5h-2.5a.75.75 0 000 1.5h2.5v2.5a.75.75 0 001.5 0v-2.5h2.5a.75.75 0 000-1.5h-2.5v-2.5z"/>
+                                        </svg>
+                                        Voeg kenteken toe
+                                    </button>
+                                </form>
+                            </div>
+                            <h3 class="text-pink-600 mt-8">Al uw toegevoegde kentekens</h3>
+                            <ul role="list">
+                                @foreach($kenteken as $extraKenteken)
+                                    @if(isset($extraKenteken))
+                                        <li class="flex py-2 my-4">
+                                            <div class="ml-3">
+                                                <p class="text-sm font-medium text-gray-900">{{ $extraKenteken->kenteken ?? ''}}</p>
+                                            </div>
+                                            <form method="POST" action="{{ route('zakelijke-delete-kenteken') }}">
+                                                @csrf
+                                                <input type="text" class="sr-only" name="id"
+                                                       value="{{ $extraKenteken->id }}">
+                                                <button type="submit"
+                                                        onclick="event.preventDefault();this.closest('form').submit();">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                         fill="currentColor" class="w-5 h-5 ml-6 text-red-600">
+                                                        <path fill-rule="evenodd"
+                                                              d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z"
+                                                              clip-rule="evenodd"/>
+                                                    </svg>
+                                                </button>
+                                            </form>
+                                        </li>
+                                    @endif
+                                @endforeach
+                            </ul>
                         </div>
                     </section>
                     <section aria-labelledby="shipping-heading" class="mt-10">
@@ -287,7 +304,8 @@
                             step.</p>
                     </div>
                 </div>
-            </form>
+            </div>
+            @livewireScripts
         </main>
     </div>
 </x-app-layout>

@@ -28,7 +28,8 @@
                                 omgeving bij je Basic Wash abonnement. In deze omgeving beheer je zelf de gegevens
                                 van je abonnement, krijg je inzicht in je besparingen door je bezoeken en nog veel
                                 meer!
-                                Log <a class="text-pink-600 hover:underline cursor-pointer" href="#">hier</a> in en ervaar het
+                                Log <a class="text-pink-600 hover:underline cursor-pointer"
+                                       href="{{ route('klantenportaal') }}">hier</a> in en ervaar het
                                 zelf!</p>
                         </dd>
                     </div>
@@ -53,7 +54,8 @@
                                 regelen in het klantportaal. Voor het aanpassen van je kenteken of je
                                 bankrekeningnummer kun je ons aan het werk zetten.
 
-                                Klik <a class="text-pink-600 hover:underline cursor-pointer" href="#">hier</a> om contact met ons
+                                Klik <a class="text-pink-600 hover:underline cursor-pointer"
+                                        href="{{ route('contact') }}">hier</a> om contact met ons
                                 op te nemen. </p>
                         </dd>
                     </div>
@@ -77,7 +79,8 @@
                             <p class="text-base text-gray-500">Het inzien of ophalen van jouw facturen is snel en
                                 simpel te regelen. Log hiervoor in op jouw Klantportaal, zoek de juiste factuur en
                                 download het PDF-bestand. </p>
-                            <p class="text-base text-gray-500 py-2">Log <a class="text-pink-600 hover:underline cursor-pointer">hier</a>
+                            <p class="text-base text-gray-500 py-2">Log <a href="{{ route('klantenportaal') }}"
+                                                                           class="text-pink-600 hover:underline cursor-pointer">hier</a>
                                 in om jouw factuur te regelen!</p>
                         </dd>
                     </div>
@@ -128,6 +131,7 @@
                                 mogelijk, in een tijdsperiode van een jaar.
                             </p>
                             <p class="text-base text-gray-500 py-2">Regel het gemakkelijk door <a
+                                    href="{{ route('contact') }}"
                                     class="text-pink-600 hover:underline cursor-pointer">hier</a>
                                 contact met ons op te nemen.</p>
                         </dd>

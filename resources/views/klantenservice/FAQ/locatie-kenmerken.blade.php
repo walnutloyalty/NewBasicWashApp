@@ -25,7 +25,7 @@
                         </dt>
                         <dd x-show="question" @click.away="question = false" class="mt-2 pr-12" id="faq-0">
                             <p class="text-base text-gray-500">Kijk <a class="text-pink-600 hover:underline cursor-pointer"
-                                                                       href="#">hier</a> voor de actuele
+                                                                       href="{{ route('locaties') }}">hier</a> voor de actuele
                                 openingstijden van jouw Basic Wash locatie </p>
                         </dd>
                     </div>
@@ -48,7 +48,7 @@
                         </dt>
                         <dd x-show="question" @click.away="question = false" class="mt-2 pr-12" id="faq-0">
                             <p class="text-base text-gray-500">Kijk <a class="text-pink-600 hover:underline cursor-pointer"
-                                                                       href="#">hier</a> voor de afmetingen die van
+                                                                       href="{{ route('locaties') }}">hier</a> voor de afmetingen die van
                                 toepassing zijn op jouw Basic Wash locatie.</p>
 
                         </dd>
@@ -94,7 +94,7 @@
                         </dt>
                         <dd x-show="question" @click.away="question = false" class="mt-2 pr-12" id="faq-0">
                             <p class="text-base text-gray-500">Dat kan je gemakkelijk controleren via onze <a
-                                    class="text-pink-600 hover:underline cursor-pointer" href="#">kentekencheck</a></p>
+                                    class="text-pink-600 hover:underline cursor-pointer" href="{{ route('kentekencheck') }}">kentekencheck</a></p>
                         </dd>
                     </div>
                 </dl>

@@ -11,15 +11,15 @@ class CheckoutController extends Controller
         return view('webshop.checkout.particuliere-checkout-step1');
     }
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'telefoonnummer' => 'required|numeric|unique',
-            'postcode' => 'required',
-            'huisnummer' => 'required',
-            'kenteken' => 'required|unique',
-        ]);
-    }
+//    public function store(Request $request)
+//    {
+//        $request->validate([
+//            'name' => 'required',
+//            'email' => 'required|email',
+//            'telefoonnummer' => 'required|numeric|unique',
+//            'postcode' => 'required',
+//            'huisnummer' => 'required',
+//            'kenteken' => 'required|unique',
+//        ]);
+//    }
 }

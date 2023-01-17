@@ -91,7 +91,7 @@
                             <p class="text-base text-gray-500">Alle voorwaarden die op jouw abonnement van
                                 toepassing zijn, kun je vinden via de onderstaande link. Zo kom je nooit voor
                                 verrassingen te staan!</p>
-                            <p class="text-base text-gray-500 py-2">Klik <a class="text-pink-600 hover:underline cursor-pointer">hier</a>
+                            <p class="text-base text-gray-500 py-2">Klik <a href="{{ route('abonnements-voorwaarden') }}" class="text-pink-600 hover:underline cursor-pointer">hier</a>
                                 om naar de abonnementsvoorwaarden te gaan</p>
                         </dd>
                     </div>
