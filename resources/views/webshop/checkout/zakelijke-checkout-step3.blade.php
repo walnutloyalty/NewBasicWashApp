@@ -130,7 +130,7 @@
                     </div>
                 </div>
             </section>
-            <a href="#" class="bg-pink-600 px-48 py-2 rounded-lg">Finish transaction</a>
+            <a href="#" class="bg-pink-600 px-48 py-2 rounded-lg text-white hover:bg-cyan-600">Finish transaction</a>
         </main>
     </div>
 </x-app-layout>
