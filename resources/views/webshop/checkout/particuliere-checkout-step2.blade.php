@@ -4,8 +4,8 @@
         <header class="relative border-b border-gray-200 bg-white text-sm font-medium text-gray-700">
             <div class="mx-auto max-w-7xl py-8 px-4 sm:px-6 lg:px-8">
                 <div class="relative flex justify-end sm:justify-center">
-                    <nav aria-label="Progress" class="hidden sm:block">
-                        <ol role="list" class="flex space-x-4">
+                    <div aria-label="Progress" class="sm:block">
+                        <ol role="list" class="flex space-x-4 mr-12">
                             <li class="flex items-center">
                                 <a href="{{ route('particuliere-checkout-step1') }}"
                                    class="@if(Request::routeIs('particuliere-checkout-step1')) text-pink-600 @endif">Contact
@@ -35,7 +35,7 @@
                                    class="@if(Request::routeIs('particuliere-checkout-step3')) text-pink-600 @endif">Bevestigen</a>
                             </li>
                         </ol>
-                    </nav>
+                    </div>
                     {{--                    <p class="sm:hidden">Step 2 of 4</p>--}}
                 </div>
             </div>
@@ -44,7 +44,7 @@
             <h1 class="sr-only">Order information</h1>
             <section aria-labelledby="summary-heading"
                      class="bg-gray-50 px-4 pt-16 pb-10 sm:px-6 lg:col-start-2 lg:row-start-1 lg:bg-transparent lg:px-0 lg:pb-16">
-                <div class="mx-auto max-w-lg lg:max-w-none">
+                <div x-data="{ total: false }" class="mx-auto max-w-lg lg:max-w-none">
                     <h2 id="summary-heading" class="text-lg font-medium text-gray-900">Jouw mandje</h2>
                     <ul role="list" class="divide-y divide-gray-200 text-sm font-medium text-gray-900">
                         <li class="flex items-start space-x-4 py-6">
@@ -71,10 +71,10 @@
                         </div>
                     </dl>
                     <div
-                        class="fixed inset-x-0 bottom-0 flex flex-col-reverse text-sm font-medium text-gray-900 lg:hidden">
+                        class="fixed inset-x-0 bottom-0 flex flex-col-reverse text-sm font-medium text-gray-900 lg:hidden z-50">
                         <div class="relative z-10 border-t border-gray-200 bg-white px-4 sm:px-6">
                             <div class="mx-auto max-w-lg">
-                                <button type="button" class="flex w-full items-center py-6 font-medium"
+                                <button @click="total = true" @click.away="total = false" type="button" class="flex w-full items-center py-6 font-medium"
                                         aria-expanded="false">
                                     <span class="mr-auto text-base">Total</span>
                                     <span class="mr-2 text-base">$361.80</span>
@@ -88,7 +88,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div>
+                        <div x-show="total">
                             <!--
                               Mobile summary overlay, show/hide based on mobile summary state.
 
