@@ -66,15 +66,25 @@ Route::get('/checkout/zakelijk/step3', function () {
 
 Route::get('/locaties', [MapController::class, 'all_locations'])->name('locaties');
 
-Route::get('/breda', [MapController::class, 'breda'])->name('breda');
+Route::get('/breda',  function () {
+    return view('locaties/breda');
+})->name('breda');
 
-Route::get('/hellevoetsluis', [MapController::class, 'hellevoetsluis'])->name('hellevoetsluis');
+Route::get('/hellevoetsluis', function () {
+    return view('locaties/hellevoetsluis');
+})->name('hellevoetsluis');
 
-Route::get('/sint-willebrord', [MapController::class, 'sint_willebrord'])->name('sint-willebrord');
+Route::get('/sint-willebrord', function () {
+    return view('locaties/sint-willebrord');
+})->name('sint-willebrord');
 
-Route::get('/terheijden', [MapController::class, 'terheijden'])->name('terheijden');
+Route::get('/terheijden', function () {
+    return view('locaties/terheijden');
+})->name('terheijden');
 
-Route::get('/ulvenhout', [MapController::class, 'ulvenhout'])->name('ulvenhout');
+Route::get('/ulvenhout', function () {
+    return view('locaties/ulvenhout');
+})->name('ulvenhout');
 
 Route::get('/klantenportaal', function () {
     return view('klantenservice/klantenportaal');

@@ -62,6 +62,10 @@
                                 <a href="{{ route('terheijden') }}" class="text-base text-white hover:underline">Zeggelaan 200, 4844 SK
                                     Terheijden</a>
                             </li>
+
+                            <li>
+                                <a href="{{ route('ulvenhout') }}" class="text-base text-white hover:underline">Molenstraat 1A, Ulvenhout</a>
+                            </li>
                         </ul>
                     </div>
                 </div>

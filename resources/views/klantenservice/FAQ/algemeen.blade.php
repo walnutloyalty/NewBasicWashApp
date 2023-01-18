@@ -3,9 +3,8 @@
         <div class="lg:grid lg:grid-cols-3 lg:gap-8">
             <div>
                 <h2 class="text-3xl font-bold tracking-tight text-gray-900">Frequently asked questions</h2>
-                <p class="mt-4 text-lg text-gray-500">Can’t find the answer you’re looking for? Reach out to our <a
-                        href="{{ route('contact') }}" class="font-medium text-pink-600 hover:underline cursor-pointer">customer support</a>
-                    team.</p>
+                <p class="mt-4 text-lg text-gray-500">Staat je vraag er niet tussen neem dan gerust <a
+                        href="{{ route('contact') }}" class="font-medium text-pink-600 hover:underline cursor-pointer">contact </a>op met ons. </p>
                 <p class="mt-4 text-xl text-black">Algemeen</p>
             </div>
             <div class="mt-12 lg:col-span-2 lg:mt-0">
