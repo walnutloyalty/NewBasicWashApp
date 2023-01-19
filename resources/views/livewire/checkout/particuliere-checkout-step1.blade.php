@@ -74,7 +74,8 @@
                         class="fixed inset-x-0 bottom-0 flex flex-col-reverse text-sm font-medium text-gray-900 lg:hidden">
                         <div class="relative z-10 border-t border-gray-200 bg-white px-4 sm:px-6">
                             <div class="mx-auto max-w-lg">
-                                <button @click="total = true" @click.away="total = false" type="button" class="flex w-full items-center py-6 font-medium"
+                                <button @click="total = true" @click.away="total = false" type="button"
+                                        class="flex w-full items-center py-6 font-medium"
                                         aria-expanded="false">
                                     <span class="mr-auto text-base">Total</span>
                                     <span class="mr-2 text-base">$361.80</span>
@@ -177,9 +178,9 @@
                                     </form>
                                 </div>
                                 <ul role="list">
+                                    <h3 class="text-pink-600 mt-8">Al uw toegevoegde kentekens</h3>
                                     @foreach($kenteken as $extraKenteken)
                                         @if(isset($extraKenteken))
-                                            <h3 class="text-pink-600 mt-8">Al uw toegevoegde kentekens</h3>
                                             <li class="flex py-2 my-4">
                                                 <div class="ml-3">
                                                     <p class="text-sm font-medium text-gray-900">{{ $extraKenteken->kenteken ?? ''}}</p>
