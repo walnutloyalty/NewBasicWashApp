@@ -1,9 +1,5 @@
 <?php
 
-use App\Http\Controllers\MapController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\webshop\CheckoutController;
-use App\Http\Controllers\webshop\KentekenController;
 use App\Http\Livewire\ParticuliereCheckoutStep1;
 use App\Http\Livewire\ZakelijkeCheckoutStep1;
 use Illuminate\Support\Facades\Route;
@@ -63,10 +59,11 @@ Route::get('/checkout/zakelijk/step3', function () {
     return view('webshop/checkout/zakelijke-checkout-step3');
 })->name('zakelijke-checkout-step3');
 
+Route::get('/locaties', function () {
+    return view('locaties/index');
+})->name('locaties');
 
-Route::get('/locaties', [MapController::class, 'all_locations'])->name('locaties');
-
-Route::get('/breda',  function () {
+Route::get('/breda', function () {
     return view('locaties/breda');
 })->name('breda');
 

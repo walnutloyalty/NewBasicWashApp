@@ -15,7 +15,6 @@
                     <p class="mt-4 text-lg text-black">Gebruik onderstaand formulier om zo gericht mogelijk antwoord te
                         krijgen op je vraag!</p>
                 </div>
-
                 <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
                     <div class="sm:col-span-4">
                         <label for="naam" class="block text-sm font-medium text-gray-700">Naam</label>
