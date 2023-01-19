@@ -68,7 +68,7 @@
                             </ul>
                             <p class="text-base text-gray-500">Kom dus met een gerust hart naar een van onze Basic
                                 Wash locaties voor een risicoloze wasbeurt! Sluit <a
-                                    class="text-pink-600 hover:underline cursor-pointer" href="#">hier</a> gemakkelijk jouw
+                                    class="text-pink-600 hover:underline cursor-pointer" href="{{ route('particulier') }}">hier</a> gemakkelijk jouw
                                 abonnement af!</p>
                         </dd>
                     </div>

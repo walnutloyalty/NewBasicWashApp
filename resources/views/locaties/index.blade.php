@@ -56,6 +56,17 @@
                 <div class="relative mx-auto max-w-7xl">
                     <div class="mx-auto mt-44 grid gap-5 lg:max-w-none lg:grid-cols-3">
                         <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                            <div class="w-full h-full" id="breda">
+                            </div>
+                        </div>
+                        <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                            <div class="flex-shrink-0">
+                                <img class="w-full object-cover"
+                                     src="{{ asset('media/images/basic-wash-minervum-breda.webp') }}"
+                                     alt="BasicWash">
+                            </div>
+                        </div>
+                        <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
                             <div class="flex flex-1 flex-col justify-between bg-white p-6">
                                 <div class="flex-1">
                                     <div class="mt-2 block">
@@ -78,23 +89,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
-                            <div class="flex-shrink-0">
-                                <img class="w-full object-cover"
-                                     src="{{ asset('media/images/basic-wash-minervum-breda.webp') }}"
-                                     alt="BasicWash">
-                            </div>
-                        </div>
-                        <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
-                            <div class="w-full h-full" id="breda">
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
             <!--end Breda carwash-->
             <!--Hellevoetsluis carwash-->
-            <div class="relative px-4 pt-16 pb-20 sm:px-6 ">
+            <div class="relative">
                 <div class="absolute inset-0">
                     <div class="h-1/3 bg-white sm:h-2/3"></div>
                 </div>
@@ -137,9 +138,324 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <!--end Hellevoetsluis carwash-->
+            <!--Sint willebrord carwash-->
+            <div class="relative">
+                <div class="absolute inset-0">
+                    <div class="h-1/3 bg-white sm:h-2/3"></div>
+                </div>
+                <div class="relative mx-auto max-w-7xl">
+                    <div class="mx-auto mt-44 grid gap-5 lg:max-w-none lg:grid-cols-3">
+                        <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                            <div class="w-full h-full" id="sint-willebrord">
+                            </div>
+                        </div>
+                        <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                            <div class="flex-shrink-0">
+                                <img class="w-full object-cover"
+                                     src="{{ asset('media/images/basic-wash-sint-willebrord.webp') }}"
+                                     alt="BasicWash">
+                            </div>
+                        </div>
+                        <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                            <div class="flex flex-1 flex-col justify-between bg-white p-6">
+                                <div class="flex-1">
+                                    <div class="mt-2 block">
+                                        <p class="text-xl font-bold text-pink-600"> Basic Wash Sint Willebrord
+                                        </p>
+                                        <p class="text-black mt-2"> 24/7 open
+                                        </p>
+                                        <p class="mt-3 text-base text-gray-500"> Poppestraat 120, Sint Willebrord
+                                        </p>
+                                        <p class="mt-3 text-base text-gray-500 ">
+                                            <?= $check ?> Washhoogte - 240cm
+                                            <?= $check ?> Wasbreedte - 238cm
+                                            <?= $check ?> HD boxen
+                                            <?= $check ?> Bandenpomp
+                                            <?= $check ?> Stofzuigers
+                                            <?= $check ?> Tankshop
+                                            <?= $check ?> Tankstation
+                                            <?= $check ?> Wasserette</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--end sint willebrord carwash-->
+            <!--terheijden carwash-->
+            <div class="relative">
+                <div class="absolute inset-0">
+                    <div class="h-1/3 bg-white sm:h-2/3"></div>
+                </div>
+                <div class="relative mx-auto max-w-7xl">
+                    <div class="mx-auto mt-44 grid gap-5 lg:max-w-none lg:grid-cols-3">
+                        <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                            <div class="flex flex-1 flex-col justify-between bg-white p-6">
+                                <div class="flex-1">
+                                    <div class="mt-2 block">
+                                        <p class="text-xl font-bold text-pink-600"> Basic Wash Terheijden
+                                        </p>
+                                        <p class="text-black mt-2"> 24/7 open
+                                        </p>
+                                        <p class="mt-3 text-base text-gray-500"> Zeggelaan 200, Terheijden
+                                        </p>
+                                        <p class="mt-3 text-base text-gray-500 ">
+                                            <?= $check ?> Washhoogte - 260cm
+                                            <?= $check ?> Wasbreedte - 238cm
+                                            <?= $check ?> Bandenpomp
+                                            <?= $check ?> Tankstation</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                            <div class="flex-shrink-0">
+                                <img class="w-full object-cover"
+                                     src="{{ asset('media/images/basic-wash-terheijden.webp') }}"
+                                     alt="BasicWash">
+                            </div>
+                        </div>
+                        <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                            <div class="w-full h-full" id="terheijden">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end terheijden carwash-->
+            <!--ulvenhout carwash-->
+            <div class="relative">
+                <div class="absolute inset-0">
+                    <div class="h-1/3 bg-white sm:h-2/3"></div>
+                </div>
+                <div class="relative mx-auto max-w-7xl">
+                    <div class="mx-auto mt-44 grid gap-5 lg:max-w-none lg:grid-cols-3">
+                        <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                            <div class="w-full h-full" id="ulvenhout">
+                            </div>
+                        </div>
+                        <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                            <div class="flex-shrink-0">
+                                <img class="w-full object-cover"
+                                     src="{{ asset('media/images/basic-wash-ulvenhout.webp') }}"
+                                     alt="BasicWash">
+                            </div>
+                        </div>
+                        <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                            <div class="flex flex-1 flex-col justify-between bg-white p-6">
+                                <div class="flex-1">
+                                    <div class="mt-2 block">
+                                        <p class="text-xl font-bold text-pink-600"> Basic Wash Ulvenhout
+                                        </p>
+                                        <p class="text-black mt-2"> Ma - Vr 07:00 - 21:00 </p>
+                                        <p class="text-black">Za & Zo 08:00 - 21:00</p>
+                                        <p class="mt-3 text-base text-gray-500"> Molenstraat 1A, Ulvenhout
+                                        </p>
+                                        <p class="mt-3 text-base text-gray-500 ">
+                                            <?= $check ?> Washhoogte - 260cm
+                                            <?= $check ?> Wasbreedte - 238cm
+                                            <?= $check ?> Bandenpomp
+                                            <?= $check ?> Tankstation</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--end ulvenhout carwash-->
+            <!--oosterhout carwash-->
+            <div class="relative">
+                <div class="absolute inset-0">
+                    <div class="h-1/3 bg-white sm:h-2/3"></div>
+                </div>
+                <div class="relative mx-auto max-w-7xl">
+                    <div class="mx-auto mt-44 grid gap-5 lg:max-w-none lg:grid-cols-2 h-[20rem]">
+                        <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                            <div class="flex flex-1 flex-col justify-between bg-white p-6">
+                                <div class="flex-1">
+                                    <div class="mt-2 block">
+                                        <p class="text-xl font-bold text-pink-600"> Basic Wash Oosterhout
+                                        </p>
+                                        <p class="text-black mt-2 font-extrabold text-2xl">In aanbouw (verwacht Q1
+                                            2023)</p>
+                                        <p class="mt-3 text-base text-gray-500 ">
+                                            <?= $check ?> Washhoogte - 260cm
+                                            <?= $check ?> Wasbreedte - 258cm
+                                            <?= $check ?> HD boxen</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                            <div class="w-full h-full" id="oosterhout">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end oosterhout carwash-->
+            <!--hoek van holland carwash-->
+            <div class="relative">
+                <div class="absolute inset-0">
+                    <div class="h-1/3 bg-white sm:h-2/3"></div>
+                </div>
+                <div class="relative mx-auto max-w-7xl">
+                    <div class="mx-auto mt-44 grid gap-5 lg:max-w-none lg:grid-cols-2 h-[20rem]">
+                        <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                            <div class="w-full h-full" id="hoek-van-holland">
+                            </div>
+                        </div>
+                        <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                            <div class="flex flex-1 flex-col justify-between bg-white p-6">
+                                <div class="flex-1">
+                                    <div class="mt-2 block">
+                                        <p class="text-xl font-bold text-pink-600"> Basic Wash Hoek van Holland
+                                        </p>
+                                        <p class="text-black mt-2 font-extrabold text-2xl">In aanbouw (verwacht Q1
+                                            2023)</p>
+                                        <p class="mt-3 text-base text-gray-500 ">
+                                            <?= $check ?> Washhoogte - 290cm
+                                            <?= $check ?> Wasbreedte - 258cm</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end hoek van holland carwash-->
+            <!--zevenbergen carwash-->
+            <div class="relative">
+                <div class="absolute inset-0">
+                    <div class="h-1/3 bg-white sm:h-2/3"></div>
+                </div>
+                <div class="relative mx-auto max-w-7xl">
+                    <div class="mx-auto mt-44 grid gap-5 lg:max-w-none lg:grid-cols-2 h-[20rem]">
+                        <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                            <div class="flex flex-1 flex-col justify-between bg-white p-6">
+                                <div class="flex-1">
+                                    <div class="mt-2 block">
+                                        <p class="text-xl font-bold text-pink-600"> Basic Wash Zevenbergen
+                                        </p>
+                                        <p class="text-black mt-2 font-extrabold text-2xl">In aanbouw (verwacht Q2
+                                            2023)</p>
+                                        <p class="mt-3 text-base text-gray-500 ">
+                                            <?= $check ?> Washhoogte - 250cm
+                                            <?= $check ?> Wasbreedte - 258cm</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                            <div class="w-full h-full" id="zevenbergen">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end zevenbergen carwash-->
+            <!--hellevoetsluis II carwash-->
+            <div class="relative">
+                <div class="absolute inset-0">
+                    <div class="h-1/3 bg-white sm:h-2/3"></div>
+                </div>
+                <div class="relative mx-auto max-w-7xl">
+                    <div class="mx-auto mt-44 grid gap-5 lg:max-w-none lg:grid-cols-2 h-[20rem]">
+                        <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                            <div class="w-full h-full" id="hellevoetsluis-II">
+                            </div>
+                        </div>
+                        <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                            <div class="flex flex-1 flex-col justify-between bg-white p-6">
+                                <div class="flex-1">
+                                    <div class="mt-2 block">
+                                        <p class="text-xl font-bold text-pink-600"> Basic Wash Hellevoetsluis II
+                                        </p>
+                                        <p class="text-black mt-2 font-extrabold text-2xl">Wordt voorbereid (verwacht Q3
+                                            2023)</p>
+                                        <p class="mt-3 text-base text-gray-500 ">
+                                            <?= $check ?> 2 Carwashes
+                                            <?= $check ?> Washhoogte - 290cm
+                                            <?= $check ?> Wasbreedte - 258cm
+                                            <?= $check ?> HD Boxen</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end hellevoetsluis II carwash-->
+            <!--roosendaal carwash-->
+            <div class="relative">
+                <div class="absolute inset-0">
+                    <div class="h-1/3 bg-white sm:h-2/3"></div>
+                </div>
+                <div class="relative mx-auto max-w-7xl">
+                    <div class="mx-auto mt-44 grid gap-5 lg:max-w-none lg:grid-cols-2 h-[20rem]">
+                        <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                            <div class="flex flex-1 flex-col justify-between bg-white p-6">
+                                <div class="flex-1">
+                                    <div class="mt-2 block">
+                                        <p class="text-xl font-bold text-pink-600"> Basic Wash Roosendaal
+                                        </p>
+                                        <p class="text-black mt-2 font-extrabold text-2xl">In aanbouw (verwacht Q1
+                                            2023)</p>
+                                        <p class="mt-3 text-base text-gray-500 ">
+                                            <?= $check ?> Washhoogte - 260cm
+                                            <?= $check ?> Wasbreedte - 245cm</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                            <div class="w-full h-full" id="roosendaal">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end roosendaal carwash-->
+            <!--barendrecht carwash--->
+            <div class="relative mb-32">
+                <div class="absolute inset-0">
+                    <div class="h-1/3 bg-white sm:h-2/3"></div>
+                </div>
+                <div class="relative mx-auto max-w-7xl">
+                    <div class="mx-auto mt-44 grid gap-5 lg:max-w-none lg:grid-cols-2 h-[20rem]">
+                        <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                            <div class="w-full h-full" id="barendrecht">
+                            </div>
+                        </div>
+                        <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                            <div class="flex flex-1 flex-col justify-between bg-white p-6">
+                                <div class="flex-1">
+                                    <div class="mt-2 block">
+                                        <p class="text-xl font-bold text-pink-600"> Basic Wash Barendrecht
+                                        </p>
+                                        <p class="text-black mt-2 font-extrabold text-2xl">In aanbouw (verwacht Q1
+                                            2023)</p>
+                                        <p class="mt-3 text-base text-gray-500 ">
+                                            <?= $check ?> Washhoogte - 250cm
+                                            <?= $check ?> Wasbreedte - 238cm
+                                            <?= $check ?> HD Boxen
+                                            <?= $check ?> Stofzuigers
+                                            <?= $check ?> Bandenpomp
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end barendrecht carwash-->
         </div>
         <script>
             function initMap() {
@@ -220,7 +536,7 @@
                 }
             }
 
-            function bredaMap() {
+            function breda() {
                 const map = new google.maps.Map(document.getElementById("breda"), {
                     zoom: 13,
                     center: {lat: 51.583401636513855, lng: 4.827728891790584},
@@ -248,7 +564,7 @@
             function hellevoetsluis() {
                 const map = new google.maps.Map(document.getElementById("hellevoetsluis"), {
                     zoom: 13,
-                    center: {lat: 51.583401636513855, lng: 4.827728891790584},
+                    center: {lat: 51.83868411454844, lng: 4.134269020748435},
                     streetViewControl: false,
                     mapTypeId: "roadmap",
                     mapTypeControlOptions: {
@@ -263,17 +579,252 @@
                 };
 
                 const hellevoetsluisMarker = new google.maps.Marker({
-                    position: {lat: 51.583401636513855, lng: 4.827728891790584},
+                    position: {lat: 51.83868411454844, lng: 4.134269020748435},
                     map,
                     icon: image,
                 })
 
             }
 
+            function sint_willebrord() {
+                const map = new google.maps.Map(document.getElementById("sint-willebrord"), {
+                    zoom: 13,
+                    center: {lat: 51.55600067228744, lng: 4.583885951342563},
+                    streetViewControl: false,
+                    mapTypeId: "roadmap",
+                    mapTypeControlOptions: {
+                        mapTypeIds: ["roadmap"],
+                        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+                    },
+                });
+
+                const image = {
+                    url: "{{ asset('media/images/basic-wash-locaties.png') }}",
+                    scaledSize: new google.maps.Size(50, 60),
+                };
+
+                const sintWillebrordMarker = new google.maps.Marker({
+                    position: {lat: 51.55600067228744, lng: 4.583885951342563},
+                    map,
+                    icon: image,
+                })
+
+            }
+
+            function terheijden() {
+                const map = new google.maps.Map(document.getElementById("terheijden"), {
+                    zoom: 13,
+                    center: {lat: 51.649919847550784, lng: 4.759400098614774},
+                    streetViewControl: false,
+                    mapTypeId: "roadmap",
+                    mapTypeControlOptions: {
+                        mapTypeIds: ["roadmap"],
+                        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+                    },
+                });
+
+                const image = {
+                    url: "{{ asset('media/images/basic-wash-locaties.png') }}",
+                    scaledSize: new google.maps.Size(50, 60),
+                };
+
+                const terheijdenMarker = new google.maps.Marker({
+                    position: {lat: 51.649919847550784, lng: 4.759400098614774},
+                    map,
+                    icon: image,
+                })
+
+            }
+
+            function ulvenhout() {
+                const map = new google.maps.Map(document.getElementById("ulvenhout"), {
+                    zoom: 13,
+                    center: {lat: 51.54748668173409, lng: 4.798523070449019},
+                    streetViewControl: false,
+                    mapTypeId: "roadmap",
+                    mapTypeControlOptions: {
+                        mapTypeIds: ["roadmap"],
+                        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+                    },
+                });
+
+                const image = {
+                    url: "{{ asset('media/images/basic-wash-locaties.png') }}",
+                    scaledSize: new google.maps.Size(50, 60),
+                };
+
+                const ulvenhoutMarker = new google.maps.Marker({
+                    position: {lat: 51.54748668173409, lng: 4.798523070449019},
+                    map,
+                    icon: image,
+                })
+
+            }
+
+            function oosterhout() {
+                const map = new google.maps.Map(document.getElementById("oosterhout"), {
+                    zoom: 13,
+                    center: {lat: 51.64103914807376, lng: 4.8615110862262805},
+                    streetViewControl: false,
+                    mapTypeId: "roadmap",
+                    mapTypeControlOptions: {
+                        mapTypeIds: ["roadmap"],
+                        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+                    },
+                });
+
+                const image = {
+                    url: "{{ asset('media/images/basic-wash-locaties-in-aanbouw.png') }}",
+                    scaledSize: new google.maps.Size(50, 60),
+                };
+
+                const oosterhoutMarker = new google.maps.Marker({
+                    position: {lat: 51.64103914807376, lng: 4.8615110862262805},
+                    map,
+                    icon: image,
+                })
+
+            }
+
+            function hoek_van_holland() {
+                const map = new google.maps.Map(document.getElementById("hoek-van-holland"), {
+                    zoom: 13,
+                    center: {lat: 51.9831583196553, lng: 4.122529376194119},
+                    streetViewControl: false,
+                    mapTypeId: "roadmap",
+                    mapTypeControlOptions: {
+                        mapTypeIds: ["roadmap"],
+                        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+                    },
+                });
+
+                const image = {
+                    url: "{{ asset('media/images/basic-wash-locaties-in-aanbouw.png') }}",
+                    scaledSize: new google.maps.Size(50, 60),
+                };
+
+                const hoekVanHollandMarker = new google.maps.Marker({
+                    position: {lat: 51.9831583196553, lng: 4.122529376194119},
+                    map,
+                    icon: image,
+                })
+
+            }
+
+            function zevenbergen() {
+                const map = new google.maps.Map(document.getElementById("zevenbergen"), {
+                    zoom: 13,
+                    center: {lat: 51.64558773578224, lng: 4.604439964354876},
+                    streetViewControl: false,
+                    mapTypeId: "roadmap",
+                    mapTypeControlOptions: {
+                        mapTypeIds: ["roadmap"],
+                        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+                    },
+                });
+
+                const image = {
+                    url: "{{ asset('media/images/basic-wash-locaties-in-aanbouw.png') }}",
+                    scaledSize: new google.maps.Size(50, 60),
+                };
+
+                const zevenbergenMarker = new google.maps.Marker({
+                    position: {lat: 51.64558773578224, lng: 4.604439964354876},
+                    map,
+                    icon: image,
+                })
+
+            }
+
+            function hellevoetsluisII() {
+                const map = new google.maps.Map(document.getElementById("hellevoetsluis-II"), {
+                    zoom: 13,
+                    center: {lat: 51.83784611852667, lng: 4.0884641263154355},
+                    streetViewControl: false,
+                    mapTypeId: "roadmap",
+                    mapTypeControlOptions: {
+                        mapTypeIds: ["roadmap"],
+                        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+                    },
+                });
+
+                const image = {
+                    url: "{{ asset('media/images/basic-wash-locaties-in-aanbouw.png') }}",
+                    scaledSize: new google.maps.Size(50, 60),
+                };
+
+                const hellevoetsluisIIMarker = new google.maps.Marker({
+                    position: {lat: 51.83784611852667, lng: 4.0884641263154355},
+                    map,
+                    icon: image,
+                })
+
+            }
+
+            function roosendaal() {
+                const map = new google.maps.Map(document.getElementById("roosendaal"), {
+                    zoom: 13,
+                    center: {lat: 51.5370077255092, lng: 4.469610079032279},
+                    streetViewControl: false,
+                    mapTypeId: "roadmap",
+                    mapTypeControlOptions: {
+                        mapTypeIds: ["roadmap"],
+                        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+                    },
+                });
+
+                const image = {
+                    url: "{{ asset('media/images/basic-wash-locaties-in-aanbouw.png') }}",
+                    scaledSize: new google.maps.Size(50, 60),
+                };
+
+                const roosendaalMarker = new google.maps.Marker({
+                    position: {lat: 51.5370077255092, lng: 4.469610079032279},
+                    map,
+                    icon: image,
+                })
+
+            }
+
+            function barendrecht() {
+                const map = new google.maps.Map(document.getElementById("barendrecht"), {
+                    zoom: 13,
+                    center: {lat: 51.85101663531878, lng: 4.547987584612516},
+                    streetViewControl: false,
+                    mapTypeId: "roadmap",
+                    mapTypeControlOptions: {
+                        mapTypeIds: ["roadmap"],
+                        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+                    },
+                });
+
+                const image = {
+                    url: "{{ asset('media/images/basic-wash-locaties-in-aanbouw.png') }}",
+                    scaledSize: new google.maps.Size(50, 60),
+                };
+
+                const barendrechtMarker = new google.maps.Marker({
+                    position: {lat: 51.85101663531878, lng: 4.547987584612516},
+                    map,
+                    icon: image,
+                })
+
+            }
+
+
             function initialize() {
                 initMap();
-                bredaMap();
+                breda();
                 hellevoetsluis();
+                sint_willebrord();
+                terheijden();
+                ulvenhout();
+                oosterhout();
+                hoek_van_holland();
+                zevenbergen();
+                hellevoetsluisII();
+                roosendaal();
+                barendrecht();
             }
 
         </script>

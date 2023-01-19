@@ -57,76 +57,75 @@
                 </div>
             </div>
         </div>
-        <script>
-            class CoordMapType {
-                tileSize;
-                maxZoom = 19;
-                name = "Tile #s";
-                alt = "Tile Coordinate Map Type";
-
-                constructor(tileSize) {
-                    this.tileSize = tileSize;
-                }
-
-                getTile(coord, zoom, ownerDocument) {
-                    const div = ownerDocument.createElement("div");
-
-                    div.innerHTML = String(coord);
-                    div.style.width = this.tileSize.width + "px";
-                    div.style.height = this.tileSize.height + "px";
-                    div.style.fontSize = "10";
-                    div.style.borderStyle = "solid";
-                    div.style.borderWidth = "1px";
-                    div.style.borderColor = "#AAAAAA";
-                    div.style.backgroundColor = "#E5E3DF";
-                    return div;
-                }
-
-                releaseTile(tile) {
-                }
-            }
-
-            function initMap() {
-                const map = new google.maps.Map(document.getElementById("map"), {
-                    zoom: 13,
-                    center: {lat: 51.649919847550784, lng: 4.759400098614774},
-                    streetViewControl: false,
-                    mapTypeId: "roadmap",
-                    mapTypeControlOptions: {
-                        mapTypeIds: ["roadmap"],
-                        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
-                    },
-                });
-
-                const image = {
-                    url: "{{ asset('media/images/basic-wash-locaties.png') }}",
-                    scaledSize: new google.maps.Size(50, 60),
-                };
-                const beachMarker = new google.maps.Marker({
-                    position: {lat: 51.649919847550784, lng: 4.759400098614774},
-                    map,
-                    icon: image,
-                })
-
-
-                map.addListener("maptypeid_changed", () => {
-                    const showStreetViewControl = map.getMapTypeId() !== "coordinate";
-
-                    map.setOptions({
-                        streetViewControl: showStreetViewControl,
-                    });
-                });
-                // Now attach the coordinate map type to the map's registry.
-                map.mapTypes.set(
-                    "coordinate",
-                    new CoordMapType(new google.maps.Size(256, 256))
-                );
-            }
-
-            window.initMap = initMap;
-        </script>
-        <script
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIlcN7ZprmlKq5h2B_uw6rkbnisRxinb8&callback=initMap&v=weekly"></script>
     </div>
+    <script>
+        class CoordMapType {
+            tileSize;
+            maxZoom = 19;
+            name = "Tile #s";
+            alt = "Tile Coordinate Map Type";
 
+            constructor(tileSize) {
+                this.tileSize = tileSize;
+            }
+
+            getTile(coord, zoom, ownerDocument) {
+                const div = ownerDocument.createElement("div");
+
+                div.innerHTML = String(coord);
+                div.style.width = this.tileSize.width + "px";
+                div.style.height = this.tileSize.height + "px";
+                div.style.fontSize = "10";
+                div.style.borderStyle = "solid";
+                div.style.borderWidth = "1px";
+                div.style.borderColor = "#AAAAAA";
+                div.style.backgroundColor = "#E5E3DF";
+                return div;
+            }
+
+            releaseTile(tile) {
+            }
+        }
+
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 13,
+                center: {lat: 51.649919847550784, lng: 4.759400098614774},
+                streetViewControl: false,
+                mapTypeId: "roadmap",
+                mapTypeControlOptions: {
+                    mapTypeIds: ["roadmap"],
+                    style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+                },
+            });
+
+            const image = {
+                url: "{{ asset('media/images/basic-wash-locaties.png') }}",
+                scaledSize: new google.maps.Size(50, 60),
+            };
+            const beachMarker = new google.maps.Marker({
+                position: {lat: 51.649919847550784, lng: 4.759400098614774},
+                map,
+                icon: image,
+            })
+
+
+            map.addListener("maptypeid_changed", () => {
+                const showStreetViewControl = map.getMapTypeId() !== "coordinate";
+
+                map.setOptions({
+                    streetViewControl: showStreetViewControl,
+                });
+            });
+            // Now attach the coordinate map type to the map's registry.
+            map.mapTypes.set(
+                "coordinate",
+                new CoordMapType(new google.maps.Size(256, 256))
+            );
+        }
+
+        window.initMap = initMap;
+    </script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIlcN7ZprmlKq5h2B_uw6rkbnisRxinb8&callback=initMap&v=weekly"></script>
 </x-app-layout>
