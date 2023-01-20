@@ -27,6 +27,9 @@ Route::get('/particulier', function () {
 // particuliere checkout
 Route::get('/checkout/particulier/step1', [ParticuliereCheckoutStep1::class, 'render'])->name('particuliere-checkout-step1');
 
+Route::post('/checkout/particulier/step1/filled', [ParticuliereCheckoutStep1::class, 'submitStep1'])->name('particuliere-checkout-step1-filled');
+
+
 Route::post('/checkout/particulier/step1/kenteken-toevoegen', [ParticuliereCheckoutStep1::class, 'addKenteken'])->name('particuliere-add-kenteken');
 
 Route::post('/checkout/particulier/step1/kenteken-delete', [ParticuliereCheckoutStep1::class, 'deleteKenteken'])->name('particuliere-delete-kenteken');
@@ -46,6 +49,9 @@ Route::get('/zakelijk', function () {
 })->name('zakelijk');
 
 Route::get('/checkout/zakelijk/step1', [ZakelijkeCheckoutStep1::class, 'render'])->name('zakelijke-checkout-step1');
+
+Route::post('/checkout/zakelijk/step1/filled', [ZakelijkeCheckoutStep1::class, 'submitStep1'])->name('zakelijke-checkout-step1-filled');
+
 
 Route::post('/checkout/zakelijk/step1/kenteken-toevoegen', [ZakelijkeCheckoutStep1::class, 'addKenteken'])->name('zakelijke-add-kenteken');
 

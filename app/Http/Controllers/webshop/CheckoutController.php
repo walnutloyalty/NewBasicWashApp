@@ -11,6 +11,8 @@ class CheckoutController extends Controller
         return view('webshop.checkout.particuliere-checkout-step1');
     }
 
+
+
 //    public function store(Request $request)
 //    {
 //        $request->validate([

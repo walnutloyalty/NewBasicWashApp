@@ -15,6 +15,22 @@ class ZakelijkeCheckoutStep1 extends Component
         return view('livewire.checkout.zakelijke-checkout-step1', ['kenteken' => $kenteken]);
     }
 
+    public function submitStep1()
+    {
+        $data = request()->except(['_token', 'kenteken']);
+
+        if (isset(request()->kenteken)) {
+            $kenteken = request()->kenteken;
+            DB::table('kenteken')->insert(['kenteken' => $kenteken]);
+            return redirect()->back()->withInput();
+        } else {
+            $kenteken = null;
+            DB::table('zakelijke_checkout')->insert($data);
+        }
+
+        return redirect()->route('zakelijke-checkout-step2')->withInput();
+    }
+
     public function addKenteken()
     {
 
