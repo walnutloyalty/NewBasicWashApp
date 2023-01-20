@@ -141,20 +141,21 @@
             <form class="px-4 pt-16 pb-36 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 lg:pb-16"
                   action="{{ route('zakelijke-checkout-step1-filled') }}"
                   method="POST" id="step1">
+                @csrf
                 <div class="mx-auto max-w-lg lg:max-w-none">
                     <section aria-labelledby="contact-info-heading">
                         <h2 id="contact-info-heading" class="text-lg font-medium text-gray-900">Contact information</h2>
                         <div class="mt-6">
                             <label for="name" class="block text-sm font-medium text-gray-700">Naam</label>
                             <div class="mt-1">
-                                <input type="text" id="name" name="name"
+                                <input type="text" id="name" name="name" value="{{ old('name') }}"
                                        class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
                             </div>
                         </div>
                         <div class="mt-6">
                             <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
                             <div class="mt-1">
-                                <input type="email" id="email" name="email"
+                                <input type="email" id="email" name="email" value="{{ old('email') }}"
                                        class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
                             </div>
                         </div>
@@ -165,7 +166,7 @@
                             <div class="sm:col-span-3">
                                 <label for="telefoonnummer" class="block text-sm font-medium text-gray-700">Telefoonnummer</label>
                                 <div class="mt-1">
-                                    <input type="text" id="telefoonnummer" name="telefoonnummer"
+                                    <input type="text" id="telefoonnummer" name="phone" value="{{ old('phone') }}"
                                            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
                                 </div>
                             </div>
@@ -173,7 +174,8 @@
                                 <label for="postal-code"
                                        class="block text-sm font-medium text-gray-700">Postcode</label>
                                 <div class="mt-1">
-                                    <input type="text" id="postal-code" name="postal-code"
+                                    <input type="text" id="postal-code" name="postalCode_private"
+                                           value="{{ old('postalCode_private') }}"
                                            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
                                 </div>
                             </div>
@@ -181,8 +183,74 @@
                                 <label for="huisnummer"
                                        class="block text-sm font-medium text-gray-700">Huisnummer</label>
                                 <div class="mt-1">
-                                    <input type="text" id="huisnummer" name="huisnummer"
+                                    <input type="text" id="huisnummer" name="houseNumber_private"
+                                           value="{{ old('houseNumber_private') }}"
                                            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section aria-labelledby="shipping-heading" class="mt-10">
+                        <h2 id="shipping-heading" class="text-lg font-medium text-gray-900">Business informatie</h2>
+                        <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-3">
+                            <div class="sm:col-span-3">
+                                <label for="company"
+                                       class="block text-sm font-medium text-gray-700">Bedrijfsnaam</label>
+                                <div class="mt-1">
+                                    <input type="text" id="company" name="companyName" value="{{ old('companyName') }}"
+                                           class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
+                                </div>
+                            </div>
+                            <div class="sm:col-span-3">
+                                <label for="fin" class="block text-sm font-medium text-gray-700">Fiscaal Identificatie
+                                    Nummer</label>
+                                <div class="mt-1">
+                                    <input type="text" id="fin" name="fin" value="{{ old('fin') }}"
+                                           class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="kvk" class="block text-sm font-medium text-gray-700">KvK Nummer</label>
+                                <div class="mt-1">
+                                    <input type="text" id="kvk" name="kvk" value="{{ old('kvk') }}"
+                                           class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 gap-y-6 gap-x-20 sm:grid-cols-3">
+                            <div class="mt-6">
+                                <label for="straat" class="block text-sm font-medium text-gray-700">Straat</label>
+                                <div class="mt-1">
+                                    <input type="text" id="straat" name="street_business"
+                                           value="{{ old('street_business') }}"
+                                           class="block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
+                                </div>
+                            </div>
+                            <div class="mt-6">
+                                <label for="huisnummer"
+                                       class="block text-sm font-medium text-gray-700">Huisnummer</label>
+                                <div class="mt-1">
+                                    <input type="text" id="huisnummer" name="houseNumber_business"
+                                           value="{{ old('houseNumber_business') }}"
+                                           class="block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 gap-y-6 gap-x-20 sm:grid-cols-3">
+                            <div class="mt-6">
+                                <label for="postcode" class="block text-sm font-medium text-gray-700">Postcode</label>
+                                <div class="mt-1">
+                                    <input type="text" id="postcode" name="postalCode_business"
+                                           value="{{ old('postalCode_business') }}"
+                                           class="block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
+                                </div>
+                            </div>
+                            <div class="mt-6">
+                                <label for="stad"
+                                       class="block text-sm font-medium text-gray-700">Stad</label>
+                                <div class="mt-1">
+                                    <input type="text" id="stad" name="city_business" value="{{ old('city_business') }}"
+                                           class="block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
                                 </div>
                             </div>
                         </div>
@@ -192,6 +260,7 @@
                                        class="block text-sm font-medium text-gray-700">Kenteken</label>
                                 <div class="mt-1 mb-4">
                                     <input type="text" id="kenteken" name="kenteken" placeholder="XX-XX-XX"
+                                           value="{{ old('kenteken') }}"
                                            class="block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
                                 </div>
                                 <button type="submit"
@@ -207,76 +276,14 @@
                             </div>
                         </div>
                     </section>
-                    <section aria-labelledby="shipping-heading" class="mt-10">
-                        <h2 id="shipping-heading" class="text-lg font-medium text-gray-900">Business informatie</h2>
-                        <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-3">
-                            <div class="sm:col-span-3">
-                                <label for="company"
-                                       class="block text-sm font-medium text-gray-700">Bedrijfsnaam</label>
-                                <div class="mt-1">
-                                    <input type="text" id="company" name="company"
-                                           class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
-                                </div>
-                            </div>
-                            <div class="sm:col-span-3">
-                                <label for="fin" class="block text-sm font-medium text-gray-700">Fiscaal Identificatie
-                                    Nummer</label>
-                                <div class="mt-1">
-                                    <input type="text" id="fin" name="fin"
-                                           class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
-                                </div>
-                            </div>
-                            <div>
-                                <label for="kvk" class="block text-sm font-medium text-gray-700">KvK Nummer</label>
-                                <div class="mt-1">
-                                    <input type="text" id="kvk" name="kvk"
-                                           class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-1 gap-y-6 gap-x-20 sm:grid-cols-3">
-                            <div class="mt-6">
-                                <label for="straat" class="block text-sm font-medium text-gray-700">Straat</label>
-                                <div class="mt-1">
-                                    <input type="text" id="straat" name="straat"
-                                           class="block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
-                                </div>
-                            </div>
-                            <div class="mt-6">
-                                <label for="huisnummer"
-                                       class="block text-sm font-medium text-gray-700">Huisnummer</label>
-                                <div class="mt-1">
-                                    <input type="text" id="huisnummer" name="huisnummer"
-                                           class="block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-1 gap-y-6 gap-x-20 sm:grid-cols-3">
-                            <div class="mt-6">
-                                <label for="straat" class="block text-sm font-medium text-gray-700">Postcode</label>
-                                <div class="mt-1">
-                                    <input type="text" id="straat" name="straat"
-                                           class="block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
-                                </div>
-                            </div>
-                            <div class="mt-6">
-                                <label for="huisnummer"
-                                       class="block text-sm font-medium text-gray-700">Stad</label>
-                                <div class="mt-1">
-                                    <input type="text" id="huisnummer" name="huisnummer"
-                                           class="block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
-                                </div>
-                            </div>
-                        </div>
-                    </section>
 
                 </div>
             </form>
             <ul role="list">
-                @foreach($kenteken as $extraKenteken)
-                    @if(isset($extraKenteken))
-                        <h3 class="text-pink-600 mt-8">Al uw toegevoegde kentekens</h3>
+                <h3 class="text-pink-600">Al uw toegevoegde kentekens</h3>
 
+            @foreach($kenteken as $extraKenteken)
+                    @if(isset($extraKenteken))
                         <li class="flex py-2 my-4">
                             <div class="ml-3">
                                 <p class="text-sm font-medium text-gray-900">{{ $extraKenteken->kenteken ?? ''}}</p>

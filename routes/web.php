@@ -52,7 +52,6 @@ Route::get('/checkout/zakelijk/step1', [ZakelijkeCheckoutStep1::class, 'render']
 
 Route::post('/checkout/zakelijk/step1/filled', [ZakelijkeCheckoutStep1::class, 'submitStep1'])->name('zakelijke-checkout-step1-filled');
 
-
 Route::post('/checkout/zakelijk/step1/kenteken-toevoegen', [ZakelijkeCheckoutStep1::class, 'addKenteken'])->name('zakelijke-add-kenteken');
 
 Route::post('/checkout/zakelijk/step1/kenteken-delete', [ZakelijkeCheckoutStep1::class, 'deleteKenteken'])->name('zakelijke-delete-kenteken');
