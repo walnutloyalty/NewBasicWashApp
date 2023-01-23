@@ -19,16 +19,17 @@ Route::get('/', function () {
     return view('index');
 });
 
+
+
+
+// particuliere checkout
 Route::get('/particulier', function () {
     return view('webshop/particulier');
 })->name('particulier');
 
-
-// particuliere checkout
 Route::get('/checkout/particulier/step1', [ParticuliereCheckoutStep1::class, 'render'])->name('particuliere-checkout-step1');
 
 Route::post('/checkout/particulier/step1/filled', [ParticuliereCheckoutStep1::class, 'submitStep1'])->name('particuliere-checkout-step1-filled');
-
 
 Route::post('/checkout/particulier/step1/kenteken-toevoegen', [ParticuliereCheckoutStep1::class, 'addKenteken'])->name('particuliere-add-kenteken');
 
@@ -41,7 +42,6 @@ Route::get('/checkout/particulier/step2', function () {
 Route::get('/checkout/particulier/step3', function () {
     return view('webshop/checkout/particuliere-checkout-step3');
 })->name('particuliere-checkout-step3');
-
 
 // zakelijke checkout
 Route::get('/zakelijk', function () {
@@ -64,6 +64,7 @@ Route::get('/checkout/zakelijk/step3', function () {
     return view('webshop/checkout/zakelijke-checkout-step3');
 })->name('zakelijke-checkout-step3');
 
+// alle locaties
 Route::get('/locaties', function () {
     return view('locaties/index');
 })->name('locaties');
@@ -87,6 +88,7 @@ Route::get('/terheijden', function () {
 Route::get('/ulvenhout', function () {
     return view('locaties/ulvenhout');
 })->name('ulvenhout');
+
 
 Route::get('/klantenportaal', function () {
     return view('klantenservice/klantenportaal');

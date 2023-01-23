@@ -36,7 +36,6 @@ class ParticuliereCheckoutStep1 extends Component
 
         $data = request()->except(['_token']);
 
-
         $data = DB::table('kenteken')->insert($data);
         return redirect()->back();
     }
