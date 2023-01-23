@@ -17,19 +17,18 @@ class ZakelijkeCheckoutStep1 extends Component
 
     public function submitStep1()
     {
-        $data = request()->except(['_token', 'licensePlate']);
-
+        $data = request()->except(['_token', 'kenteken']);
         if (isset(request()->kenteken)) {
             $kenteken = request()->kenteken;
-            DB::table('zakelijke_checkout')->insert(['licensePlate' => $kenteken]);
+            DB::table('kenteken')->insert(['kenteken' => $kenteken]);
             return redirect()->back()->withInput();
         } else {
             $kenteken = null;
             DB::table('zakelijke_checkout')->insert($data);
         }
-
         return redirect()->route('zakelijke-checkout-step2')->withInput();
     }
+
     public function addKenteken()
     {
 
