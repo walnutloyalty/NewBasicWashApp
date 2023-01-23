@@ -74,7 +74,8 @@
                         class="fixed inset-x-0 bottom-0 flex flex-col-reverse text-sm font-medium text-gray-900 lg:hidden">
                         <div class="relative z-10 border-t border-gray-200 bg-white px-4 sm:px-6">
                             <div class="mx-auto max-w-lg">
-                                <button @click="total = true" @click.away="total = false" type="button" class="flex w-full items-center py-6 font-medium"
+                                <button @click="total = true" @click.away="total = false" type="button"
+                                        class="flex w-full items-center py-6 font-medium"
                                         aria-expanded="false">
                                     <span class="mr-auto text-base">Total</span>
                                     <span class="mr-2 text-base">$361.80</span>
@@ -89,27 +90,7 @@
                             </div>
                         </div>
                         <div x-show="total">
-                            <!--
-                              Mobile summary overlay, show/hide based on mobile summary state.
-
-                              Entering: "transition-opacity ease-linear duration-300"
-                                From: "opacity-0"
-                                To: "opacity-100"
-                              Leaving: "transition-opacity ease-linear duration-300"
-                                From: "opacity-100"
-                                To: "opacity-0"
-                            -->
                             <div class="fixed inset-0 bg-black bg-opacity-25" aria-hidden="true"></div>
-                            <!--
-                              Mobile summary, show/hide based on mobile summary state.
-
-                              Entering: "transition ease-in-out duration-300 transform"
-                                From: "translate-y-full"
-                                To: "translate-y-0"
-                              Leaving: "transition ease-in-out duration-300 transform"
-                                From: "translate-y-0"
-                                To: "translate-y-full"
-                            -->
                             <div class="relative bg-white px-4 py-6 sm:px-6">
                                 <dl class="mx-auto max-w-lg space-y-6">
                                     <div class="flex items-center justify-between">

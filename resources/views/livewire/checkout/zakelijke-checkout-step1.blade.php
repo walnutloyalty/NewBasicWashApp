@@ -60,7 +60,6 @@
                             </div>
                             <p class="flex-none text-base font-medium">$70.00</p>
                         </li>
-                        <!-- More products... -->
                     </ul>
                     <dl class="hidden space-y-6 border-t border-gray-200 pt-6 text-sm font-medium text-gray-900 lg:block">
                         <div class="flex items-center justify-between">
@@ -96,28 +95,7 @@
                             </div>
                         </div>
                         <div x-show="total">
-                            <!--
-                              Mobile summary overlay, show/hide based on mobile summary state.
-
-                              Entering: "transition-opacity ease-linear duration-300"
-                                From: "opacity-0"
-                                To: "opacity-100"
-                              Leaving: "transition-opacity ease-linear duration-300"
-                                From: "opacity-100"
-                                To: "opacity-0"
-                            -->
                             <div class="fixed inset-0 bg-black bg-opacity-25" aria-hidden="true"></div>
-
-                            <!--
-                              Mobile summary, show/hide based on mobile summary state.
-
-                              Entering: "transition ease-in-out duration-300 transform"
-                                From: "translate-y-full"
-                                To: "translate-y-0"
-                              Leaving: "transition ease-in-out duration-300 transform"
-                                From: "translate-y-0"
-                                To: "translate-y-full"
-                            -->
                             <div class="relative bg-white px-4 py-6 sm:px-6">
                                 <dl class="mx-auto max-w-lg space-y-6">
                                     <div class="flex items-center justify-between">
@@ -276,13 +254,11 @@
                             </div>
                         </div>
                     </section>
-
                 </div>
             </form>
             <ul role="list">
                 <h3 class="text-pink-600">Al uw toegevoegde kentekens</h3>
-
-            @foreach($kenteken as $extraKenteken)
+                @foreach($kenteken as $extraKenteken)
                     @if(isset($extraKenteken))
                         <li class="flex py-2 my-4">
                             <div class="ml-3">
@@ -308,7 +284,7 @@
             </ul>
             <div class="mt-10 border-t border-gray-200 pt-6 sm:flex sm:justify-between mb-6">
                 <button type="submit" onclick="event.preventDefault();document.getElementById('step1').submit();"
-                        class="w-full rounded-md border border-transparent bg-pink-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:order-last sm:ml-6 sm:w-auto">
+                        class="h-9 w-full rounded-md border border-transparent bg-pink-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:order-last sm:ml-6 sm:w-auto">
                     Continue
                 </button>
                 <p class="mt-4 text-center text-sm text-gray-500 sm:mt-0 sm:text-left">Click here for the next

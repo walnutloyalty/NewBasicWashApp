@@ -71,27 +71,7 @@
                             </div>
                         </div>
                         <div x-show="total">
-                            <!--
-                              Mobile summary overlay, show/hide based on mobile summary state.
-
-                              Entering: "transition-opacity ease-linear duration-300"
-                                From: "opacity-0"
-                                To: "opacity-100"
-                              Leaving: "transition-opacity ease-linear duration-300"
-                                From: "opacity-100"
-                                To: "opacity-0"
-                            -->
                             <div class="fixed inset-0 bg-black bg-opacity-25" aria-hidden="true"></div>
-                            <!--
-                              Mobile summary, show/hide based on mobile summary state.
-
-                              Entering: "transition ease-in-out duration-300 transform"
-                                From: "translate-y-full"
-                                To: "translate-y-0"
-                              Leaving: "transition ease-in-out duration-300 transform"
-                                From: "translate-y-0"
-                                To: "translate-y-full"
-                            -->
                             <div class="relative bg-white px-4 py-6 sm:px-6">
                                 <dl class="mx-auto max-w-lg space-y-6">
                                     <div class="flex items-center justify-between">

@@ -4,7 +4,8 @@
             <div>
                 <h2 class="text-3xl font-bold tracking-tight text-gray-900">Frequently asked questions</h2>
                 <p class="mt-4 text-lg text-gray-500">Staat je vraag er niet tussen neem dan gerust <a
-                        href="{{ route('contact') }}" class="font-medium text-pink-600 hover:underline cursor-pointer">contact </a>op met ons. </p>
+                        href="{{ route('contact') }}" class="font-medium text-pink-600 hover:underline cursor-pointer">contact </a>op
+                    met ons. </p>
                 <p class="mt-4 text-xl text-black">Algemeen</p>
             </div>
             <div class="mt-12 lg:col-span-2 lg:mt-0">
@@ -68,7 +69,8 @@
                             </ul>
                             <p class="text-base text-gray-500">Kom dus met een gerust hart naar een van onze Basic
                                 Wash locaties voor een risicoloze wasbeurt! Sluit <a
-                                    class="text-pink-600 hover:underline cursor-pointer" href="{{ route('particulier') }}">hier</a> gemakkelijk jouw
+                                    class="text-pink-600 hover:underline cursor-pointer"
+                                    href="{{ route('particulier') }}">hier</a> gemakkelijk jouw
                                 abonnement af!</p>
                         </dd>
                     </div>
@@ -97,8 +99,9 @@
                                 <li>Vier wielen en een dichte carrosserie heeft;
                                 </li>
                                 <li>De maximum-afmetingen van de locaties niet overschrijdt (zie onze locatiepagina
-                                    voor meer informatie of doe de <a class="text-pink-600 hover:underline cursor-pointer"
-                                                                      href="{{ route('kentekencheck') }}">kentekencheck</a>)
+                                    voor meer informatie of doe de <a
+                                        class="text-pink-600 hover:underline cursor-pointer"
+                                        href="{{ route('kentekencheck') }}">kentekencheck</a>)
                                 </li>
                                 <li>Geen loszittende of niet originele onderdelen heeft (zoals o.a. een imperiaal,
                                     fietsendrager, antenne, bumper, spoiler, siertrips, stootlijsten en
@@ -106,7 +109,8 @@
                                 </li>
                             </ul>
                             <p class="text-base text-gray-500">Twijfel je? Vraag het onze medewerkers op locatie of
-                                neem <a class="text-pink-600 hover:underline cursor-pointer" href="{{ route('contact') }}">hier</a> contact op met de
+                                neem <a class="text-pink-600 hover:underline cursor-pointer"
+                                        href="{{ route('contact') }}">hier</a> contact op met de
                                 klantenservice!</p>
                         </dd>
                     </div>
@@ -146,7 +150,8 @@
                                 </li>
                             </ul>
                             <p class="text-base text-gray-500">Twijfel je? Vraag het onze medewerkers op locatie of
-                                neem <a class="text-pink-600 hover:underline cursor-pointer" href="{{ route('contact') }}">hier</a> contact op met de
+                                neem <a class="text-pink-600 hover:underline cursor-pointer"
+                                        href="{{ route('contact') }}">hier</a> contact op met de
                                 klantenservice!</p>
                         </dd>
                     </div>
@@ -197,8 +202,9 @@
                                 ons op de hoogte en wij doen ons best om samen zo snel mogelijk tot een oplossing te
                                 komen!
                             </p>
-                            <p class="text-base text-gray-500 py-2">Klik <a class="text-pink-600 hover:underline cursor-pointer"
-                                                                            href="{{ route('contact') }}">hier</a> om contact met ons op
+                            <p class="text-base text-gray-500 py-2">Klik <a
+                                    class="text-pink-600 hover:underline cursor-pointer"
+                                    href="{{ route('contact') }}">hier</a> om contact met ons op
                                 te
                                 nemen. </p>
                         </dd>

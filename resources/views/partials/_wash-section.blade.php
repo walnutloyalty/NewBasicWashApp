@@ -18,7 +18,6 @@
                     gemakkelijk via onze webshop. Zodra je abonnement is afgesloten kan je direct wassen.
                 </dd>
             </div>
-
             <div class="relative">
                 <dt>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -28,7 +27,6 @@
                         <path stroke-linecap="round" stroke-linejoin="round"
                               d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"/>
                     </svg>
-
                     <p class="ml-10 text-lg font-semibold leading-8 text-gray-900">Kenteken herkenning</p>
                 </dt>
                 <dd class="mt-2 ml-10 text-base leading-7 text-gray-600">Je abonnement staat gekoppeld aan het opgegeven
@@ -36,7 +34,6 @@
                     tot de wasstraat.
                 </dd>
             </div>
-
             <div class="relative">
                 <dt>
                     <img class="absolute mt-1 h-8 w-8" src="{{ asset('media/images/auto-wassen.png') }}"

@@ -14,7 +14,6 @@
             <div class="text-center">
                 <h2 class="font-extrabold tracking-tight text-pink-600 sm:text-5xl"> De voordeligste carwash van
                     Ulvenhout
-
                 </h2>
                 <p class="mx-auto mt-3 text-xl text-black sm:mt-4"> Bij Basic Wash Sint Ulvenhout kan je direct met je
                     auto terecht. Onze carwash kan auto’s wassen tot 2,40m
@@ -59,34 +58,6 @@
         </div>
     </div>
     <script>
-        class CoordMapType {
-            tileSize;
-            maxZoom = 19;
-            name = "Tile #s";
-            alt = "Tile Coordinate Map Type";
-
-            constructor(tileSize) {
-                this.tileSize = tileSize;
-            }
-
-            getTile(coord, zoom, ownerDocument) {
-                const div = ownerDocument.createElement("div");
-
-                div.innerHTML = String(coord);
-                div.style.width = this.tileSize.width + "px";
-                div.style.height = this.tileSize.height + "px";
-                div.style.fontSize = "10";
-                div.style.borderStyle = "solid";
-                div.style.borderWidth = "1px";
-                div.style.borderColor = "#AAAAAA";
-                div.style.backgroundColor = "#E5E3DF";
-                return div;
-            }
-
-            releaseTile(tile) {
-            }
-        }
-
         function initMap() {
             const map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 13,
@@ -103,25 +74,12 @@
                 url: "{{ asset('media/images/basic-wash-locaties.png') }}",
                 scaledSize: new google.maps.Size(50, 60),
             };
-            const beachMarker = new google.maps.Marker({
+            const ulvenhoutMarker = new google.maps.Marker({
                 position: {lat: 51.54748668173409, lng: 4.798523070449019},
                 map,
                 icon: image,
             })
 
-
-            map.addListener("maptypeid_changed", () => {
-                const showStreetViewControl = map.getMapTypeId() !== "coordinate";
-
-                map.setOptions({
-                    streetViewControl: showStreetViewControl,
-                });
-            });
-            // Now attach the coordinate map type to the map's registry.
-            map.mapTypes.set(
-                "coordinate",
-                new CoordMapType(new google.maps.Size(256, 256))
-            );
         }
 
         window.initMap = initMap;

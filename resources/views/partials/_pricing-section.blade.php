@@ -21,7 +21,8 @@
                 <div class="divide-y divide-gray-200 rounded-lg border border-gray-200 shadow-sm">
                     <div class="p-6">
                         <h2 class="text-lg font-medium leading-6 text-gray-900">Premium Plus</h2>
-                        <p class="mt-4 text-sm text-gray-500">Of probeer een <a href="{{ route('locaties') }}" class="underline">enkele
+                        <p class="mt-4 text-sm text-gray-500">Of probeer een <a href="{{ route('locaties') }}"
+                                                                                class="underline">enkele
                                 wasbeurt voor € 13,50</a></p>
                         <p class="mt-8">
                             <span class="text-4xl font-bold tracking-tight text-gray-900">€ 21,50</span>
@@ -44,7 +45,6 @@
                                 </svg>
                                 <span class="text-sm text-gray-500">HD Polish</span>
                             </li>
-
                             <li class="flex space-x-3">
                                 <!-- Heroicon name: mini/check -->
                                 <svg class="h-5 w-5 flex-shrink-0 text-green-500" xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +105,6 @@
                         </ul>
                     </div>
                 </div>
-
                 <div class="divide-y divide-gray-200 rounded-lg border-2 border-pink-400 shadow-sm">
                     <div class="flex -translate-y-1/2 transform justify-center">
                         <span
@@ -114,7 +113,8 @@
                     </div>
                     <div class="px-6 border-none">
                         <h2 class="text-lg font-medium leading-6 text-gray-900">Premium</h2>
-                        <p class="mt-4 text-sm text-gray-500">Of probeer een <a href="{{ route('locaties') }}" class="underline">enkele
+                        <p class="mt-4 text-sm text-gray-500">Of probeer een <a href="{{ route('locaties') }}"
+                                                                                class="underline">enkele
                                 wasbeurt voor € 10,50</a></p>
                         <p class="mt-8">
                             <span class="text-4xl font-bold tracking-tight text-gray-900">€ 17,50</span>
@@ -137,7 +137,6 @@
                                 </svg>
                                 <span class="text-sm text-gray-500">Wax Behandeling</span>
                             </li>
-
                             <li class="flex space-x-3">
                                 <!-- Heroicon name: mini/check -->
                                 <svg class="h-5 w-5 flex-shrink-0 text-green-500" xmlns="http://www.w3.org/2000/svg"
@@ -148,7 +147,6 @@
                                 </svg>
                                 <span class="text-sm text-gray-500">Bodemwassen</span>
                             </li>
-
                             <li class="flex space-x-3">
                                 <!-- Heroicon name: mini/check -->
                                 <svg class="h-5 w-5 flex-shrink-0 text-green-500" xmlns="http://www.w3.org/2000/svg"
@@ -199,11 +197,11 @@
                         </ul>
                     </div>
                 </div>
-
                 <div class="divide-y divide-gray-200 rounded-lg border border-gray-200 shadow-sm">
                     <div class="p-6">
                         <h2 class="text-lg font-medium leading-6 text-gray-900">Gold</h2>
-                        <p class="mt-4 text-sm text-gray-500">Of probeer een <a href="{{ route('locaties') }}" class="underline">enkele
+                        <p class="mt-4 text-sm text-gray-500">Of probeer een <a href="{{ route('locaties') }}"
+                                                                                class="underline">enkele
                                 wasbeurt voor € 7,99</a></p>
                         <p class="mt-8">
                             <span class="text-4xl font-bold tracking-tight text-gray-900">€ 13,50</span>
@@ -226,7 +224,6 @@
                                 </svg>
                                 <span class="text-sm text-gray-500">Hogedruk Voorwassen</span>
                             </li>
-
                             <li class="flex space-x-3">
                                 <!-- Heroicon name: mini/check -->
                                 <svg class="h-5 w-5 flex-shrink-0 text-green-500" xmlns="http://www.w3.org/2000/svg"
@@ -237,7 +234,6 @@
                                 </svg>
                                 <span class="text-sm text-gray-500">Actief Schuim</span>
                             </li>
-
                             <li class="flex space-x-3">
                                 <!-- Heroicon name: mini/check -->
                                 <svg class="h-5 w-5 flex-shrink-0 text-green-500" xmlns="http://www.w3.org/2000/svg"
@@ -248,7 +244,6 @@
                                 </svg>
                                 <span class="text-sm text-gray-500">Velgenreiniging</span>
                             </li>
-
                             <li class="flex space-x-3">
                                 <!-- Heroicon name: mini/check -->
                                 <svg class="h-5 w-5 flex-shrink-0 text-green-500" xmlns="http://www.w3.org/2000/svg"
@@ -269,11 +264,11 @@
                         </ul>
                     </div>
                 </div>
-
                 <div class="divide-y divide-gray-200 rounded-lg border border-gray-200 shadow-sm">
                     <div class="p-6">
                         <h2 class="text-lg font-medium leading-6 text-gray-900">Basic</h2>
-                        <p class="mt-4 text-sm text-gray-500">Of probeer een <a href="{{ route('locaties') }}" class="underline">enkele
+                        <p class="mt-4 text-sm text-gray-500">Of probeer een <a href="{{ route('locaties') }}"
+                                                                                class="underline">enkele
                                 wasbeurt voor € 4,99</a></p>
                         <p class="mt-8">
                             <span class="text-4xl font-bold tracking-tight text-gray-900">€ 9,50</span>
@@ -296,7 +291,6 @@
                                 </svg>
                                 <span class="text-sm text-gray-500">Basis wasbeurt</span>
                             </li>
-
                             <li class="flex space-x-3">
                                 <!-- Heroicon name: mini/check -->
                                 <svg class="h-5 w-5 flex-shrink-0 text-green-500" xmlns="http://www.w3.org/2000/svg"
@@ -346,7 +340,6 @@
                                 </svg>
                                 <span class="text-sm text-gray-500">HD Polish</span>
                             </li>
-
                             <li class="flex space-x-3">
                                 <!-- Heroicon name: mini/check -->
                                 <svg class="h-5 w-5 flex-shrink-0 text-green-500" xmlns="http://www.w3.org/2000/svg"
@@ -404,7 +397,6 @@
                         </ul>
                     </div>
                 </div>
-
                 <div class="divide-y divide-gray-200 rounded-lg border border-gray-200 shadow-sm">
                     <div class="p-6">
                         <h2 class="text-lg font-medium leading-6 text-gray-900">Busjes BW</h2>
@@ -429,7 +421,6 @@
                                 </svg>
                                 <span class="text-sm text-gray-500">Wax Behandeling</span>
                             </li>
-
                             <li class="flex space-x-3">
                                 <!-- Heroicon name: mini/check -->
                                 <svg class="h-5 w-5 flex-shrink-0 text-green-500" xmlns="http://www.w3.org/2000/svg"
@@ -440,7 +431,6 @@
                                 </svg>
                                 <span class="text-sm text-gray-500">Bodemwassen</span>
                             </li>
-
                             <li class="flex space-x-3">
                                 <!-- Heroicon name: mini/check -->
                                 <svg class="h-5 w-5 flex-shrink-0 text-green-500" xmlns="http://www.w3.org/2000/svg"
@@ -488,7 +478,6 @@
                         </ul>
                     </div>
                 </div>
-
                 <div class="divide-y divide-gray-200 rounded-lg border border-gray-200 shadow-sm">
                     <div class="p-6">
                         <h2 class="text-lg font-medium leading-6 text-gray-900">Taxi's BW</h2>

@@ -6,7 +6,6 @@
 </svg>
 ';
     ?>
-
     <div class="relative px-4 pt-16 sm:px-6 lg:pt-24">
         <div class="absolute inset-0">
             <div class="h-1/3 bg-white sm:h-2/3"></div>
@@ -89,7 +88,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -106,13 +104,11 @@
                                 <div class="flex-1">
                                     <div class="mt-2 block">
                                         <p class="text-xl font-bold text-pink-600"> Basic Wash Hellevoetsluis
-
                                         </p>
                                         <p class="text-black mt-2"> Ma - Zo ... 07:00-21:00
 
                                         </p>
                                         <p class="mt-3 text-base text-gray-500"> Rijksstraatweg 65, Hellevoetsluis
-
                                         </p>
                                         <p class="mt-3 text-base text-gray-500 ">
                                             <?= $check ?> Washhoogte - 260cm
@@ -181,7 +177,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -810,7 +805,6 @@
                 })
 
             }
-
 
             function initialize() {
                 initMap();

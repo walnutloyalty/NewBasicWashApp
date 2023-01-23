@@ -52,7 +52,8 @@
                 </div>
                 <div
                     class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md">
-                    <img class="rounded-t-lg h-72 w-96" src="{{ asset('media/images/basic-wash-pros-3.jpeg') }}" alt="Basic Wash"/>
+                    <img class="rounded-t-lg h-72 w-96" src="{{ asset('media/images/basic-wash-pros-3.jpeg') }}"
+                         alt="Basic Wash"/>
                     <div class="p-5">
                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Uitgebreid Netwerk</h5>
                         <p class="mb-3 font-normal text-gray-700">Met een Basic Wash abonnement kan

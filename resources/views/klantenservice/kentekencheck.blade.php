@@ -1,6 +1,5 @@
 <x-app-layout>
     @section('title', 'Kentekencheck')
-
     <div class="bg-white py-16 sm:py-52">
         <div class="relative sm:py-16">
             <div class="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">

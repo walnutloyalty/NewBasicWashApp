@@ -34,8 +34,9 @@
                                     Basic Wash locaties!
                                 </li>
                             </ul>
-                            <p class="text-base text-gray-500">Klik <a class="text-pink-600 hover:underline cursor-pointer"
-                                                                       href="{{ route('particulier') }}">hier</a> om
+                            <p class="text-base text-gray-500">Klik <a
+                                    class="text-pink-600 hover:underline cursor-pointer"
+                                    href="{{ route('particulier') }}">hier</a> om
                                 je abonnement af te
                                 sluiten!
                             </p>
@@ -61,8 +62,9 @@
                         <dd x-show="question" @click.away="question = false" class="mt-2 pr-12" id="faq-0">
                             <p class="text-base text-gray-500">Basic Wash biedt verschillende abonnementen aan om
                                 aan jouw behoeften te kunnen voldoen. Via onze website www.basicwash.nl vind je hier
-                                alle benodigde informatie over. Klik <a class="text-pink-600 hover:underline cursor-pointer"
-                                                                        href="{{ route('particulier') }}">hier</a>
+                                alle benodigde informatie over. Klik <a
+                                    class="text-pink-600 hover:underline cursor-pointer"
+                                    href="{{ route('particulier') }}">hier</a>
                                 om daar heen te gaan.
                             </p>
                             <p class="text-base text-gray-500 py-2">Benieuwd naar ons zakelijk aanbod? Neem dan <a
@@ -91,7 +93,9 @@
                             <p class="text-base text-gray-500">Alle voorwaarden die op jouw abonnement van
                                 toepassing zijn, kun je vinden via de onderstaande link. Zo kom je nooit voor
                                 verrassingen te staan!</p>
-                            <p class="text-base text-gray-500 py-2">Klik <a href="{{ route('abonnements-voorwaarden') }}" class="text-pink-600 hover:underline cursor-pointer">hier</a>
+                            <p class="text-base text-gray-500 py-2">Klik <a
+                                    href="{{ route('abonnements-voorwaarden') }}"
+                                    class="text-pink-600 hover:underline cursor-pointer">hier</a>
                                 om naar de abonnementsvoorwaarden te gaan</p>
                         </dd>
                     </div>

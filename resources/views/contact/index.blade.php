@@ -10,13 +10,11 @@
             <div class="flex flex-1 items-center">
             </div>
         </div>
-
         <div class="relative mx-auto mt-24 max-w-md px-4 pb-32 sm:max-w-3xl sm:px-6 md:mt-32 lg:max-w-7xl lg:px-8">
             <h1 class="text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl text-center">Contact</h1>
             <p class="mt-6 text-xl text-blue-gray-300 text-center">Neem direct persoonlijk contact met ons op!</p>
         </div>
     </header>
-
     <main>
         <div class="bg-blue-gray-50">
             <!-- Cards -->
@@ -41,13 +39,13 @@
                                 aanbiedingen.</p>
                         </div>
                         <div class="rounded-bl-2xl rounded-br-2xl bg-blue-gray-50 p-6 md:px-8">
-                            <a href="#" class="text-base font-medium text-pink-600 hover:text-cyan-600">
+                            <a href="https://m.me/Basic%20Wash" target="_blank"
+                               class="text-base font-medium text-pink-600 hover:text-cyan-600">
                                 Stuur een bericht
                                 <span aria-hidden="true"> &rarr;</span>
                             </a>
                         </div>
                     </div>
-
                     <div class="flex flex-col rounded-2xl bg-white shadow-xl">
                         <div class="relative flex-1 px-6 pt-16 pb-8 md:px-8">
                             <div
@@ -57,7 +55,6 @@
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                           d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
                                 </svg>
-
                             </div>
                             <h3 class="text-xl font-medium text-blue-gray-900">Basic Wash - Mail</h3>
                             <p class="mt-4 text-base text-blue-gray-500">Mail ons jouw vraag!</p>
@@ -70,7 +67,6 @@
                             </a>
                         </div>
                     </div>
-
                     <div class="flex flex-col rounded-2xl bg-white shadow-xl">
                         <div class="relative flex-1 px-6 pt-16 pb-8 md:px-8">
                             <div
