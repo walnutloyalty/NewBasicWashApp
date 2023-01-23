@@ -30,7 +30,6 @@ class ZakelijkeCheckoutStep1 extends Component
 
         return redirect()->route('zakelijke-checkout-step2')->withInput();
     }
-
     public function addKenteken()
     {
 

@@ -29,24 +29,22 @@ class ParticuliereCheckoutStep1 extends Component
         }
 
         return redirect()->route('particuliere-checkout-step2')->withInput();
+
     }
 
     public function addKenteken()
     {
+
         $data = request()->except(['_token']);
 
-        $kenteken = request()->kenteken;
 
-        DB::table('particluier_checkout')->where('licensePlate', $kenteken)->insert($data);
-
-        return redirect()->back()->withInput();
-
+        $data = DB::table('kenteken')->insert($data);
+        return redirect()->back();
     }
 
     public function deleteKenteken(Request $request)
     {
         DB::table('kenteken')->where('id', '=', $request->id)->delete();
-
         return redirect()->back();
     }
 }
