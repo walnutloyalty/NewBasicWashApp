@@ -147,7 +147,7 @@
                             <div class="mt-6">
                                 <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
                                 <div class="mt-1">
-                                    <input type="email" id="email" name="email"
+                                    <input type="email" id="email" name="email" value="{{ old('email') }}"
                                            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
                                 </div>
                             </div>
@@ -158,7 +158,7 @@
                                 <div class="sm:col-span-3">
                                     <label for="telefoonnummer" class="block text-sm font-medium text-gray-700">Telefoonnummer</label>
                                     <div class="mt-1">
-                                        <input type="text" id="telefoonnummer" name="phone"
+                                        <input type="text" id="telefoonnummer" name="phone" value="{{ old('phone') }}"
                                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
                                     </div>
                                 </div>
@@ -166,7 +166,7 @@
                                     <label for="postal-code"
                                            class="block text-sm font-medium text-gray-700">Postcode</label>
                                     <div class="mt-1">
-                                        <input type="text" id="postal-code" name="postalCode"
+                                        <input type="text" id="postal-code" name="postalCode" value="{{ old('postalCode') }}"
                                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
                                     </div>
                                 </div>
@@ -174,7 +174,7 @@
                                     <label for="huisnummer"
                                            class="block text-sm font-medium text-gray-700">Huisnummer</label>
                                     <div class="mt-1">
-                                        <input type="text" id="huisnummer" name="houseNumber"
+                                        <input type="text" id="huisnummer" name="houseNumber" value="{{ old('houseNumber') }}"
                                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
                                     </div>
                                 </div>
