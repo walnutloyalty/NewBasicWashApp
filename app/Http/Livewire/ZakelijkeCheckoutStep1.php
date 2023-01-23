@@ -11,7 +11,7 @@ class ZakelijkeCheckoutStep1 extends Component
 
     public function render()
     {
-        $kenteken = DB::table('zakelijke_checkout')->get();
+        $kenteken = DB::table('kenteken')->get();
         return view('livewire.checkout.zakelijke-checkout-step1', ['kenteken' => $kenteken]);
     }
 
@@ -33,16 +33,15 @@ class ZakelijkeCheckoutStep1 extends Component
     {
 
         $data = request()->except(['_token']);
-        $kenteken = request()->kenteken;
 
-        DB::table('zakelijke_checkout')->where('licensePlate', $kenteken)->insert($data);
+        $data = DB::table('kenteken')->insert($data);
 
         return redirect()->back()->withInput();
     }
 
     public function deleteKenteken(Request $request)
     {
-        DB::table('zakelijke_checkout')->where('id', '=', $request->id)->where('licensePlate' , '=', $request->kenteken)->delete();
+        DB::table('kenteken')->where('id', '=', $request->id)->delete();
         return redirect()->back();
     }
 

@@ -10,24 +10,23 @@ class ParticuliereCheckoutStep1 extends Component
 {
     public function render()
     {
-        $kenteken = DB::table('particulier_checkout')->get();
+        $kenteken = DB::table('kenteken')->get();
 
         return view('livewire.checkout.particuliere-checkout-step1', ['kenteken' => $kenteken]);
     }
 
     public function submitStep1()
     {
-        $data = request()->except(['_token', 'licensePlate']);
+        $data = request()->except(['_token', 'kenteken']);
 
         if (isset(request()->kenteken)) {
             $kenteken = request()->kenteken;
-            DB::table('particulier_checkout')->insert(['licensePlate' => $kenteken]);
+            DB::table('kenteken')->insert(['kenteken' => $kenteken]);
             return redirect()->back()->withInput();
         } else {
             $kenteken = null;
-            DB::table('particulier_checkout')->insert($data);
+            DB::table('particuliere_checkout')->insert($data);
         }
-
         return redirect()->route('particuliere-checkout-step2')->withInput();
 
     }
