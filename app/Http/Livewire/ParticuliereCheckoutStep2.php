@@ -32,6 +32,11 @@ class ParticuliereCheckoutStep2 extends Component
 
     }
 
+    public function validateUser()
+    {
+        
+    }
+
     public function addKenteken()
     {
 
