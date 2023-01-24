@@ -55,7 +55,6 @@
                         <li class="flex items-start space-x-4 py-6">
                             <div class="flex-auto space-y-1">
                                 <h3>Micro Backpack</h3>
-                                <p class="text-gray-500">Moss</p>
                             </div>
                             <p class="flex-none text-base font-medium">232123</p>
                         </li>
