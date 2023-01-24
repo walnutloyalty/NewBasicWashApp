@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Livewire\ParticuliereCheckoutStep1;
-use App\Http\Livewire\ZakelijkeCheckoutStep1;
+use App\Http\Livewire\ParticuliereCheckoutStep2;
+use App\Http\Livewire\ZakelijkeCheckoutStep2;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,17 +28,16 @@ Route::get('/particulier', function () {
     return view('webshop/particulier');
 })->name('particulier');
 
-Route::get('/checkout/particulier/step1', [ParticuliereCheckoutStep1::class, 'render'])->name('particuliere-checkout-step1');
+Route::get('/checkout/particulier/step1', [\App\Http\Livewire\ParticuliereCheckoutStep1::class, 'render'])->name('particuliere-checkout-step1');
 
-Route::post('/checkout/particulier/step1/filled', [ParticuliereCheckoutStep1::class, 'submitStep1'])->name('particuliere-checkout-step1-filled');
 
-Route::post('/checkout/particulier/step1/kenteken-toevoegen', [ParticuliereCheckoutStep1::class, 'addKenteken'])->name('particuliere-add-kenteken');
+Route::get('/checkout/particulier/step2', [ParticuliereCheckoutStep2::class, 'render'])->name('particuliere-checkout-step2');
 
-Route::post('/checkout/particulier/step1/kenteken-delete', [ParticuliereCheckoutStep1::class, 'deleteKenteken'])->name('particuliere-delete-kenteken');
+Route::post('/checkout/particulier/step2/filled', [ParticuliereCheckoutStep2::class, 'submitStep1'])->name('particuliere-checkout-step2-filled');
 
-Route::get('/checkout/particulier/step2', function () {
-    return view('webshop/checkout/particuliere-checkout-step2');
-})->name('particuliere-checkout-step2');
+Route::post('/checkout/particulier/step2/kenteken-toevoegen', [ParticuliereCheckoutStep2::class, 'addKenteken'])->name('particuliere-add-kenteken');
+
+Route::post('/checkout/particulier/step2/kenteken-delete', [ParticuliereCheckoutStep2::class, 'deleteKenteken'])->name('particuliere-delete-kenteken');
 
 Route::get('/checkout/particulier/step3', function () {
     return view('webshop/checkout/particuliere-checkout-step3');
@@ -48,17 +48,19 @@ Route::get('/zakelijk', function () {
     return view('webshop/zakelijk');
 })->name('zakelijk');
 
-Route::get('/checkout/zakelijk/step1', [ZakelijkeCheckoutStep1::class, 'render'])->name('zakelijke-checkout-step1');
+Route::get('/checkout/zakelijk/step1', function () {
+    return view('livewire/checkout/zakelijke-checkout-step1');
+})->name('zakelijke-checkout-step1');
 
-Route::post('/checkout/zakelijk/step1/filled', [ZakelijkeCheckoutStep1::class, 'submitStep1'])->name('zakelijke-checkout-step1-filled');
+Route::get('/checkout/zakelijk/step2', [ZakelijkeCheckoutStep2::class, 'render'])->name('zakelijke-checkout-step2');
 
-Route::post('/checkout/zakelijk/step1/kenteken-toevoegen', [ZakelijkeCheckoutStep1::class, 'addKenteken'])->name('zakelijke-add-kenteken');
+Route::get('/test', [ParticuliereCheckoutStep1::class, 'render'])->name('test');
 
-Route::post('/checkout/zakelijk/step1/kenteken-delete', [ZakelijkeCheckoutStep1::class, 'deleteKenteken'])->name('zakelijke-delete-kenteken');
+Route::post('/checkout/zakelijk/step2/filled', [ZakelijkeCheckoutStep2::class, 'submitStep1'])->name('zakelijke-checkout-step2-filled');
 
-Route::get('/checkout/zakelijk/step2', function () {
-    return view('webshop/checkout/zakelijke-checkout-step2');
-})->name('zakelijke-checkout-step2');
+Route::post('/checkout/zakelijk/step2/kenteken-toevoegen', [ZakelijkeCheckoutStep2::class, 'addKenteken'])->name('zakelijke-add-kenteken');
+
+Route::post('/checkout/zakelijk/step2/kenteken-delete', [ZakelijkeCheckoutStep2::class, 'deleteKenteken'])->name('zakelijke-delete-kenteken');
 
 Route::get('/checkout/zakelijk/step3', function () {
     return view('webshop/checkout/zakelijke-checkout-step3');

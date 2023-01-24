@@ -3,46 +3,36 @@
 namespace App\Http\Livewire;
 
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 use Livewire\Component;
 
 class ParticuliereCheckoutStep1 extends Component
 {
     public function render()
     {
-        $kenteken = DB::table('kenteken')->get();
+        $subscriptions = $this->getStoreProducts();
 
-        return view('livewire.checkout.particuliere-checkout-step1', ['kenteken' => $kenteken]);
+        return view('livewire.checkout.particuliere-checkout-step1', ['subscriptions' => $subscriptions]);
     }
 
-    public function submitStep1()
+
+    public function getStoreProducts()
     {
-        $data = request()->except(['_token', 'kenteken']);
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+            'Authorization' => 'WalnutPass dd3b37d7aa69b7e4c5dfc5dc37f0372672a04e241a17dbc3882e3bb08fa84a9955d9b2424864b96fe3609de8ae01637849aa2ed60de8197aeedc4d67fc35efd5'
+        ])->get('https://walnutbackend.com/api/v1/store/dd62a60360b111eb883922000a5419dd/products', [
+            'type' => 'subscription'
+        ]);
 
-        if (isset(request()->kenteken)) {
-            $kenteken = request()->kenteken;
-            DB::table('kenteken')->insert(['kenteken' => $kenteken]);
-            return redirect()->back()->withInput();
-        } else {
-            $kenteken = null;
-            DB::table('particuliere_checkout')->insert($data);
-        }
-        return redirect()->route('particuliere-checkout-step2')->withInput();
+        $collection = collect($response->json()['products']);
+
+        return $collection->where('active', 'true');
 
     }
 
-    public function addKenteken()
-    {
-
-        $data = request()->except(['_token']);
-
-        $data = DB::table('kenteken')->insert($data);
-        return redirect()->back();
-    }
-
-    public function deleteKenteken(Request $request)
-    {
-        DB::table('kenteken')->where('id', '=', $request->id)->delete();
-        return redirect()->back();
-    }
 }

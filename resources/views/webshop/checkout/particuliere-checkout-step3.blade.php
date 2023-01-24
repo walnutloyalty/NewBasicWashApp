@@ -7,9 +7,9 @@
                     <div aria-label="Progress" class="sm:block">
                         <ol role="list" class="flex space-x-4 mr-12">
                             <li class="flex items-center">
-                                <a href="{{ route('particuliere-checkout-step1') }}"
-                                   class="@if(Request::routeIs('particuliere-checkout-step1')) text-pink-600 @endif">Contact
-                                    informatie</a>
+                                <a href="{{ route('particuliere-checkout-step1') }}" aria-current="page"
+                                   class="@if(Request::routeIs('particuliere-checkout-step1')) text-pink-600 @endif">Abonnement
+                                    keuze</a>
                                 <!-- Heroicon name: mini/chevron-right -->
                                 <svg class="ml-4 h-5 w-5 text-gray-300" aria-hidden="true"
                                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -19,10 +19,9 @@
                                 </svg>
                             </li>
                             <li class="flex items-center">
-                                <a href="{{ route('particuliere-checkout-step2') }}" aria-current="page"
-                                   class="@if(Request::routeIs('particuliere-checkout-step2')) text-pink-600 @endif">Abonnement
-                                    keuze</a>
-
+                                <a href="{{ route('particuliere-checkout-step2') }}"
+                                   class="@if(Request::routeIs('particuliere-checkout-step2')) text-pink-600 @endif">Contact
+                                    informatie</a>
                                 <!-- Heroicon name: mini/chevron-right -->
                                 <svg class="ml-4 h-5 w-5 text-gray-300" aria-hidden="true"
                                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
