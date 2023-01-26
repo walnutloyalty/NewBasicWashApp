@@ -45,7 +45,8 @@
                 </div>
             </div>
         </header>
-        <main x-data="{ price: '', subscription: '' }" @update-subscription.window="price = $event.detail.price, subscription = $event.detail.name"
+        <main x-data="{ price: '', subscription: '' }"
+              @update-subscription.window="price = $event.detail.price, subscription = $event.detail.name"
               class="relative mx-auto grid max-w-7xl grid-cols-1 gap-x-16 lg:grid-cols-2 lg:px-8 xl:gap-x-48">
             <h1 class="sr-only">Order information</h1>
             <section aria-labelledby="summary-heading"
@@ -235,7 +236,7 @@
                                               class="mt-2 flex text-sm sm:mt-0 sm:ml-4 sm:flex-col sm:text-right">
                                             <span
                                                 class="font-medium text-gray-900">€ {{ $subscription['price'] }}</span>
-{{--                                            <span class="ml-1 text-gray-500 sm:ml-0">/mo</span>--}}
+                                            {{--                                            <span class="ml-1 text-gray-500 sm:ml-0">/mo</span>--}}
                                         </span>
                                         <span class="pointer-events-none absolute -inset-px rounded-lg border-2"
                                               aria-hidden="true"></span>

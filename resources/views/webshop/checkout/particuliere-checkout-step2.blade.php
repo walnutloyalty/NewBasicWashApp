@@ -220,6 +220,5 @@
                     step.</p>
             </div>
         </main>
-
     </div>
 </x-app-layout>
