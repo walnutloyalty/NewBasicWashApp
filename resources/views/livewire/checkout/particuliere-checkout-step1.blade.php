@@ -45,7 +45,8 @@
                 </div>
             </div>
         </header>
-        <main class="relative mx-auto grid max-w-7xl grid-cols-1 gap-x-16 lg:grid-cols-2 lg:px-8 xl:gap-x-48">
+        <main x-data="{ price: '', subscription: '' }" @update-subscription.window="price = $event.detail.price, subscription = $event.detail.name"
+              class="relative mx-auto grid max-w-7xl grid-cols-1 gap-x-16 lg:grid-cols-2 lg:px-8 xl:gap-x-48">
             <h1 class="sr-only">Order information</h1>
             <section aria-labelledby="summary-heading"
                      class="bg-gray-50 px-4 pt-16 pb-10 sm:px-6 lg:col-start-2 lg:row-start-1 lg:bg-transparent lg:px-0 lg:pb-16">
@@ -54,16 +55,16 @@
                     <ul role="list" class="divide-y divide-gray-200 text-sm font-medium text-gray-900">
                         <li class="flex items-start space-x-4 py-6">
                             <div class="flex-auto space-y-1">
-                                <h3>Micro Backpack</h3>
+                                <h3 x-text="subscription"></h3>
                             </div>
-                            <p class="flex-none text-base font-medium">232123</p>
+                            <p class="flex-none text-base font-medium" x-text="price"></p>
                         </li>
                     </ul>
 
                     <dl class="hidden space-y-6 border-t border-gray-200 pt-6 text-sm font-medium text-gray-900 lg:block">
                         <div class="flex items-center justify-between pt-6">
                             <dt class="text-base">Total</dt>
-                            <dd class="text-base"></dd>
+                            <dd class="text-base" x-text="price"></dd>
                         </div>
                     </dl>
                     <div
@@ -214,28 +215,32 @@
                         <h2 class="block text-sm font-medium text-gray-700">Kies hier je lidmaatschap</h2>
                         <div x-cloak x-data="{ choice: '' }" class="space-y-4">
                             @foreach($subscriptions as $subscription)
-                                <label @click="choice = '{{ $subscription['name'] }}'"
-                                       class="relative block cursor-pointer rounded-lg border bg-white px-6 py-4 shadow-sm focus:outline-none sm:flex sm:justify-between"
-                                       :class="choice === '{{ $subscription['name'] }}' ? 'border-pink-600 ring-2 ring-pink-600' : ''">
-                                    <input type="radio" name="subscription" class="sr-only"
-                                           aria-labelledby="server-size-0-label" value="{{ $subscription['_id'] }}"
-                                           aria-describedby="server-size-0-description-0 server-size-0-description-1">
-                                    <span class="flex items-center">
-                                        <span class="flex flex-col text-sm">
-                                            <span id="server-size-0-label"
-                                                  class="font-medium text-gray-900">{{ $subscription['name'] }}</span>
-                                            <span id="server-size-0-description-0" class="text-gray-500">
+                                <div>
+                                    <label @click="choice = '{!! $subscription['name'] !!}'"
+                                           class="relative block cursor-pointer rounded-lg border bg-white px-6 py-4 shadow-sm focus:outline-none sm:flex sm:justify-between"
+                                           :class="choice === '{!! $subscription['name'] !!}' ? 'border-pink-600 ring-2 ring-pink-600' : ''">
+                                        <input type="radio" name="subscription" class="sr-only"
+                                               aria-labelledby="server-size-0-label" value="{{ $subscription['_id'] }}"
+                                               @click="$dispatch('update-subscription', { price: '€ {{ $subscription['price'] }}' , name: '{!! $subscription['name'] !!}' });"
+                                               aria-describedby="server-size-0-description-0 server-size-0-description-1">
+                                        <span class="flex items-center">
+                                            <span class="flex flex-col text-sm">
+                                                <span id="server-size-0-label"
+                                                      class="font-medium text-gray-900">{!! $subscription['name'] !!}</span>
+                                                <span id="server-size-0-description-0" class="text-gray-500">
+                                                </span>
                                             </span>
                                         </span>
-                                    </span>
-                                    <span id="server-size-0-description-1"
-                                          class="mt-2 flex text-sm sm:mt-0 sm:ml-4 sm:flex-col sm:text-right">
-                                        <span class="font-medium text-gray-900">€ {{ $subscription['price'] }}</span>
-                                        <span class="ml-1 text-gray-500 sm:ml-0">/mo</span>
-                                    </span>
-                                    <span class="pointer-events-none absolute -inset-px rounded-lg border-2"
-                                          aria-hidden="true"></span>
-                                </label>
+                                        <span id="server-size-0-description-1"
+                                              class="mt-2 flex text-sm sm:mt-0 sm:ml-4 sm:flex-col sm:text-right">
+                                            <span
+                                                class="font-medium text-gray-900">€ {{ $subscription['price'] }}</span>
+{{--                                            <span class="ml-1 text-gray-500 sm:ml-0">/mo</span>--}}
+                                        </span>
+                                        <span class="pointer-events-none absolute -inset-px rounded-lg border-2"
+                                              aria-hidden="true"></span>
+                                    </label>
+                                </div>
                             @endforeach
                         </div>
                     </fieldset>

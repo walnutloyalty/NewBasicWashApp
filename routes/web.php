@@ -28,8 +28,7 @@ Route::get('/particulier', function () {
     return view('webshop/particulier');
 })->name('particulier');
 
-Route::get('/checkout/particulier/step1', [\App\Http\Livewire\ParticuliereCheckoutStep1::class, 'render'])->name('particuliere-checkout-step1');
-
+Route::get('/checkout/particulier/step1', [ParticuliereCheckoutStep1::class, 'render'])->name('particuliere-checkout-step1');
 
 Route::get('/checkout/particulier/step2', [ParticuliereCheckoutStep2::class, 'render'])->name('particuliere-checkout-step2');
 

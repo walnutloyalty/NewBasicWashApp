@@ -186,17 +186,17 @@
             </form>
             <ul role="list">
                 <h3 class="text-pink-600 mt-8">Al uw toegevoegde kentekens</h3>
-                @foreach($kenteken as $extraKenteken)
-                    @if(isset($extraKenteken))
+                @foreach($validateOrCreateUser as $user)
+                    @if(isset($user))
                         <li class="flex py-2 my-4">
                             <div class="ml-3">
-                                <p class="text-sm font-medium text-gray-900">{{ $extraKenteken->kenteken ?? ''}}</p>
+                                <p class="text-sm font-medium text-gray-900">{{ $user['userLicensePlate'] ?? ''}}</p>
                             </div>
                             <form method="POST" action="{{ route('particuliere-delete-kenteken') }}"
                                   id="delete-kenteken">
                                 @csrf
-                                <input type="text" class="sr-only" name="id"
-                                       value="{{ $extraKenteken->id }}">
+                                <input type="text" class="sr-only" name="userIdentifier"
+                                       value="{{ $user['userIdentifier'] }}">
                                 <button type="submit"
                                         onclick="event.preventDefault();document.getElementById('delete-kenteken').submit();">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
