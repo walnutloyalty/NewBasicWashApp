@@ -9,7 +9,6 @@ use Livewire\Component;
 
 class ParticuliereCheckoutStep2 extends Component
 {
-
     public $walnutPass = 'WalnutPass dd3b37d7aa69b7e4c5dfc5dc37f0372672a04e241a17dbc3882e3bb08fa84a9955d9b2424864b96fe3609de8ae01637849aa2ed60de8197aeedc4d67fc35efd5';
 
     public function render()
@@ -34,7 +33,6 @@ class ParticuliereCheckoutStep2 extends Component
             DB::table('particuliere_checkout')->insert($data);
         }
         return redirect()->route('particuliere-checkout-step3')->withInput();
-
     }
 
     public function validateOrCreateUser()
@@ -45,7 +43,6 @@ class ParticuliereCheckoutStep2 extends Component
         ])->post('https://walnutbackend.com/api/v1/store/dd62a60360b111eb883922000a5419dd/pass/');
 
         return $response->json();
-
     }
 
     public function addKenteken()
