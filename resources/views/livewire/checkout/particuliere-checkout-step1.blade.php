@@ -228,7 +228,8 @@
                                             <span class="flex flex-col text-sm">
                                                 <span id="server-size-0-label"
                                                       class="font-medium text-gray-900">{!! $subscription['name'] !!}</span>
-                                                <span id="server-size-0-description-0" class="text-gray-500">
+                                                <span id="server-size-0-description-0" class="text-gray-500 text-xs">
+                                                    {!! $subscription['description'] !!}
                                                 </span>
                                             </span>
                                         </span>

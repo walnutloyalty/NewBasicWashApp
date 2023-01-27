@@ -50,24 +50,15 @@
                     <ul role="list" class="divide-y divide-gray-200 text-sm font-medium text-gray-900">
                         <li class="flex items-start space-x-4 py-6">
                             <div class="flex-auto space-y-1">
-                                <h3>Micro Backpack</h3>
-                                <p class="text-gray-500">Moss</p>
+                                <h3></h3>
                             </div>
-                            <p class="flex-none text-base font-medium">$70.00</p>
+                            <p class="flex-none text-base font-medium"></p>
                         </li>
                     </ul>
                     <dl class="hidden space-y-6 border-t border-gray-200 pt-6 text-sm font-medium text-gray-900 lg:block">
-                        <div class="flex items-center justify-between">
-                            <dt class="text-gray-600">Subtotal</dt>
-                            <dd>$320.00</dd>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <dt class="text-gray-600">Taxes</dt>
-                            <dd>$26.80</dd>
-                        </div>
-                        <div class="flex items-center justify-between border-t border-gray-200 pt-6">
+                        <div class="flex items-center justify-between pt-6">
                             <dt class="text-base">Total</dt>
-                            <dd class="text-base">$361.80</dd>
+                            <dd class="text-base"></dd>
                         </div>
                     </dl>
                     <div
@@ -110,6 +101,7 @@
                         </div>
                     </div>
                 </div>
+
             </section>
             <form class="px-4 pt-16 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 lg:pb-10"
                   action="{{ route('particuliere-checkout-step2-filled') }}" method="POST" id="step2">
@@ -186,30 +178,32 @@
             </form>
             <ul role="list">
                 <h3 class="text-pink-600 mt-8">Al uw toegevoegde kentekens</h3>
-                @foreach($validateOrCreateUser as $user)
-                    @if(isset($user))
-                        <li class="flex py-2 my-4">
-                            <div class="ml-3">
-                                <p class="text-sm font-medium text-gray-900">{{ $user['userLicensePlate'] ?? ''}}</p>
-                            </div>
-                            <form method="POST" action="{{ route('particuliere-delete-kenteken') }}"
-                                  id="delete-kenteken">
-                                @csrf
-                                <input type="text" class="sr-only" name="userIdentifier"
-                                       value="{{ $user['userIdentifier'] }}">
-                                <button type="submit"
-                                        onclick="event.preventDefault();document.getElementById('delete-kenteken').submit();">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                         fill="currentColor" class="w-5 h-5 ml-6 text-red-600">
-                                        <path fill-rule="evenodd"
-                                              d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z"
-                                              clip-rule="evenodd"/>
-                                    </svg>
-                                </button>
-                            </form>
-                        </li>
-                    @endif
-                @endforeach
+                @if(is_array($validateOrCreateUser) || is_object($validateOrCreateUser))
+                    @foreach($validateOrCreateUser as $user)
+                        @if(isset($user))
+                            <li class="flex py-2 my-4">
+                                <div class="ml-3">
+                                    <p class="text-sm font-medium text-gray-900">{{ $user['userLicensePlate'] ?? ''}}</p>
+                                </div>
+                                <form method="POST" action="{{ route('particuliere-delete-kenteken') }}"
+                                      id="delete-kenteken">
+                                    @csrf
+                                    <input type="text" class="sr-only" name="userIdentifier"
+                                           value="{{ $user['userIdentifier'] ?? ''}}">
+                                    <button type="submit"
+                                            onclick="event.preventDefault();document.getElementById('delete-kenteken').submit();">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                             fill="currentColor" class="w-5 h-5 ml-6 text-red-600">
+                                            <path fill-rule="evenodd"
+                                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z"
+                                                  clip-rule="evenodd"/>
+                                        </svg>
+                                    </button>
+                                </form>
+                            </li>
+                        @endif
+                    @endforeach
+                @endif
             </ul>
             <div class="mt-10 border-t border-gray-200 pt-6 sm:flex sm:justify-between mb-6">
                 <button type="submit" onclick="event.preventDefault();document.getElementById('step2').submit();"

@@ -32,7 +32,7 @@ Route::get('/checkout/particulier/step1', [ParticuliereCheckoutStep1::class, 're
 
 Route::get('/checkout/particulier/step2', [ParticuliereCheckoutStep2::class, 'render'])->name('particuliere-checkout-step2');
 
-Route::post('/checkout/particulier/step2/filled', [ParticuliereCheckoutStep2::class, 'submitStep1'])->name('particuliere-checkout-step2-filled');
+Route::post('/checkout/particulier/step2/filled', [ParticuliereCheckoutStep2::class, 'submitStep2'])->name('particuliere-checkout-step2-filled');
 
 Route::post('/checkout/particulier/step2/kenteken-toevoegen', [ParticuliereCheckoutStep2::class, 'addKenteken'])->name('particuliere-add-kenteken');
 
