@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Livewire\ParticuliereCheckoutStep1;
+use App\Http\Livewire\ParticuliereCheckout;
 use App\Http\Livewire\ParticuliereCheckoutStep2;
+use App\Http\Livewire\ParticuliereCheckoutStep3;
 use App\Http\Livewire\ZakelijkeCheckoutStep2;
 use Illuminate\Support\Facades\Route;
 
@@ -28,19 +29,7 @@ Route::get('/particulier', function () {
     return view('webshop/particulier');
 })->name('particulier');
 
-Route::get('/checkout/particulier/step1', [ParticuliereCheckoutStep1::class, 'render'])->name('particuliere-checkout-step1');
-
-Route::get('/checkout/particulier/step2', [ParticuliereCheckoutStep2::class, 'render'])->name('particuliere-checkout-step2');
-
-Route::post('/checkout/particulier/step2/filled', [ParticuliereCheckoutStep2::class, 'submitStep2'])->name('particuliere-checkout-step2-filled');
-
-Route::post('/checkout/particulier/step2/kenteken-toevoegen', [ParticuliereCheckoutStep2::class, 'addKenteken'])->name('particuliere-add-kenteken');
-
-Route::post('/checkout/particulier/step2/kenteken-delete', [ParticuliereCheckoutStep2::class, 'deleteKenteken'])->name('particuliere-delete-kenteken');
-
-Route::get('/checkout/particulier/step3', function () {
-    return view('webshop/checkout/particuliere-checkout-step3');
-})->name('particuliere-checkout-step3');
+Route::get('/checkout/particulier/', [ParticuliereCheckout::class, 'render'])->name('particuliere-checkout');
 
 // zakelijke checkout
 Route::get('/zakelijk', function () {
@@ -53,7 +42,7 @@ Route::get('/checkout/zakelijk/step1', function () {
 
 Route::get('/checkout/zakelijk/step2', [ZakelijkeCheckoutStep2::class, 'render'])->name('zakelijke-checkout-step2');
 
-Route::get('/test', [ParticuliereCheckoutStep1::class, 'render'])->name('test');
+Route::get('/test', [ParticuliereCheckout::class, 'render'])->name('test');
 
 Route::post('/checkout/zakelijk/step2/filled', [ZakelijkeCheckoutStep2::class, 'submitStep1'])->name('zakelijke-checkout-step2-filled');
 

@@ -11,8 +11,8 @@
         <h1 class="text-center text-5xl font-extrabold text-pink-600">Webshop</h1>
         <h2 class="text-center text-lg mt-6">Sluit nu je abonnement af en komt direct onbeperkt autowassen!</h2>
         <div class="sm:align-center sm:flex sm:flex-col">
-            <div x-show="private"
-                 class="mt-12 space-y-4 sm:mt-16 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:mx-auto lg:max-w-4xl xl:mx-0 xl:max-w-none xl:grid-cols-4">
+            <div
+                class="mt-12 space-y-4 sm:mt-16 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:mx-auto lg:max-w-4xl xl:mx-0 xl:max-w-none xl:grid-cols-4">
                 <div class="divide-y divide-gray-200 rounded-lg border border-gray-200 shadow-sm">
                     <div class="p-6">
                         <h2 class="text-lg font-medium leading-6 text-gray-900">Premium Plus</h2>
@@ -23,7 +23,7 @@
                             <span class="text-4xl font-bold tracking-tight text-gray-900">€ 21,50</span>
                             <span class="text-base font-medium text-gray-500">/mo*</span>
                         </p>
-                        <a href="{{ route('particuliere-checkout-step1') }}"
+                        <a href="{{ route('particuliere-checkout') }}"
                            class="mt-8 block w-full rounded-md border border-pink-600 bg-pink-600 py-2 text-center text-sm font-semibold text-white hover:bg-cyan-600 hover:border-cyan-600">Buy
                             Premium Plus</a>
                     </div>
@@ -92,7 +92,7 @@
                             </li>
                             <li class="flex space-x-3">
                                 <span class="text-xs text-gray-500">* bij aankoop van een jaarabonnement, <a
-                                        href="{{ route('particuliere-checkout-step1') }}"
+                                        href="{{ route('particuliere-checkout') }}"
                                         class="underline">anders
                                         € 24,50
                                         per maand</a></span>
@@ -115,7 +115,7 @@
                             <span class="text-4xl font-bold tracking-tight text-gray-900">€ 17,50</span>
                             <span class="text-base font-medium text-gray-500">/mo*</span>
                         </p>
-                        <a href="{{ route('particuliere-checkout-step1') }}"
+                        <a href="{{ route('particuliere-checkout') }}"
                            class="mt-8 block w-full rounded-md border border-pink-600 bg-pink-600 py-2 text-center text-sm font-semibold text-white hover:bg-cyan-600 hover:border-cyan-600">Buy
                             Premium</a>
                     </div>
@@ -184,7 +184,7 @@
                             </li>
                             <li class="flex space-x-3">
                                 <span class="text-xs text-gray-500">* bij aankoop van een jaarabonnement, <a
-                                        href="{{ route('particuliere-checkout-step1') }}"
+                                        href="{{ route('particuliere-checkout') }}"
                                         class="underline">anders
                                         € 20,50
                                         per maand</a></span>
@@ -202,7 +202,7 @@
                             <span class="text-4xl font-bold tracking-tight text-gray-900">€ 13,50</span>
                             <span class="text-base font-medium text-gray-500">/mo*</span>
                         </p>
-                        <a href="{{ route('particuliere-checkout-step1') }}"
+                        <a href="{{ route('particuliere-checkout') }}"
                            class="mt-8 block w-full rounded-md border border-pink-600 bg-pink-600 py-2 text-center text-sm font-semibold text-white hover:bg-cyan-600 hover:border-cyan-600">Buy
                             Gold</a>
                     </div>
@@ -251,7 +251,7 @@
                             </li>
                             <li class="flex space-x-3">
                                 <span class="text-xs text-gray-500">* bij aankoop van een jaarabonnement, <a
-                                        href="{{ route('particuliere-checkout-step1') }}"
+                                        href="{{ route('particuliere-checkout') }}"
                                         class="underline">anders
                                         € 16,50
                                         per maand</a></span>
@@ -269,7 +269,7 @@
                             <span class="text-4xl font-bold tracking-tight text-gray-900">€ 9,50</span>
                             <span class="text-base font-medium text-gray-500">/mo*</span>
                         </p>
-                        <a href="{{ route('particuliere-checkout-step1') }}"
+                        <a href="{{ route('particuliere-checkout') }}"
                            class="mt-8 block w-full rounded-md border border-pink-600 bg-pink-600 py-2 text-center text-sm font-semibold text-white hover:bg-cyan-600 hover:border-cyan-600">Buy
                             Basic</a>
                     </div>
@@ -298,7 +298,7 @@
                             </li>
                             <li class="flex space-x-3">
                                 <span class="text-xs text-gray-500">* bij aankoop van een jaarabonnement, <a
-                                        href="{{ route('particuliere-checkout-step1') }}"
+                                        href="{{ route('particuliere-checkout') }}"
                                         class="underline">anders
                                         € 12,50
                                         per maand</a></span>

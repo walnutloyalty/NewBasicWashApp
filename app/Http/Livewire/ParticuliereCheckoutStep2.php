@@ -13,11 +13,10 @@ class ParticuliereCheckoutStep2 extends Component
 
     public function render()
     {
-        $validateOrCreateUser = $this->validateOrCreateUser();
 
         $subscriptions = $this->getStoreProducts();
 
-        return view('webshop.checkout.particuliere-checkout-step2', ['validateOrCreateUser' => $validateOrCreateUser, 'subscriptions' => $subscriptions]);
+        return view('livewire.checkout.particuliere-checkout-step2', ['validateOrCreateUser' => $validateOrCreateUser, 'subscriptions' => $subscriptions]);
     }
 
     public function submitStep2()
@@ -27,12 +26,6 @@ class ParticuliereCheckoutStep2 extends Component
         return redirect()->route('particuliere-checkout-step3')->withInput();
     }
 
-    public function validateOrCreateUser()
-    {
-        $response = Http::post('https://walnutbackend.com/api/v1/store/dd62a60360b111eb883922000a5419dd/pass/');
-
-        return $response->json();
-    }
     public function getStoreProducts()
     {
         $response = Http::withHeaders([
@@ -48,7 +41,7 @@ class ParticuliereCheckoutStep2 extends Component
 
     }
 
-    public function addKenteken()
+    public function addLicense()
     {
 
         $data = Http::post('https://walnutbackend.com/api/v1/store/dd62a60360b111eb883922000a5419dd/pass/',
