@@ -14,26 +14,51 @@ class ParticuliereCheckout extends Component
     public $userLicensePlate;
     public $userBirthday;
 
+    protected $messages = [
+        'userName.required' => 'Vul je naam in',
+        'userEmail.required' => 'Vul je email in',
+        'userEmail.email' => 'Vul een geldig email in',
+        'userMobileNumber.required' => 'Vul je telefoonnummer in',
+        'userLicensePlate.required' => 'Vul je kenteken in',
+        'userBirthday.required' => 'Vul je geboortedatum in',
+    ];
+
+    protected $rules = [
+        'userName' => 'required',
+        'userEmail' => 'required|email',
+        'userMobileNumber' => 'required',
+        'userLicensePlate' => 'required',
+        'userBirthday' => 'required',
+    ];
+
     public function render()
     {
         $subscriptions = $this->getStoreProducts();
 
         $validateOrCreateUser = $this->validateOrCreateUser();
 
-        return view('livewire.checkout.particuliere-checkout', ['subscriptions' => $subscriptions, 'validateOrCreateUser' => $validateOrCreateUser]);
+        $addLicense = $this->addLicense();
+
+        return view('livewire.checkout.particuliere-checkout', ['subscriptions' => $subscriptions, 'validateOrCreateUser' => $validateOrCreateUser, 'addLicense' => $addLicense]);
     }
 
     public function addLicense()
     {
         $data = Http::post('https://walnutbackend.com/api/v1/store/dd62a60360b111eb883922000a5419dd/pass/',
-            ['userLicensePlate' => request()->userLicensePlate,]);
+            ['userLicensePlate' => $this->userLicensePlate]);
 
         return redirect()->back();
     }
 
     public function validateOrCreateUser()
     {
-        $response = Http::post('https://walnutbackend.com/api/v1/store/dd62a60360b111eb883922000a5419dd/pass/');
+        $response = Http::post('https://walnutbackend.com/api/v1/store/dd62a60360b111eb883922000a5419dd/pass/', [
+            'userName' => $this->userName,
+            'userEmail' => $this->userEmail,
+            'userMobileNumber' => $this->userMobileNumber,
+            'userLicensePlate' => $this->userLicensePlate,
+            'userBirthday' => $this->userBirthday,
+        ]);
 
         return $response->json();
     }
@@ -52,23 +77,6 @@ class ParticuliereCheckout extends Component
         return $collection->where('active', 'true');
     }
 
-    protected $messages = [
-        'userName.required' => 'Vul je naam in',
-        'userEmail.required' => 'Vul je email in',
-        'userEmail.email' => 'Vul een geldig email in',
-        'userMobileNumber.required' => 'Vul je telefoonnummer in',
-        'userLicensePlate.required' => 'Vul je kenteken in',
-        'userBirthday.required' => 'Vul je geboortedatum in',
-    ];
-
-    protected $rules = [
-        'userName' => 'required',
-        'userEmail' => 'required|email',
-        'userMobileNumber' => 'required',
-        'userLicensePlate' => 'required',
-        'userBirthday' => 'required',
-    ];
-
     public function submit()
     {
         $this->validate();
@@ -80,5 +88,6 @@ class ParticuliereCheckout extends Component
             'userLicensePlate' => $this->userLicensePlate,
             'userBirthday' => $this->userBirthday,
         ]);
+
     }
 }

@@ -21,9 +21,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-
-
-
 // particuliere checkout
 Route::get('/particulier', function () {
     return view('webshop/particulier');

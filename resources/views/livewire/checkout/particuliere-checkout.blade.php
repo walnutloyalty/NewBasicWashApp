@@ -1,6 +1,8 @@
 <x-app-layout>
     @section('title', 'Checkout')
-    <div x-data="{ step: 1 }" @step1.window="step = 1" @test.window="step = 2" @step3.window="step = 3" class="bg-white">
+    <div x-data="{ step: 1 }" @step1.window="step = 1" @step2.window="step = 2" @step3.window="step = 3"
+         @step4.window="step = 4"
+         class="bg-white">
         @livewireStyles
         <header class="relative border-b border-gray-200 bg-white text-sm font-medium text-gray-700">
             <div class="mx-auto max-w-7xl py-8 px-4 sm:px-6 lg:px-8">
@@ -10,7 +12,8 @@
                             <li class="flex items-center">
                                 <button type="button" @click="$dispatch('step1')" aria-current="page"
                                         :class="step === 1 && 'text-pink-600'">Abonnement
-                                    keuze</button>
+                                    keuze
+                                </button>
                                 <!-- Heroicon name: mini/chevron-right -->
                                 <svg class="ml-4 h-5 w-5 text-gray-300" aria-hidden="true"
                                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -20,9 +23,10 @@
                                 </svg>
                             </li>
                             <li class="flex items-center">
-                                <button type="button" @click="$dispatch('test')"
+                                <button type="button" @click="$dispatch('step2')"
                                         :class="step === 2 && 'text-pink-600'">Contact
-                                    informatie</button>
+                                    informatie
+                                </button>
                                 <!-- Heroicon name: mini/chevron-right -->
                                 <svg class="ml-4 h-5 w-5 text-gray-300" aria-hidden="true"
                                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -33,7 +37,20 @@
                             </li>
                             <li class="flex items-center">
                                 <button type="button" @click="$dispatch('step3')"
-                                        :class="step === 3 && 'text-pink-600'">Bevestigen</button>
+                                        :class="step === 3 && 'text-pink-600'">Kenteken
+                                </button>
+                                <!-- Heroicon name: mini/chevron-right -->
+                                <svg class="ml-4 h-5 w-5 text-gray-300" aria-hidden="true"
+                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                          d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                                          clip-rule="evenodd"/>
+                                </svg>
+                            </li>
+                            <li class="flex items-center">
+                                <button type="button" @click="$dispatch('step4')"
+                                        :class="step === 4 && 'text-pink-600'">Bevestigen
+                                </button>
                             </li>
                         </ol>
                     </div>
@@ -43,7 +60,9 @@
         </header>
         <main class="relative mx-auto grid max-w-7xl grid-cols-1 gap-x-16 lg:grid-cols-2 lg:px-8 xl:gap-x-48">
             <div x-show="step === 1">
-                <form class="px-4 pt-16 pb-36 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 lg:pb-16">
+                <form class="px-4 pt-16 pb-36 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 lg:pb-16"
+                      wire:submit.prevent="submit">
+                    @csrf
                     <div>
                         <div x-cloak x-data="{ open: false, selected: 'Kies een locatie' }">
                             <label id="listbox-label" class="block text-sm font-medium text-gray-700">Waar wil je
@@ -163,14 +182,16 @@
                                                class="relative block cursor-pointer rounded-lg border bg-white px-6 py-4 shadow-sm focus:outline-none sm:flex sm:justify-between"
                                                :class="choice === {{ json_encode($subscription['name']) }} ? 'border-pink-600 ring-2 ring-pink-600' : ''">
                                             <input type="radio" name="subscription" class="sr-only"
-                                                   aria-labelledby="server-size-0-label" value="{{ $subscription['_id'] }}"
+                                                   aria-labelledby="server-size-0-label"
+                                                   value="{{ $subscription['_id'] }}"
                                                    @click="$dispatch('update-subscription', { price: '€ {{ $subscription['price'] }}' , name: {{ json_encode($subscription['name']) }} }), $wire.save('update-subscription')"
                                                    aria-describedby="server-size-0-description-0 server-size-0-description-1">
                                             <span class="flex items-center">
                                                 <span class="flex flex-col text-sm">
                                                     <span id="server-size-0-label"
                                                           class="font-medium text-gray-900">{{ $subscription['name'] }}</span>
-                                                    <span id="server-size-0-description-0" class="text-gray-500 text-xs">
+                                                    <span id="server-size-0-description-0"
+                                                          class="text-gray-500 text-xs">
                                                         {{ $subscription['description'] }}
                                                     </span>
                                                 </span>
@@ -222,7 +243,8 @@
                                     class="relative w-full max-w-2xl overflow-y-auto rounded-xl bg-white p-12 shadow-lg"
                                 >
                                     <div>
-                                        <label for="voucher" class="block text-sm font-medium text-gray-700">Voucher</label>
+                                        <label for="voucher"
+                                               class="block text-sm font-medium text-gray-700">Voucher</label>
                                         <div class="mt-1">
                                             <input type="text" name="voucher" id="voucher"
                                                    class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-600 focus:ring-cyan-600 sm:text-sm">
@@ -244,32 +266,37 @@
                         </div>
                     </div>
                     <div class="mt-10 border-t border-gray-200 pt-6 sm:flex sm:items-center sm:justify-between">
-                        <button type="submit" @click="$wire.save('submit')"
-                           class="w-full rounded-md border border-transparent bg-pink-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:order-last sm:ml-6 sm:w-auto">Continue</button>
-                        <p class="mt-4 text-center text-sm text-gray-500 sm:mt-0 sm:text-left">Click here to finish your
-                            order.</p>
+                        <button type="button" @click="step = 2"
+                                class="w-full rounded-md border border-transparent bg-pink-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:order-last sm:ml-6 sm:w-auto">
+                            Continue
+                        </button>
+                        <p class="mt-4 text-center text-sm text-gray-500 sm:mt-0 sm:text-left">Click here to
+                            continue</p>
                     </div>
                 </form>
             </div>
             <div x-show="step === 2">
-                <form class="px-4 pt-16 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 lg:pb-10" wire:submit.prevent="submit" id="step2">
+                <form class="px-4 pt-16 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 lg:pb-10"
+                      wire:submit.prevent="submit" id="step2">
                     @csrf
                     <div class="mx-auto max-w-lg lg:max-w-none">
                         <section aria-labelledby="contact-info-heading">
                             <h2 id="contact-info-heading" class="text-lg font-medium text-gray-900">Contact
                                 information</h2>
                             <div class="mt-6">
-                                <label for="name" class="block text-sm font-medium text-gray-700">Naam</label>
+                                <label for="userName" class="block text-sm font-medium text-gray-700">Naam</label>
                                 <div class="mt-1">
-                                    <input type="text" id="name" name="name" value="{{ old('name') }}"
+                                    <input type="text" id="userName" name="userName" value="{{ old('userName') }}"
+                                           wire:model.defer="userName"
                                            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
                                     @error('name') <span class="text-red-500">{{ $message }}</span> @enderror
                                 </div>
                             </div>
                             <div class="mt-6">
-                                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                                <label for="userEmail" class="block text-sm font-medium text-gray-700">Email</label>
                                 <div class="mt-1">
-                                    <input type="email" id="email" name="email" value="{{ old('email') }}"
+                                    <input type="email" id="userEmail" name="userEmail" value="{{ old('userEmail') }}"
+                                           wire:model.defer="userEmail"
                                            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
                                     @error('email') <span class="text-red-500">{{ $message }}</span> @enderror
                                 </div>
@@ -279,29 +306,30 @@
                             <h2 id="shipping-heading" class="text-lg font-medium text-gray-900">Overige informatie</h2>
                             <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-3">
                                 <div class="sm:col-span-3">
-                                    <label for="telefoonnummer" class="block text-sm font-medium text-gray-700">Telefoonnummer</label>
+                                    <label for="userPhone" class="block text-sm font-medium text-gray-700">Telefoonnummer</label>
                                     <div class="mt-1">
-                                        <input type="text" id="telefoonnummer" name="phone" value="{{ old('phone') }}"
+                                        <input type="text" id="userPhone" name="userPhone"
+                                               value="{{ old('userPhone') }}" wire:model.defer="userPhone"
                                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
                                         @error('phone') <span class="text-red-500">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
                                 <div>
-                                    <label for="postal-code"
+                                    <label for="userPostalCode"
                                            class="block text-sm font-medium text-gray-700">Postcode</label>
                                     <div class="mt-1">
-                                        <input type="text" id="postal-code" name="postalCode"
-                                               value="{{ old('postalCode') }}"
+                                        <input type="text" id="userPostalCode" name="userPostalCode"
+                                               value="{{ old('userPostalCode') }}" wire:model.defer="userPostalCode"
                                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
                                         @error('postalCode') <span class="text-red-500">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
                                 <div>
-                                    <label for="huisnummer"
+                                    <label for="userHouseNumber"
                                            class="block text-sm font-medium text-gray-700">Huisnummer</label>
                                     <div class="mt-1">
-                                        <input type="text" id="huisnummer" name="houseNumber"
-                                               value="{{ old('houseNumber') }}"
+                                        <input type="text" id="userHouseNumber" name="userHouseNumber"
+                                               value="{{ old('userHouseNumber') }}" wire:model.defer="userHouseNumber"
                                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
                                         @error('houseNumber') <span class="text-red-500">{{ $message }}</span> @enderror
                                     </div>
@@ -309,58 +337,9 @@
                             </div>
                         </section>
                     </div>
-                    <div class="mt-4">
-                        <div class="contents">
-                            <label for="kenteken"
-                                   class="block text-sm font-medium text-gray-700">Kenteken</label>
-                            <div class="mt-1 mb-4">
-                                <input type="text" id="kenteken" name="kenteken" placeholder="XX-XX-XX"
-                                       class="block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm">
-                                @error('kenteken') <span class="text-red-500">{{ $message }}</span> @enderror
-                            </div>
-                            <button wire:click="addLicense" class="text-pink-600 cursor-pointer">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                     fill="currentColor"
-                                     class="w-5 h-5 inline">
-                                    <path
-                                        d="M10.75 6.75a.75.75 0 00-1.5 0v2.5h-2.5a.75.75 0 000 1.5h2.5v2.5a.75.75 0 001.5 0v-2.5h2.5a.75.75 0 000-1.5h-2.5v-2.5z"/>
-                                </svg>
-                                Voeg kenteken toe
-                            </button>
-                        </div>
-                    </div>
                 </form>
-                <ul role="list">
-                    <h3 class="text-pink-600 mt-8">Al uw toegevoegde kentekens</h3>
-                    @if(is_array($validateOrCreateUser) || is_object($validateOrCreateUser))
-                        @foreach($validateOrCreateUser as $user)
-                            @if(isset($user))
-                                <li class="flex py-2 my-4">
-                                    <div class="ml-3">
-                                        <p class="text-sm font-medium text-gray-900">{{ $user['userLicensePlate'] ?? ''}}</p>
-                                    </div>
-                                    <form method="POST" action="{{ route('particuliere-delete-kenteken') }}"
-                                          id="delete-kenteken">
-                                        @csrf
-                                        <input type="text" class="sr-only" name="userIdentifier"
-                                               value="{{ $user['userIdentifier'] ?? ''}}">
-                                        <button type="submit"
-                                                onclick="event.preventDefault();document.getElementById('delete-kenteken').submit();">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                 fill="currentColor" class="w-5 h-5 ml-6 text-red-600">
-                                                <path fill-rule="evenodd"
-                                                      d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z"
-                                                      clip-rule="evenodd"/>
-                                            </svg>
-                                        </button>
-                                    </form>
-                                </li>
-                            @endif
-                        @endforeach
-                    @endif
-                </ul>
                 <div class="mt-10 border-t border-gray-200 pt-6 sm:flex sm:justify-between mb-6">
-                    <button type="submit" onclick="event.preventDefault();document.getElementById('step2').submit();"
+                    <button type="button" @click="step = 3"
                             class="h-9 w-full rounded-md border border-transparent bg-pink-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:order-last sm:ml-6 sm:w-auto">
                         Continue
                     </button>
@@ -368,15 +347,76 @@
                         step.</p>
                 </div>
             </div>
-            <div x-show="step === 3" class="mt-10 pt-6 mb-6">
-                <p> By placing this order you declare to accept the terms and our privacy regulation.
-                </p>
-                    <button type="submit"
-                            class="h-9 w-96 rounded-md border border-transparent bg-pink-600 py-2 px-4 mt-6 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:order-last sm:ml-6">
-                        Finish transaction
-                    </button>
+            <div x-show="step === 3" class="mt-6">
+                <div class="mx-auto max-w-lg">
+                    <div>
+                        <div class="text-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-auto h-12 w-12">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                            </svg>
+                            <h2 class="mt-2 text-lg font-medium text-gray-900">Voeg je kenteken(s) toe</h2>
+                        </div>
+                        <form action="#" class="mt-6 flex">
+                            <label for="userLicensePlate" class="sr-only">License plate</label>
+                            <input type="text" name="userLicensePlate" id="userLicensePlate"
+                                   class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                                   placeholder="Enter an license plate">
+                            @error('kenteken') <span class="text-red-500">{{ $message }}</span> @enderror
+                            <button type="submit" wire:model.defer="userLicensePlate"
+                                    class="ml-4 flex-shrink-0 rounded-full border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                     stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="mt-10">
+                        <h3 class="text-sm font-medium text-gray-500">Je toegevoegde kenteken(s)</h3>
+                        <ul role="list" class="mt-4 divide-y divide-gray-200 border-t border-b border-gray-200">
+                            @if(is_array($validateOrCreateUser) || is_object($validateOrCreateUser))
+                                @foreach($validateOrCreateUser as $user)
+                                    @if(isset($user['userLicensePlate']))
+                                        <li class="flex items-center justify-between space-x-3 py-4">
+                                            <div class="flex min-w-0 flex-1 items-center space-x-3">
+                                                <div class="min-w-0 flex-1">
+                                                    <p class="truncate text-sm font-medium text-gray-900">Lindsay
+                                                        Walton</p>
+                                                </div>
+                                            </div>
+                                            <div class="flex-shrink-0">
+                                                <button type="button"
+                                                        class="inline-flex items-center rounded-full border border-transparent bg-red-500 py-2 px-3 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+                                                    <!-- Heroicon name: mini/plus -->
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                         fill="currentColor" class="w-5 h-5 text-white mr-2">
+                                                        <path fill-rule="evenodd"
+                                                              d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z"
+                                                              clip-rule="evenodd"/>
+                                                    </svg>
+
+                                                    <span class="text-sm font-medium text-white"> Delete <span
+                                                            class="sr-only">Lindsay Walton</span> </span>
+                                                </button>
+                                            </div>
+                                        </li>
+                                    @endif
+                                @endforeach
+                            @endif
+                        </ul>
+                    </div>
+                </div>
+
             </div>
-            <livewire:mandje />
+{{--            <div x-show="step === 4" class="mt-10 pt-6 mb-6">--}}
+{{--                <p> By placing this order you declare to accept the terms and our privacy regulation.--}}
+{{--                </p>--}}
+{{--                <button type="submit"--}}
+{{--                        class="h-9 w-96 rounded-md border border-transparent bg-pink-600 py-2 px-4 mt-6 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:order-last sm:ml-6">--}}
+{{--                    Finish transaction--}}
+{{--                </button>--}}
+{{--            </div>--}}
+            <livewire:mandje/>
         </main>
     </div>
     @livewireScripts
