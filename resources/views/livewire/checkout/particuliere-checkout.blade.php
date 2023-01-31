@@ -347,7 +347,7 @@
                         step.</p>
                 </div>
             </div>
-            <div x-show="step === 3" class="mt-6">
+            <div x-show="step === 3" class="pt-16">
                 <div class="mx-auto max-w-lg">
                     <div>
                         <div class="text-center">
@@ -406,7 +406,6 @@
                         </ul>
                     </div>
                 </div>
-
             </div>
 {{--            <div x-show="step === 4" class="mt-10 pt-6 mb-6">--}}
 {{--                <p> By placing this order you declare to accept the terms and our privacy regulation.--}}
@@ -416,7 +415,7 @@
 {{--                    Finish transaction--}}
 {{--                </button>--}}
 {{--            </div>--}}
-            <livewire:mandje/>
+            <livewire:summary/>
         </main>
     </div>
     @livewireScripts

@@ -3,6 +3,7 @@
 use App\Http\Livewire\ParticuliereCheckout;
 use App\Http\Livewire\ParticuliereCheckoutStep2;
 use App\Http\Livewire\ParticuliereCheckoutStep3;
+use App\Http\Livewire\ZakelijkeCheckout;
 use App\Http\Livewire\ZakelijkeCheckoutStep2;
 use Illuminate\Support\Facades\Route;
 
@@ -33,23 +34,7 @@ Route::get('/zakelijk', function () {
     return view('webshop/zakelijk');
 })->name('zakelijk');
 
-Route::get('/checkout/zakelijk/step1', function () {
-    return view('livewire/checkout/zakelijke-checkout-step1');
-})->name('zakelijke-checkout-step1');
-
-Route::get('/checkout/zakelijk/step2', [ZakelijkeCheckoutStep2::class, 'render'])->name('zakelijke-checkout-step2');
-
-Route::get('/test', [ParticuliereCheckout::class, 'render'])->name('test');
-
-Route::post('/checkout/zakelijk/step2/filled', [ZakelijkeCheckoutStep2::class, 'submitStep1'])->name('zakelijke-checkout-step2-filled');
-
-Route::post('/checkout/zakelijk/step2/kenteken-toevoegen', [ZakelijkeCheckoutStep2::class, 'addKenteken'])->name('zakelijke-add-kenteken');
-
-Route::post('/checkout/zakelijk/step2/kenteken-delete', [ZakelijkeCheckoutStep2::class, 'deleteKenteken'])->name('zakelijke-delete-kenteken');
-
-Route::get('/checkout/zakelijk/step3', function () {
-    return view('webshop/checkout/zakelijke-checkout-step3');
-})->name('zakelijke-checkout-step3');
+Route::get('/checkout/zakelijk/', [ZakelijkeCheckout::class, 'render'])->name('zakelijke-checkout');
 
 // alle locaties
 Route::get('/locaties', function () {
