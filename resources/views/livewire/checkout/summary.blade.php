@@ -15,7 +15,7 @@
 
             <dl class="hidden space-y-6 border-t border-gray-200 pt-6 text-sm font-medium text-gray-900 lg:block">
                 <div class="flex items-center justify-between pt-6">
-                    <dt class="text-base">test</dt>
+                    <dt class="text-base">Total</dt>
                     <dd class="text-base" x-text="price"></dd>
                 </div>
             </dl>
@@ -27,7 +27,7 @@
                                 class="flex w-full items-center py-6 font-medium"
                                 aria-expanded="false">
                             <span class="mr-auto text-base">Total</span>
-                            <span class="mr-2 text-base">$361.80</span>
+                            <span class="mr-2 text-base" x-text="price"></span>
                             <!-- Heroicon name: mini/chevron-up -->
                             <svg class="h-5 w-5 text-gray-500" xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -43,8 +43,8 @@
                     <div class="relative bg-white px-4 py-6 sm:px-6">
                         <dl class="mx-auto max-w-lg space-y-6">
                             <div class="flex items-center justify-between">
-                                <dt class="text-gray-600">Taxes</dt>
-                                <dd>$26.80</dd>
+                                <dt class="text-gray-600" x-text="subscription"></dt>
+                                <dd x-text="price"></dd>
                             </div>
                         </dl>
                     </div>

@@ -8,7 +8,7 @@
             <div class="mx-auto max-w-7xl py-8 px-4 sm:px-6 lg:px-8">
                 <div class="relative flex justify-end sm:justify-center">
                     <div aria-label="Progress" class="sm:block">
-                        <ol role="list" class="flex space-x-4 mr-12">
+                        <ol role="list" class="flex space-x-1">
                             <li class="flex items-center">
                                 <button type="button" @click="$dispatch('step1')" aria-current="page"
                                         :class="step === 1 && 'text-pink-600'">Abonnement
