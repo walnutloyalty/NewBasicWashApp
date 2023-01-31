@@ -3,7 +3,7 @@
     <section aria-labelledby="summary-heading"
              class="bg-gray-50 px-4 pt-16 pb-10 sm:px-6 lg:col-start-2 lg:row-start-1 lg:bg-transparent lg:px-0 lg:pb-16">
         <div x-cloak x-data="{ total: false, price: '', subscription: '' }" @update-subscription.window="price = $event.detail.price, subscription = $event.detail.name" class="mx-auto max-w-lg lg:max-w-none">
-            <h2 id="summary-heading" class="text-lg font-medium text-gray-900">Jouw mandje</h2>
+            <h2 id="summary-heading" class="text-lg font-medium text-gray-900 hidden sm:block">Jouw mandje</h2>
             <ul role="list" class="divide-y divide-gray-200 text-sm font-medium text-gray-900">
                 <li class="flex items-start space-x-4 py-6">
                     <div class="flex-auto space-y-1">
