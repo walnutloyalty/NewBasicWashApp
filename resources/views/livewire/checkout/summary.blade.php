@@ -15,7 +15,7 @@
 
             <dl class="hidden space-y-6 border-t border-gray-200 pt-6 text-sm font-medium text-gray-900 lg:block">
                 <div class="flex items-center justify-between pt-6">
-                    <dt class="text-base">Total</dt>
+                    <dt class="text-base">test</dt>
                     <dd class="text-base" x-text="price"></dd>
                 </div>
             </dl>
