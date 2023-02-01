@@ -107,7 +107,11 @@
                         <fieldset>
                             <legend class="sr-only">Subscription type</legend>
                             <h2 class="block text-sm font-medium text-gray-700">Kies hier je lidmaatschap</h2>
-                            <div x-cloak x-data="{ choice: '' }" class="space-y-4 mt-1 max-h-72 overflow-y-auto p-1.5">
+                            <div x-cloak x-data="{ choice: '' }"
+                                 @premium-plus.window="choice = Jaarabonnement Premium Plus BW"
+                                 @premium.window="choice = Jaarabonnement Premium BW" @gold.window="choice = Jaarabonnement Gold BW"
+                                 @basic.window="choice = Jaarabonnement Basic BW"
+                                 class="space-y-4 mt-1 max-h-72 overflow-y-auto p-1.5">
                                 @foreach($subscriptions as $subscription)
                                     <div>
                                         <label @click="choice = {{ json_encode($subscription['name']) }}"
@@ -318,7 +322,8 @@
                             accept <a
                                 href="https://www.basicwash.nl/wp-content/uploads/2021/08/Algemene-voorwaarden-Berkman-Carwash-BV.pdf"
                                 target="_blank" class="underline text-cyan-600 font-bold">terms</a> and our <a
-                                href="https://www.walnutloyalty.com/nl/privacy/" class="underline text-cyan-600 font-bold">privacy regulation</a></label>
+                                href="https://www.walnutloyalty.com/nl/privacy/"
+                                class="underline text-cyan-600 font-bold">privacy regulation</a></label>
                     </div>
                 </div>
                 <button type="submit"
