@@ -56,8 +56,9 @@
                 </div>
             </div>
         </header>
-        <main class="relative mx-auto grid max-w-7xl grid-cols-1 gap-x-16 lg:grid-cols-2 lg:px-8 xl:gap-x-48">
-            <div x-show="step === 1">
+        <main>
+            <div x-show="step === 1"
+                 class="relative mx-auto grid max-w-7xl grid-cols-1 gap-x-16 lg:grid-cols-2 lg:px-8 xl:gap-x-48">
                 <form class="px-4 pt-16 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 lg:pb-10"
                       wire:submit.prevent="submit" id="step2">
                     @csrf
@@ -86,8 +87,9 @@
                         </section>
                     </div>
                 </form>
-                <div class="mt-10 border-t border-gray-200 pt-6 sm:flex sm:justify-between mb-6">
-                    <button type="button" @click="step = 3"
+                <livewire:summary/>
+                <div class="mt-10 border-t border-gray-200 pt-6 sm:flex sm:justify-between">
+                    <button type="button" @click="step = 2"
                             class="h-9 w-full rounded-md border border-transparent bg-pink-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:order-last sm:ml-6 sm:w-auto">
                         Continue
                     </button>
@@ -95,8 +97,8 @@
                         step.</p>
                 </div>
             </div>
-
-            <div x-show="step === 2">
+            <div x-show="step === 2"
+                 class="relative mx-auto grid max-w-7xl grid-cols-1 gap-x-16 lg:grid-cols-2 lg:px-8 xl:gap-x-48">
                 <form class="px-4 pt-16 pb-36 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 lg:pb-16"
                       wire:submit.prevent="submit">
                     @csrf
@@ -196,7 +198,7 @@
                         </div>
                     </div>
                     <div class="mt-10 border-t border-gray-200 pt-6 sm:flex sm:items-center sm:justify-between">
-                        <button type="button" @click="step = 2"
+                        <button type="button" @click="step = 3"
                                 class="w-full rounded-md border border-transparent bg-pink-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:order-last sm:ml-6 sm:w-auto">
                             Continue
                         </button>
@@ -204,8 +206,10 @@
                             continue</p>
                     </div>
                 </form>
+                <livewire:summary/>
             </div>
-            <div x-show="step === 3" class="pt-16">
+            <div x-show="step === 3"
+                 class="pt-16 relative mx-auto grid max-w-7xl grid-cols-1 gap-x-16 lg:grid-cols-2 lg:px-8 xl:gap-x-48">
                 <div class="mx-auto max-w-lg">
                     <div>
                         <div class="text-center">
@@ -254,7 +258,6 @@
                                                               d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z"
                                                               clip-rule="evenodd"/>
                                                     </svg>
-
                                                     <span class="text-sm font-medium text-white"> Delete <span
                                                             class="sr-only">Lindsay Walton</span> </span>
                                                 </button>
@@ -301,16 +304,28 @@
                         </div>
                     </section>
                 </div>
+                <livewire:summary/>
             </div>
-            {{--            <div x-show="step === 4" class="mt-10 pt-6 mb-6">--}}
-            {{--                <p> By placing this order you declare to accept the terms and our privacy regulation.--}}
-            {{--                </p>--}}
-            {{--                <button type="submit"--}}
-            {{--                        class="h-9 w-96 rounded-md border border-transparent bg-pink-600 py-2 px-4 mt-6 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:order-last sm:ml-6">--}}
-            {{--                    Finish transaction--}}
-            {{--                </button>--}}
-            {{--            </div>--}}
-            <livewire:summary/>
+            <div x-show="step === 4" class="relative mx-auto max-w-xl lg:px-8">
+                <livewire:summary/>
+                <div class="relative flex items-start">
+                    <div class="flex h-5 items-center">
+                        <input id="terms" name="terms" type="checkbox"
+                               class="h-4 w-4 rounded border-gray-300 text-cyan-600 focus:ring-cyan-500">
+                    </div>
+                    <div class="ml-3 text-sm">
+                        <label for="terms" class="font-medium text-gray-700">By placing this order you declare to
+                            accept <a
+                                href="https://www.basicwash.nl/wp-content/uploads/2021/08/Algemene-voorwaarden-Berkman-Carwash-BV.pdf"
+                                target="_blank" class="underline text-cyan-600 font-bold">terms</a> and our <a
+                                href="https://www.walnutloyalty.com/nl/privacy/" class="underline text-cyan-600 font-bold">privacy regulation</a></label>
+                    </div>
+                </div>
+                <button type="submit"
+                        class="h-9 w-96 rounded-md border border-transparent bg-pink-600 py-2 mx-20 px-4 mt-6 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:order-last">
+                    Finish transaction
+                </button>
+            </div>
         </main>
     </div>
     @livewireScripts

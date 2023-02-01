@@ -56,8 +56,9 @@
                     </div>
                 </div>
             </header>
-            <main class="relative mx-auto grid max-w-7xl grid-cols-1 gap-x-16 lg:grid-cols-2 lg:px-8 xl:gap-x-48">
-                <div x-show="step === 1">
+            <main>
+                <div x-show="step === 1"
+                     class="relative mx-auto grid max-w-7xl grid-cols-1 gap-x-16 lg:grid-cols-2 lg:px-8 xl:gap-x-48">
                     <form class="px-4 pt-16 pb-36 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 lg:pb-16"
                           action="#"
                           method="POST" id="step1">
@@ -83,6 +84,7 @@
                             </section>
                         </div>
                     </form>
+                    <livewire:summary/>
                     <div class="mt-10 border-t border-gray-200 pt-6 sm:flex sm:justify-between mb-6">
                         <button type="submit"
                                 onclick="event.preventDefault();document.getElementById('step1').submit();"
@@ -93,7 +95,8 @@
                             step.</p>
                     </div>
                 </div>
-                <div x-show="step === 2">
+                <div x-show="step === 2"
+                     class="relative mx-auto grid max-w-7xl grid-cols-1 gap-x-16 lg:grid-cols-2 lg:px-8 xl:gap-x-48">
                     <form class="px-4 pt-16 pb-36 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 lg:pb-16"
                           wire:submit.prevent="submit">
                         @csrf
@@ -203,8 +206,10 @@
                                 continue</p>
                         </div>
                     </form>
+                    <livewire:summary/>
                 </div>
-                <div x-show="step === 3" class="pt-16">
+                <div x-show="step === 3"
+                     class="relative mx-auto grid max-w-7xl grid-cols-1 gap-x-16 lg:grid-cols-2 lg:px-8 xl:gap-x-48">
                     <div class="mx-auto max-w-lg">
                         <div>
                             <div class="text-center">
@@ -371,8 +376,28 @@
                             </section>
                         </div>
                     </div>
+                    <livewire:summary/>
                 </div>
-                <livewire:summary/>
+                <div x-show="step === 4" class="relative mx-auto max-w-xl lg:px-8">
+                    <livewire:summary/>
+                    <div class="relative flex items-start">
+                        <div class="flex h-5 items-center">
+                            <input id="terms" name="terms" type="checkbox"
+                                   class="h-4 w-4 rounded border-gray-300 text-cyan-600 focus:ring-cyan-500">
+                        </div>
+                        <div class="ml-3 text-sm">
+                            <label for="terms" class="font-medium text-gray-700">By placing this order you declare to
+                                accept <a
+                                    href="https://www.basicwash.nl/wp-content/uploads/2021/08/Algemene-voorwaarden-Berkman-Carwash-BV.pdf"
+                                    target="_blank" class="underline text-cyan-600 font-bold">terms</a> and our <a
+                                    href="https://www.walnutloyalty.com/nl/privacy/" class="underline text-cyan-600 font-bold">privacy regulation</a></label>
+                        </div>
+                    </div>
+                    <button type="submit"
+                            class="h-9 w-96 rounded-md border border-transparent bg-pink-600 py-2 mx-20 px-4 mt-6 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:order-last">
+                        Finish transaction
+                    </button>
+                </div>
             </main>
         </div>
     </div>
