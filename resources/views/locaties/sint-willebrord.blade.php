@@ -37,7 +37,7 @@
                                 <p class="mt-3 text-base text-gray-500"> Poppestraat 120, Sint Willebrord
                                 </p>
                                 <p class="mt-3 text-base text-gray-500 ">
-                                    <?= $check ?> Washhoogte - 240cm
+                                    <?= $check ?> Washoogte - 240cm
                                     <?= $check ?> Wasbreedte - 238cm
                                     <?= $check ?> HD boxen
                                     <?= $check ?> Bandenpomp
@@ -51,7 +51,7 @@
                 </div>
                 <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
                     <div class="flex-shrink-0">
-                        <img class="w-full object-cover"
+                        <img class="w-full h-[16.5rem] object-cover"
                              src="{{ asset('media/images/basic-wash-sint-willebrord.webp') }}"
                              alt="BasicWash">
                     </div>
@@ -60,6 +60,11 @@
                     <div class="w-full h-full" id="map">
                     </div>
                 </div>
+            </div>
+            <div class="text-center mt-16">
+                <a href="{{ route('particulier') }}" class="font-bold text-lg text-white bg-pink-600 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm px-8 py-5 inline-flex items-center">
+                    Ik wil een abonnement afsluiten
+                </a>
             </div>
         </div>
     </div>
@@ -85,8 +90,6 @@
                 map,
                 icon: image,
             })
-
-
         }
 
         window.initMap = initMap;

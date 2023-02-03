@@ -76,7 +76,7 @@
                                         <p class="mt-3 text-base text-gray-500"> Minervum 7001-C, 4817 ZJ Breda
                                         </p>
                                         <p class="mt-3 text-base text-gray-500 ">
-                                            <?= $check ?> Washhoogte - 290cm
+                                            <?= $check ?> Washoogte - 290cm
                                             <?= $check ?> Wasbreedte - 258cm
                                             <?= $check ?> Bandenpomp
                                             <?= $check ?> Stofzuigers
@@ -111,7 +111,7 @@
                                         <p class="mt-3 text-base text-gray-500"> Rijksstraatweg 65, Hellevoetsluis
                                         </p>
                                         <p class="mt-3 text-base text-gray-500 ">
-                                            <?= $check ?> Washhoogte - 260cm
+                                            <?= $check ?> Washoogte - 260cm
                                             <?= $check ?> Wasbreedte - 238cm
                                             <?= $check ?> HD boxen
                                             <?= $check ?> Stofzuigers
@@ -165,7 +165,7 @@
                                         <p class="mt-3 text-base text-gray-500"> Poppestraat 120, Sint Willebrord
                                         </p>
                                         <p class="mt-3 text-base text-gray-500 ">
-                                            <?= $check ?> Washhoogte - 240cm
+                                            <?= $check ?> Washoogte - 240cm
                                             <?= $check ?> Wasbreedte - 238cm
                                             <?= $check ?> HD boxen
                                             <?= $check ?> Bandenpomp
@@ -199,7 +199,7 @@
                                         <p class="mt-3 text-base text-gray-500"> Zeggelaan 200, Terheijden
                                         </p>
                                         <p class="mt-3 text-base text-gray-500 ">
-                                            <?= $check ?> Washhoogte - 260cm
+                                            <?= $check ?> Washoogte - 260cm
                                             <?= $check ?> Wasbreedte - 238cm
                                             <?= $check ?> Bandenpomp
                                             <?= $check ?> Tankstation</p>
@@ -251,7 +251,7 @@
                                         <p class="mt-3 text-base text-gray-500"> Molenstraat 1A, Ulvenhout
                                         </p>
                                         <p class="mt-3 text-base text-gray-500 ">
-                                            <?= $check ?> Washhoogte - 260cm
+                                            <?= $check ?> Washoogte - 260cm
                                             <?= $check ?> Wasbreedte - 238cm
                                             <?= $check ?> Bandenpomp
                                             <?= $check ?> Tankstation</p>
@@ -280,7 +280,7 @@
                                         <p class="text-black mt-2 font-extrabold text-2xl">In aanbouw (verwacht Q1
                                             2023)</p>
                                         <p class="mt-3 text-base text-gray-500 ">
-                                            <?= $check ?> Washhoogte - 260cm
+                                            <?= $check ?> Washoogte - 260cm
                                             <?= $check ?> Wasbreedte - 258cm
                                             <?= $check ?> HD boxen</p>
                                     </div>
@@ -315,7 +315,7 @@
                                         <p class="text-black mt-2 font-extrabold text-2xl">In aanbouw (verwacht Q1
                                             2023)</p>
                                         <p class="mt-3 text-base text-gray-500 ">
-                                            <?= $check ?> Washhoogte - 290cm
+                                            <?= $check ?> Washoogte - 290cm
                                             <?= $check ?> Wasbreedte - 258cm</p>
                                     </div>
                                 </div>
@@ -341,7 +341,7 @@
                                         <p class="text-black mt-2 font-extrabold text-2xl">In aanbouw (verwacht Q2
                                             2023)</p>
                                         <p class="mt-3 text-base text-gray-500 ">
-                                            <?= $check ?> Washhoogte - 250cm
+                                            <?= $check ?> Washoogte - 250cm
                                             <?= $check ?> Wasbreedte - 258cm</p>
                                     </div>
                                 </div>
@@ -376,7 +376,7 @@
                                             2023)</p>
                                         <p class="mt-3 text-base text-gray-500 ">
                                             <?= $check ?> 2 Carwashes
-                                            <?= $check ?> Washhoogte - 290cm
+                                            <?= $check ?> Washoogte - 290cm
                                             <?= $check ?> Wasbreedte - 258cm
                                             <?= $check ?> HD Boxen</p>
                                     </div>
@@ -403,7 +403,7 @@
                                         <p class="text-black mt-2 font-extrabold text-2xl">In aanbouw (verwacht Q1
                                             2023)</p>
                                         <p class="mt-3 text-base text-gray-500 ">
-                                            <?= $check ?> Washhoogte - 260cm
+                                            <?= $check ?> Washoogte - 260cm
                                             <?= $check ?> Wasbreedte - 245cm</p>
                                     </div>
                                 </div>
@@ -437,7 +437,7 @@
                                         <p class="text-black mt-2 font-extrabold text-2xl">In aanbouw (verwacht Q1
                                             2023)</p>
                                         <p class="mt-3 text-base text-gray-500 ">
-                                            <?= $check ?> Washhoogte - 250cm
+                                            <?= $check ?> Washoogte - 250cm
                                             <?= $check ?> Wasbreedte - 238cm
                                             <?= $check ?> HD Boxen
                                             <?= $check ?> Stofzuigers
@@ -458,7 +458,6 @@
                     zoom: 9,
                     center: {lat: 51.73101662934484, lng: 4.40816061152588},
                 });
-
 
                 setMarkers(map);
                 setMarkersNewCarWashes(map);
@@ -603,7 +602,6 @@
                     map,
                     icon: image,
                 })
-
             }
 
             function terheijden() {
@@ -628,7 +626,6 @@
                     map,
                     icon: image,
                 })
-
             }
 
             function ulvenhout() {
@@ -653,7 +650,6 @@
                     map,
                     icon: image,
                 })
-
             }
 
             function oosterhout() {
@@ -678,7 +674,6 @@
                     map,
                     icon: image,
                 })
-
             }
 
             function hoek_van_holland() {
@@ -703,7 +698,6 @@
                     map,
                     icon: image,
                 })
-
             }
 
             function zevenbergen() {
@@ -728,7 +722,6 @@
                     map,
                     icon: image,
                 })
-
             }
 
             function hellevoetsluisII() {
@@ -753,7 +746,6 @@
                     map,
                     icon: image,
                 })
-
             }
 
             function roosendaal() {
@@ -778,7 +770,6 @@
                     map,
                     icon: image,
                 })
-
             }
 
             function barendrecht() {
@@ -803,7 +794,6 @@
                     map,
                     icon: image,
                 })
-
             }
 
             function initialize() {

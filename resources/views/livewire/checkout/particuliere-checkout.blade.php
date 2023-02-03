@@ -55,6 +55,11 @@
                     {{--                    <p class="sm:hidden">Step 2 of 4</p>--}}
                 </div>
             </div>
+            @section('1car', '1 car = 0% sale')
+            @section('2cars', '2 cars = 10% sale')
+            @section('3cars', '3 cars = 10% sale')
+            @section('4cars', '4 cars = 10% sale')
+            @section('5cars', '5 or more cars = 20% sale')
         </header>
         <main>
             <div x-show="step === 1"
@@ -108,9 +113,6 @@
                             <legend class="sr-only">Subscription type</legend>
                             <h2 class="block text-sm font-medium text-gray-700">Kies hier je lidmaatschap</h2>
                             <div x-cloak x-data="{ choice: '' }"
-                                 @premium-plus.window="choice = Jaarabonnement Premium Plus BW"
-                                 @premium.window="choice = Jaarabonnement Premium BW" @gold.window="choice = Jaarabonnement Gold BW"
-                                 @basic.window="choice = Jaarabonnement Basic BW"
                                  class="space-y-4 mt-1 max-h-72 overflow-y-auto p-1.5">
                                 @foreach($subscriptions as $subscription)
                                     <div>

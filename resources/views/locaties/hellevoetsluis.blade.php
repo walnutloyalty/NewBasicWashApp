@@ -35,7 +35,7 @@
                                 <p class="mt-3 text-base text-gray-500"> Rijksstraatweg 65, Hellevoetsluis
                                 </p>
                                 <p class="mt-3 text-base text-gray-500 ">
-                                    <?= $check ?> Washhoogte - 260cm
+                                    <?= $check ?> Washoogte - 260cm
                                     <?= $check ?> Wasbreedte - 238cm
                                     <?= $check ?> HD boxen
                                     <?= $check ?> Stofzuigers
@@ -57,6 +57,11 @@
                     </div>
                 </div>
             </div>
+            <div class="text-center mt-16">
+                <a href="{{ route('particulier') }}" class="font-bold text-lg text-white bg-pink-600 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm px-8 py-5 inline-flex items-center">
+                    Ik wil een abonnement afsluiten
+                </a>
+            </div>
         </div>
     </div>
     <script>
@@ -76,12 +81,12 @@
                 url: "{{ asset('media/images/basic-wash-locaties.png') }}",
                 scaledSize: new google.maps.Size(50, 60),
             };
+
             const hellevoetsluisMarker = new google.maps.Marker({
                 position: {lat: 51.83868411454844, lng: 4.134269020748435},
                 map,
                 icon: image,
             })
-
         }
 
         window.initMap = initMap;

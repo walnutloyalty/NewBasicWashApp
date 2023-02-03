@@ -4,7 +4,14 @@
              class="bg-gray-50 px-4 pt-16 pb-10 sm:px-6 lg:col-start-2 lg:row-start-1 lg:bg-transparent lg:px-0 lg:pb-16">
         <div x-cloak x-data="{ total: false, price: '', subscription: '' }" @update-subscription.window="price = $event.detail.price, subscription = $event.detail.name" class="mx-auto max-w-lg lg:max-w-none">
             <h2 id="summary-heading" class="text-lg font-medium text-gray-900 hidden sm:block">Jouw mandje</h2>
-            <ul role="list" class="divide-y divide-gray-200 text-sm font-medium text-gray-900">
+            <ul role="list" class="text-sm font-medium text-gray-900">
+                <li class="py-6 text-end">
+                    <p class="text-base font-medium">@yield('1car')</p>
+                    <p class="text-base font-medium mt-1">@yield('2cars')</p>
+                    <p class="text-base font-medium mt-1">@yield('3cars')</p>
+                    <p class="text-base font-medium mt-1">@yield('4cars')</p>
+                    <p class="text-base font-medium mt-1">@yield('5cars')</p>
+                </li>
                 <li class="flex items-start space-x-4 py-6">
                     <div class="flex-auto space-y-1">
                         <h3 x-text="subscription"></h3>

@@ -55,6 +55,11 @@
                         {{--                                        <p class="sm:hidden">Step 2 of 4</p>--}}
                     </div>
                 </div>
+                @section('1car', '1 car = 0% sale')
+                @section('2cars', '2 cars = 2% sale')
+                @section('3cars', '3 cars = 3% sale')
+                @section('4cars', '4 cars = 4% sale')
+                @section('5cars', '5 or more cars = 5% sale')
             </header>
             <main>
                 <div x-show="step === 1"

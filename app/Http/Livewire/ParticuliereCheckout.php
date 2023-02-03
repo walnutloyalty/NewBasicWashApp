@@ -12,7 +12,6 @@ class ParticuliereCheckout extends Component
     public $userEmail;
     public $userMobileNumber;
     public $userLicensePlate;
-    public $userBirthday;
 
     protected $messages = [
         'userName.required' => 'Vul je naam in',
@@ -20,7 +19,6 @@ class ParticuliereCheckout extends Component
         'userEmail.email' => 'Vul een geldig email in',
         'userMobileNumber.required' => 'Vul je telefoonnummer in',
         'userLicensePlate.required' => 'Vul je kenteken in',
-        'userBirthday.required' => 'Vul je geboortedatum in',
     ];
 
     protected $rules = [
@@ -28,7 +26,6 @@ class ParticuliereCheckout extends Component
         'userEmail' => 'required|email',
         'userMobileNumber' => 'required',
         'userLicensePlate' => 'required',
-        'userBirthday' => 'required',
     ];
 
     public function render()
@@ -57,7 +54,6 @@ class ParticuliereCheckout extends Component
             'userEmail' => $this->userEmail,
             'userMobileNumber' => $this->userMobileNumber,
             'userLicensePlate' => $this->userLicensePlate,
-            'userBirthday' => $this->userBirthday,
         ]);
 
         return $response->json();
@@ -86,7 +82,6 @@ class ParticuliereCheckout extends Component
             'userEmail' => $this->userEmail,
             'userMobileNumber' => $this->userMobileNumber,
             'userLicensePlate' => $this->userLicensePlate,
-            'userBirthday' => $this->userBirthday,
         ]);
 
     }
