@@ -1,8 +1,7 @@
 <div class="bg-gray-50">
     <div class="mx-auto max-w-7xl py-24 px-6 sm:py-32 lg:px-8 lg:py-24">
         <div class="mx-auto max-w-3xl text-center">
-            <h2 class="text-3xl font-bold tracking-tight text-pink-600 sm:text-4xl pb-10">Gemakkelijk abonnements
-                wassen</h2>
+            <h2 class="text-3xl font-bold tracking-tight text-pink-600 sm:text-4xl pb-10">{{__("Gemakkelijk abonnements wassen")}}</h2>
         </div>
         <dl class="mt-20 grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8">
             <div class="relative">
@@ -12,10 +11,9 @@
                         <path stroke-linecap="round" stroke-linejoin="round"
                               d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"/>
                     </svg>
-                    <p class="ml-10 text-lg font-semibold leading-8 text-gray-900">Registreren</p>
+                    <p class="ml-10 text-lg font-semibold leading-8 text-gray-900">{{__("Registreren")}}</p>
                 </dt>
-                <dd class="mt-2 ml-10 text-base leading-7 text-gray-600">Sluit een abonnement af bij Basic Wash, dit kan
-                    gemakkelijk via onze webshop. Zodra je abonnement is afgesloten kan je direct wassen.
+                <dd class="mt-2 ml-10 text-base leading-7 text-gray-600">{{__("Sluit een abonnement af bij Basic Wash, dit kan gemakkelijk via onze webshop. Zodra je abonnement is afgesloten kan je direct wassen.")}}
                 </dd>
             </div>
             <div class="relative">
@@ -27,22 +25,18 @@
                         <path stroke-linecap="round" stroke-linejoin="round"
                               d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"/>
                     </svg>
-                    <p class="ml-10 text-lg font-semibold leading-8 text-gray-900">Kenteken herkenning</p>
+                    <p class="ml-10 text-lg font-semibold leading-8 text-gray-900">{{__("Kenteken herkenning")}}</p>
                 </dt>
-                <dd class="mt-2 ml-10 text-base leading-7 text-gray-600">Je abonnement staat gekoppeld aan het opgegeven
-                    kenteken. Dit kenteken wordt geverifieerd door ons systeem, waardoor je automatisch toegang krijgt
-                    tot de wasstraat.
+                <dd class="mt-2 ml-10 text-base leading-7 text-gray-600">{{__("Je abonnement staat gekoppeld aan het opgegeven kenteken. Dit kenteken wordt geverifieerd door ons systeem, waardoor je automatisch toegang krijgt tot de wasstraat.")}}
                 </dd>
             </div>
             <div class="relative">
                 <dt>
                     <img class="absolute mt-1 h-8 w-8" src="{{ asset('media/images/auto-wassen.png') }}"
                          alt="Auto wassen">
-                    <p class="ml-10 text-lg font-semibold leading-8 text-gray-900">Autowassen</p>
+                    <p class="ml-10 text-lg font-semibold leading-8 text-gray-900">{{__("Autowassen")}}</p>
                 </dt>
-                <dd class="mt-2 ml-10 text-base leading-7 text-gray-600">Je rijdt de wasstraat in en positioneert de
-                    auto zoals staat aangegeven. Wanneer de auto op de juiste positie staat, begint het wasprogramma
-                    vanzelf.
+                <dd class="mt-2 ml-10 text-base leading-7 text-gray-600">{{__("Je rijdt de wasstraat in en positioneert de auto zoals staat aangegeven. Wanneer de auto op de juiste positie staat, begint het wasprogramma vanzelf.")}}
                 </dd>
             </div>
         </dl>

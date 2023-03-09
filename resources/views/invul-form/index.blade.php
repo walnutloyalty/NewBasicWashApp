@@ -11,13 +11,12 @@
         <div class="space-y-8 divide-y divide-gray-200">
             <div>
                 <div class="text-center">
-                    <h3 class="text-3xl font-extrabold leading-6 text-pink-600">Invulformulier</h3>
-                    <p class="mt-4 text-lg text-black">Gebruik onderstaand formulier om zo gericht mogelijk antwoord te
-                        krijgen op je vraag!</p>
+                    <h3 class="text-3xl font-extrabold leading-6 text-pink-600">{{__("Invulformulier")}}</h3>
+                    <p class="mt-4 text-lg text-black">{{__("Gebruik onderstaand formulier om zo gericht mogelijk antwoord te krijgen op je vraag!")}}</p>
                 </div>
                 <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
                     <div class="sm:col-span-4">
-                        <label for="naam" class="block text-sm font-medium text-gray-700">Naam</label>
+                        <label for="naam" class="block text-sm font-medium text-gray-700">{{__("Naam")}}</label>
                         <div class="mt-1 flex rounded-md shadow-sm">
                             <input type="text" name="naam" id="naam"
                                    class="block w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
@@ -25,7 +24,7 @@
                         </div>
                     </div>
                     <div class="sm:col-span-4">
-                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <label for="email" class="block text-sm font-medium text-gray-700">{{__("Email")}}</label>
                         <div class="mt-1 flex rounded-md shadow-sm">
                             <input type="email" name="email" id="email"
                                    class="block w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
@@ -33,7 +32,7 @@
                         </div>
                     </div>
                     <div class="sm:col-span-4">
-                        <label for="telefoon" class="block text-sm font-medium text-gray-700">Telefoonnummer</label>
+                        <label for="telefoon" class="block text-sm font-medium text-gray-700">{{__("Telefoonnummer")}}</label>
                         <div class="mt-1 flex rounded-md shadow-sm">
                             <input type="text" name="telefoon" id="telefoon"
                                    class="block w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
@@ -41,7 +40,7 @@
                         </div>
                     </div>
                     <div class="sm:col-span-4">
-                        <label for="kenteken" class="block text-sm font-medium text-gray-700">Kenteken</label>
+                        <label for="kenteken" class="block text-sm font-medium text-gray-700">{{__("Kenteken")}}</label>
                         <div class="mt-1 flex rounded-md shadow-sm">
                             <input type="text" name="kenteken" id="kenteken"
                                    class="block w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
@@ -51,7 +50,7 @@
                     <div class="sm:col-span-3">
                         <div>
                             <div x-data="{ open: false, selected: 'Kies een onderwerp' }">
-                                <label for="onderwerp" class="block text-sm font-medium text-gray-700">Onderwerp</label>
+                                <label for="onderwerp" class="block text-sm font-medium text-gray-700">{{__("Onderwerp")}}</label>
                                 <div class="relative mt-1">
                                     <button @click="open = true" @click.away="open = false" type="button"
                                             class="relative w-full cursor-default rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-left shadow-sm focus:border-cyan-600 focus:outline-none focus:ring-1 focus:ring-cyan-600 sm:text-sm"
@@ -78,7 +77,7 @@
                                             id="listbox-option-0" role="option">
                                             <span
                                                 :class="selected === 'Abonnement informatie - Carwash' ? 'font-extrabold' : 'font-normal'"
-                                                class="block truncate">Abonnement informatie - Carwash</span>
+                                                class="block truncate">{{__("Abonnement informatie - Carwash")}}</span>
                                             <span
                                                 class="text-pink-600 absolute inset-y-0 left-0 flex items-center pl-1.5">
                                                 <!-- Heroicon name: mini/check -->
@@ -97,7 +96,7 @@
                                             id="listbox-option-1" role="option">
                                             <span
                                                 :class="selected === 'Wijzigen gegevens - Carwash' ? 'font-extrabold' : 'font-normal'"
-                                                class="block truncate">Wijzigen gegevens - Carwash</span>
+                                                class="block truncate">{{__("Wijzigen gegevens - Carwash")}}</span>
                                             <span
                                                 class="text-pink-600 absolute inset-y-0 left-0 flex items-center pl-1.5">
                                                 <!-- Heroicon name: mini/check -->
@@ -115,7 +114,7 @@
                                             id="listbox-option-2" role="option">
                                             <span
                                                 :class="selected === 'Betalingen - Carwash' ? 'font-extrabold' : 'font-normal'"
-                                                class="block truncate">Betalingen - Carwash</span>
+                                                class="block truncate">{{__("Betalingen - Carwash")}}</span>
                                             <span
                                                 class="text-pink-600 absolute inset-y-0 left-0 flex items-center pl-1.5">
                                                 <!-- Heroicon name: mini/check -->
@@ -133,7 +132,7 @@
                                             id="listbox-option-3" role="option">
                                             <span
                                                 :class="selected === 'Schade, verlies of diefstal - Carwash' ? 'font-extrabold' : 'font-normal'"
-                                                class="block truncate">Schade, verlies of diefstal - Carwash</span>
+                                                class="block truncate">{{__("Schade, verlies of diefstal - Carwash")}}</span>
                                             <span
                                                 class="text-pink-600 absolute inset-y-0 left-0 flex items-center pl-1.5">
                                                 <!-- Heroicon name: mini/check -->
@@ -152,7 +151,7 @@
                                             id="listbox-option-3" role="option">
                                             <span
                                                 :class="selected === 'Zakelijk - Carwash' ? 'font-extrabold' : 'font-normal'"
-                                                class="block truncate">Zakelijk - Carwash</span>
+                                                class="block truncate">{{__("Zakelijk - Carwash")}}</span>
                                             <span
                                                 class="text-pink-600 absolute inset-y-0 left-0 flex items-center pl-1.5">
                                                 <!-- Heroicon name: mini/check -->
@@ -170,7 +169,7 @@
                                             id="listbox-option-3" role="option">
                                             <span
                                                 :class="selected === 'Overig - Carwash' ? 'font-extrabold' : 'font-normal'"
-                                                class="block truncate">Overig - Carwash</span>
+                                                class="block truncate">{{__("Overig - Carwash")}}</span>
                                             <span
                                                 class="text-pink-600 absolute inset-y-0 left-0 flex items-center pl-1.5">
                                                 <!-- Heroicon name: mini/check -->
@@ -189,7 +188,7 @@
                         </div>
                     </div>
                     <div class="sm:col-span-4">
-                        <label for="omschrijving" class="block text-sm font-medium text-gray-700">Omschrijving</label>
+                        <label for="omschrijving" class="block text-sm font-medium text-gray-700">{{__("Omschrijving")}}</label>
                         <div class="mt-1 flex rounded-md shadow-sm">
                             <input type="text" name="omschrijving" id="omschrijving"
                                    class="block w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
@@ -203,7 +202,7 @@
             <div class="flex justify-end">
                 <button type="submit"
                         class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-pink-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-600">
-                    Save
+                    {{__("Versturen")}}
                 </button>
             </div>
         </div>

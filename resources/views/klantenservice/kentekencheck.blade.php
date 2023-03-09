@@ -15,15 +15,13 @@
                     </div>
                     <div class="relative">
                         <div class="sm:text-center">
-                            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Past jouw auto in onze
-                                Carwash?</h2>
-                            <p class="mx-auto mt-6 max-w-2xl text-lg text-white">Vul je kenteken in, wij controleren
-                                het voor je!
+                            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">{{__("Past jouw auto in onze Carwash?")}}</h2>
+                            <p class="mx-auto mt-6 max-w-2xl text-lg text-white">{{__("Vul je kenteken in, wij controleren het voor je!")}}
                             </p>
                         </div>
                         <form action="#" class="mt-12 sm:mx-auto sm:flex sm:max-w-lg">
                             <div class="min-w-0 flex-1">
-                                <label for="kenteken" class="sr-only">Kenteken</label>
+                                <label for="kenteken" class="sr-only">{{__("Kenteken")}}</label>
                                 <input id="kenteken" type="text" name="kenteken"
                                        class="block w-full rounded-md border border-transparent px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-transparent focus:outline-none focus:ring-offset-2 focus:ring-offset-cyan-500"
                                        placeholder="XX123X">
@@ -31,7 +29,7 @@
                             <div class="mt-4 sm:mt-0 sm:ml-3">
                                 <button type="submit"
                                         class="block w-full rounded-md border border-transparent bg-cyan-600 px-5 py-3 text-base font-medium text-white shadow hover:bg-pink-600 focus:ring-pink-600 focus:ring-4 focus:outline-none sm:px-10">
-                                    Check
+                                    {{__("Check")}}
                                 </button>
                             </div>
                         </form>

@@ -1,7 +1,7 @@
 <div class="bg-white py-24 sm:py-32 lg:py-24">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="sm:text-center">
-            <p class="mt-2 text-3xl font-bold tracking-tight text-pink-500 sm:text-4xl">Faciliteiten</p>
+            <p class="mt-2 text-3xl font-bold tracking-tight text-pink-500 sm:text-4xl">{{__("Faciliteiten")}}</p>
         </div>
         <div class="mt-20 max-w-lg sm:mx-auto md:max-w-none">
             <div class="grid grid-cols-1 gap-y-16 md:grid-cols-3 md:gap-x-12 md:gap-y-16">
@@ -15,9 +15,8 @@
                         </svg>
                     </div>
                     <div class="sm:min-w-0 sm:flex-1">
-                        <p class="text-lg font-semibold leading-8 text-gray-900">24/7 Onbeperkt Autowassen</p>
-                        <p class="mt-2 text-base leading-7 text-gray-600">Was al voor 4,99 jouw auto met ons Basic
-                            programma. Zo heb je nooit meer een excuus om in een vieze auto te rijden.</p>
+                        <p class="text-lg font-semibold leading-8 text-gray-900">{{__("24/7 Onbeperkt Autowassen")}}</p>
+                        <p class="mt-2 text-base leading-7 text-gray-600">{{__("Was al voor 4,99 jouw auto met ons Basic programma. Zo heb je nooit meer een excuus om in een vieze auto te rijden.")}}</p>
                         <div class="mt-6 flex">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                  class="w-6 h-6 mx-2">
@@ -28,7 +27,7 @@
                                 <path
                                     d="M2.25 18a.75.75 0 000 1.5c5.4 0 10.63.722 15.6 2.075 1.19.324 2.4-.558 2.4-1.82V18.75a.75.75 0 00-.75-.75H2.25z"/>
                             </svg>
-                            <p class="font-bold">Vanaf 9,50 per maand</p>
+                            <p class="font-bold">{{__("Vanaf 9,50 per maand")}}</p>
                         </div>
                     </div>
                 </div>
@@ -42,10 +41,8 @@
                         </svg>
                     </div>
                     <div class="sm:min-w-0 sm:flex-1">
-                        <p class="text-lg font-semibold leading-8 text-gray-900">Wasboxen</p>
-                        <p class="mt-2 text-base leading-7 text-gray-600">Let op: Niet op elke locatie zijn er hoge druk
-                            boxen. Bekijk het overzicht van onze was-locaties om te zien bij welke locaties er hoge druk
-                            boxen aanwezig zijn.</p>
+                        <p class="text-lg font-semibold leading-8 text-gray-900">{{__("Wasboxen") }}</p>
+                        <p class="mt-2 text-base leading-7 text-gray-600">{{__('Let op: Niet op elke locatie zijn er hoge druk boxen. Bekijk het overzicht van onze was-locaties om te zien bij welke locaties er hoge druk boxen aanwezig zijn.')}}</p>
                         <div class="mt-6 flex">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                  class="w-6 h-6 mx-2">
@@ -56,7 +53,7 @@
                                 <path
                                     d="M2.25 18a.75.75 0 000 1.5c5.4 0 10.63.722 15.6 2.075 1.19.324 2.4-.558 2.4-1.82V18.75a.75.75 0 00-.75-.75H2.25z"/>
                             </svg>
-                            <p class="font-bold">1,- voor 120 tikken</p>
+                            <p class="font-bold">{{__("1,- voor 120 tikken")}}</p>
                         </div>
                     </div>
                 </div>
@@ -70,10 +67,8 @@
                         </svg>
                     </div>
                     <div class="sm:min-w-0 sm:flex-1">
-                        <p class="text-lg font-semibold leading-8 text-gray-900">Stofzuigen</p>
-                        <p class="mt-2 text-base leading-7 text-gray-600">Let op: Niet op elke locatie zijn er
-                            stofzuigers. Bekijk het overzicht van onze was-locaties om te zien bij welke locaties er
-                            stofzuigers aanwezig zijn.</p>
+                        <p class="text-lg font-semibold leading-8 text-gray-900">{{__("Stofzuigen")}}</p>
+                        <p class="mt-2 text-base leading-7 text-gray-600">{{__("Let op: Niet op elke locatie zijn er stofzuigers. Bekijk het overzicht van onze was-locaties om te zien bij welke locaties er stofzuigers aanwezig zijn.")}}</p>
                         <div class="mt-6 flex">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                  class="w-6 h-6 mx-2">
@@ -84,7 +79,7 @@
                                 <path
                                     d="M2.25 18a.75.75 0 000 1.5c5.4 0 10.63.722 15.6 2.075 1.19.324 2.4-.558 2.4-1.82V18.75a.75.75 0 00-.75-.75H2.25z"/>
                             </svg>
-                            <p class="font-bold">1,- voor 6 minuten</p>
+                            <p class="font-bold">{{__("1,- voor 6 minuten")}}</p>
                         </div>
                     </div>
                 </div>
