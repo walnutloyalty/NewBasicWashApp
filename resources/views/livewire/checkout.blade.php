@@ -55,7 +55,7 @@
                                     class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
                                     placeholder="John Doe">
                                 @error('name')
-                                    <span class="text-red-500">{{ $message }}</span>
+                                    <span class="text-sm text-pink-500">{{ $message }}</span>
                                 @enderror
                             </div>
                         </div>
