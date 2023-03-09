@@ -57,14 +57,16 @@ class Checkout extends Component
         switch($data[0]) {
             case 'p':
                 $this->type = 'particulier';
-                $cache_key = 'particulier_products';
+                $this->subscriptions = Cache::remember('particulier_products', 3600, function () {
+                    return Product::orderBy('price', 'desc')->whereZakelijk(false)->get();
+                });
                 break;
             case 'z':
                 $this->type= 'zakelijk';
-                $cache_key = 'zakelijk_products';
+                $this->subscriptions = Cache::remember('zakelijk_products', 3600, function () {
+                    return Product::orderBy('price', 'desc')->whereZakelijk(true)->get();
+                });
         }
-
-        $this->subscriptions = Cache::get($cache_key);
 
         // get the selected product
         $this->selected = $this->subscriptions->where('_id', $data[1])->first();
