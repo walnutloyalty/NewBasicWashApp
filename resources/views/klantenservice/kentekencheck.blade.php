@@ -30,7 +30,7 @@
                             </div>
                             <div class="mt-4 sm:mt-0 sm:ml-3">
                                 <button type="submit"
-                                        class="block w-full rounded-md border border-transparent bg-cyan-600 px-5 py-3 text-base font-medium text-white shadow hover:bg-pink-600 sm:px-10">
+                                        class="block w-full rounded-md border border-transparent bg-cyan-600 px-5 py-3 text-base font-medium text-white shadow hover:bg-pink-600 focus:ring-pink-600 focus:ring-4 focus:outline-none sm:px-10">
                                     Check
                                 </button>
                             </div>

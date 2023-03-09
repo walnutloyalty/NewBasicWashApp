@@ -104,7 +104,7 @@
                                         href="{{ route('kentekencheck') }}">kentekencheck</a>)
                                 </li>
                                 <li>Geen loszittende of niet originele onderdelen heeft (zoals o.a. een imperiaal,
-                                    fietsendrager, antenne, bumper, spoiler, siertrips, stootlijsten en
+                                    fietsendrager, antenne, bumper, spoiler, sierstrips, stootlijsten en
                                     schijnwerpers)
                                 </li>
                             </ul>
@@ -184,7 +184,7 @@
                             <button type="button" @click="question = true"
                                     class="flex w-full items-start justify-between text-left text-gray-400"
                                     aria-controls="faq-0" aria-expanded="false">
-                                <span class="font-medium text-gray-900">Wat moet ik doen bij schade,verlies of
+                                <span class="font-medium text-gray-900">Wat moet ik doen bij schade, verlies of
                                     diefstal?</span>
                                 <span class="ml-6 flex h-7 items-center">
                                     <svg class="rotate-0 h-6 w-6 transform" :class="{ 'rotate-180': question }"

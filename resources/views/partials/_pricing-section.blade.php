@@ -502,7 +502,6 @@
                                 </svg>
                                 <span class="text-sm text-gray-500">Basis wasbeurt</span>
                             </li>
-
                             <li class="flex space-x-3">
                                 <!-- Heroicon name: mini/check -->
                                 <svg class="h-5 w-5 flex-shrink-0 text-green-500" xmlns="http://www.w3.org/2000/svg"

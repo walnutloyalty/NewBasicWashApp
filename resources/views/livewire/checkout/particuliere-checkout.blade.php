@@ -11,8 +11,7 @@
                         <ol role="list" class="flex space-x-1">
                             <li class="flex items-center">
                                 <button type="button" @click="$dispatch('step1')" aria-current="page"
-                                        :class="step === 1 && 'text-pink-600'">Abonnement
-                                    keuze
+                                        :class="step === 1 && 'text-pink-600'">Contact informatie
                                 </button>
                                 <!-- Heroicon name: mini/chevron-right -->
                                 <svg class="ml-4 h-5 w-5 text-gray-300" aria-hidden="true"
@@ -24,8 +23,7 @@
                             </li>
                             <li class="flex items-center">
                                 <button type="button" @click="$dispatch('step2')"
-                                        :class="step === 2 && 'text-pink-600'">Contact
-                                    informatie
+                                        :class="step === 2 && 'text-pink-600'">Abonnement keuze
                                 </button>
                                 <!-- Heroicon name: mini/chevron-right -->
                                 <svg class="ml-4 h-5 w-5 text-gray-300" aria-hidden="true"
@@ -57,6 +55,11 @@
                     {{--                    <p class="sm:hidden">Step 2 of 4</p>--}}
                 </div>
             </div>
+            @section('1car', '1 car = 0% sale')
+            @section('2cars', '2 cars = 10% sale')
+            @section('3cars', '3 cars = 10% sale')
+            @section('4cars', '4 cars = 10% sale')
+            @section('5cars', '5 or more cars = 20% sale')
         </header>
     </div>
     @livewireScripts

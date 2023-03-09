@@ -36,7 +36,7 @@
                                 <p class="mt-3 text-base text-gray-500"> Minervum 7001-C, 4817 ZJ Breda
                                 </p>
                                 <p class="mt-3 text-base text-gray-500 ">
-                                    <?= $check ?> Washhoogte - 290cm
+                                    <?= $check ?> Washoogte - 290cm
                                     <?= $check ?> Wasbreedte - 258cm
                                     <?= $check ?> Bandenpomp
                                     <?= $check ?> Stofzuigers
@@ -50,7 +50,7 @@
                 </div>
                 <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
                     <div class="flex-shrink-0">
-                        <img class="w-full object-cover"
+                        <img class="w-full h-[16.5rem] object-cover"
                              src="{{ asset('media/images/basic-wash-minervum-breda.webp') }}"
                              alt="BasicWash">
                     </div>
@@ -59,6 +59,11 @@
                     <div class="w-full h-full" id="map">
                     </div>
                 </div>
+            </div>
+            <div class="text-center mt-16">
+                <a href="{{ route('particulier') }}" class="font-bold text-lg text-white bg-pink-600 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm px-8 py-5 inline-flex items-center">
+                    Ik wil een abonnement afsluiten
+                </a>
             </div>
         </div>
         <script>

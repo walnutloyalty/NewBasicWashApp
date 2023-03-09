@@ -13,7 +13,6 @@ class ParticuliereCheckout extends Component
     public $userEmail;
     public $userMobileNumber;
     public $userLicensePlate;
-    public $userBirthday;
 
     protected $messages = [
         'userName.required' => 'Vul je naam in',
@@ -21,7 +20,6 @@ class ParticuliereCheckout extends Component
         'userEmail.email' => 'Vul een geldig email in',
         'userMobileNumber.required' => 'Vul je telefoonnummer in',
         'userLicensePlate.required' => 'Vul je kenteken in',
-        'userBirthday.required' => 'Vul je geboortedatum in',
     ];
 
     protected $rules = [
@@ -29,7 +27,6 @@ class ParticuliereCheckout extends Component
         'userEmail' => 'required|email',
         'userMobileNumber' => 'required',
         'userLicensePlate' => 'required',
-        'userBirthday' => 'required',
     ];
 
     public function render()
@@ -45,15 +42,14 @@ class ParticuliereCheckout extends Component
     //     return redirect()->back();
     // }
 
-    // public function validateOrCreateUser()
-    // {
-    //     $response = Http::post('https://walnutbackend.com/api/v1/store/dd62a60360b111eb883922000a5419dd/pass/', [
-    //         'userName' => $this->userName,
-    //         'userEmail' => $this->userEmail,
-    //         'userMobileNumber' => $this->userMobileNumber,
-    //         'userLicensePlate' => $this->userLicensePlate,
-    //         'userBirthday' => $this->userBirthday,
-    //     ]);
+    public function validateOrCreateUser()
+    {
+        $response = Http::post('https://walnutbackend.com/api/v1/store/dd62a60360b111eb883922000a5419dd/pass/', [
+            'userName' => $this->userName,
+            'userEmail' => $this->userEmail,
+            'userMobileNumber' => $this->userMobileNumber,
+            'userLicensePlate' => $this->userLicensePlate,
+        ]);
 
     //     return $response->json();
     // }
@@ -86,5 +82,16 @@ class ParticuliereCheckout extends Component
     //         'userBirthday' => $this->userBirthday,
     //     ]);
 
-    // }
+    public function submit()
+    {
+        $this->validate();
+
+        $response = Http::post('https://walnutbackend.com/api/v1/store/dd62a60360b111eb883922000a5419dd/pass/', [
+            'userName' => $this->userName,
+            'userEmail' => $this->userEmail,
+            'userMobileNumber' => $this->userMobileNumber,
+            'userLicensePlate' => $this->userLicensePlate,
+        ]);
+
+    }
 }

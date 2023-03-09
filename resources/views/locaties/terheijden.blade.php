@@ -36,7 +36,7 @@
                                 <p class="mt-3 text-base text-gray-500"> Zeggelaan 200, Terheijden
                                 </p>
                                 <p class="mt-3 text-base text-gray-500 ">
-                                    <?= $check ?> Washhoogte - 260cm
+                                    <?= $check ?> Washoogte - 260cm
                                     <?= $check ?> Wasbreedte - 238cm
                                     <?= $check ?> Bandenpomp
                                     <?= $check ?> Tankstation</p>
@@ -55,6 +55,11 @@
                     <div class="w-full h-full" id="map">
                     </div>
                 </div>
+            </div>
+            <div class="text-center mt-16">
+                <a href="{{ route('particulier') }}" class="font-bold text-lg text-white bg-pink-600 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm px-8 py-5 inline-flex items-center">
+                    Ik wil een abonnement afsluiten
+                </a>
             </div>
         </div>
     </div>
@@ -75,12 +80,12 @@
                 url: "{{ asset('media/images/basic-wash-locaties.png') }}",
                 scaledSize: new google.maps.Size(50, 60),
             };
+
             const terheijdenMarker = new google.maps.Marker({
                 position: {lat: 51.649919847550784, lng: 4.759400098614774},
                 map,
                 icon: image,
             })
-
         }
 
         window.initMap = initMap;
