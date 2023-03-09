@@ -216,7 +216,7 @@
         <h1 class="text-center text-5xl font-extrabold text-pink-600">Even geduld<h1>
                 <h2 class="text-center text-lg mt-6">We zijn even wat dingen aan het checken...</h2>
     </div>
-    <div style="width:450px; margin-top: 4rem; margin-right: 2rem; margin-top: 4rem; margin-right: 2rem;" class="lg:absolute lg:right-0 mr-4 @if (! $home) bg-white @endif">
+    <div style="width:100%; max-width:450px; margin-top: 4rem; margin-right: 2rem; margin-top: 4rem; margin-right: 2rem;" class="lg:absolute lg:right-0 mr-4 @if (! $home) bg-white @endif">
         <div class="mx-auto max-w-2xl  px-4 sm:px-6 lg:px-0">
             <form class="mt-12">
                 <section aria-labelledby="cart-heading">
@@ -224,7 +224,7 @@
 
                     <ul role="list" class="divide-y divide-gray-200 border-t border-b border-gray-200">
                         @if (isset($selected))
-                            <li class="grid grid-cols-3 gap-1 py-6">
+                            <li class="grid grid-cols-2 sm:grid-cols-3 gap-1 py-6">
                                 <div class="flex-shrink-0">
                                     <img src="{{ $selected['image'] }}"
                                         alt="Front side of mint cotton t-shirt with wavey lines pattern."

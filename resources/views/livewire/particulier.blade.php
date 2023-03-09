@@ -42,9 +42,8 @@ x-data="{checkout: false}" class="mx-auto max-w-7xl py-8 px-4 w-full sm:px-6 lg:
                             </div>
                             <div class="px-6 pt-6 pb-8">
                                 <h3 class="text-sm font-medium text-gray-900">What's included</h3>
-                                <span class="text-xs truncate text-gray-500 mt-8">
+                                <span class="text-sm whitespace-normal text-gray-500 mt-8">
                                     {{ $subscription['description'] }}
-        
                                 </span>
                             </div>
                         </div>
@@ -65,8 +64,8 @@ x-data="{checkout: false}" class="mx-auto max-w-7xl py-8 px-4 w-full sm:px-6 lg:
                             </div>
                             <div class="px-6 pt-6 pb-8">
                                 <h3 class="text-sm font-medium text-gray-900">What's included</h3>
-                            <span class="text-sm text-gray-500 mt-8">
-                                {!! $subscription['description'] !!}
+                            <span class="text-sm whitespace-normal text-gray-500 mt-8">
+                                {{ $subscription['description'] }}
                             </span>
                             </div>
                         </div>
