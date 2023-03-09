@@ -224,31 +224,29 @@
 
                     <ul role="list" class="divide-y divide-gray-200 border-t border-b border-gray-200">
                         @if (isset($selected))
-                            <li class="flex py-6">
+                            <li class="grid grid-cols-3 gap-1 py-6">
                                 <div class="flex-shrink-0">
                                     <img src="{{ $selected['image'] }}"
                                         alt="Front side of mint cotton t-shirt with wavey lines pattern."
                                         class="h-24 w-24 rounded-md object-cover object-center sm:h-32 sm:w-32">
                                 </div>
 
-                                <div class="ml-4 flex flex-1 flex-col sm:ml-6">
+                                <div class="col-span-2 flex flex-1 flex-col">
                                     <div>
                                         <div class="flex justify-between">
                                             <h4 class="text-sm">
                                                 <a href="#"
-                                                    class="font-medium text-gray-700 hover:text-gray-800">{{ $selected['title'] }}</a>
+                                                    class="font-medium text-right text-gray-700 hover:text-gray-800">{{ $selected['title'] }}</a>
                                             </h4>
                                         </div>
-                                        <p class="mt-1 text-sm truncate text-gray-500">{{ $selected['description'] }}
+                                        <p class="mt-1 text-sm  text-gray-500">{{ $selected['description'] }}
                                         </p>
                                     </div>
 
                                     <div class="mt-4 flex flex-1 items-end justify-between">
 
                                         <div class=" w-full flex justify-between">
-                                            <div>
-
-                                            </div>
+                                          
                                             <button wire:click="$set('selected', null)" type="button"
                                                 class="text-sm font-medium text-pink-600 hover:text-pink-500">
                                                 <span>Remove</span>
