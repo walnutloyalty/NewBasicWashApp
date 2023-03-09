@@ -10,11 +10,19 @@ class Particulier extends Component
 {
     public $subscriptions = [];
 
+    public $home = false;
+    
     public function mount()
     {
-        $this->subscriptions = Cache::remember('particulier_products', 3600, function () {
-            return Product::orderBy('price', 'desc')->whereZakelijk(false)->get();
-        });
+        if (! $this->home) {
+            $this->subscriptions = Cache::remember('particulier_products', 3600, function () {
+                return Product::orderBy('price', 'desc')->whereZakelijk(false)->get();
+            });
+        } else {
+            $this->subscriptions = Cache::remember('particulier_products_home', 3600, function () {
+                return Product::orderBy('price', 'desc')->whereZakelijk(false)->take(3)->get();
+            });
+        }
     }
 
     public function render()

@@ -41,7 +41,7 @@
         {{--                    <p class="sm:hidden">Step 2 of 4</p> --}}
     </div>
     <div x-transition x-show="step === 1">
-        <form class="px-4 pt-8 pb-36 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 lg:pb-16"
+        <form class="px-4 pt-8 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 lg:pb-16"
             wire:submit.prevent="submit">
             @csrf
                 <div class="mx-auto max-w-lg mt-8 lg:max-w-none">
@@ -71,11 +71,10 @@
                             </div>
                         </div>
                     </section>
-                    @if ($type == 'particulier')
 
                         <section aria-labelledby="shipping-heading" class="mt-4">
-                            <h2 id="shipping-heading" class="text-lg font-medium text-gray-900">Overige informatie</h2>
-                            <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
+                            <h2 id="shipping-heading" class="@if($type == 'zakelijk') hidden @endif text-lg font-medium text-gray-900">Overige informatie</h2>
+                            <div class="@if($type == 'zakelijk') hidden @endif mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
                                 <div class="sm:col-span-2">
                                     <label for="userPhone"
                                         class="block text-sm font-medium text-gray-700">Telefoonnummer</label>
@@ -114,126 +113,7 @@
                                 </div>
                             </div>
                         </section>
-                     @endif
                     </div>
-            @if ($type == 'particulier')
-
-            {{-- <div class="mt-4">
-                <div x-cloak x-data="{ open: false, selected: 'Kies een locatie' }">
-                    <label id="listbox-label" class="block text-sm font-medium text-gray-700">Waar wil je
-                        wassen</label>
-                    <div class="relative mt-1">
-                        <button @click="open = true" @click.away="open = false" type="button"
-                            class="relative w-full cursor-default rounded-md border h-10 border-gray-300 bg-white py-2 pl-3 pr-10 text-left shadow-sm focus:border-cyan-600 focus:outline-none focus:ring-1 focus:ring-cyan-600 sm:text-sm"
-                            aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
-                            <span class="block truncate">{{ $location ?? 'Kies een locatie' }}</span>
-                            <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-                                <!-- Heroicon name: mini/chevron-up-down -->
-                                <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path fill-rule="evenodd"
-                                        d="M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                        </button>
-                        @error('location')
-                            <span class="text-pink-500 text-sm">{{ $message }}</span>
-                        @enderror
-                        <ul x-show="open"
-                            class="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
-                            tabindex="-1" role="listbox" aria-labelledby="listbox-label"
-                            aria-activedescendant="listbox-option-3">
-                            <li @click="selected = 'Breda'; $wire.$set('location', 'Breda')"
-                                class="text-gray-900 relative cursor-default select-none py-2 pl-8 pr-4 hover:bg-pink-100"
-                                id="listbox-option-0" role="option">
-                                <span :class="selected === 'Breda' ? 'font-extrabold' : 'font-normal'"
-                                    class="block truncate">Breda</span>
-                                @if ($location === 'Breda')
-                                    <span class="text-pink-600 absolute inset-y-0 left-0 flex items-center pl-1.5">
-                                        <!-- Heroicon name: mini/check -->
-                                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                    </span>
-                                @endif
-                            </li>
-                            <li @click="selected = 'Hellevoetsluis'; $wire.$set('location', 'Hellevoetsluis')"
-                                class="text-gray-900 relative cursor-default select-none py-2 pl-8 pr-4 hover:bg-pink-100"
-                                id="listbox-option-1" role="option">
-                                <span :class="selected === 'Hellevoetsluis' ? 'font-extrabold' : 'font-normal'"
-                                    class="block truncate">Hellevoetsluis</span>
-                                @if ($location === 'Hellevoetsluis')
-                                    <span class="text-pink-600 absolute inset-y-0 left-0 flex items-center pl-1.5">
-                                        <!-- Heroicon name: mini/check -->
-                                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                    </span>
-                                @endif
-                            </li>
-                            <li @click="selected = 'Sint willebrord'; $wire.$set('location', 'Sint willebrord')"
-                                class="text-gray-900 relative cursor-default select-none py-2 pl-8 pr-4 hover:bg-pink-100"
-                                id="listbox-option-2" role="option">
-                                <span :class="selected === 'Sint willebrord' ? 'font-extrabold' : 'font-normal'"
-                                    class="block truncate">Sint willebrord</span>
-                                @if ($location === 'Sint willebrord')
-                                    <span class="text-pink-600 absolute inset-y-0 left-0 flex items-center pl-1.5">
-                                        <!-- Heroicon name: mini/check -->
-                                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                    </span>
-                                @endif
-                            </li>
-                            <li @click="selected = 'Terheijden'; $wire.$set('location', 'Terheijden')"
-                                class="text-gray-900 relative cursor-default select-none py-2 pl-8 pr-4 hover:bg-pink-100"
-                                id="listbox-option-3" role="option">
-                                <span :class="selected === 'Terheijden' ? 'font-extrabold' : 'font-normal'"
-                                    class="block truncate">Terheijden</span>
-                                @if ($location === 'Terheijden')
-                                    <span class="text-pink-600 absolute inset-y-0 left-0 flex items-center pl-1.5">
-                                        <!-- Heroicon name: mini/check -->
-                                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                    </span>
-                                @endif
-                            </li>
-                            <li @click="selected = 'Ulvenhout'; $wire.$set('location', 'Ulvenhout')"
-                                class="text-gray-900 relative cursor-default select-none py-2 pl-8 pr-4 hover:bg-pink-100"
-                                id="listbox-option-3" role="option">
-                                <span :class="selected === 'Ulvenhout' ? 'font-extrabold' : 'font-normal'"
-                                    class="block truncate">Ulvenhout</span>
-                                @if ($location === 'Ulvenhout')
-                                    <span class="text-pink-600 absolute inset-y-0 left-0 flex items-center pl-1.5">
-                                        <!-- Heroicon name: mini/check -->
-                                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                    </span>
-                                @endif
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div> --}}
-            @endif
 
             <div x-cloak x-data="{ open: false }" class="flex mt-6">
                 <!-- Modal -->
@@ -336,7 +216,7 @@
         <h1 class="text-center text-5xl font-extrabold text-pink-600">Even geduld<h1>
                 <h2 class="text-center text-lg mt-6">We zijn even wat dingen aan het checken...</h2>
     </div>
-    <div style="margin-top: 4rem; margin-right: 2rem;" class="lg:absolute lg:right-0 mr-4 bg-white">
+    <div style="margin-top: 4rem; margin-right: 2rem;" class="lg:absolute lg:right-0 mr-4 @if (! $home) bg-white @endif">
         <div class="mx-auto max-w-2xl  px-4 sm:px-6 lg:px-0">
             <form class="mt-12">
                 <section aria-labelledby="cart-heading">
@@ -382,7 +262,7 @@
                                 <div class="space-y-4">
                                     @foreach ($subscriptions as $subscription)
                                         <label wire:click="selected('{{ $subscription['_id'] }}')"
-                                            class="relative block cursor-pointer rounded-lg border bg-white px-6 py-4 shadow-sm focus:outline-pink-600 hover:border hover:border-pink-600 sm:flex sm:justify-between">
+                                            class="relative block cursor-pointer rounded-lg border @if (! $home) bg-white @endif px-6 py-4 shadow-sm focus:outline-pink-600 hover:border hover:border-pink-600 sm:flex sm:justify-between">
                                             <input type="radio" name="server-size" value="Hobby" class="sr-only"
                                                 aria-labelledby="server-size-0-label"
                                                 aria-describedby="server-size-0-description-0 server-size-0-description-1">

@@ -25,6 +25,8 @@ class Checkout extends Component
 
     public $phone_number;
 
+    public $home = false;
+    
     public $postcode;
 
     public $house_number;

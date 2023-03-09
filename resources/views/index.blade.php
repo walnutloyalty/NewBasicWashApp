@@ -390,10 +390,13 @@
 <body class="antialiased">
 @include('partials._header')
 @include('partials._hero')
-@include('partials._pricing-section')
+@livewireStyles
+@livewire('pricing')
+
 @include('partials._pros')
 @include('partials._wash-section')
 @include('partials._facilities')
 @include('partials._footer')
+@livewireScripts
 </body>
 </html>
