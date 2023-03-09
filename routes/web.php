@@ -22,6 +22,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('job', function () {
+   (new \App\Jobs\FetchProducts())->handle();
+});
+
 // particuliere checkout
 Route::get('/particulier', function () {
     return view('webshop/particulier');

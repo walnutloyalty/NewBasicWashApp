@@ -9,6 +9,7 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('media/logos/basic-wash-favicon.png') }}">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
 
     <style>
         [x-cloak] {
@@ -20,6 +21,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body x-data x-cloak class="font-sans antialiased">
+@livewireStyles
 <div class="min-h-screen">
     @include('partials._header')
     <main>
@@ -28,4 +30,5 @@
 </div>
 </body>
 @include('partials._footer')
+@livewireScripts
 </html>
