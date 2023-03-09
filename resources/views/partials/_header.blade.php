@@ -195,7 +195,7 @@
                         </svg>
                     </button>
                     <div x-show="menuItem3" @click.away="menuItem3 = false" x-cloak
-                         class="absolute left-1/2 z-10 mt-3 w-screen max-w-md -translate-x-1/2 transform px-2 sm:px-0">
+                         class="absolute left-0 z-10 mt-3 w-screen max-w-md -translate-x-1/2 transform px-2 sm:px-0">
                         <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                             <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                                 <a href="{{ route('klantenportaal') }}"

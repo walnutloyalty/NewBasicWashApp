@@ -36,7 +36,7 @@ class FetchProducts implements ShouldQueue
         $http = Http::withHeaders([
             'Accept' => 'application/json',
             'Authorization' => env('WLNT_TOKEN')
-        ])->get('https://walnutbackend.com/api/v1/store/dd62a60360b111eb883922000a5419dd/products', [ 
+        ])->get('https://walnutbackend.com/api/v1/store/'.env('STORE_ID').'/products', [ 
             'type' => 'subscription',
         ]);
 
@@ -52,7 +52,7 @@ class FetchProducts implements ShouldQueue
                 'description' => $item['description'],
                 'price' => $item['price'],
                 'image' => $item['picture'],
-                'interval' => str_contains(strtolower($item['name']), 'jaar') ? 'jaar' : 'maand',
+                'interval' => str_contains(strtolower($item['name']), 'jaar') || str_contains(strtolower($item['description']), 'jaar') ? 'jaar' : 'maand',
                 'btw' => $item['btw'],
                 'availability_duration' => $item['availableUntil'] != '01-01-1970 00:00' && $item['availableFrom'] != '01-01-1970 00:00' ? true : false,
                 'available_from' => $item['availableFrom'] != '01-01-1970 00:00' ? Carbon::parse($item['availableFrom'])->format('d-m-Y H:i') : null,

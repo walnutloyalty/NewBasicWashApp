@@ -44,7 +44,6 @@
         <form class="px-4 pt-8 pb-36 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 lg:pb-16"
             wire:submit.prevent="submit">
             @csrf
-            @if ($type == 'particulier')
                 <div class="mx-auto max-w-lg mt-8 lg:max-w-none">
                     <section aria-labelledby="contact-info-heading">
                         <h2 id="contact-info-heading" class="text-lg font-medium text-gray-900">Contact
@@ -72,50 +71,54 @@
                             </div>
                         </div>
                     </section>
-                    <section aria-labelledby="shipping-heading" class="mt-4">
-                        <h2 id="shipping-heading" class="text-lg font-medium text-gray-900">Overige informatie</h2>
-                        <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
-                            <div class="sm:col-span-2">
-                                <label for="userPhone"
-                                    class="block text-sm font-medium text-gray-700">Telefoonnummer</label>
-                                <div class="mt-1">
-                                    <input type="text" wire:model="phone_number"
-                                        class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
-                                        placeholder="+31612341234">
-                                    @error('phone_number')
-                                        <span class="text-sm text-pink-500">{{ $message }}</span>
-                                    @enderror
+                    @if ($type == 'particulier')
+
+                        <section aria-labelledby="shipping-heading" class="mt-4">
+                            <h2 id="shipping-heading" class="text-lg font-medium text-gray-900">Overige informatie</h2>
+                            <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
+                                <div class="sm:col-span-2">
+                                    <label for="userPhone"
+                                        class="block text-sm font-medium text-gray-700">Telefoonnummer</label>
+                                    <div class="mt-1">
+                                        <input type="text" wire:model="phone_number"
+                                            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                                            placeholder="+31612341234">
+                                        @error('phone_number')
+                                            <span class="text-sm text-pink-500">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="userPostalCode"
+                                        class="block text-sm font-medium text-gray-700">Postcode</label>
+                                    <div class="mt-1">
+                                        <input type="text" wire:model="postcode"
+                                            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                                            placeholder="1234AB">
+                                        @error('postcode')
+                                            <span class="text-sm text-pink-500">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="userHouseNumber"
+                                        class="block text-sm font-medium text-gray-700">Huisnummer</label>
+                                    <div class="mt-1">
+                                        <input type="text" wire:model="house_number"
+                                            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                                            placeholder="123A">
+                                        @error('house_number')
+                                            <span class="text-pink-500 text-sm">{{ $message }}</span>
+                                        @enderror
+                                    </div>
                                 </div>
                             </div>
-                            <div>
-                                <label for="userPostalCode"
-                                    class="block text-sm font-medium text-gray-700">Postcode</label>
-                                <div class="mt-1">
-                                    <input type="text" wire:model="postcode"
-                                        class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
-                                        placeholder="1234AB">
-                                    @error('postcode')
-                                        <span class="text-sm text-pink-500">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div>
-                                <label for="userHouseNumber"
-                                    class="block text-sm font-medium text-gray-700">Huisnummer</label>
-                                <div class="mt-1">
-                                    <input type="text" wire:model="house_number"
-                                        class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
-                                        placeholder="123A">
-                                    @error('house_number')
-                                        <span class="text-pink-500 text-sm">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            @endif
-            <div class="mt-4">
+                        </section>
+                     @endif
+                    </div>
+            @if ($type == 'particulier')
+
+            {{-- <div class="mt-4">
                 <div x-cloak x-data="{ open: false, selected: 'Kies een locatie' }">
                     <label id="listbox-label" class="block text-sm font-medium text-gray-700">Waar wil je
                         wassen</label>
@@ -229,7 +232,9 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> --}}
+            @endif
+
             <div x-cloak x-data="{ open: false }" class="flex mt-6">
                 <!-- Modal -->
                 <div x-show="open" style="display: none" x-on:keydown.escape.prevent.stop="open = false"
@@ -271,7 +276,7 @@
             <div>
                 <div class="text-center mt-16">
                   
-                    <h2 class="mt-2 text-lg font-medium text-gray-900">Voeg je kenteken(s) toe</h2>
+                    <h2 class="mt-2 text-lg font-medium text-gray-900">Voeg je kenteken toe</h2>
                 </div>
                 <form action="#" class="mt-6 flex">
                     <label for="userLicensePlate" class="sr-only">Licenseplate</label>
@@ -303,7 +308,7 @@
                 @enderror
             </div>
             <div class="mt-10">
-                <h3 class="text-sm font-medium text-gray-500">Je toegevoegde kenteken(s)</h3>
+                <h3 class="text-sm font-medium text-gray-500">Je toegevoegde kenteken</h3>
                 <ul role="list" class="mt-4 divide-y divide-gray-200 border-t border-b border-gray-200">
                     @foreach ($licenseplates as $key => $plate)
                         <li
@@ -331,7 +336,7 @@
         <h1 class="text-center text-5xl font-extrabold text-pink-600">Even geduld<h1>
                 <h2 class="text-center text-lg mt-6">We zijn even wat dingen aan het checken...</h2>
     </div>
-    <div style="margin-top: 4rem; margin-right: 2rem;" class="absolute right-0 mr-4 bg-white">
+    <div style="margin-top: 4rem; margin-right: 2rem;" class="lg:absolute lg:right-0 mr-4 bg-white">
         <div class="mx-auto max-w-2xl  px-4 sm:px-6 lg:px-0">
             <form class="mt-12">
                 <section aria-labelledby="cart-heading">
@@ -418,7 +423,7 @@
                 </section>
 
                 <!-- Order summary -->
-                <section aria-labelledby="summary-heading" class="mt-10">
+                <section aria-labelledby="summary-heading" class=" mt-10">
                     <h2 id="summary-heading" class="sr-only">Order summary</h2>
 
                     <div>
@@ -434,8 +439,7 @@
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10">
                         <button type="button" @click="$dispatch('openvoucher')"
-                            class="w-full rounded-md border border-transparent bg-pink-100 py-3 px-4 text-base font-medium text-pink-700 shadow-sm hover:bg-pink-200 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-50">Use
-                            voucher</button>
+                            class="w-full rounded-md border border-transparent bg-pink-100 py-3 px-4 text-base font-medium text-pink-700 shadow-sm hover:bg-pink-200 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-50">Use discount</button>
                         <button wire:target="next" wire:loading.attr="disabled" type="button" wire:click="next"
                             @if (!$selected) disabled @endif
                             class="
@@ -481,9 +485,9 @@
                         </svg>
                     </div>
                     <div class="mt-3 text-center sm:mt-5">
-                        <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Voucher</h3>
+                        <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Discounts</h3>
                         <div class="mt-2">
-                            <p class="text-sm text-gray-500">Gebruik een voucher voor korting op je abbonnement!</p>
+                            <p class="text-sm text-gray-500">Gebruik een korting voor je abbonement!</p>
                         </div>
                         <div>
                             <div class="mt-2">
