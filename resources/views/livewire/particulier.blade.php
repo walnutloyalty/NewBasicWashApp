@@ -11,17 +11,43 @@ x-data="{checkout: false}" class="mx-auto max-w-7xl py-8 px-4 w-full sm:px-6 lg:
     </div>
     @endif
     <div x-transition x-show="! checkout">
+
         @if (!$home)
             <h1 class="text-center text-5xl font-extrabold text-pink-600">{{__("Webshop")}}</h1>
             <h2 class="text-center text-lg mt-6">{{__("Sluit nu je abonnement af en komt direct onbeperkt autowassen!")}}</h2>
         @endif
 
-        <div class="sm:align-center sm:flex sm:flex-col">
-            <div
-                class="mt-12 space-y-4 sm:mt-16 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:mx-auto lg:max-w-4xl xl:mx-0 xl:max-w-none xl:grid-cols-3">
+        <div x-data="{maand: false}" class="sm:align-center sm:flex sm:flex-col">
+        @if(! $home)
+            <div>
+                <div class="sm:hidden">
+                <label for="tabs" class="sr-only">Select a tab</label>
+                <!-- Use an "onChange" listener to redirect the user to the selected tab URL. -->
+                <select id="tabs" name="tabs" x-model="maand" class="block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-pink-500 focus:outline-none focus:ring-pink-500 sm:text-sm">
+                    <option value="1">Maandelijks</option>
+            
+                    <option value="0">Jaarlijks</option>
+            
+                </select>
+                </div>
+                <div class="hidden sm:block">
+                <div class="border-b border-gray-200">
+                    <nav class="-mb-px flex mx-auto mt-8 space-x-8" aria-label="Tabs">
+                    <!-- Current: "border-pink-500 text-pink-600", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->            
+                    <a href="#" @click="maand = true" :class="maand ? 'border-pink-500 text-pink-600 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium'" aria-current="page">Maandelijks</a>
+            
+                    <a href="#" @click="maand = false" :class="!maand ? 'border-pink-500 text-pink-600 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium'" aria-current="page">Jaarlijks</a>
+            
+                    </nav>
+                </div>
+                </div>
+            </div>
+        @endif
+            
+            <div class="mt-12 space-y-4 sm:mt-16 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:mx-auto lg:max-w-4xl xl:mx-0 xl:max-w-none xl:grid-cols-3">
                 @foreach ($subscriptions ?? [] as $key => $subscription)
                     @if ($key == 1)
-                        <div class="divide-y divide-gray-200 rounded-lg border-2 border-pink-400 shadow-sm">
+                        <div @if(!$home) @if($subscription['interval'] === 'maand') x-show="maand" @else x-show="! maand" @endif @endif class="divide-y divide-gray-200 rounded-lg border-2 border-pink-400 shadow-sm">
                             <div class="flex -translate-y-1/2 transform justify-center">
                                 <span
                                     class="inline-flex bg-pink-600 rounded px-4 py-1 text-base font-semibold text-white">{{__("Meest gekozen!")}}</span>
@@ -32,7 +58,7 @@ x-data="{checkout: false}" class="mx-auto max-w-7xl py-8 px-4 w-full sm:px-6 lg:
                                         class="underline">{{__("enkele wasbeurt voor € 10,50")}}</a></p>
                                 <p class="mt-8">
                                     <span class="text-4xl font-bold tracking-tight text-gray-900">€@if(str_contains($subscription['price'], '.00')){{round($subscription['price'], 2)}}@else{{$subscription['price']}}@endif</span>
-                                    <span class="text-base font-medium text-gray-500">@if($subscription['interval'] === 'maand') / {{__("maand")}} @else /{{__("jaar")}} @endif</span>
+                                    <span class="text-base font-medium text-gray-500">@if($subscription['interval'] === 'maand') / {{__("maand")}} @else / {{__("jaar")}} @endif</span>
                                 </p>
                                 <button wire:click="$emit('checkout', ['p', '{{ $subscription['_id'] }}'])"
                                     class="my-6 block w-full rounded-md border border-pink-600 bg-pink-600 py-2 text-center text-sm font-semibold text-white hover:bg-cyan-600 hover:border-cyan-600">{{__("Afnemen")}}
@@ -46,14 +72,14 @@ x-data="{checkout: false}" class="mx-auto max-w-7xl py-8 px-4 w-full sm:px-6 lg:
                             </div>
                         </div>
                     @else
-                        <div class="divide-y divide-gray-200 rounded-lg border border-gray-200 shadow-sm">
+                        <div @if(!$home) @if($subscription['interval'] === 'maand') x-show="maand" @else x-show="! maand" @endif @endif  class="divide-y divide-gray-200 rounded-lg border border-gray-200 shadow-sm">
                             <div class="p-6">
                                 <h2 class="text-lg truncate font-medium leading-6 text-gray-900">{{$subscription['name']}}</h2>
                                 <p class="mt-4 text-sm text-gray-500">{{__("Of probeer een")}} <a href="{{ route('locaties') }}"
                                         class="underline">{{__("enkele wasbeurt voor € 13,50")}}</a></p>
                                 <p class="mt-8">
                                     <span class="text-4xl font-bold tracking-tight text-gray-900">€@if(str_contains($subscription['price'], '.00')){{round($subscription['price'], 2)}}@else{{$subscription['price']}}@endif</span>
-                                    <span class="text-base font-medium text-gray-500">@if($subscription['interval'] === 'maand') / {{__("maand")}} @else /{{__("jaar")}} @endif</span>
+                                    <span class="text-base font-medium text-gray-500">@if($subscription['interval'] === 'maand') / {{__("maand")}} @else / {{__("jaar")}} @endif</span>
                                 </p>
                                 <button wire:click="$emit('checkout', ['p', '{{ $subscription['_id'] }}'])"
                                     class="mt-8 block w-full rounded-md border border-pink-600 bg-pink-600 py-2 text-center text-sm font-semibold text-white hover:bg-cyan-600 hover:border-cyan-600">{{__("Afnemen")}}
