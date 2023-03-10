@@ -22,19 +22,18 @@
                 </button>
             </div>
             <nav class="hidden space-x-10 md:flex">
-                <button type="button" wire:click=""
+                <button type="button" wire:click="$emit('typeChanged', 'products')"
                         class="group text-white transition-all duration-300 ease-in-out inline-flex items-center"
                         aria-expanded="false">
                     <span
                         class="bg-left-bottom bg-gradient-to-r from-cyan-500 to-cyan-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out font-bold text-2xl group-hover:text-cyan-500">{{__("Producten")}}</span>
                     
                 </button>
-
-                <button type="button" wire:click=""
+                <button type="button" wire:click="$emit('typeChanged', 'tickets')"
                         class="group text-white transition-all duration-300 ease-in-out inline-flex items-center"
                         aria-expanded="false">
                     <span
-                        class="bg-left-bottom bg-gradient-to-r from-cyan-500 to-cyan-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out font-bold text-2xl group-hover:text-cyan-500">{{__("Orders")}}</span>
+                        class="bg-left-bottom bg-gradient-to-r from-cyan-500 to-cyan-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out font-bold text-2xl group-hover:text-cyan-500">{{__("Tickets")}}</span>
                 </button>
             </nav>
         </div>
