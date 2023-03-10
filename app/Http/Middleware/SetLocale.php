@@ -29,7 +29,7 @@ class SetLocale
             }
         }
 
-        App::setLocale($locale);
+        App::setLocale('nl');
         return $next($request);
     }
 }

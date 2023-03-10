@@ -12,7 +12,7 @@
         </div>
         <div class="relative mx-auto max-w-7xl">
             <div class="text-center">
-                <h2 class="font-extrabold tracking-tight text-pink-600 sm:text-5xl">De voordeligste carwash van Breda
+                <h2 class="font-extrabold tracking-tight text-pink-600 sm:text-5xl">{{__("De voordeligste carwash van Breda")}}
                 </h2>
                 <p class="mx-auto mt-3 text-xl text-black sm:mt-4"> Bij Basic Wash Express Breda kan je zowel met je
                     auto als je bus direct terecht. Onze carwash in Breda is de
