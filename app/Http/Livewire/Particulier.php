@@ -16,11 +16,11 @@ class Particulier extends Component
     {
         if (! $this->home) {
             $this->subscriptions = Cache::remember('particulier_products', 3600, function () {
-                return Product::orderBy('price', 'desc')->whereZakelijk(false)->get();
+                return Product::orderBy('price', 'desc')->whereInShop(true)->whereZakelijk(false)->get();
             });
         } else {
             $this->subscriptions = Cache::remember('particulier_products_home', 3600, function () {
-                return Product::orderBy('price', 'desc')->whereZakelijk(false)->take(3)->get();
+                return Product::orderBy('price', 'desc')->whereInShop(true)->whereZakelijk(false)->take(3)->get();
             });
         }
     }

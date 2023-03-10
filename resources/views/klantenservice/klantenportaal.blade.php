@@ -15,24 +15,13 @@
                         <h2 class="font-semibold text-base">{{__("Waarom hebben we persoonsdata nodig?")}}</h2>
                         <p>{{__("Uw persoonlijke gegevens worden bij ons veilig bewaard om de meest efficiënte herkenning en bereikbaarheid te bieden wanneer u uw digitale kaart gebruikt. U kunt ook kiezen, uitsluitend op basis van uw eerdere aankopen in onze winkel, om geautomatiseerde gerichte promoties en acties te ontvangen.")}}</p>
                     </div>
-                    <div class="my-4 max-w-sm">
-                        <label for="email" class="block text-sm font-medium text-gray-700">{{__("Email")}}</label>
-                        <div class="mt-1">
-                            <input type="email" name="email" id="email"
-                                   class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
-                                   placeholder="you@example.com">
-                        </div>
-                    </div>
+                    
                     <div class="mx-auto mt-10 flex max-w-prose text-base lg:max-w-none">
                         <div class="rounded-md shadow">
-                            <a href="#"
+                            <a href="https://www.walnutapp.com/basicwash/my-data"
                                class="flex w-full items-center justify-center rounded-md border border-transparent bg-pink-600 px-5 py-3 text-base font-medium text-white hover:bg-cyan-600">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                     stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                          d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
-                                </svg>
-                                {{__("Stuur email")}}</a>
+                              
+                                {{__("Naar mijn data!")}}</a>
                         </div>
                     </div>
                 </div>

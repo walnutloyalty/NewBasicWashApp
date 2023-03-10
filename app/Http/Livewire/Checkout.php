@@ -58,13 +58,13 @@ class Checkout extends Component
             case 'p':
                 $this->type = 'particulier';
                 $this->subscriptions = Cache::remember('particulier_products', 3600, function () {
-                    return Product::orderBy('price', 'desc')->whereZakelijk(false)->get();
+                    return Product::orderBy('price', 'desc')->whereInShop(true)->whereZakelijk(false)->get();
                 });
                 break;
             case 'z':
                 $this->type= 'zakelijk';
                 $this->subscriptions = Cache::remember('zakelijk_products', 3600, function () {
-                    return Product::orderBy('price', 'desc')->whereZakelijk(true)->get();
+                    return Product::orderBy('price', 'desc')->whereInShop(true)->whereZakelijk(true)->get();
                 });
         }
 

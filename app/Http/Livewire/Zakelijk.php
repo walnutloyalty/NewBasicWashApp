@@ -17,11 +17,11 @@ class Zakelijk extends Component
 
         if (! $this->home) {
             $this->subscriptions = Cache::remember('zakelijk_products', 3600, function () {
-                return Product::orderBy('price', 'desc')->whereZakelijk(true)->get();
+                return Product::orderBy('price', 'desc')->whereInShop(true)->whereZakelijk(true)->get();
             });
         } else {
             $this->subscriptions = Cache::remember('zakelijk_products_home', 3600, function () {
-                return Product::orderBy('price', 'desc')->whereZakelijk(true)->take(3)->get();
+                return Product::orderBy('price', 'desc')->whereInShop(true)->whereZakelijk(true)->take(3)->get();
             });
         }
     }

@@ -99,6 +99,8 @@ Route::get('/abonnements-voorwaarden', function () {
 })->name('abonnements-voorwaarden');
 
 
+require __DIR__.'/auth.php';
+
 
 
 
