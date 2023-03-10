@@ -47,10 +47,11 @@ class Kentekencheck extends Component
         ])->get($this->RDW_URL . $kenteken);
         $this->reset('height', 'width', 'length', 'kenteken');
 
-        if ($http->failed() || !isset($http->json()[0])) {
+        if ($http->failed() || !isset($http->json()[0]) || ! isset($http->json()[0]['hoogte_voertuig']) || ! isset($http->json()[0]['breedte']) || ! isset($http->json()[0]['lengte'])) {
             $this->dispatchBrowserEvent('openerror');
             return;
         }
+
 
         $data = $http->json()[0];
         $this->height = $data['hoogte_voertuig'];
