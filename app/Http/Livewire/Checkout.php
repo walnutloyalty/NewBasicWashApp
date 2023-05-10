@@ -101,7 +101,7 @@ class Checkout extends Component
         $this->validate(['licenseplate' => 'required']);
         $licenseplate = strtoupper(str_replace([' ', '-'], '', $this->licenseplate));
         // check if the licenseplate is already in the collection
-        $this->licenseplates[0] = $licenseplate;
+        $this->licenseplates[] = $licenseplate;
         $this->reset('licenseplate');
     }
 
