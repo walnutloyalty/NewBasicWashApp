@@ -110,6 +110,10 @@ class Checkout extends Component
         $this->dispatchBrowserEvent('setstep', ['step' => 3]);
         // check the customers email address
     
+        $licenseplate = $this->licenseplates[0];
+
+        $licenseplates = $this->licenseplates;
+        unset($licenseplates[0]);
         $http = Http::withToken(env('WLNT_APP'))->post('https://www.walnutapp.com/api/v1/subscription/payment/create', [
                 "storeId" => env('STORE_ID'),
                 "productId" => $this->selected['_id'],
@@ -117,6 +121,7 @@ class Checkout extends Component
                 "name" => $this->name,
                 "phone" => $this->phone_number,
                 "licensePlate" => $this->licenseplates[0],
+                "massLicensePlates" => $licenseplates,
                 "birthdate" => "",
                 "postalCode" => $this->postcode,
                 "housenr" => $this->house_number,
