@@ -120,7 +120,7 @@ class Checkout extends Component
                 "email" => strtolower($this->email),
                 "name" => $this->name,
                 "phone" => $this->phone_number,
-                "licensePlate" => $this->licenseplates[0],
+                "licensePlate" => $licenseplate,
                 "massLicensePlates" => $licenseplates,
                 "birthdate" => "",
                 "postalCode" => $this->postcode,
