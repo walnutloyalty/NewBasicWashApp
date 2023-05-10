@@ -67,7 +67,7 @@
                             class="relative overflow-hidden rounded-2xl border-4 border-pink-600 shadow-sm">
 
                             <div
-                                class="absolute top-0 z-50 bg-pink-600 h-20 w-full flex items-center justify-center text-white text-xl font-bold">
+                                class="absolute top-0 bg-pink-600 text-center text-md h-20 w-full flex items-center justify-center text-white font-bold">
                                 <p>#{{ $key + 1 }} {{ $subscription['name'] }}</p>
                             </div>
 
@@ -96,7 +96,7 @@
                             class="relative overflow-hidden rounded-2xl border-4 border-pink-600 shadow-sm">
 
                             <div
-                                class="absolute top-0 bg-pink-600 h-20 w-full flex items-center justify-center text-white text-xl font-bold">
+                                class="absolute top-0 z-50 bg-pink-600 text-center text-md h-20 w-full flex items-center justify-center text-white font-bold">
                                 <p>#{{ $key + 1 }} {{ $subscription['name'] }}</p>
                             </div>
 
