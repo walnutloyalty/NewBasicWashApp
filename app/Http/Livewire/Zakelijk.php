@@ -10,8 +10,7 @@ class Zakelijk extends Component
 {
     public $subscriptions = [];
 
-    public $home = false;
-    
+    public $home = false, $iframe = false;
     public function mount()
     {
 

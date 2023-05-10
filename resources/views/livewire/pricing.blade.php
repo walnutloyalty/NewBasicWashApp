@@ -1,5 +1,5 @@
 <div x-data="{ private: true }" class="bg-gray-50">
-    <div class="mx-auto max-w-7xl py-24 px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl @if(! $iframe) py-24 @else py-6 @endif px-4 sm:px-6 lg:px-8">
         <div class="sm:align-center sm:flex sm:flex-col">
             <h1 class="text-5xl font-bold tracking-tight text-gray-900 sm:text-center">{{__("Onze abbonementen")}}</h1>
             <p class="mt-5 text-xl text-gray-500 sm:text-center">{{__("Goedkoop autowassen voor iedereen")}}
@@ -15,9 +15,9 @@
                 </button>
             </div>
             @if($private)
-                @livewire('particulier', ['home' => true])
+                @livewire('particulier', ['home' => $pricing ?? true, 'iframe' => $iframe ?? false])
             @else
-                @livewire('zakelijk', ['home' => true])
+                @livewire('zakelijk', ['home' => $pricing ?? true, 'iframe' => $iframe ?? false])
             @endif
         </div>
     </div>

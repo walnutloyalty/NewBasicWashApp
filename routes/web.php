@@ -22,6 +22,9 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('iframe', function () {
+    return view('iframe');
+}); 
 Route::get('job', function () {
    (new \App\Jobs\FetchProducts())->handle();
 });
