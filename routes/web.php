@@ -24,7 +24,12 @@ Route::get('/', function () {
 
 Route::get('iframe', function () {
     return view('iframe');
-}); 
+})->middleware('AddXFrameOptionsHeader'); 
+
+Route::get('iframed', function () {
+    return view('iframed');
+});
+
 Route::get('job', function () {
    (new \App\Jobs\FetchProducts())->handle();
 });
