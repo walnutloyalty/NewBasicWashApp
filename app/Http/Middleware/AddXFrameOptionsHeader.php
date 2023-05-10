@@ -18,7 +18,7 @@ class AddXFrameOptionsHeader
     {
         $response = $next($request);
         
-        $response->header('X-Frame-Options', 'SAMEORIGIN');
+        $response->header('X-Frame-Options', 'ALLOWALL');
         
         return $response;
     }
