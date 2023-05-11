@@ -323,7 +323,7 @@
                             @if (!$selected) disabled @endif
                             @if (!$tos) disabled @endif
                             class="
-                            @if ($selected) w-full rounded-md border border-transparent bg-pink-600 py-3 px-4 text-base font-medium text-white shadow-sm hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-gray-50 
+                            @if ($selected) w-full rounded-md border border-transparent  py-3 px-4 text-base font-medium text-white shadow-sm @if($tos) hover:bg-pink-700 bg-pink-600 @else hover:bg-pink-500 bg-pink-400  @endif focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-gray-50 
                             @else 
                             w-full rounded-md border border-transparent bg-gray-300 py-3 px-4 text-base font-medium text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-50 @endif">
                             <svg wire:loading wire:target="next" class="animate-spin mx-auto h-6 w-6 text-white"
