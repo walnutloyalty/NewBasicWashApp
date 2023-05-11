@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <iframe src="https://basicwash.walletapp.co/iframe" style="width:100vw; height:100vh;" frameborder="0"></iframe>
+    <iframe src="http://basicwash.test/iframe" style="width:100vw; height:100vh;" frameborder="0"></iframe>
 </body>
 </html>

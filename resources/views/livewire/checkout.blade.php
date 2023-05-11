@@ -2,15 +2,14 @@
     x-on:setstep.window="step = null; setTimeout(function () {
     step = $event.detail.step
 }, 500)"
-@paymenturl.window="window.open($event.detail.url, '_blank')"
-    x-data="{ step: 1 }"
+    @paymenturl.window="window.open($event.detail.url, '_blank')" x-data="{ step: 1 }"
     class="relative mx-auto grid max-w-7xl grid-cols-1 gap-x-16 lg:grid-cols-2 lg:px-8 xl:gap-x-48">
     <div class="relative flex justify-end border-b border-gray-200 col-span-full sm:justify-center">
         <div aria-label="Progress" class="py-4 sm:block">
             <ol role="list" class="flex space-x-1">
                 <li class="flex items-center">
                     <button type="button" wire:click="step(1)" aria-current="page"
-                        :class="step === 1 && 'text-pink-600'">{{__("Contact informatie")}}
+                        :class="step === 1 && 'text-pink-600'">{{ __('Contact informatie') }}
                     </button>
                     <!-- Heroicon name: mini/chevron-right -->
                     <svg class="ml-4 h-5 w-5 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +21,7 @@
                 </li>
                 <li class="flex items-center">
                     <button type="button" wire:click="step(2)" :class="step === 2 && 'text-pink-600'">
-                        {{__("Kenteken")}}
+                        {{ __('Kenteken') }}
                     </button>
                     <!-- Heroicon name: mini/chevron-right -->
                     <svg class="ml-4 h-5 w-5 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +32,8 @@
                     </svg>
                 </li>
                 <li class="flex items-center">
-                    <button type="button" wire:click="step(3)" :class="step === 3 && 'text-pink-600'">{{__("Bevestigen")}}
+                    <button type="button" wire:click="step(3)"
+                        :class="step === 3 && 'text-pink-600'">{{ __('Bevestigen') }}
                     </button>
                 </li>
             </ol>
@@ -41,91 +41,96 @@
         {{--                    <p class="sm:hidden">Step 2 of 4</p> --}}
     </div>
     <div x-transition x-show="step === 1">
-        <form class="px-4 pt-8 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 lg:pb-16"
-            wire:submit.prevent="submit">
+        <form class="px-4 pt-8 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 lg:pb-16" wire:submit.prevent="submit">
             @csrf
-                <div class="mx-auto max-w-lg mt-8 lg:max-w-none">
-                    <section aria-labelledby="contact-info-heading">
-                        <h2 id="contact-info-heading" class="text-lg font-medium text-gray-900">{{__("Contact informatie")}}</h2>
-                        <div class="mt-6">
-                            <label for="userName" class="block text-sm font-medium text-gray-700">{{__("Naam")}}</label>
+            <div class="mx-auto max-w-lg mt-8 lg:max-w-none">
+                <section aria-labelledby="contact-info-heading">
+                    <h2 id="contact-info-heading" class="text-lg font-medium text-gray-900">
+                        {{ __('Contact informatie') }}</h2>
+                    <div class="mt-6">
+                        <label for="userName"
+                            class="block text-sm font-medium text-gray-700">{{ __('Naam') }}</label>
+                        <div class="mt-1">
+                            <input type="text" wire:model="name"
+                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                                placeholder="John Doe">
+                            @error('name')
+                                <span class="text-sm text-pink-500">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <label for="userEmail"
+                            class="block text-sm font-medium text-gray-700">{{ __('Email') }}</label>
+                        <div class="mt-1">
+                            <input type="email" wire:model="email"
+                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                                placeholder="my@email.com">
+                            @error('email')
+                                <span class=" text-sm text-pink-500">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+                </section>
+
+                <section aria-labelledby="shipping-heading" class="mt-4">
+                    <h2 id="shipping-heading"
+                        class="@if ($type == 'zakelijk') hidden @endif text-lg font-medium text-gray-900">
+                        Overige informatie</h2>
+                    <div
+                        class="@if ($type == 'zakelijk') hidden @endif mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
+                        <div class="sm:col-span-2">
+                            <label for="userPhone"
+                                class="block text-sm font-medium text-gray-700">{{ __('Telefoonnummer') }}</label>
                             <div class="mt-1">
-                                <input type="text" wire:model="name"
+                                <input type="text" wire:model="phone_number"
                                     class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
-                                    placeholder="John Doe">
-                                @error('name')
+                                    placeholder="+31612341234">
+                                @error('phone_number')
                                     <span class="text-sm text-pink-500">{{ $message }}</span>
                                 @enderror
                             </div>
                         </div>
-                        <div class="mt-6">
-                            <label for="userEmail" class="block text-sm font-medium text-gray-700">{{__("Email")}}</label>
+                        <div>
+                            <label for="userPostalCode"
+                                class="block text-sm font-medium text-gray-700">{{ __('Postcode') }}</label>
                             <div class="mt-1">
-                                <input type="email" wire:model="email"
+                                <input type="text" wire:model="postcode"
                                     class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
-                                    placeholder="my@email.com">
-                                @error('email')
-                                    <span class=" text-sm text-pink-500">{{ $message }}</span>
+                                    placeholder="1234AB">
+                                @error('postcode')
+                                    <span class="text-sm text-pink-500">{{ $message }}</span>
                                 @enderror
                             </div>
                         </div>
-                    </section>
-
-                        <section aria-labelledby="shipping-heading" class="mt-4">
-                            <h2 id="shipping-heading" class="@if($type == 'zakelijk') hidden @endif text-lg font-medium text-gray-900">Overige informatie</h2>
-                            <div class="@if($type == 'zakelijk') hidden @endif mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
-                                <div class="sm:col-span-2">
-                                    <label for="userPhone"
-                                        class="block text-sm font-medium text-gray-700">{{__("Telefoonnummer")}}</label>
-                                    <div class="mt-1">
-                                        <input type="text" wire:model="phone_number"
-                                            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
-                                            placeholder="+31612341234">
-                                        @error('phone_number')
-                                            <span class="text-sm text-pink-500">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div>
-                                    <label for="userPostalCode"
-                                        class="block text-sm font-medium text-gray-700">{{__("Postcode")}}</label>
-                                    <div class="mt-1">
-                                        <input type="text" wire:model="postcode"
-                                            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
-                                            placeholder="1234AB">
-                                        @error('postcode')
-                                            <span class="text-sm text-pink-500">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div>
-                                    <label for="userHouseNumber"
-                                        class="block text-sm font-medium text-gray-700">{{__("Huisnummer")}}</label>
-                                    <div class="mt-1">
-                                        <input type="text" wire:model="house_number"
-                                            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
-                                            placeholder="123A">
-                                        @error('house_number')
-                                            <span class="text-pink-500 text-sm">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                </div>
+                        <div>
+                            <label for="userHouseNumber"
+                                class="block text-sm font-medium text-gray-700">{{ __('Huisnummer') }}</label>
+                            <div class="mt-1">
+                                <input type="text" wire:model="house_number"
+                                    class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                                    placeholder="123A">
+                                @error('house_number')
+                                    <span class="text-pink-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
-                        </section>
+                        </div>
                     </div>
+                </section>
+            </div>
 
-       
+
         </form>
     </div>
     <div x-transition x-show="step === 2">
         <div class="mx-auto mt-4 max-w-lg">
             <div>
                 <div class="text-center mt-16">
-                  
-                    <h2 class="mt-2 text-lg font-medium text-gray-900">{{__("Voeg je kenteken toe")}}</h2>
+
+                    <h2 class="mt-2 text-lg font-medium text-gray-900">{{ __('Voeg je kenteken toe') }}</h2>
                 </div>
                 <form action="#" class="mt-6 flex">
-                    <label for="userLicensePlate" class="sr-only">{{__("Kenteken")}}</label>
+                    <label for="userLicensePlate" class="sr-only">{{ __('Kenteken') }}</label>
                     <input type="text" name="userLicensePlate" wire:model="licenseplate" id="userLicensePlate"
                         class="block w-full rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500 sm:text-sm"
                         placeholder="Enter a licenseplate">
@@ -154,7 +159,7 @@
                 @enderror
             </div>
             <div class="mt-10">
-                <h3 class="text-sm font-medium text-gray-500">{{__("Je toegevoegde kenteken")}}</h3>
+                <h3 class="text-sm font-medium text-gray-500">{{ __('Je toegevoegde kenteken') }}</h3>
                 <ul role="list" class="mt-4 divide-y divide-gray-200 border-t border-b border-gray-200">
                     @foreach ($licenseplates as $key => $plate)
                         <li
@@ -162,7 +167,7 @@
                             <div class="w-full flex justify-between">
                                 <p class="truncate text-sm font-medium text-gray-900">{{ $plate }}</p>
                                 <p wire:click="removePlate({{ $key }})"
-                                    class=" cursor-pointer truncate text-sm text-pink-600">{{__("Verwijder")}}</p>
+                                    class=" cursor-pointer truncate text-sm text-pink-600">{{ __('Verwijder') }}</p>
                             </div>
                         </li>
                     @endforeach
@@ -174,15 +179,25 @@
         </div>
     </div>
     <div x-transition x-show="step === 3" class="pt-16">
-        <h1 class="text-center text-5xl font-extrabold text-pink-600">{{__("Even geduld")}}<h1>
-        <h2 class="text-center text-lg mt-6">{{$loading_message}}</h2>
+        <h1 class="text-center text-5xl font-extrabold text-pink-600">{{ __('Even geduld') }}<h1>
+                <h2 class="text-center text-lg mt-6">{{ $loading_message }}</h2>
     </div>
 
     <div x-transition x-show="step === null" class="pt-16">
-        <h1 class="text-center text-5xl font-extrabold text-pink-600">{{__("Even geduld")}}<h1>
-                <h2 class="text-center text-lg mt-6">{{__("We zijn even wat dingen aan het checken...")}}</h2>
+        <h1 class="text-center text-5xl font-extrabold text-pink-600">{{ __('Even geduld') }}<h1>
+                <h2 class="text-center text-lg mt-6">{{ __('We zijn even wat dingen aan het checken...') }}</h2>
     </div>
-    <div style="width:100%; max-width:450px; margin-top: 4rem; margin-right: 2rem; margin-top: 4rem; margin-right: 2rem;" class="lg:absolute lg:right-0 mr-4 @if (! $home) bg-white @endif">
+    <style>
+        /* if the page is smaller than sm */
+        @media (min-width: 1024px) {
+            .cart {
+                max-width: 450px;
+
+            }
+        }
+    </style>
+    <div style="width:100%; margin-top: 4rem; margin-right: 2rem; margin-top: 4rem; margin-right: 2rem;"
+        class="cart lg:absolute lg:right-0 mr-4 @if (!$home) bg-white @endif">
         <div class="mx-auto max-w-2xl  px-4 sm:px-6 lg:px-0">
             <form class="mt-12">
                 <section aria-labelledby="cart-heading">
@@ -212,10 +227,10 @@
                                     <div class="mt-4 flex flex-1 items-end justify-between">
 
                                         <div class=" w-full flex justify-between">
-                                          
+
                                             <button wire:click="$set('selected', null)" type="button"
                                                 class="text-sm font-medium text-pink-600 hover:text-pink-500">
-                                                <span>{{__("Verwijder")}}</span>
+                                                <span>{{ __('Weizig') }}</span>
                                             </button>
                                         </div>
                                     </div>
@@ -226,7 +241,7 @@
                                 <div class="space-y-4">
                                     @foreach ($subscriptions as $subscription)
                                         <label wire:click="selected('{{ $subscription['_id'] }}')"
-                                            class="relative block cursor-pointer rounded-lg border @if (! $home) bg-white @endif px-6 py-4 shadow-sm focus:outline-pink-600 hover:border hover:border-pink-600 sm:flex sm:justify-between">
+                                            class="relative block cursor-pointer rounded-lg border @if (!$home) bg-white @endif px-6 py-4 shadow-sm focus:outline-pink-600 hover:border hover:border-pink-600 sm:flex sm:justify-between">
                                             <input type="radio" name="server-size" value="Hobby" class="sr-only"
                                                 aria-labelledby="server-size-0-label"
                                                 aria-describedby="server-size-0-description-0 server-size-0-description-1">
@@ -249,9 +264,9 @@
                                                 </span>
                                                 <span class="ml-1 text-gray-500 sm:ml-0">
                                                     @if ($subscription['interval'] === 'maand')
-                                                        / {{__("maand")}}
+                                                        / {{ __('maand') }}
                                                     @else
-                                                        /{{__('jaar')}}
+                                                        /{{ __('jaar') }}
                                                     @endif
                                                 </span>
                                             </span>
@@ -273,19 +288,40 @@
                     <div>
                         <dl class="space-y-4">
                             <div class="flex items-center justify-between">
-                                <dt class="text-base font-medium text-gray-900">{{__("Totaal")}}</dt>
+                                <dt class="text-base font-medium text-gray-900">{{ __('Totaal') }}</dt>
                                 <dd class="ml-4 text-base font-medium text-gray-900">€{{ $selected['price'] ?? 0.0 }}
                                 </dd>
                             </div>
                         </dl>
-                        <p class="mt-1 text-sm text-gray-500">{{__("De hoeveelheid van de periodieke betalingen")}}</p>
+                        <p class="mt-1 text-sm text-gray-500">{{ __('De hoeveelheid van de periodieke betalingen') }}
+                        </p>
                     </div>
+
+                    <div class="flex items-center mt-4 justify-between">
+                        <span class="flex flex-grow flex-col">
+                            <span class="text-sm font-medium leading-6 text-gray-900"
+                                id="availability-label">Voorwaarden</span>
+                            <span class="text-sm text-gray-500" id="availability-description">Door verder te gaan,
+                                accepteer ik de voorwaarden van BasicWash</span>
+                        </span>
+                        <!-- Enabled: "bg-indigo-600", Not Enabled: "bg-gray-200" -->
+                        <button wire:click="toggleTop" type="button"
+                            class="@if ($tos) bg-pink-600 @else bg-gray-200 @endif relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+                            role="switch" aria-checked="false" aria-labelledby="availability-label"
+                            aria-describedby="availability-description">
+                            <!-- Enabled: "translate-x-5", Not Enabled: "translate-x-0" -->
+                            <span aria-hidden="true"
+                                class="@if ($tos) translate-x-5 @else translate-x-0 @endif pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
+                        </button>
+                    </div>
+
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10">
                         <button type="button" @click="$dispatch('openvoucher')"
-                            class="w-full rounded-md border border-transparent bg-pink-100 py-3 px-4 text-base font-medium text-pink-700 shadow-sm hover:bg-pink-200 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-50">{{__("Gebruik korting")}}</button>
+                            class="w-full rounded-md border border-transparent bg-pink-100 py-3 px-4 text-base font-medium text-pink-700 shadow-sm hover:bg-pink-200 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-50">{{ __('Gebruik korting') }}</button>
                         <button wire:target="next" wire:loading.attr="disabled" type="button" wire:click="next"
                             @if (!$selected) disabled @endif
+                            @if (!$tos) disabled @endif
                             class="
                             @if ($selected) w-full rounded-md border border-transparent bg-pink-600 py-3 px-4 text-base font-medium text-white shadow-sm hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-gray-50 
                             @else 
@@ -329,9 +365,10 @@
                         </svg>
                     </div>
                     <div class="mt-3 text-center sm:mt-5">
-                        <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">{{__("Kortings code")}}</h3>
+                        <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">
+                            {{ __('Kortings code') }}</h3>
                         <div class="mt-2">
-                            <p class="text-sm text-gray-500">{{__("Gebruik een korting voor je abbonement!")}}</p>
+                            <p class="text-sm text-gray-500">{{ __('Gebruik een korting voor je abbonement!') }}</p>
                         </div>
                         <div>
                             <div class="mt-2">
@@ -344,9 +381,9 @@
                     </div>
                     <div class="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
                         <button type="button" @click="open = false"
-                            class="inline-flex w-full justify-center rounded-md bg-pink-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600 sm:col-start-2">{{__("Gebruik")}}</button>
+                            class="inline-flex w-full justify-center rounded-md bg-pink-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600 sm:col-start-2">{{ __('Gebruik') }}</button>
                         <button type="button" @click="open = false"
-                            class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:col-start-1 sm:mt-0">{{__("Terug")}}</button>
+                            class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:col-start-1 sm:mt-0">{{ __('Terug') }}</button>
                     </div>
                 </div>
             </div>

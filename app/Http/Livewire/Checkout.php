@@ -38,6 +38,8 @@ class Checkout extends Component
     public $voucher;
     
     public $licenseplate;
+    
+    public $tos = false;
      
     public $listeners = [
         'checkout' => 'checkout'
@@ -46,6 +48,11 @@ class Checkout extends Component
     public $rules = [
         'selected' => 'required'
     ];
+
+    public function toggleTop()
+    {
+        $this->tos = ! $this->tos;
+    }
 
     public function mount()
     {
