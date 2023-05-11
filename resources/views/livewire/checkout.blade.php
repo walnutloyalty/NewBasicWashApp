@@ -2,6 +2,7 @@
     x-on:setstep.window="step = null; setTimeout(function () {
     step = $event.detail.step
 }, 500)"
+@paymenturl.window="window.open($event.detail.url, '_blank')"
     x-data="{ step: 1 }"
     class="relative mx-auto grid max-w-7xl grid-cols-1 gap-x-16 lg:grid-cols-2 lg:px-8 xl:gap-x-48">
     <div class="relative flex justify-end border-b border-gray-200 col-span-full sm:justify-center">

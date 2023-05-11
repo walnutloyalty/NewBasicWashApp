@@ -15,7 +15,8 @@ use App\Models\Ticket;
 |
 */
 Route::get('preview', function () {
-    $ticket = Ticket::first();
+    $job = new \App\Jobs\FetchProducts();
+    $job->handle();
     return new App\Mail\TicketConfirmation($ticket);
 });
 

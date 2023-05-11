@@ -109,7 +109,6 @@ class Checkout extends Component
     {  
         $this->dispatchBrowserEvent('setstep', ['step' => 3]);
         // check the customers email address
-    
         $licenseplate = $this->licenseplates[0];
 
         $licenseplates = $this->licenseplates;
@@ -121,7 +120,7 @@ class Checkout extends Component
                 "name" => $this->name,
                 "phone" => $this->phone_number,
                 "licensePlate" => $licenseplate,
-                "massLicensePlates" => $licenseplates,
+                // "massLicensePlates" => $licenseplates,
                 "birthdate" => "",
                 "postalCode" => $this->postcode,
                 "housenr" => $this->house_number,
@@ -129,11 +128,11 @@ class Checkout extends Component
         ]);
 
         if ($http->failed()) {
-            $this->$loading_message = 'Er is iets misgegaan, probeer het later nog eens.';
+            $this->loading_message = 'Er is iets misgegaan, probeer het later nog eens.';
             return;
         }
-
-        return redirect($http->json()['paymentUrl']);
+        $this->loading_message = 'We openen een nieuw venster om de betaling te voltooien.';
+        $this->dispatchBrowserEvent('paymenturl', ['url' => $http->json()['paymentUrl']]);
     }
      
     public function step($step)
