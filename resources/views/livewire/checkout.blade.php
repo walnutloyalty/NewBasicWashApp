@@ -230,7 +230,7 @@
 
                                             <button wire:click="$set('selected', null)" type="button"
                                                 class="text-sm font-medium text-pink-600 hover:text-pink-500">
-                                                <span>{{ __('Weizig') }}</span>
+                                                <span>{{ __('wijzig') }}</span>
                                             </button>
                                         </div>
                                     </div>
