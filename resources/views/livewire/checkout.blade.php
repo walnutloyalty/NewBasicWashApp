@@ -4,7 +4,7 @@
 }, 500)"
     @paymenturl.window="window.open($event.detail.url, '_blank')" x-data="{ step: 1 }"
     class="relative mx-auto grid max-w-7xl grid-cols-1 gap-x-16 lg:grid-cols-2 lg:px-8 xl:gap-x-48">
-    <div class="relative flex justify-end border-b border-gray-200 col-span-full sm:justify-center">
+    <div class="relative col-span-full flex justify-end border-b border-gray-200 sm:justify-center">
         <div aria-label="Progress" class="py-4 sm:block">
             <ol role="list" class="flex space-x-1">
                 <li class="flex items-center">
@@ -43,7 +43,7 @@
     <div x-transition x-show="step === 1">
         <form class="px-4 pt-8 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 lg:pb-16" wire:submit.prevent="submit">
             @csrf
-            <div class="mx-auto max-w-lg mt-8 lg:max-w-none">
+            <div class="mx-auto mt-8 max-w-lg lg:max-w-none">
                 <section aria-labelledby="contact-info-heading">
                     <h2 id="contact-info-heading" class="text-lg font-medium text-gray-900">
                         {{ __('Contact informatie') }}</h2>
@@ -67,7 +67,7 @@
                                 class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
                                 placeholder="my@email.com">
                             @error('email')
-                                <span class=" text-sm text-pink-500">{{ $message }}</span>
+                                <span class="text-sm text-pink-500">{{ $message }}</span>
                             @enderror
                         </div>
                     </div>
@@ -78,7 +78,7 @@
                         class="@if ($type == 'zakelijk') hidden @endif text-lg font-medium text-gray-900">
                         Overige informatie</h2>
                     <div
-                        class="@if ($type == 'zakelijk') hidden @endif mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
+                        class="@if ($type == 'zakelijk') hidden @endif mt-6 grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-2">
                         <div class="sm:col-span-2">
                             <label for="userPhone"
                                 class="block text-sm font-medium text-gray-700">{{ __('Telefoonnummer') }}</label>
@@ -111,7 +111,7 @@
                                     class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
                                     placeholder="123A">
                                 @error('house_number')
-                                    <span class="text-pink-500 text-sm">{{ $message }}</span>
+                                    <span class="text-sm text-pink-500">{{ $message }}</span>
                                 @enderror
                             </div>
                         </div>
@@ -119,13 +119,12 @@
                 </section>
             </div>
 
-
         </form>
     </div>
     <div x-transition x-show="step === 2">
         <div class="mx-auto mt-4 max-w-lg">
             <div>
-                <div class="text-center mt-16">
+                <div class="mt-16 text-center">
 
                     <h2 class="mt-2 text-lg font-medium text-gray-900">{{ __('Voeg je kenteken toe') }}</h2>
                 </div>
@@ -136,15 +135,15 @@
                         placeholder="Enter a licenseplate">
                     <button type="button" wire:click="addLicensePlate" wire:loading.attr="disabled"
                         wire:target="addLicensePlate"
-                        class="ml-4 flex-shrink-0 rounded-full border border-transparent bg-pink-600  p-2 text-sm font-medium text-white shadow-sm hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2">
+                        class="ml-4 flex-shrink-0 rounded-full border border-transparent bg-pink-600 p-2 text-sm font-medium text-white shadow-sm hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2">
                         <svg wire:target="addLicensePlate" wire:loading.remove xmlns="http://www.w3.org/2000/svg"
                             fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                            class="w-6 h-6">
+                            class="h-6 w-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                         </svg>
 
                         <svg wire:loading wire:target="addLicensePlate"
-                            class="animate-spin mx-auto h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg"
+                            class="mx-auto h-6 w-6 animate-spin text-white" xmlns="http://www.w3.org/2000/svg"
                             fill="none" viewBox="0 0 24 24">
                             <circle class="opacity-25" cx="12" cy="12" r="10"
                                 stroke="currentColor" stroke-width="4"></circle>
@@ -155,57 +154,56 @@
                     </button>
                 </form>
                 @error('licenseplate')
-                    <span class="text-pink-600 text-sm"> {{ $message }} </span>
+                    <span class="text-sm text-pink-600"> {{ $message }} </span>
                 @enderror
             </div>
             <div class="mt-10">
                 <h3 class="text-sm font-medium text-gray-500">{{ __('Je toegevoegde kenteken') }}</h3>
-                <ul role="list" class="mt-4 divide-y divide-gray-200 border-t border-b border-gray-200">
+                <ul role="list" class="mt-4 divide-y divide-gray-200 border-b border-t border-gray-200">
                     @foreach ($licenseplates as $key => $plate)
                         <li
-                            class="relative bg-white py-5 px-4 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 hover:bg-gray-50">
-                            <div class="w-full flex justify-between">
+                            class="relative bg-white px-4 py-5 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 hover:bg-gray-50">
+                            <div class="flex w-full justify-between">
                                 <p class="truncate text-sm font-medium text-gray-900">{{ $plate }}</p>
                                 <p wire:click="removePlate({{ $key }})"
-                                    class=" cursor-pointer truncate text-sm text-pink-600">{{ __('Verwijder') }}</p>
+                                    class="cursor-pointer truncate text-sm text-pink-600">{{ __('Verwijder') }}</p>
                             </div>
                         </li>
                     @endforeach
                 </ul>
                 @error('licenseplates')
-                    <span class="text-pink-600 text-sm">{{ $message }}</span>
+                    <span class="text-sm text-pink-600">{{ $message }}</span>
                 @enderror
             </div>
         </div>
     </div>
     <div x-transition x-show="step === 3" class="pt-16">
-        <h1 class="text-center text-5xl font-extrabold text-pink-600">{{ __('Even geduld') }}<h1>
-                <h2 class="text-center text-lg mt-6">{{ $loading_message }}</h2>
+        <h1 class="text-center text-5xl font-extrabold text-pink-600">{{ __('Even geduld') }}</h1>
+        <h2 class="mt-6 text-center text-lg">{{ $loading_message }}</h2>
     </div>
 
     <div x-transition x-show="step === null" class="pt-16">
-        <h1 class="text-center text-5xl font-extrabold text-pink-600">{{ __('Even geduld') }}<h1>
-                <h2 class="text-center text-lg mt-6">{{ __('We zijn even wat dingen aan het checken...') }}</h2>
+        <h1 class="text-center text-5xl font-extrabold text-pink-600">{{ __('Even geduld') }}</h1>
+        <h2 class="mt-6 text-center text-lg">{{ __('Gegevens worden geverifieerd...') }}</h2>
     </div>
     <style>
         /* if the page is smaller than sm */
         @media (min-width: 1024px) {
             .cart {
                 max-width: 450px;
-
             }
         }
     </style>
     <div style="width:100%; margin-top: 4rem; margin-right: 2rem; margin-top: 4rem; margin-right: 2rem;"
-        class="cart lg:absolute lg:right-0 mr-4 @if (!$home) bg-white @endif">
-        <div class="mx-auto max-w-2xl  px-4 sm:px-6 lg:px-0">
+        class="cart @if (!$home) bg-white @endif mr-4 lg:absolute lg:right-0">
+        <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-0">
             <form class="mt-12">
                 <section aria-labelledby="cart-heading">
                     <h2 id="cart-heading" class="sr-only"></h2>
 
-                    <ul role="list" class="divide-y divide-gray-200 border-t border-b border-gray-200">
+                    <ul role="list" class="divide-y divide-gray-200 border-b border-t border-gray-200">
                         @if (isset($selected))
-                            <li class="grid grid-cols-2 sm:grid-cols-3 gap-1 py-6">
+                            <li class="grid grid-cols-2 gap-1 py-6 sm:grid-cols-3">
                                 <div class="flex-shrink-0">
                                     <img src="{{ $selected['image'] }}"
                                         alt="Front side of mint cotton t-shirt with wavey lines pattern."
@@ -217,10 +215,10 @@
                                         <div class="flex justify-between">
                                             <h4 class="text-sm">
                                                 <a href="#"
-                                                    class="font-medium text-right text-gray-700 hover:text-gray-800">{{ $selected['title'] }}</a>
+                                                    class="text-right font-medium text-gray-700 hover:text-gray-800">{{ $selected['title'] }}</a>
                                             </h4>
                                         </div>
-                                        <p class="mt-1 text-sm  text-gray-500">{{ $selected['description'] }}
+                                        <p class="mt-1 text-sm text-gray-500">{{ $selected['description'] }}
                                         </p>
                                     </div>
                                 </div>
@@ -230,7 +228,7 @@
                                 <div class="space-y-4">
                                     @foreach ($subscriptions as $subscription)
                                         <label wire:click="selected('{{ $subscription['_id'] }}')"
-                                            class="relative block cursor-pointer rounded-lg border @if (!$home) bg-white @endif px-6 py-4 shadow-sm focus:outline-pink-600 hover:border hover:border-pink-600 sm:flex sm:justify-between">
+                                            class="@if (!$home) bg-white @endif relative block cursor-pointer rounded-lg border px-6 py-4 shadow-sm hover:border hover:border-pink-600 focus:outline-pink-600 sm:flex sm:justify-between">
                                             <input type="radio" name="server-size" value="Hobby" class="sr-only"
                                                 aria-labelledby="server-size-0-label"
                                                 aria-describedby="server-size-0-description-0 server-size-0-description-1">
@@ -246,7 +244,7 @@
                                                 </span>
                                             </span>
                                             <span id="server-size-0-description-1"
-                                                class="mt-2 flex text-sm sm:mt-0 sm:ml-4 sm:flex-col sm:text-right">
+                                                class="mt-2 flex text-sm sm:ml-4 sm:mt-0 sm:flex-col sm:text-right">
                                                 <span class="font-medium text-gray-900">€@if (str_contains($subscription['price'], '.00'))
                                                         {{ round($subscription['price'], 2) }}@else{{ $subscription['price'] }}
                                                     @endif
@@ -271,22 +269,40 @@
                 </section>
 
                 <!-- Order summary -->
-                <section aria-labelledby="summary-heading" class=" mt-10">
+                <section aria-labelledby="summary-heading" class="mt-10">
                     <h2 id="summary-heading" class="sr-only">Order summary</h2>
 
                     <div>
+                        <p class="mt-1 text-sm text-blue-500" wire:loading wire:target="applyVoucher">{{ __('Kortingscode wordt gecontroleerd...') }}</p>
+                        @if ($applyVoucherFailed)
+                            <button class="mt-1 inline-block cursor-pointer text-sm text-red-600 hover:text-red-800" wire:click="$set('applyVoucherFailed', false)">X</button>
+                            <p class="mt-1 inline-block text-sm text-red-500">{{ __('Kortingscode ongeldig') }}</p>
+                        @endif
+                        @if ($voucherApplied)
+                            <dl class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <dt class="text-base font-medium text-gray-500">{{ __('Product prijs') }}</dt>
+                                    <dd class="ml-4 text-base font-medium text-gray-500">€{{ $selected['price'] ?? 0.0 }}</dd>
+                                </div>
+                            </dl>
+                            <dl class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <dt class="text-base font-medium text-gray-500">{{ __('Kortingscode') }}</dt>
+                                    <dd class="ml-4 text-base font-medium text-gray-500">- €{{ $voucherAmount ?? 0.0 }}</dd>
+                                </div>
+                            </dl>
+                        @endif
                         <dl class="space-y-4">
                             <div class="flex items-center justify-between">
                                 <dt class="text-base font-medium text-gray-900">{{ __('Totaal') }}</dt>
-                                <dd class="ml-4 text-base font-medium text-gray-900">€{{ $selected['price'] ?? 0.0 }}
-                                </dd>
+                                <dd class="ml-4 text-base font-medium text-gray-900">€{{ ($selected['price'] ?? 0.0) - ($voucherApplied ? $voucherAmount : 0) }}</dd>
                             </div>
                         </dl>
                         <p class="mt-1 text-sm text-gray-500">{{ __('De hoeveelheid van de periodieke betalingen') }}
                         </p>
                     </div>
 
-                    <div class="flex items-center mt-4 justify-between">
+                    <div class="mt-4 flex items-center justify-between">
                         <span class="flex flex-grow flex-col">
                             <span class="text-sm font-medium leading-6 text-gray-900"
                                 id="availability-label">Voorwaarden</span>
@@ -304,18 +320,16 @@
                         </button>
                     </div>
 
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10">
+                    <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
                         <button type="button" @click="$dispatch('openvoucher')"
-                            class="w-full rounded-md border border-transparent bg-pink-100 py-3 px-4 text-base font-medium text-pink-700 shadow-sm hover:bg-pink-200 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-50">{{ __('Gebruik korting') }}</button>
+                            class="w-full rounded-md border border-transparent bg-pink-100 px-4 py-3 text-base font-medium text-pink-700 shadow-sm hover:bg-pink-200 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-50">
+                            {{ __('Gebruik korting') }}
+                        </button>
                         <button wire:target="next" wire:loading.attr="disabled" type="button" wire:click="next"
                             @if (!$selected) disabled @endif
                             @if (!$tos) disabled @endif
-                            class="
-                            @if ($selected) w-full rounded-md border border-transparent  py-3 px-4 text-base font-medium text-white shadow-sm @if($tos) hover:bg-pink-700 bg-pink-600 @else hover:bg-pink-500 bg-pink-400  @endif focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-gray-50 
-                            @else 
-                            w-full rounded-md border border-transparent bg-gray-300 py-3 px-4 text-base font-medium text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-50 @endif">
-                            <svg wire:loading wire:target="next" class="animate-spin mx-auto h-6 w-6 text-white"
+                            class="@if ($selected) w-full rounded-md border border-transparent  py-3 px-4 text-base font-medium text-white shadow-sm @if ($tos) hover:bg-pink-700 bg-pink-600 @else hover:bg-pink-500 bg-pink-400 @endif @else @endif w-full rounded-md border border-transparent bg-gray-300 px-4 py-3 text-base font-medium text-white shadow-sm focus:outline-none focus:outline-none focus:ring-2 focus:ring-2 focus:ring-gray-500 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-offset-gray-50">
+                            <svg wire:loading wire:target="next" class="mx-auto h-6 w-6 animate-spin text-white"
                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                 <circle class="opacity-25" cx="12" cy="12" r="10"
                                     stroke="currentColor" stroke-width="4"></circle>
@@ -346,7 +360,7 @@
                 class="relative flex min-h-screen items-center justify-center p-4">
                 <div x-on:click.stop x-trap.noscroll.inert="open"
                     class="relative w-full max-w-2xl overflow-y-auto rounded-xl bg-white p-4 shadow-lg">
-                    <div class="text-center mx-auto h-12 w-12 text-pink-600">
+                    <div class="mx-auto h-12 w-12 text-center text-pink-600">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                             stroke-width="1.5" stroke="currentColor" class="mx-auto h-12 w-12">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -369,7 +383,7 @@
 
                     </div>
                     <div class="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
-                        <button type="button" @click="open = false"
+                        <button type="button" @click="open = false" wire:click="applyVoucher"
                             class="inline-flex w-full justify-center rounded-md bg-pink-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600 sm:col-start-2">{{ __('Gebruik') }}</button>
                         <button type="button" @click="open = false"
                             class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:col-start-1 sm:mt-0">{{ __('Terug') }}</button>
