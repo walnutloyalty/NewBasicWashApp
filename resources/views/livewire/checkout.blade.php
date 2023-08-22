@@ -73,12 +73,16 @@
                     </div>
                 </section>
 
-                <section aria-labelledby="shipping-heading" class="mt-4">
+                <section aria-labelledby="shipping-heading" class="mt-8">
                     <h2 id="shipping-heading"
-                        class="@if ($type == 'zakelijk') hidden @endif text-lg font-medium text-gray-900">
-                        Overige informatie</h2>
-                    <div
-                        class="@if ($type == 'zakelijk') hidden @endif mt-6 grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-2">
+                        class="text-lg font-medium text-gray-900">
+                        @if ($type == 'zakelijk')
+                            Bedrijfsinformatie
+                        @else
+                            Overige informatie
+                        @endif
+                    </h2>
+                    <div class="mt-4 grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-2">
                         <div class="sm:col-span-2">
                             <label for="userPhone"
                                 class="block text-sm font-medium text-gray-700">{{ __('Telefoonnummer') }}</label>
@@ -115,6 +119,44 @@
                                 @enderror
                             </div>
                         </div>
+                        @if ($selected?->zakelijk)
+                            <div class="sm:col-span-2">
+                                <label for="company_name"
+                                    class="block text-sm font-medium text-gray-700">{{ __('Tenaamstelling bedrijf') }}</label>
+                                <div class="mt-1">
+                                    <input type="text" wire:model="company_name"
+                                        class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                                        placeholder="Basic Wash B.V.">
+                                    @error('company_name')
+                                        <span class="text-sm text-pink-500">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div>
+                                <label for="company_btw_number"
+                                    class="block text-sm font-medium text-gray-700">{{ __('BTW nummer') }}</label>
+                                <div class="mt-1">
+                                    <input type="text" wire:model="company_btw_number"
+                                        class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                                        placeholder="NL123456789B01">
+                                    @error('company_btw_number')
+                                        <span class="text-sm text-pink-500">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div>
+                                <label for="company_kvk_number"
+                                    class="block text-sm font-medium text-gray-700">{{ __('KVK nummer') }}</label>
+                                <div class="mt-1">
+                                    <input type="text" wire:model="company_kvk_number"
+                                        class="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                                        placeholder="12345678">
+                                    @error('company_kvk_number')
+                                        <span class="text-sm text-pink-500">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                        @endif
                     </div>
                 </section>
             </div>
@@ -180,6 +222,10 @@
     <div x-transition x-show="step === 3" class="pt-16">
         <h1 class="text-center text-5xl font-extrabold text-pink-600">{{ __('Even geduld') }}</h1>
         <h2 class="mt-6 text-center text-lg">{{ $loading_message }}</h2>
+        @if (!empty($paymentUrl))
+            <h3 class="mt-6 text-center text-base underline hover:decoration-dotted"><a href="{{ $paymentUrl }}" target="_blank">Is er geen nieuw venster geopend? Klik dan hier</a></h3>
+
+        @endif
     </div>
 
     <div x-transition x-show="step === null" class="pt-16">
@@ -275,45 +321,90 @@
                     <div>
                         <p class="mt-1 text-sm text-blue-500" wire:loading wire:target="applyVoucher">{{ __('Kortingscode wordt gecontroleerd...') }}</p>
                         @if ($applyVoucherFailed)
-                            <button class="mt-1 inline-block cursor-pointer text-sm text-red-600 hover:text-red-800" wire:click="$set('applyVoucherFailed', false)">X</button>
-                            <p class="mt-1 inline-block text-sm text-red-500">{{ __('Kortingscode ongeldig') }}</p>
+                            <div wire:loading.class='hidden' wire:target="applyVoucher">
+                                <button class="mt-1 inline-block cursor-pointer text-sm text-red-600 hover:text-red-800" wire:click="$set('applyVoucherFailed', false)">X</button>
+                                <p class="mt-1 inline-block text-sm text-red-500">{{ __('Kortingscode ongeldig') }}</p>
+                            </div>
                         @endif
                         @if ($voucherApplied)
                             <dl class="space-y-4">
                                 <div class="flex items-center justify-between">
-                                    <dt class="text-base font-medium text-gray-500">{{ __('Product prijs') }}</dt>
-                                    <dd class="ml-4 text-base font-medium text-gray-500">€{{ number_format($selected['price'] ?? 0.0, 2, ',', '') }}</dd>
+                                    <dt class="text-sm font-medium text-gray-500">{{ __('Product prijs') }}</dt>
+                                    <dd class="ml-4 text-sm font-medium text-gray-500">€{{ number_format($selected['price'] ?? 0.0, 2, ',', '') }}</dd>
                                 </div>
                             </dl>
                             <dl class="space-y-4">
                                 <div class="flex items-center justify-between">
-                                    <dt class="text-base font-medium text-gray-500">{{ __('Kortingscode') }}</dt>
-                                    <dd class="ml-4 text-base font-medium text-gray-500">- €{{ number_format($voucherAmount ?? 0.0, 2, ',', '') }}</dd>
+                                    <dt class="text-sm font-medium text-gray-500">{{ __('Kortingscode') }}</dt>
+                                    <dd class="ml-4 text-sm font-medium text-gray-500">- €{{ number_format($voucherAmount ?? 0.0, 2, ',', '') }}</dd>
                                 </div>
                             </dl>
                         @endif
                         @if ($selected?->zakelijk && ($selected?->btw ?? -1) != -1)
                             <dl class="space-y-4">
                                 <div class="flex items-center justify-between">
-                                    <dt class="text-sm text-gray-900">{{ __('Totaal exclusief ' . $selected['btw'] . '% btw') }}</dt>
-                                    <dd class="ml-4 text-sm text-gray-900">€{{ number_format((($selected['price'] ?? 0.0) - ($voucherApplied ? $voucherAmount : 0)) * (1 - $selected['btw'] / 100), 2, ',', '') }}</dd>
+                                    <dt class="text-sm font-medium text-gray-500">{{ __('Totaal') }}</dt>
+                                    @if ($voucherApplied)
+                                        <dd class="ml-4 text-sm font-medium text-gray-500">Eerste {{ $selected?->interval }} €{{ number_format(($selected['price'] ?? 0.0) - ($voucherApplied ? $voucherAmount : 0), 2, ',', '') }}</dd>
+                                    @else
+                                        <dd class="ml-4 text-sm font-medium text-gray-500">€{{ number_format(($selected['price'] ?? 0.0) - ($voucherApplied ? $voucherAmount : 0), 2, ',', '') }} per {{ $selected?->interval }}</dd>
+                                    @endif
                                 </div>
                             </dl>
                             <dl class="space-y-4">
                                 <div class="flex items-center justify-between">
-                                    <dt class="text-sm text-gray-500">{{ __($selected['btw'] . '% btw') }}</dt>
+                                    <dt class="text-sm text-gray-500">{{ __('Waarvan ' . $selected['btw'] . '% btw') }}</dt>
                                     <dd class="ml-4 text-sm text-gray-500">€{{ number_format((($selected['price'] ?? 0.0) - ($voucherApplied ? $voucherAmount : 0)) * ($selected['btw'] / 100), 2, ',', '') }}</dd>
                                 </div>
                             </dl>
+                            <dl class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <dt class="text-base text-gray-900">{{ __('Totaal exclusief ' . $selected['btw'] . '% btw') }}</dt>
+                                    @if ($voucherApplied)
+                                        <dd class="ml-4 text-base text-gray-900">Eerste {{ $selected?->interval }} €{{ number_format((($selected['price'] ?? 0.0) - ($voucherApplied ? $voucherAmount : 0)) * (1 - $selected['btw'] / 100), 2, ',', '') }}</dd>
+                                    @else
+                                        <dd class="ml-4 text-base text-gray-900">€{{ number_format((($selected['price'] ?? 0.0) - ($voucherApplied ? $voucherAmount : 0)) * (1 - $selected['btw'] / 100), 2, ',', '') }} per {{ $selected?->interval }}</dd>
+                                    @endif
+                                </div>
+                            </dl>
+                        @else
+                            <dl class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <dt class="text-base font-medium text-gray-900">{{ __('Totaal') }}</dt>
+                                    @if ($voucherApplied)
+                                        <dd class="ml-4 text-base font-medium text-gray-900">Eerste {{ $selected?->interval }} €{{ number_format(($selected['price'] ?? 0.0) - ($voucherApplied ? $voucherAmount : 0), 2, ',', '') }}</dd>
+                                    @else
+                                        <dd class="ml-4 text-base font-medium text-gray-900">€{{ number_format(($selected['price'] ?? 0.0) - ($voucherApplied ? $voucherAmount : 0), 2, ',', '') }} per {{ $selected?->interval }}</dd>
+                                    @endif
+                                </div>
+                            </dl>
                         @endif
-                        <dl class="space-y-4">
-                            <div class="flex items-center justify-between">
-                                <dt class="text-base font-medium text-gray-900">{{ __('Totaal') }}</dt>
-                                <dd class="ml-4 text-base font-medium text-gray-900">€{{ number_format(($selected['price'] ?? 0.0) - ($voucherApplied ? $voucherAmount : 0), 2, ',', '') }}</dd>
-                            </div>
-                        </dl>
-                        <p class="mt-1 text-sm text-gray-500">{{ __('De hoeveelheid van de periodieke betalingen') }}
-                        </p>
+
+                        @if ($voucherApplied)
+                            @if ($selected?->zakelijk && ($selected?->btw ?? -1) != -1)
+                                <dl class="mt-4 space-y-4">
+                                    <div class="flex items-center justify-between">
+                                        <dt class="text-base text-gray-600"></dt>
+                                        <dd class="ml-4 text-base text-gray-600">Daarna €{{ number_format(($selected['price'] ?? 0.0) * (1 - $selected['btw'] / 100), 2, ',', '') }} per {{ $selected?->interval }}</dd>
+                                    </div>
+                                </dl>
+                                <dl class="space-y-4">
+                                    <div class="flex items-center justify-between">
+                                        <dt class="text-sm font-medium text-gray-600"></dt>
+                                        <dd class="ml-4 text-sm font-medium text-gray-600">{{ __('Inclusief ' . $selected['btw'] . '% btw') }}: €{{ number_format($selected['price'] ?? 0.0, 2, ',', '') }} per {{ $selected?->interval }}</dd>
+                                    </div>
+                                </dl>
+                            @else
+                                <dl class="space-y-4">
+                                    <div class="flex items-center justify-between">
+                                        <dt class="text-base font-medium text-gray-600"></dt>
+                                        <dd class="ml-4 text-base font-medium text-gray-600">Daarna €{{ number_format($selected['price'] ?? 0.0, 2, ',', '') }} per {{ $selected?->interval }}</dd>
+                                    </div>
+                                </dl>
+                            @endif
+
+                        @endif
+                        {{-- <p class="mt-1 text-sm text-gray-500">{{ __('De hoeveelheid van de periodieke betalingen') }}</p> --}}
                     </div>
 
                     <div class="mt-4 flex items-center justify-between">

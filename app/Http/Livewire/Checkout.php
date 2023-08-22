@@ -30,6 +30,10 @@ class Checkout extends Component
     public bool $applyVoucherFailed = false;
     public $licenseplate;
     public $tos = false;
+    public $company_name = '';
+    public $company_btw_number = '';
+    public $company_kvk_number = '';
+    public $paymentUrl = '';
 
     public $listeners = [
         'checkout' => 'checkout'
@@ -142,7 +146,7 @@ class Checkout extends Component
         } catch (Exception $e) {
         }
 
-        $http = Http::withToken(env('WLNT_APP'))->post('https://www.walnutapp.com/api/v1/subscription/payment/create', [
+        $http = Http::withToken(env('WLNT_APP'))->post(env('WLNT_FRONTEND_ENDPOINT') . '/api/v1/subscription/payment/create', [
             'storeId' => env('STORE_ID'),
             'productId' => $this->selected['_id'],
             'email' => strtolower($this->email),
@@ -154,6 +158,9 @@ class Checkout extends Component
             'postalCode' => $this->postcode,
             'housenr' => $this->house_number,
             'voucherCode' => $this->voucher ?? null,
+            'tnsCompany' => $this->company_name ?? '',
+            'customerBTWnr' => $this->company_btw_number ?? '',
+            'customerKVK' => $this->company_kvk_number ?? '',
         ]);
 
         if ($http->failed()) {
@@ -161,6 +168,7 @@ class Checkout extends Component
             return;
         }
         $this->loading_message = 'We openen een nieuw venster om de betaling te voltooien.';
+        $this->paymentUrl = $http->json()['paymentUrl'];
         $this->dispatchBrowserEvent('paymenturl', ['url' => $http->json()['paymentUrl']]);
     }
 
@@ -231,7 +239,13 @@ class Checkout extends Component
                     // validate the phone_number on syntax +{11 digits}
                     return [
                         'name' => 'required',
-                        'email' => 'required|email'
+                        'email' => 'required|email',
+                        'phone_number' => 'required|regex:/^\+?[0-9]{10}[0-9]?$/',
+                        'postcode' => 'required',
+                        'house_number' => 'required',
+                        'company_name' => 'required',
+                        'company_btw_number' => 'required|regex:/^NL[0-9]{9}B[0-9]{2}$/',
+                        'company_kvk_number' => 'required|regex:/^[0-9]{8}$/',
                     ];
                 case 2:
                     return [
