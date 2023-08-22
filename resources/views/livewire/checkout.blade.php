@@ -282,20 +282,34 @@
                             <dl class="space-y-4">
                                 <div class="flex items-center justify-between">
                                     <dt class="text-base font-medium text-gray-500">{{ __('Product prijs') }}</dt>
-                                    <dd class="ml-4 text-base font-medium text-gray-500">€{{ $selected['price'] ?? 0.0 }}</dd>
+                                    <dd class="ml-4 text-base font-medium text-gray-500">€{{ number_format($selected['price'] ?? 0.0, 2, ',', '') }}</dd>
                                 </div>
                             </dl>
                             <dl class="space-y-4">
                                 <div class="flex items-center justify-between">
                                     <dt class="text-base font-medium text-gray-500">{{ __('Kortingscode') }}</dt>
-                                    <dd class="ml-4 text-base font-medium text-gray-500">- €{{ $voucherAmount ?? 0.0 }}</dd>
+                                    <dd class="ml-4 text-base font-medium text-gray-500">- €{{ number_format($voucherAmount ?? 0.0, 2, ',', '') }}</dd>
+                                </div>
+                            </dl>
+                        @endif
+                        @if ($selected?->zakelijk && ($selected?->btw ?? -1) != -1)
+                            <dl class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <dt class="text-sm text-gray-900">{{ __('Totaal exclusief ' . $selected['btw'] . '% btw') }}</dt>
+                                    <dd class="ml-4 text-sm text-gray-900">€{{ number_format((($selected['price'] ?? 0.0) - ($voucherApplied ? $voucherAmount : 0)) * (1 - $selected['btw'] / 100), 2, ',', '') }}</dd>
+                                </div>
+                            </dl>
+                            <dl class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <dt class="text-sm text-gray-500">{{ __($selected['btw'] . '% btw') }}</dt>
+                                    <dd class="ml-4 text-sm text-gray-500">€{{ number_format((($selected['price'] ?? 0.0) - ($voucherApplied ? $voucherAmount : 0)) * ($selected['btw'] / 100), 2, ',', '') }}</dd>
                                 </div>
                             </dl>
                         @endif
                         <dl class="space-y-4">
                             <div class="flex items-center justify-between">
                                 <dt class="text-base font-medium text-gray-900">{{ __('Totaal') }}</dt>
-                                <dd class="ml-4 text-base font-medium text-gray-900">€{{ ($selected['price'] ?? 0.0) - ($voucherApplied ? $voucherAmount : 0) }}</dd>
+                                <dd class="ml-4 text-base font-medium text-gray-900">€{{ number_format(($selected['price'] ?? 0.0) - ($voucherApplied ? $voucherAmount : 0), 2, ',', '') }}</dd>
                             </div>
                         </dl>
                         <p class="mt-1 text-sm text-gray-500">{{ __('De hoeveelheid van de periodieke betalingen') }}
@@ -328,7 +342,11 @@
                         <button wire:target="next" wire:loading.attr="disabled" type="button" wire:click="next"
                             @if (!$selected) disabled @endif
                             @if (!$tos) disabled @endif
-                            class="@if ($selected) w-full rounded-md border border-transparent  py-3 px-4 text-base font-medium text-white shadow-sm @if ($tos) hover:bg-pink-700 bg-pink-600 @else hover:bg-pink-500 bg-pink-400 @endif @else @endif w-full rounded-md border border-transparent bg-gray-300 px-4 py-3 text-base font-medium text-white shadow-sm focus:outline-none focus:outline-none focus:ring-2 focus:ring-2 focus:ring-gray-500 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-offset-gray-50">
+                            @if ($selected) class="w-full rounded-md border border-transparent  py-3 px-4 text-base font-medium text-white shadow-sm @if ($tos) hover:bg-pink-700 bg-pink-600 @else hover:bg-pink-500 bg-pink-400 @endif focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+                        @else
+                            class="w-full rounded-md border border-transparent bg-gray-300 px-4 py-3 text-base font-medium text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+                            @endif
+                            >
                             <svg wire:loading wire:target="next" class="mx-auto h-6 w-6 animate-spin text-white"
                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                 <circle class="opacity-25" cx="12" cy="12" r="10"

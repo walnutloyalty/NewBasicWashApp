@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Http\Facades\LicenseplateFacade;
 use Livewire\Component;
 use App\Models\Product;
 use Illuminate\Support\Facades\Http;
@@ -96,6 +97,18 @@ class Checkout extends Component
     {
         $this->validate(['licenseplate' => 'required']);
         $licenseplate = strtoupper(str_replace([' ', '-'], '', $this->licenseplate));
+        if (LicenseplateFacade::isLicenseplateTaxi($licenseplate)) {
+            $this->addError('licenseplate', 'Dit is een taxi kenteken, deze kan niet gebruikt worden.');
+            return;
+        }
+        if ($this->selected && (! $this->selected->zakelijk) && LicenseplateFacade::isCompanyCar($licenseplate)) {
+            $this->addError('licenseplate', 'Dit is een bedrijfsauto kenteken, deze kan niet gebruikt worden voor particulieren abonnementen.');
+            return;
+        }
+        if (LicenseplateFacade::isDealerLicensePlate($licenseplate)) {
+            $this->addError('licenseplate', 'Dit is een dealer kenteken. Neem contact op met Basic Wash voor de mogelijkheden.');
+            return;
+        }
         // check if the licenseplate is already in the collection
         $this->licenseplates[] = $licenseplate;
         $this->reset('licenseplate');
@@ -107,12 +120,12 @@ class Checkout extends Component
         // check the customers email address
         $licenseplate = $this->licenseplates[0];
 
-        $licenseplates = $this->licenseplates;
+        $licenseplates = json_decode(json_encode($this->licenseplates));
 
         unset($licenseplates[0]);
 
         // reset the licenseplates keys to start at 0
-        $licenseplates = array_values($licenseplates->toArray());
+        $licenseplates = array_values($licenseplates);
 
         try {
             // Pre register the user to save user data, also when payment is not completed

@@ -56,8 +56,8 @@ class FetchProducts implements ShouldQueue
                 'interval' => str_contains(strtolower($item['name']), 'jaar') || str_contains(strtolower($item['description']), 'jaar') ? 'jaar' : 'maand',
                 'btw' => $item['btw'],
                 'availability_duration' => $item['availableUntil'] != '01-01-1970 00:00' && $item['availableFrom'] != '01-01-1970 00:00' ? true : false,
-                'available_from' => $item['availableFrom'] != '01-01-1970 00:00' ? Carbon::parse($item['availableFrom'])->format('d-m-Y H:i') : null,
-                'available_until' => $item['availableUntil'] != '01-01-1970 00:00' ? Carbon::parse($item['availableUntil'])->format('d-m-Y H:i') : null,
+                'available_from' => null, // $item['availableFrom'] != '01-01-1970 00:00' ? Carbon::parse($item['availableFrom'])->format('d-m-Y H:i') : null,
+                'available_until' => null, // $item['availableUntil'] != '01-01-1970 00:00' ? Carbon::parse($item['availableUntil'])->format('d-m-Y H:i') : null,
                 'zakelijk' => str_contains(strtolower($item['name']), 'zakelijk') ?? false,
             ];
         });

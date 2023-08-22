@@ -1,10 +1,7 @@
 <?php
 
 use App\Http\Livewire\ParticuliereCheckout;
-use App\Http\Livewire\ParticuliereCheckoutStep2;
-use App\Http\Livewire\ParticuliereCheckoutStep3;
 use App\Http\Livewire\ZakelijkeCheckout;
-use App\Http\Livewire\ZakelijkeCheckoutStep2;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,14 +21,14 @@ Route::get('/', function () {
 
 Route::get('iframe', function () {
     return view('iframe');
-})->middleware('AddXFrameOptionsHeader'); 
+})->middleware('AddXFrameOptionsHeader');
 
 Route::get('iframed', function () {
     return view('iframed');
 });
 
 Route::get('job', function () {
-   (new \App\Jobs\FetchProducts())->handle();
+    (new \App\Jobs\FetchProducts())->handle();
 });
 
 // particuliere checkout
@@ -73,7 +70,6 @@ Route::get('/ulvenhout', function () {
     return view('locaties/ulvenhout');
 })->name('ulvenhout');
 
-
 Route::get('/klantenportaal', function () {
     return view('klantenservice/klantenportaal');
 })->name('klantenportaal');
@@ -106,36 +102,16 @@ Route::get('/abonnements-voorwaarden', function () {
     return view('voorwaarden/abonnements');
 })->name('abonnements-voorwaarden');
 
+require __DIR__ . '/auth.php';
 
-require __DIR__.'/auth.php';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Route::get('/dashboard', function () {
+// Route::get('/dashboard', function () {
 //    return view('dashboard');
-//})->middleware(['auth', 'verified'])->name('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 //
-//Route::middleware('auth')->group(function () {
+// Route::middleware('auth')->group(function () {
 //    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 //    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 //    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-//});
+// });
 //
-//require __DIR__.'/auth.php';
+// require __DIR__.'/auth.php';
