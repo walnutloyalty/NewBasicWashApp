@@ -34,6 +34,13 @@ class Checkout extends Component
     public $company_btw_number = '';
     public $company_kvk_number = '';
     public $paymentUrl = '';
+    public $btwPercentage = 0;
+    public $basePrice = 0;
+    public $baseBtwPrice = 0;
+    public $baseExBtwPrice = 0;
+    public $discountedPrice = 0;
+    public $discountedBtwPrice = 0;
+    public $discountedExBtwPrice = 0;
 
     public $listeners = [
         'checkout' => 'checkout'
@@ -71,18 +78,43 @@ class Checkout extends Component
 
         // get the selected product
         $this->selected = $this->subscriptions->where('_id', $data[1])->first();
+        $this->calculatePrices();
 
         $this->dispatchBrowserEvent('checkout');
+    }
+
+    public function calculatePrices()
+    {
+        if (empty($this->selected)) {
+            return;
+        }
+        $this->btwPercentage = $this->selected->btw;
+        $basePrice = $this->selected->price;
+        $baseExBtwPrice = $basePrice / (1 + $this->btwPercentage / 100);
+        $baseBtwPrice = $basePrice - $baseExBtwPrice;
+
+        $discountedPrice = $basePrice - ($this->voucherApplied ? $this->voucherAmount : 0);
+        $discountedExBtwPrice = $discountedPrice / (1 + $this->btwPercentage / 100);
+        $discountedBtwPrice = $discountedPrice - $discountedExBtwPrice;
+
+        $this->basePrice = number_format($basePrice, 2, ',', '');
+        $this->baseBtwPrice = number_format($baseBtwPrice, 2, ',', '');
+        $this->baseExBtwPrice = number_format($baseExBtwPrice, 2, ',', '');
+        $this->discountedPrice = number_format($discountedPrice, 2, ',', '');
+        $this->discountedBtwPrice = number_format($discountedBtwPrice, 2, ',', '');
+        $this->discountedExBtwPrice = number_format($discountedExBtwPrice, 2, ',', '');
     }
 
     public function selected($id)
     {
         $this->selected = $this->subscriptions->where('_id', $id)->first();
+        $this->calculatePrices();
     }
 
     public function next()
     {
         $this->validate($this->validationRules());
+        $this->calculatePrices();
 
         if ($this->step !== 2) {
             $this->step++;
@@ -189,6 +221,7 @@ class Checkout extends Component
         $this->applyVoucherFailed = false;
         $this->voucherAmount = 0;
         $this->voucherApplied = false;
+        $this->calculatePrices();
         try {
             $product_id = $this->selected['_id'];
             // Check if the voucher is valid and the worth of the voucher
@@ -210,6 +243,7 @@ class Checkout extends Component
             // Voucher code is valid
             $this->voucherAmount = $response['amount'];
             $this->voucherApplied = true;
+            $this->calculatePrices();
         } catch (Exception $e) {
             $this->applyVoucherFailed = true;
         }

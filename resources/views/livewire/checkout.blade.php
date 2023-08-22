@@ -258,14 +258,8 @@
 
                                 <div class="col-span-2 flex flex-1 flex-col">
                                     <div>
-                                        <div class="flex justify-between">
-                                            <h4 class="text-sm">
-                                                <a href="#"
-                                                    class="text-right font-medium text-gray-700 hover:text-gray-800">{{ $selected['title'] }}</a>
-                                            </h4>
-                                        </div>
-                                        <p class="mt-1 text-sm text-gray-500">{{ $selected['description'] }}
-                                        </p>
+                                        <h4 class="font-medium text-gray-700 hover:text-gray-800">{{ $selected['name'] }}</h4>
+                                        <p class="mt-1 text-sm text-gray-500">{{ $selected['description'] }}</p>
                                     </div>
                                 </div>
                             </li>
@@ -330,7 +324,7 @@
                             <dl class="space-y-4">
                                 <div class="flex items-center justify-between">
                                     <dt class="text-sm font-medium text-gray-500">{{ __('Product prijs') }}</dt>
-                                    <dd class="ml-4 text-sm font-medium text-gray-500">€{{ number_format($selected['price'] ?? 0.0, 2, ',', '') }}</dd>
+                                    <dd class="ml-4 text-sm font-medium text-gray-500">€{{ $basePrice }}</dd>
                                 </div>
                             </dl>
                             <dl class="space-y-4">
@@ -344,26 +338,28 @@
                             <dl class="space-y-4">
                                 <div class="flex items-center justify-between">
                                     <dt class="text-sm font-medium text-gray-500">{{ __('Totaal') }}</dt>
-                                    @if ($voucherApplied)
-                                        <dd class="ml-4 text-sm font-medium text-gray-500">Eerste {{ $selected?->interval }} €{{ number_format(($selected['price'] ?? 0.0) - ($voucherApplied ? $voucherAmount : 0), 2, ',', '') }}</dd>
-                                    @else
-                                        <dd class="ml-4 text-sm font-medium text-gray-500">€{{ number_format(($selected['price'] ?? 0.0) - ($voucherApplied ? $voucherAmount : 0), 2, ',', '') }} per {{ $selected?->interval }}</dd>
-                                    @endif
+                                    <dd class="ml-4 text-sm font-medium text-gray-500">
+                                        @if ($voucherApplied)
+                                            Eerste {{ $selected?->interval }} €{{ $discountedPrice }}
+                                        @else
+                                            €{{ $discountedPrice }} per {{ $selected?->interval }}
+                                        @endif
+                                    </dd>
                                 </div>
                             </dl>
                             <dl class="space-y-4">
                                 <div class="flex items-center justify-between">
-                                    <dt class="text-sm text-gray-500">{{ __('Waarvan ' . $selected['btw'] . '% btw') }}</dt>
-                                    <dd class="ml-4 text-sm text-gray-500">€{{ number_format((($selected['price'] ?? 0.0) - ($voucherApplied ? $voucherAmount : 0)) * ($selected['btw'] / 100), 2, ',', '') }}</dd>
+                                    <dt class="text-sm text-gray-500">{{ __('Waarvan ' . $btwPercentage . '% btw') }}</dt>
+                                    <dd class="ml-4 text-sm text-gray-500">€{{ $voucherApplied ? $discountedBtwPrice : $baseBtwPrice  }}</dd>
                                 </div>
                             </dl>
                             <dl class="space-y-4">
                                 <div class="flex items-center justify-between">
-                                    <dt class="text-base text-gray-900">{{ __('Totaal exclusief ' . $selected['btw'] . '% btw') }}</dt>
+                                    <dt class="text-base text-gray-900">{{ __('Totaal exclusief ' . $btwPercentage . '% btw') }}</dt>
                                     @if ($voucherApplied)
-                                        <dd class="ml-4 text-base text-gray-900">Eerste {{ $selected?->interval }} €{{ number_format((($selected['price'] ?? 0.0) - ($voucherApplied ? $voucherAmount : 0)) * (1 - $selected['btw'] / 100), 2, ',', '') }}</dd>
+                                        <dd class="ml-4 text-base text-gray-900">Eerste {{ $selected?->interval }} €{{ $discountedExBtwPrice }}</dd>
                                     @else
-                                        <dd class="ml-4 text-base text-gray-900">€{{ number_format((($selected['price'] ?? 0.0) - ($voucherApplied ? $voucherAmount : 0)) * (1 - $selected['btw'] / 100), 2, ',', '') }} per {{ $selected?->interval }}</dd>
+                                        <dd class="ml-4 text-base text-gray-900">€{{ $baseExBtwPrice }} per {{ $selected?->interval }}</dd>
                                     @endif
                                 </div>
                             </dl>
@@ -372,9 +368,9 @@
                                 <div class="flex items-center justify-between">
                                     <dt class="text-base font-medium text-gray-900">{{ __('Totaal') }}</dt>
                                     @if ($voucherApplied)
-                                        <dd class="ml-4 text-base font-medium text-gray-900">Eerste {{ $selected?->interval }} €{{ number_format(($selected['price'] ?? 0.0) - ($voucherApplied ? $voucherAmount : 0), 2, ',', '') }}</dd>
+                                        <dd class="ml-4 text-base font-medium text-gray-900">Eerste {{ $selected?->interval }} €{{ $discountedPrice }}</dd>
                                     @else
-                                        <dd class="ml-4 text-base font-medium text-gray-900">€{{ number_format(($selected['price'] ?? 0.0) - ($voucherApplied ? $voucherAmount : 0), 2, ',', '') }} per {{ $selected?->interval }}</dd>
+                                        <dd class="ml-4 text-base font-medium text-gray-900">€{{ $basePrice }} per {{ $selected?->interval }}</dd>
                                     @endif
                                 </div>
                             </dl>
@@ -385,20 +381,20 @@
                                 <dl class="mt-4 space-y-4">
                                     <div class="flex items-center justify-between">
                                         <dt class="text-base text-gray-600"></dt>
-                                        <dd class="ml-4 text-base text-gray-600">Daarna €{{ number_format(($selected['price'] ?? 0.0) * (1 - $selected['btw'] / 100), 2, ',', '') }} per {{ $selected?->interval }}</dd>
+                                        <dd class="ml-4 text-base text-gray-600">Daarna €{{ $baseExBtwPrice }} per {{ $selected?->interval }}</dd>
                                     </div>
                                 </dl>
                                 <dl class="space-y-4">
                                     <div class="flex items-center justify-between">
                                         <dt class="text-sm font-medium text-gray-600"></dt>
-                                        <dd class="ml-4 text-sm font-medium text-gray-600">{{ __('Inclusief ' . $selected['btw'] . '% btw') }}: €{{ number_format($selected['price'] ?? 0.0, 2, ',', '') }} per {{ $selected?->interval }}</dd>
+                                        <dd class="ml-4 text-sm font-medium text-gray-600">{{ __('Inclusief ' . $btwPercentage . '% btw') }}: €{{ $basePrice }} per {{ $selected?->interval }}</dd>
                                     </div>
                                 </dl>
                             @else
                                 <dl class="space-y-4">
                                     <div class="flex items-center justify-between">
                                         <dt class="text-base font-medium text-gray-600"></dt>
-                                        <dd class="ml-4 text-base font-medium text-gray-600">Daarna €{{ number_format($selected['price'] ?? 0.0, 2, ',', '') }} per {{ $selected?->interval }}</dd>
+                                        <dd class="ml-4 text-base font-medium text-gray-600">Daarna €{{ $basePrice }} per {{ $selected?->interval }}</dd>
                                     </div>
                                 </dl>
                             @endif
