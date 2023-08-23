@@ -3,18 +3,20 @@
 namespace App\Jobs;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
 use Carbon\Carbon;
-use App\Models\Product; 
+use App\Models\Product;
 
 class FetchProducts implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
 
     /**
      * Create a new job instance.
@@ -23,7 +25,6 @@ class FetchProducts implements ShouldQueue
      */
     public function __construct()
     {
-        //
     }
 
     /**
@@ -36,7 +37,7 @@ class FetchProducts implements ShouldQueue
         $http = Http::withHeaders([
             'Accept' => 'application/json',
             'Authorization' => env('WLNT_TOKEN')
-        ])->get('https://walnutbackend.com/api/v1/store/'.env('STORE_ID').'/products', [ 
+        ])->get(env('WLNT_BACKEND_ENDPOINT') . '/api/v1/store/' . env('STORE_ID') . '/products', [
             'type' => 'subscription',
         ]);
 
@@ -44,7 +45,7 @@ class FetchProducts implements ShouldQueue
             return;
         }
 
-        $products = collect($http->json()['products'])->where('type', 'subscription')->where('active', true)->where('archived', false)->map(function($item) {
+        $products = collect($http->json()['products'])->where('type', 'subscription')->where('active', true)->where('archived', false)->map(function ($item) {
             return [
                 '_id' => $item['_id'],
                 'storeId' => $item['storeId'],
@@ -55,12 +56,12 @@ class FetchProducts implements ShouldQueue
                 'interval' => str_contains(strtolower($item['name']), 'jaar') || str_contains(strtolower($item['description']), 'jaar') ? 'jaar' : 'maand',
                 'btw' => $item['btw'],
                 'availability_duration' => $item['availableUntil'] != '01-01-1970 00:00' && $item['availableFrom'] != '01-01-1970 00:00' ? true : false,
-                'available_from' => $item['availableFrom'] != '01-01-1970 00:00' ? Carbon::parse($item['availableFrom'])->format('d-m-Y H:i') : null,
-                'available_until' => $item['availableUntil'] != '01-01-1970 00:00' ? Carbon::parse($item['availableUntil'])->format('d-m-Y H:i') : null,
+                'available_from' => null, // $item['availableFrom'] != '01-01-1970 00:00' ? Carbon::parse($item['availableFrom'])->format('d-m-Y H:i') : null,
+                'available_until' => null, // $item['availableUntil'] != '01-01-1970 00:00' ? Carbon::parse($item['availableUntil'])->format('d-m-Y H:i') : null,
                 'zakelijk' => str_contains(strtolower($item['name']), 'zakelijk') ?? false,
             ];
         });
         // upsert the products
-        Product::upsert($products->toArray(), ['_id'], ['storeId', 'interval', 'zakelijk', 'name', 'description', 'image', 'price', 'btw', 'availability_duration', 'available_from', 'available_until']);    
+        Product::upsert($products->toArray(), ['_id'], ['storeId', 'interval', 'zakelijk', 'name', 'description', 'image', 'price', 'btw', 'availability_duration', 'available_from', 'available_until']);
     }
 }
