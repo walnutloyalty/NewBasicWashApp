@@ -89,7 +89,11 @@ class Checkout extends Component
             return;
         }
         $this->btwPercentage = $this->selected->btw;
-        $basePrice = $this->selected->price;
+        $licenPlateCount = count($this->licenseplates);
+        if ($licenPlateCount <= 0) {
+            $licenPlateCount = 1;
+        }
+        $basePrice = $this->selected->price * $licenPlateCount;
         $baseExBtwPrice = $basePrice / (1 + $this->btwPercentage / 100);
         $baseBtwPrice = $basePrice - $baseExBtwPrice;
 
@@ -127,6 +131,7 @@ class Checkout extends Component
     public function removePlate($key)
     {
         $this->licenseplates->forget($key);
+        $this->calculatePrices();
     }
 
     public function addLicensePlate()
@@ -148,6 +153,7 @@ class Checkout extends Component
         // check if the licenseplate is already in the collection
         $this->licenseplates[] = $licenseplate;
         $this->reset('licenseplate');
+        $this->calculatePrices();
     }
 
     public function initCheckout()
@@ -257,7 +263,7 @@ class Checkout extends Component
                     // validate the phone_number on syntax +{11 digits}
                     return [
                         'name' => 'required',
-                        'email' => 'required|email',
+                        'email' => 'required|email:filter',
                         'phone_number' => 'required|regex:/^\+?[0-9]{10}[0-9]?$/',
                         'postcode' => 'required',
                         'house_number' => 'required',
@@ -273,7 +279,7 @@ class Checkout extends Component
                     // validate the phone_number on syntax +{11 digits}
                     return [
                         'name' => 'required',
-                        'email' => 'required|email',
+                        'email' => 'required|email:filter',
                         'phone_number' => 'required|regex:/^\+?[0-9]{10}[0-9]?$/',
                         'postcode' => 'required',
                         'house_number' => 'required',
