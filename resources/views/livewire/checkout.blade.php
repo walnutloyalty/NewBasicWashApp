@@ -311,7 +311,6 @@
                 <!-- Order summary -->
                 <section aria-labelledby="summary-heading" class="mt-10">
                     <h2 id="summary-heading" class="sr-only">Order summary</h2>
-
                     <div>
                         <p class="mt-1 text-sm text-blue-500" wire:loading wire:target="applyVoucher">{{ __('Kortingscode wordt gecontroleerd...') }}</p>
                         @if ($applyVoucherFailed)
@@ -320,13 +319,25 @@
                                 <p class="mt-1 inline-block text-sm text-red-500">{{ __('Kortingscode ongeldig') }}</p>
                             </div>
                         @endif
-                        @if ($voucherApplied)
+                        @if ($voucherApplied || count($licenseplates) >= 2)
                             <dl class="space-y-4">
                                 <div class="flex items-center justify-between">
-                                    <dt class="text-sm font-medium text-gray-500">{{ __('Product prijs') }}</dt>
-                                    <dd class="ml-4 text-sm font-medium text-gray-500">€{{ $basePrice }}</dd>
+                                    <dt class="text-sm font-medium text-gray-500">
+                                        {{ __('Product prijs') }}
+                                        @if (count($licenseplates) >= 2)
+                                            {{ __('per kenteken') }}
+                                        @endif
+                                    </dt>
+                                    <dd class="ml-4 text-sm font-medium text-gray-500">
+                                        €{{ $selected->price }}
+                                        @if (count($licenseplates) >= 2)
+                                            x {{ count($licenseplates) }}
+                                        @endif
+                                    </dd>
                                 </div>
                             </dl>
+                        @endif
+                        @if ($voucherApplied)
                             <dl class="space-y-4">
                                 <div class="flex items-center justify-between">
                                     <dt class="text-sm font-medium text-gray-500">{{ __('Kortingscode') }}</dt>
@@ -350,7 +361,7 @@
                             <dl class="space-y-4">
                                 <div class="flex items-center justify-between">
                                     <dt class="text-sm text-gray-500">{{ __('Waarvan ' . $btwPercentage . '% btw') }}</dt>
-                                    <dd class="ml-4 text-sm text-gray-500">€{{ $voucherApplied ? $discountedBtwPrice : $baseBtwPrice  }}</dd>
+                                    <dd class="ml-4 text-sm text-gray-500">€{{ $voucherApplied ? $discountedBtwPrice : $baseBtwPrice }}</dd>
                                 </div>
                             </dl>
                             <dl class="space-y-4">
