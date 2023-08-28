@@ -1,12 +1,12 @@
 <div x-on:checkout.window="checkout = ''; setTimeout(() => { checkout = true }, 200)"
     x-on:checkout-complete.window="checkout = ''; setTimeout(() => { checkout = true }, 200)" x-data="{ checkout: false }"
-    class="mx-auto max-w-7xl w-full py-8 px-4 sm:px-6 lg:px-8">
+    class="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
     @if (!$home)
 
         @if (!$iframe)
             <div x-transition x-show="! checkout" class="text-center text-pink-600">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                    class="w-12 h-12 inline mb-6">
+                    class="mb-6 inline h-12 w-12">
                     <path
                         d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
                 </svg>
@@ -19,7 +19,7 @@
         @if (!$home)
             @if (!$iframe)
                 <h1 class="text-center text-5xl font-extrabold text-pink-600">{{ __('Webshop') }}</h1>
-                <h2 class="text-center text-lg mt-6">
+                <h2 class="mt-6 text-center text-lg">
                     {{ __('Sluit nu je abonnement af en komt direct onbeperkt autowassen!') }}</h2>
             @endif
         @endif
@@ -39,7 +39,7 @@
                     </div>
                     <div class="hidden sm:block">
                         <div class="border-b border-gray-200">
-                            <nav class="-mb-px flex mx-auto mt-8 space-x-8" aria-label="Tabs">
+                            <nav class="mx-auto -mb-px mt-8 flex space-x-8" aria-label="Tabs">
                                 <!-- Current: "border-pink-500 text-pink-600", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
                                 <a href="#" @click="maand = true"
                                     :class="maand ?
@@ -67,25 +67,25 @@
                             class="relative overflow-hidden rounded-2xl border-4 border-pink-600 shadow-sm">
 
                             <div
-                                class="absolute top-0 bg-pink-600 text-center text-md h-20 w-full flex items-center justify-center text-white font-bold">
+                                class="text-md absolute top-0 flex h-20 w-full items-center justify-center bg-pink-600 text-center font-bold text-white">
                                 <p>#{{ $key + 1 }} {{ $subscription['name'] }}</p>
                             </div>
 
                             <div class="mt-20 p-8">
                                 <div class="flex">
-                                    <p class="font-black text-6xl text-gray-700">{{ round($subscription['price']) }}
+                                    <p class="text-6xl font-black text-gray-700">{{ floor($subscription['price']) }}
                                     </p>
                                     <div class="ml-2 mt-1">
-                                        <p class="font-black text-left text-xl text-gray-700">
+                                        <p class="text-left text-xl font-black text-gray-700">
                                             {{ $subscription['price'][-2] }}{{ $subscription['price'][-1] }}</p>
-                                        <span class="text-pink-600 text-xl font-bold">per @if ($subscription['interval'] == 'maand') maand
+                                        <span class="text-xl font-bold text-pink-600">per @if ($subscription['interval'] == 'maand') maand
                                             @else
                                                 jaar @endif*</span>
                                     </div>
                                 </div>
                                 <p class="my-8 text-gray-700">{{ $subscription['description'] }}</p>
                                 <button wire:click="$emit('checkout', ['z', '{{ $subscription['_id'] }}'])"
-                                    class="block w-full mt-6 mb-2 px-4 py-2 text-sm font-semibold text-white bg-pink-600 border border-pink-600 rounded-md hover:bg-cyan-600 hover:border-cyan-600">
+                                    class="mb-2 mt-6 block w-full rounded-md border border-pink-600 bg-pink-600 px-4 py-2 text-sm font-semibold text-white hover:border-cyan-600 hover:bg-cyan-600">
                                     {{ __('Afnemen') }}
                                 </button>
                             </div>
@@ -96,25 +96,25 @@
                             class="relative overflow-hidden rounded-2xl border-4 border-pink-600 shadow-sm">
 
                             <div
-                                class="absolute top-0 z-50 bg-pink-600 text-center text-md h-20 w-full flex items-center justify-center text-white font-bold">
+                                class="text-md absolute top-0 z-50 flex h-20 w-full items-center justify-center bg-pink-600 text-center font-bold text-white">
                                 <p>#{{ $key + 1 }} {{ $subscription['name'] }}</p>
                             </div>
 
                             <div class="mt-20 p-8">
                                 <div class="flex">
-                                    <p class="font-black text-6xl text-gray-700">{{ round($subscription['price']) }}
+                                    <p class="text-6xl font-black text-gray-700">{{ floor($subscription['price']) }}
                                     </p>
                                     <div class="ml-2 mt-1">
-                                        <p class="font-black text-left text-xl text-gray-700">
+                                        <p class="text-left text-xl font-black text-gray-700">
                                             {{ $subscription['price'][-2] }}{{ $subscription['price'][-1] }}</p>
-                                        <span class="text-pink-600 text-xl font-bold">per @if ($subscription['interval'] == 'maand') maand
+                                        <span class="text-xl font-bold text-pink-600">per @if ($subscription['interval'] == 'maand') maand
                                             @else
                                                 jaar @endif*</span>
                                     </div>
                                 </div>
                                 <p class="my-8 text-gray-700">{{ $subscription['description'] }}</p>
                                 <button wire:click="$emit('checkout', ['z', '{{ $subscription['_id'] }}'])"
-                                    class="block w-full mt-6 mb-2 px-4 py-2 text-sm font-semibold text-white bg-pink-600 border border-pink-600 rounded-md hover:bg-cyan-600 hover:border-cyan-600">
+                                    class="mb-2 mt-6 block w-full rounded-md border border-pink-600 bg-pink-600 px-4 py-2 text-sm font-semibold text-white hover:border-cyan-600 hover:bg-cyan-600">
                                     {{ __('Afnemen') }}
                                 </button>
                             </div>

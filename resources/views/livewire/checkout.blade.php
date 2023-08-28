@@ -292,7 +292,7 @@
                                             <span id="server-size-0-description-1"
                                                 class="mt-2 flex text-sm sm:ml-4 sm:mt-0 sm:flex-col sm:text-right">
                                                 <span class="font-medium text-gray-900">€@if (str_contains($subscription['price'], '.00'))
-                                                        {{ round($subscription['price'], 2) }}@else{{ $subscription['price'] }}
+                                                        {{ floor($subscription['price'], 2) }}@else{{ $subscription['price'] }}
                                                     @endif
                                                 </span>
                                                 <span class="ml-1 text-gray-500 sm:ml-0">

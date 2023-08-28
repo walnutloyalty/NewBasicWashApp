@@ -64,7 +64,7 @@
                             </div>
                             <div class="mt-20 p-8">
                                 <div class="flex">
-                                    <p class="text-6xl font-black text-gray-700">{{ round($subscription['price']) }}
+                                    <p class="text-6xl font-black text-gray-700">{{ floor($subscription['price']) }}
                                     </p>
                                     <div class="ml-2 mt-1">
                                         <p class="text-left text-xl font-black text-gray-700">
@@ -93,7 +93,7 @@
 
                             <div class="mt-20 p-8">
                                 <div class="flex">
-                                    <p class="text-6xl font-black text-gray-700">{{ round($subscription['price']) }}
+                                    <p class="text-6xl font-black text-gray-700">{{ floor($subscription['price']) }}
                                     </p>
                                     <div class="ml-2 mt-1">
                                         <p class="text-left text-xl font-black text-gray-700">
