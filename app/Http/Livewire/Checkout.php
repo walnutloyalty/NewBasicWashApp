@@ -138,7 +138,8 @@ class Checkout extends Component
     {
         $this->validate(['licenseplate' => 'required']);
         $licenseplate = strtoupper(str_replace([' ', '-'], '', $this->licenseplate));
-        if (LicenseplateFacade::isLicenseplateTaxi($licenseplate)) {
+
+        if ((! str_contains($this->selected['name'], 'Taxi')) && LicenseplateFacade::isLicenseplateTaxi($licenseplate)) {
             $this->addError('licenseplate', 'Dit is een taxi kenteken, deze kan niet gebruikt worden.');
             return;
         }
