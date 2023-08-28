@@ -5,39 +5,45 @@
     @paymenturl.window="window.open($event.detail.url, '_blank')" x-data="{ step: 1 }"
     class="relative mx-auto grid max-w-7xl grid-cols-1 gap-x-16 lg:grid-cols-2 lg:px-8 xl:gap-x-48">
     <div class="relative col-span-full flex justify-end border-b border-gray-200 sm:justify-center">
-        <div aria-label="Progress" class="py-4 sm:block">
-            <ol role="list" class="flex space-x-1">
-                <li class="flex items-center">
-                    <button type="button" wire:click="step(1)" aria-current="page"
-                        :class="step === 1 && 'text-pink-600'">{{ __('Contact informatie') }}
-                    </button>
-                    <!-- Heroicon name: mini/chevron-right -->
-                    <svg class="ml-4 h-5 w-5 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd"
-                            d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-                            clip-rule="evenodd" />
-                    </svg>
-                </li>
-                <li class="flex items-center">
-                    <button type="button" wire:click="step(2)" :class="step === 2 && 'text-pink-600'">
-                        {{ __('Kenteken') }}
-                    </button>
-                    <!-- Heroicon name: mini/chevron-right -->
-                    <svg class="ml-4 h-5 w-5 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd"
-                            d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-                            clip-rule="evenodd" />
-                    </svg>
-                </li>
-                <li class="flex items-center">
-                    <button type="button" wire:click="step(3)"
-                        :class="step === 3 && 'text-pink-600'">{{ __('Bevestigen') }}
-                    </button>
-                </li>
-            </ol>
+        <div class="flex-1 self-end">
+            <button class="whitespace-nowrap border-b-2 border-transparent px-1 py-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700" @click="checkout = false">← Terug</button>
         </div>
+        <div>
+            <div aria-label="Progress" class="py-4 sm:block">
+                <ol role="list" class="flex space-x-1">
+                    <li class="flex items-center">
+                        <button type="button" wire:click="step(1)" aria-current="page"
+                            :class="step === 1 && 'text-pink-600'">{{ __('Contact informatie') }}
+                        </button>
+                        <!-- Heroicon name: mini/chevron-right -->
+                        <svg class="ml-4 h-5 w-5 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </li>
+                    <li class="flex items-center">
+                        <button type="button" wire:click="step(2)" :class="step === 2 && 'text-pink-600'">
+                            {{ __('Kenteken') }}
+                        </button>
+                        <!-- Heroicon name: mini/chevron-right -->
+                        <svg class="ml-4 h-5 w-5 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </li>
+                    <li class="flex items-center">
+                        <button type="button" wire:click="step(3)"
+                            :class="step === 3 && 'text-pink-600'">{{ __('Bevestigen') }}
+                        </button>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="flex-1"></div>
         {{--                    <p class="sm:hidden">Step 2 of 4</p> --}}
     </div>
     <div x-transition x-show="step === 1">
