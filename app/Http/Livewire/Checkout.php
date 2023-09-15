@@ -15,7 +15,7 @@ class Checkout extends Component
     public $location = '';
     public $type = '';
     public $selected;
-    public $step = 1;
+    public $step = 0;
     public $name;
     public $email;
     public $phone_number;
@@ -65,13 +65,13 @@ class Checkout extends Component
         switch ($data[0]) {
             case 'p':
                 $this->type = 'particulier';
-                $this->subscriptions = Cache::remember('particulier_products', 3600, function () {
+                $this->subscriptions = Cache::remember('particulier_products', 3600, static function () {
                     return Product::orderBy('price', 'desc')->whereInShop(true)->whereZakelijk(false)->get();
                 });
                 break;
             case 'z':
                 $this->type = 'zakelijk';
-                $this->subscriptions = Cache::remember('zakelijk_products', 3600, function () {
+                $this->subscriptions = Cache::remember('zakelijk_products', 3600, static function () {
                     return Product::orderBy('price', 'desc')->whereInShop(true)->whereZakelijk(true)->get();
                 });
         }
@@ -132,6 +132,11 @@ class Checkout extends Component
     {
         $this->licenseplates->forget($key);
         $this->calculatePrices();
+    }
+
+    public function BackToChooseType()
+    {
+        $this->emit('backToChooseType');
     }
 
     public function addLicensePlate()
@@ -213,7 +218,9 @@ class Checkout extends Component
 
     public function step($step)
     {
-        $this->validate($this->validationRules());
+        if ($step >= $this->step) {
+            $this->validate($this->validationRules());
+        }
         $this->step = $step;
         $this->dispatchBrowserEvent('setstep', ['step' => $this->step]);
     }
@@ -258,6 +265,11 @@ class Checkout extends Component
 
     private function validationRules()
     {
+        if ($this->step == 0) {
+            return [
+                'step' => 'required',
+            ];
+        }
         if ($this->type === 'particulier') {
             switch ($this->step) {
                 case 1:

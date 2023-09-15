@@ -1,6 +1,7 @@
 <div x-on:checkout.window="checkout = ''; setTimeout(() => { checkout = true }, 200)"
     x-on:checkout-complete.window="checkout = ''; setTimeout(() => { checkout = true }, 200)" x-data="{ checkout: false }"
-    class="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+    @livewire('checkout', ['home' => $home])
     @if (!$home)
         @if (!$iframe)
             <div x-transition x-show="! checkout" class="text-center text-pink-600">
@@ -13,7 +14,6 @@
         @endif
     @endif
     <div x-transition x-show="! checkout">
-
         @if (!$home)
             @if (!$iframe)
                 <h1 class="text-center text-5xl font-extrabold text-pink-600">{{ __('Webshop') }}</h1>
@@ -31,14 +31,13 @@
                             :class="maand ?
                                 'border-pink-500 text-pink-600 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium' :
                                 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium'"
-                            aria-current="page">Maandelijks</a>
+                            aria-current="page">Maandelijkse abonnementen</a>
 
                         <a href="#" @click="maand = false"
                             :class="!maand ?
                                 'border-pink-500 text-pink-600 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium' :
                                 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium'"
-                            aria-current="page">Jaarlijks</a>
-
+                            aria-current="page">Jaarlijkse abonnementen</a>
                     </nav>
                 </div>
             @endif
@@ -116,5 +115,4 @@
         </div>
     </div>
 
-    @livewire('checkout', ['home' => $home])
 </div>

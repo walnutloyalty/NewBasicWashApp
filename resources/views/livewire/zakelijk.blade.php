@@ -1,6 +1,7 @@
 <div x-on:checkout.window="checkout = ''; setTimeout(() => { checkout = true }, 200)"
     x-on:checkout-complete.window="checkout = ''; setTimeout(() => { checkout = true }, 200)" x-data="{ checkout: false }"
-    class="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+    @livewire('checkout', ['home' => $home])
     @if (!$home)
 
         @if (!$iframe)
@@ -25,37 +26,21 @@
         @endif
         <div x-data="{ maand: false }" class="sm:align-center sm:flex sm:flex-col">
             @if (!$home)
-                <div>
-                    <div class="sm:hidden">
-                        <label for="tabs" class="sr-only">Select a tab</label>
-                        <!-- Use an "onChange" listener to redirect the user to the selected tab URL. -->
-                        <select id="tabs" name="tabs" x-model="maand"
-                            class="block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-pink-500 focus:outline-none focus:ring-pink-500 sm:text-sm">
-                            <option value="1">Maandelijks</option>
+                <div class="border-b border-gray-200">
+                    <nav class="mx-auto -mb-px mt-8 flex space-x-8" aria-label="Tabs">
+                        <!-- Current: "border-pink-500 text-pink-600", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
+                        <a href="#" @click="maand = true"
+                            :class="maand ?
+                                'border-pink-500 text-pink-600 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium' :
+                                'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium'"
+                            aria-current="page">Maandelijkse abonnementen</a>
 
-                            <option value="0">Jaarlijks</option>
-
-                        </select>
-                    </div>
-                    <div class="hidden sm:block">
-                        <div class="border-b border-gray-200">
-                            <nav class="mx-auto -mb-px mt-8 flex space-x-8" aria-label="Tabs">
-                                <!-- Current: "border-pink-500 text-pink-600", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
-                                <a href="#" @click="maand = true"
-                                    :class="maand ?
-                                        'border-pink-500 text-pink-600 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium' :
-                                        'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium'"
-                                    aria-current="page">Maandelijks</a>
-
-                                <a href="#" @click="maand = false"
-                                    :class="!maand ?
-                                        'border-pink-500 text-pink-600 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium' :
-                                        'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium'"
-                                    aria-current="page">Jaarlijks</a>
-
-                            </nav>
-                        </div>
-                    </div>
+                        <a href="#" @click="maand = false"
+                            :class="!maand ?
+                                'border-pink-500 text-pink-600 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium' :
+                                'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium'"
+                            aria-current="page">Jaarlijkse abonnementen</a>
+                    </nav>
                 </div>
             @endif
             <div
@@ -125,5 +110,4 @@
         </div>
     </div>
 
-    @livewire('checkout', ['home' => $home])
 </div>
