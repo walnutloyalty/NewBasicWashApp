@@ -3,10 +3,10 @@
 namespace App\Http\Livewire;
 
 use App\Http\Facades\LicenseplateFacade;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 use App\Models\Product;
 use Illuminate\Support\Facades\Http;
-use Cache;
 use Exception;
 
 class Checkout extends Component
@@ -43,7 +43,8 @@ class Checkout extends Component
     public $discountedExBtwPrice = 0;
 
     public $listeners = [
-        'checkout' => 'checkout'
+        'checkout' => 'checkout',
+        'step' => 'step'
     ];
 
     public $rules = [
@@ -65,21 +66,24 @@ class Checkout extends Component
         switch ($data[0]) {
             case 'p':
                 $this->type = 'particulier';
-                $this->subscriptions = Cache::remember('particulier_products', 3600, static function () {
+                $subscriptions = Cache::remember('particulier_products', 3600, static function () {
                     return Product::orderBy('price', 'desc')->whereInShop(true)->whereZakelijk(false)->get();
                 });
                 break;
             case 'z':
                 $this->type = 'zakelijk';
-                $this->subscriptions = Cache::remember('zakelijk_products', 3600, static function () {
+                $subscriptions = Cache::remember('zakelijk_products', 3600, static function () {
                     return Product::orderBy('price', 'desc')->whereInShop(true)->whereZakelijk(true)->get();
                 });
         }
 
         // get the selected product
-        $this->selected = $this->subscriptions->where('_id', $data[1])->first();
-        $this->calculatePrices();
+        $this->selected = $subscriptions->where('_id', $data[1])->first()->toArray();
+        $this->resetAppliedVoucher();
+        // $this->calculatePrices(); // <- Called in $this->resetAppliedVoucher();
 
+        $this->step = 0;
+        $this->step(1);
         $this->dispatchBrowserEvent('checkout');
     }
 
@@ -88,12 +92,12 @@ class Checkout extends Component
         if (empty($this->selected)) {
             return;
         }
-        $this->btwPercentage = $this->selected->btw;
+        $this->btwPercentage = $this->selected['btw'];
         $licenPlateCount = count($this->licenseplates);
         if ($licenPlateCount <= 0) {
             $licenPlateCount = 1;
         }
-        $basePrice = $this->selected->price * $licenPlateCount;
+        $basePrice = $this->selected['price'] * $licenPlateCount;
         $baseExBtwPrice = $basePrice / (1 + $this->btwPercentage / 100);
         $baseBtwPrice = $basePrice - $baseExBtwPrice;
 
@@ -109,12 +113,6 @@ class Checkout extends Component
         $this->discountedExBtwPrice = number_format($discountedExBtwPrice, 2, ',', '');
     }
 
-    public function selected($id)
-    {
-        $this->selected = $this->subscriptions->where('_id', $id)->first();
-        $this->calculatePrices();
-    }
-
     public function next()
     {
         $this->validate($this->validationRules());
@@ -122,7 +120,7 @@ class Checkout extends Component
 
         if ($this->step !== 2) {
             $this->step++;
-            $this->dispatchBrowserEvent('setstep', ['step' => $this->step]);
+            $this->dispatchBrowserEvent('setnavstep', ['step' => $this->step]);
         } else {
             $this->initCheckout();
         }
@@ -134,11 +132,6 @@ class Checkout extends Component
         $this->calculatePrices();
     }
 
-    public function BackToChooseType()
-    {
-        $this->emit('backToChooseType');
-    }
-
     public function addLicensePlate()
     {
         $this->validate(['licenseplate' => 'required']);
@@ -148,7 +141,7 @@ class Checkout extends Component
             $this->addError('licenseplate', 'Dit is een taxi kenteken, deze kan niet gebruikt worden.');
             return;
         }
-        if ($this->selected && (! $this->selected->zakelijk) && LicenseplateFacade::isCompanyCar($licenseplate)) {
+        if ($this->selected && (! $this->selected['zakelijk']) && LicenseplateFacade::isCompanyCar($licenseplate)) {
             $this->addError('licenseplate', 'Dit is een bedrijfsauto kenteken, deze kan niet gebruikt worden voor particulieren abonnementen.');
             return;
         }
@@ -164,7 +157,7 @@ class Checkout extends Component
 
     public function initCheckout()
     {
-        $this->dispatchBrowserEvent('setstep', ['step' => 3]);
+        $this->dispatchBrowserEvent('setnavstep', ['step' => 3]);
         // check the customers email address
         $licenseplate = $this->licenseplates[0];
 
@@ -222,7 +215,7 @@ class Checkout extends Component
             $this->validate($this->validationRules());
         }
         $this->step = $step;
-        $this->dispatchBrowserEvent('setstep', ['step' => $this->step]);
+        $this->dispatchBrowserEvent('setnavstep', ['step' => $this->step]);
     }
 
     public function render()
@@ -230,12 +223,18 @@ class Checkout extends Component
         return view('livewire.checkout');
     }
 
-    public function applyVoucher()
+    public function resetAppliedVoucher()
     {
         $this->applyVoucherFailed = false;
         $this->voucherAmount = 0;
         $this->voucherApplied = false;
+        // $this->voucher = '';
         $this->calculatePrices();
+    }
+
+    public function applyVoucher()
+    {
+        $this->resetAppliedVoucher();
         try {
             $product_id = $this->selected['_id'];
             // Check if the voucher is valid and the worth of the voucher

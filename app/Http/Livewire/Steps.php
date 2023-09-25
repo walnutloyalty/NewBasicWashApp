@@ -4,12 +4,10 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class Pricing extends Component
+class Steps extends Component
 {
-    public $iframe = false;
-
     public function render()
     {
-        return view('livewire.pricing');
+        return view('livewire.steps');
     }
 }

@@ -14,8 +14,6 @@
             </div>
         @endif
     @endif
-    @if (!$iframe)
-    @endif
     <div x-transition x-show="! checkout">
         @if (!$home)
             @if (!$iframe)
@@ -24,6 +22,7 @@
                     {{ __('Sluit nu je abonnement af en komt direct onbeperkt autowassen!') }}</h2>
             @endif
         @endif
+
         <div x-data="{ maand: false }" class="sm:align-center sm:flex sm:flex-col">
             @if (!$home)
                 <div class="border-b border-gray-200">
@@ -43,6 +42,7 @@
                     </nav>
                 </div>
             @endif
+
             <div
                 class="mt-12 space-y-4 sm:mt-16 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:mx-auto lg:max-w-4xl xl:mx-0 xl:max-w-none xl:grid-cols-3">
                 @foreach ($subscriptions ?? [] as $key => $subscription)

@@ -1,65 +1,6 @@
-<main
-    x-on:setstep.window="step = null; setTimeout(function () {
-    step = $event.detail.step
-}, 500)"
-    @paymenturl.window="window.open($event.detail.url, '_blank')" x-data="{ step: 1 }"
-    class="relative mx-auto">
-    <div class="relative col-span-full flex justify-end border-b border-gray-200 sm:justify-center">
-        <div class="flex-1 self-end">
-            <button class="whitespace-nowrap border-b-2 border-transparent px-1 py-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700" wire:click='BackToChooseType'>← Terug</button>
-        </div>
-        <div>
-            <div aria-label="Progress" class="py-4 sm:block">
-                <ol role="list" class="flex space-x-1">
-                    <li class="flex items-center">
-                        <button type="button" @click="checkout = false" aria-current="page"
-                            :class="!checkout && 'text-pink-600'">{{ __('Kies abonnement') }}
-                        </button>
-                        <!-- Heroicon name: mini/chevron-right -->
-                        <svg class="ml-4 h-5 w-5 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </li>
-                    <li class="flex items-center">
-                        <button type="button" wire:click="step(1)" aria-current="page"
-                            :class="checkout && step === 1 && 'text-pink-600'">{{ __('Contact informatie') }}
-                        </button>
-                        <!-- Heroicon name: mini/chevron-right -->
-                        <svg class="ml-4 h-5 w-5 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </li>
-                    <li class="flex items-center">
-                        <button type="button" wire:click="step(2)" :class="checkout && step === 2 && 'text-pink-600'">
-                            {{ __('Kenteken') }}
-                        </button>
-                        <!-- Heroicon name: mini/chevron-right -->
-                        <svg class="ml-4 h-5 w-5 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </li>
-                    <li class="flex items-center">
-                        <button type="button" wire:click="step(3)"
-                            :class="checkout && step === 3 && 'text-pink-600'">{{ __('Bevestigen') }}
-                        </button>
-                    </li>
-                </ol>
-            </div>
-        </div>
-        <div class="flex-1"></div>
-        {{--                    <p class="sm:hidden">Step 2 of 4</p> --}}
-    </div>
-    <div x-transition x-show="checkout" class="grid max-w-7xl grid-cols-1 gap-x-16 lg:grid-cols-2 xl:gap-x-48">
-        <div x-transition x-show="step === 1">
+<div @paymenturl.window="window.open($event.detail.url, '_blank')" class="relative mx-auto">
+    <div x-show="checkout" class="grid max-w-7xl grid-cols-1 gap-x-16 lg:grid-cols-2 xl:gap-x-48" style="display: none;">
+        <div x-show="nav_step === 1" style="display: none;">
             <form class="px-4 pt-8 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 lg:pb-16" wire:submit.prevent="submit">
                 @csrf
                 <div class="mx-auto mt-8 max-w-lg lg:max-w-none">
@@ -67,7 +8,7 @@
                         <h2 id="contact-info-heading" class="text-lg font-medium text-gray-900">
                             {{ __('Contact informatie') }}</h2>
                         <div class="mt-6">
-                            <label for="userName"
+                            <label
                                 class="block text-sm font-medium text-gray-700">{{ __('Naam') }}</label>
                             <div class="mt-1">
                                 <input type="text" wire:model="name"
@@ -79,7 +20,7 @@
                             </div>
                         </div>
                         <div class="mt-6">
-                            <label for="userEmail"
+                            <label
                                 class="block text-sm font-medium text-gray-700">{{ __('Email') }}</label>
                             <div class="mt-1">
                                 <input type="email" wire:model="email"
@@ -103,7 +44,7 @@
                         </h2>
                         <div class="mt-4 grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-2">
                             <div class="sm:col-span-2">
-                                <label for="userPhone"
+                                <label
                                     class="block text-sm font-medium text-gray-700">{{ __('Telefoonnummer') }}</label>
                                 <div class="mt-1">
                                     <input type="text" wire:model="phone_number"
@@ -115,7 +56,7 @@
                                 </div>
                             </div>
                             <div>
-                                <label for="userPostalCode"
+                                <label
                                     class="block text-sm font-medium text-gray-700">{{ __('Postcode') }}</label>
                                 <div class="mt-1">
                                     <input type="text" wire:model="postcode"
@@ -127,7 +68,7 @@
                                 </div>
                             </div>
                             <div>
-                                <label for="userHouseNumber"
+                                <label
                                     class="block text-sm font-medium text-gray-700">{{ __('Huisnummer') }}</label>
                                 <div class="mt-1">
                                     <input type="text" wire:model="house_number"
@@ -138,9 +79,9 @@
                                     @enderror
                                 </div>
                             </div>
-                            @if ($selected?->zakelijk)
+                            @if ($selected['zakelijk'] ?? false)
                                 <div class="sm:col-span-2">
-                                    <label for="company_name"
+                                    <label
                                         class="block text-sm font-medium text-gray-700">{{ __('Tenaamstelling bedrijf') }}</label>
                                     <div class="mt-1">
                                         <input type="text" wire:model="company_name"
@@ -152,7 +93,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <label for="company_btw_number"
+                                    <label
                                         class="block text-sm font-medium text-gray-700">{{ __('BTW nummer') }}</label>
                                     <div class="mt-1">
                                         <input type="text" wire:model="company_btw_number"
@@ -164,7 +105,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <label for="company_kvk_number"
+                                    <label
                                         class="block text-sm font-medium text-gray-700">{{ __('KVK nummer') }}</label>
                                     <div class="mt-1">
                                         <input type="text" wire:model="company_kvk_number"
@@ -182,7 +123,7 @@
 
             </form>
         </div>
-        <div x-transition x-show="step === 2">
+        <div x-show="nav_step === 2" style="display: none;">
             <div class="mx-auto mt-4 max-w-lg">
                 <div>
                     <div class="mt-16 text-center">
@@ -190,7 +131,7 @@
                         <h2 class="mt-2 text-lg font-medium text-gray-900">{{ __('Voeg je kenteken toe') }}</h2>
                     </div>
                     <form action="#" class="mt-6 flex">
-                        <label for="userLicensePlate" class="sr-only">{{ __('Kenteken') }}</label>
+                        <label class="sr-only">{{ __('Kenteken') }}</label>
                         <input type="text" name="userLicensePlate" wire:model="licenseplate" id="userLicensePlate"
                             class="block w-full rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500 sm:text-sm"
                             placeholder="Enter a licenseplate">
@@ -238,7 +179,7 @@
                 </div>
             </div>
         </div>
-        <div x-transition x-show="step === 3" class="pt-16">
+        <div x-show="nav_step === 3" class="pt-16" style="display: none;">
             <h1 class="text-center text-5xl font-extrabold text-pink-600">{{ __('Even geduld') }}</h1>
             <h2 class="mt-6 text-center text-lg">{{ $loading_message }}</h2>
             @if (!empty($paymentUrl))
@@ -247,7 +188,7 @@
             @endif
         </div>
 
-        <div x-transition x-show="step === null" class="pt-16">
+        <div x-show="nav_step === null" class="pt-16" style="display: none;">
             <h1 class="text-center text-5xl font-extrabold text-pink-600">{{ __('Even geduld') }}</h1>
             <h2 class="mt-6 text-center text-lg">{{ __('Gegevens worden geverifieerd...') }}</h2>
         </div>
@@ -259,71 +200,28 @@
                 }
             }
         </style>
-        <div style="width:100%; margin-top: 4rem; margin-right: 2rem; margin-top: 4rem; margin-right: 2rem;"
-            class="cart @if (!$home) bg-white @endif mr-4 lg:absolute lg:right-0">
+        <div style="width:100%; " class="cart @if (!$home) bg-white @endif mr-4 lg:absolute lg:right-0">
             <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-0">
                 <form class="mt-12">
                     <section aria-labelledby="cart-heading">
                         <h2 id="cart-heading" class="sr-only"></h2>
 
                         <ul role="list" class="divide-y divide-gray-200 border-b border-t border-gray-200">
-                            @if (isset($selected))
-                                <li class="grid grid-cols-2 gap-1 py-6 sm:grid-cols-3">
-                                    <div class="flex-shrink-0">
-                                        <img src="{{ $selected['image'] }}"
-                                            alt="Front side of mint cotton t-shirt with wavey lines pattern."
-                                            class="h-24 w-24 rounded-md object-cover object-center sm:h-32 sm:w-32">
-                                    </div>
 
-                                    <div class="col-span-2 flex flex-1 flex-col">
-                                        <div>
-                                            <h4 class="font-medium text-gray-700 hover:text-gray-800">{{ $selected['name'] }}</h4>
-                                            <p class="mt-1 text-sm text-gray-500">{{ $selected['description'] }}</p>
-                                        </div>
-                                    </div>
-                                </li>
-                            @else
-                                <fieldset class="max-h-52 overflow-y-auto">
-                                    <div class="space-y-4">
-                                        @foreach ($subscriptions as $subscription)
-                                            <label wire:click="selected('{{ $subscription['_id'] }}')"
-                                                class="@if (!$home) bg-white @endif relative block cursor-pointer rounded-lg border px-6 py-4 shadow-sm hover:border hover:border-pink-600 focus:outline-pink-600 sm:flex sm:justify-between">
-                                                <input type="radio" name="server-size" value="Hobby" class="sr-only"
-                                                    aria-labelledby="server-size-0-label"
-                                                    aria-describedby="server-size-0-description-0 server-size-0-description-1">
-                                                <span class="flex items-center">
-                                                    <span class="flex flex-col text-sm">
-                                                        <span id="server-size-0-label"
-                                                            class="font-medium text-gray-900">{{ $subscription['name'] }}</span>
-                                                        <span id="server-size-0-description-0" class="text-gray-500">
-                                                            <span
-                                                                class="block sm:inline">{{ $subscription['description'] }}</span>
+                            <li class="grid grid-cols-2 gap-1 py-6 sm:grid-cols-3">
+                                <div class="flex-shrink-0">
+                                    <img src="{{ $selected['image'] ?? '' }}"
+                                        alt="Front side of mint cotton t-shirt with wavey lines pattern."
+                                        class="h-24 w-24 rounded-md object-cover object-center sm:h-32 sm:w-32">
+                                </div>
 
-                                                        </span>
-                                                    </span>
-                                                </span>
-                                                <span id="server-size-0-description-1"
-                                                    class="mt-2 flex text-sm sm:ml-4 sm:mt-0 sm:flex-col sm:text-right">
-                                                    <span class="font-medium text-gray-900">€@if (str_contains($subscription['price'], '.00'))
-                                                            {{ floor($subscription['price'], 2) }}@else{{ $subscription['price'] }}
-                                                        @endif
-                                                    </span>
-                                                    <span class="ml-1 text-gray-500 sm:ml-0">
-                                                        @if ($subscription['interval'] === 'maand')
-                                                            / {{ __('maand') }}
-                                                        @else
-                                                            /{{ __('jaar') }}
-                                                        @endif
-                                                    </span>
-                                                </span>
-
-                                                <span class="pointer-events-none absolute -inset-px rounded-lg border-2"
-                                                    aria-hidden="true"></span>
-                                            </label>
-                                        @endforeach
+                                <div class="col-span-2 flex flex-1 flex-col">
+                                    <div>
+                                        <h4 class="font-medium text-gray-700 hover:text-gray-800">{{ $selected['name'] ?? '' }}</h4>
+                                        <p class="mt-1 text-sm text-gray-500">{{ $selected['description'] ?? '' }}</p>
                                     </div>
-                                </fieldset>
-                            @endif
+                                </div>
+                            </li>
                         </ul>
                     </section>
 
@@ -348,7 +246,7 @@
                                             @endif
                                         </dt>
                                         <dd class="ml-4 text-sm font-medium text-gray-500">
-                                            €{{ $selected->price }}
+                                            €{{ $selected['price'] ?? '' }}
                                             @if (count($licenseplates) >= 2)
                                                 x {{ count($licenseplates) }}
                                             @endif
@@ -364,15 +262,15 @@
                                     </div>
                                 </dl>
                             @endif
-                            @if ($selected?->zakelijk && ($selected?->btw ?? -1) != -1)
+                            @if (($selected['zakelijk'] ?? false) && ($selected['btw'] ?? -1) != -1)
                                 <dl class="space-y-4">
                                     <div class="flex items-center justify-between">
                                         <dt class="text-sm font-medium text-gray-500">{{ __('Totaal') }}</dt>
                                         <dd class="ml-4 text-sm font-medium text-gray-500">
                                             @if ($voucherApplied)
-                                                Eerste {{ $selected?->interval }} €{{ $discountedPrice }}
+                                                Eerste {{ $selected['interval'] }} €{{ $discountedPrice }}
                                             @else
-                                                €{{ $discountedPrice }} per {{ $selected?->interval }}
+                                                €{{ $discountedPrice }} per {{ $selected['interval'] }}
                                             @endif
                                         </dd>
                                     </div>
@@ -387,9 +285,9 @@
                                     <div class="flex items-center justify-between">
                                         <dt class="text-base text-gray-900">{{ __('Totaal exclusief ' . $btwPercentage . '% btw') }}</dt>
                                         @if ($voucherApplied)
-                                            <dd class="ml-4 text-base text-gray-900">Eerste {{ $selected?->interval }} €{{ $discountedExBtwPrice }}</dd>
+                                            <dd class="ml-4 text-base text-gray-900">Eerste {{ $selected['interval'] ?? '' }} €{{ $discountedExBtwPrice }}</dd>
                                         @else
-                                            <dd class="ml-4 text-base text-gray-900">€{{ $baseExBtwPrice }} per {{ $selected?->interval }}</dd>
+                                            <dd class="ml-4 text-base text-gray-900">€{{ $baseExBtwPrice }} per {{ $selected['interval'] ?? '' }}</dd>
                                         @endif
                                     </div>
                                 </dl>
@@ -398,33 +296,33 @@
                                     <div class="flex items-center justify-between">
                                         <dt class="text-base font-medium text-gray-900">{{ __('Totaal') }}</dt>
                                         @if ($voucherApplied)
-                                            <dd class="ml-4 text-base font-medium text-gray-900">Eerste {{ $selected?->interval }} €{{ $discountedPrice }}</dd>
+                                            <dd class="ml-4 text-base font-medium text-gray-900">Eerste {{ $selected['interval'] ?? '' }} €{{ $discountedPrice }}</dd>
                                         @else
-                                            <dd class="ml-4 text-base font-medium text-gray-900">€{{ $basePrice }} per {{ $selected?->interval }}</dd>
+                                            <dd class="ml-4 text-base font-medium text-gray-900">€{{ $basePrice }} per {{ $selected['interval'] ?? '' }}</dd>
                                         @endif
                                     </div>
                                 </dl>
                             @endif
 
                             @if ($voucherApplied)
-                                @if ($selected?->zakelijk && ($selected?->btw ?? -1) != -1)
+                                @if ($selected['zakelijk'] && $selected['btw'] != -1)
                                     <dl class="mt-4 space-y-4">
                                         <div class="flex items-center justify-between">
                                             <dt class="text-base text-gray-600"></dt>
-                                            <dd class="ml-4 text-base text-gray-600">Daarna €{{ $baseExBtwPrice }} per {{ $selected?->interval }}</dd>
+                                            <dd class="ml-4 text-base text-gray-600">Daarna €{{ $baseExBtwPrice }} per {{ $selected['interval'] ?? '' }}</dd>
                                         </div>
                                     </dl>
                                     <dl class="space-y-4">
                                         <div class="flex items-center justify-between">
                                             <dt class="text-sm font-medium text-gray-600"></dt>
-                                            <dd class="ml-4 text-sm font-medium text-gray-600">{{ __('Inclusief ' . $btwPercentage . '% btw') }}: €{{ $basePrice }} per {{ $selected?->interval }}</dd>
+                                            <dd class="ml-4 text-sm font-medium text-gray-600">{{ __('Inclusief ' . $btwPercentage . '% btw') }}: €{{ $basePrice }} per {{ $selected['interval'] ?? '' }}</dd>
                                         </div>
                                     </dl>
                                 @else
                                     <dl class="space-y-4">
                                         <div class="flex items-center justify-between">
                                             <dt class="text-base font-medium text-gray-600"></dt>
-                                            <dd class="ml-4 text-base font-medium text-gray-600">Daarna €{{ $basePrice }} per {{ $selected?->interval }}</dd>
+                                            <dd class="ml-4 text-base font-medium text-gray-600">Daarna €{{ $basePrice }} per {{ $selected['interval'] ?? '' }}</dd>
                                         </div>
                                     </dl>
                                 @endif
@@ -472,7 +370,7 @@
                                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
                                     </path>
                                 </svg>
-                                <span x-text="step === 2 ? 'Checkout' : 'Next'" wire:loading.remove wire:target="next">
+                                <span x-text="nav_step === 2 ? 'Checkout' : 'Next'" wire:loading.remove wire:target="next">
 
                                 </span>
                             </button>
@@ -489,9 +387,9 @@
                 aria-modal="true" x-id="['modal-title']" :aria-labelledby="$id('modal-title')"
                 class="fixed inset-0 z-10 overflow-y-auto">
                 <!-- Overlay -->
-                <div x-show="open" x-transition.opacity class="fixed inset-0 bg-black bg-opacity-50"></div>
+                <div x-show="open" style="display: none;" x-transition.opacity class="fixed inset-0 bg-black bg-opacity-50"></div>
 
-                <div x-show="open" x-transition x-on:click="open = false"
+                <div x-show="open" style="display: none;" x-transition x-on:click="open = false"
                     class="relative flex min-h-screen items-center justify-center p-4">
                     <div x-on:click.stop x-trap.noscroll.inert="open"
                         class="relative w-full max-w-2xl overflow-y-auto rounded-xl bg-white p-4 shadow-lg">
@@ -528,4 +426,4 @@
             </div>
         </div>
     </div>
-</main>
+</div>

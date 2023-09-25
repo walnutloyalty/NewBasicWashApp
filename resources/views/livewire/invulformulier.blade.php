@@ -1,6 +1,6 @@
 <div x-on:ticketcreated.window="done = null; setTimeout(() => {done = true}, 200)" x-data="{ done: false }">
 
-    <form x-transition x-show="! done" class="space-y-8 divide-y divide-gray-200 lg:mx-96 mb-24">
+    <form x-transition x-show="! done" class="mb-24 space-y-8 divide-y divide-gray-200 lg:mx-96">
         <div class="space-y-8 divide-y divide-gray-200">
             <div>
                 <div class="text-center">
@@ -9,20 +9,20 @@
                         {{ __('Gebruik onderstaand formulier om zo gericht mogelijk antwoord te krijgen op je vraag!') }}
                     </p>
                 </div>
-                <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+                <div class="mt-6 grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-6">
                     <div class="sm:col-span-full">
-                        <label for="email" class="block text-sm font-medium text-gray-700">{{ __('Email') }}</label>
+                        <label class="block text-sm font-medium text-gray-700">{{ __('Email') }}</label>
                         <div class="mt-1 flex rounded-md shadow-sm">
                             <input type="email" name="email" id="email" wire:model="email"
                                 class="block w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
                                 placeholder="you@example.com" required>
                         </div>
                         @error('email')
-                            <span class="text-pink-600 text-sm">{{ $message }}</span>
+                            <span class="text-sm text-pink-600">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="sm:col-span-3">
-                        <label for="naam"
+                        <label
                             class="block text-sm font-medium text-gray-700">{{ __('Naam') }}</label>
                         <div class="mt-1 flex rounded-md shadow-sm">
                             <input type="text" name="naam" id="naam" wire:model="name"
@@ -30,12 +30,12 @@
                                 required>
                         </div>
                         @error('name')
-                            <span class="text-pink-600 text-sm">{{ $message }}</span>
+                            <span class="text-sm text-pink-600">{{ $message }}</span>
                         @enderror
                     </div>
 
                     <div class="sm:col-span-3">
-                        <label for="telefoon"
+                        <label
                             class="block text-sm font-medium text-gray-700">{{ __('Telefoonnummer') }}</label>
                         <div class="mt-1 flex rounded-md shadow-sm">
                             <input type="text" name="telefoon" id="telefoon" wire:model="phone_number"
@@ -44,11 +44,11 @@
                                 required>
                         </div>
                         @error('phone_number')
-                            <span class="text-pink-600 text-sm">{{ $message }}</span>
+                            <span class="text-sm text-pink-600">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="sm:col-span-3">
-                        <label for="kenteken"
+                        <label
                             class="block text-sm font-medium text-gray-700">{{ __('Kenteken') }}</label>
                         <div class="mt-1 flex rounded-md shadow-sm">
                             <input type="text" name="kenteken" id="kenteken" wire:model="licenseplate"
@@ -57,13 +57,13 @@
                                 required>
                         </div>
                         @error('licenseplate')
-                            <span class="text-pink-600 text-sm">{{ $message }}</span>
+                            <span class="text-sm text-pink-600">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="sm:col-span-3">
                         <div>
                             <div x-data="{ open: false, selected: 'Kies een onderwerp' }">
-                                <label for="onderwerp"
+                                <label
                                     class="block text-sm font-medium text-gray-700">{{ __('Onderwerp') }}</label>
                                 <div class="relative mt-1">
                                     <button @click="open = true" @click.away="open = false" type="button"
@@ -86,14 +86,14 @@
                                         tabindex="-1" role="listbox" aria-labelledby="listbox-label"
                                         aria-activedescendant="listbox-option-3">
                                         <li @click="selected = 'Abonnement informatie - Carwash'; $wire.set('subject', 'Abonnement informatie - Carwash'); open = false"
-                                            class="text-gray-900 relative cursor-default select-none py-2 pl-8 pr-4 hover:bg-pink-100"
+                                            class="relative cursor-default select-none py-2 pl-8 pr-4 text-gray-900 hover:bg-pink-100"
                                             id="listbox-option-0" role="option">
                                             <span
                                                 :class="selected === 'Abonnement informatie - Carwash' ? 'font-extrabold' :
                                                     'font-normal'"
                                                 class="block truncate">{{ __('Abonnement informatie - Carwash') }}</span>
                                             <span
-                                                class="text-pink-600 absolute inset-y-0 left-0 flex items-center pl-1.5">
+                                                class="absolute inset-y-0 left-0 flex items-center pl-1.5 text-pink-600">
                                                 <!-- Heroicon name: mini/check -->
                                                 <svg x-show="selected === 'Abonnement informatie - Carwash'"
                                                     class="h-5 w-5" xmlns="http://www.w3.org/2000/svg"
@@ -105,14 +105,14 @@
                                             </span>
                                         </li>
                                         <li @click="selected = 'Wijzigen gegevens - Carwash'; $wire.set('subject', 'Wijzigen gegevens - Carwash'); open = false;"
-                                            class="text-gray-900 relative cursor-default select-none py-2 pl-8 pr-4 hover:bg-pink-100"
+                                            class="relative cursor-default select-none py-2 pl-8 pr-4 text-gray-900 hover:bg-pink-100"
                                             id="listbox-option-1" role="option">
                                             <span
                                                 :class="selected === 'Wijzigen gegevens - Carwash' ? 'font-extrabold' :
                                                     'font-normal'"
                                                 class="block truncate">{{ __('Wijzigen gegevens - Carwash') }}</span>
                                             <span
-                                                class="text-pink-600 absolute inset-y-0 left-0 flex items-center pl-1.5">
+                                                class="absolute inset-y-0 left-0 flex items-center pl-1.5 text-pink-600">
                                                 <!-- Heroicon name: mini/check -->
                                                 <svg x-show="selected === 'Wijzigen gegevens - Carwash'"
                                                     class="h-5 w-5" xmlns="http://www.w3.org/2000/svg"
@@ -124,13 +124,13 @@
                                             </span>
                                         </li>
                                         <li @click="selected = 'Betalingen - Carwash'; $wire.set('subject', 'Betalingen - Carwash'); open = false;"
-                                            class="text-gray-900 relative cursor-default select-none py-2 pl-8 pr-4 hover:bg-pink-100"
+                                            class="relative cursor-default select-none py-2 pl-8 pr-4 text-gray-900 hover:bg-pink-100"
                                             id="listbox-option-2" role="option">
                                             <span
                                                 :class="selected === 'Betalingen - Carwash' ? 'font-extrabold' : 'font-normal'"
                                                 class="block truncate">{{ __('Betalingen - Carwash') }}</span>
                                             <span
-                                                class="text-pink-600 absolute inset-y-0 left-0 flex items-center pl-1.5">
+                                                class="absolute inset-y-0 left-0 flex items-center pl-1.5 text-pink-600">
                                                 <!-- Heroicon name: mini/check -->
                                                 <svg x-show="selected === 'Betalingen - Carwash'" class="h-5 w-5"
                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
@@ -142,7 +142,7 @@
                                             </span>
                                         </li>
                                         <li @click="selected = 'Schade, verlies of diefstal - Carwash'; $wire.set('subject', 'Schade, verlies of diefstal - Carwash'); open = false;"
-                                            class="text-gray-900 relative cursor-default select-none py-2 pl-8 pr-4 hover:bg-pink-100"
+                                            class="relative cursor-default select-none py-2 pl-8 pr-4 text-gray-900 hover:bg-pink-100"
                                             id="listbox-option-3" role="option">
                                             <span
                                                 :class="selected === 'Schade, verlies of diefstal - Carwash' ?
@@ -150,7 +150,7 @@
                                                     'font-normal'"
                                                 class="block truncate">{{ __('Schade, verlies of diefstal - Carwash') }}</span>
                                             <span
-                                                class="text-pink-600 absolute inset-y-0 left-0 flex items-center pl-1.5">
+                                                class="absolute inset-y-0 left-0 flex items-center pl-1.5 text-pink-600">
                                                 <!-- Heroicon name: mini/check -->
                                                 <svg x-show="selected === 'Schade, verlies of diefstal - Carwash'"
                                                     class="h-5 w-5" xmlns="http://www.w3.org/2000/svg"
@@ -162,13 +162,13 @@
                                             </span>
                                         </li>
                                         <li @click="selected = 'Zakelijk - Carwash'; $wire.set('subject', 'Zakelijk - Carwash'); open = false;"
-                                            class="text-gray-900 relative cursor-default select-none py-2 pl-8 pr-4 hover:bg-pink-100"
+                                            class="relative cursor-default select-none py-2 pl-8 pr-4 text-gray-900 hover:bg-pink-100"
                                             id="listbox-option-3" role="option">
                                             <span
                                                 :class="selected === 'Zakelijk - Carwash' ? 'font-extrabold' : 'font-normal'"
                                                 class="block truncate">{{ __('Zakelijk - Carwash') }}</span>
                                             <span
-                                                class="text-pink-600 absolute inset-y-0 left-0 flex items-center pl-1.5">
+                                                class="absolute inset-y-0 left-0 flex items-center pl-1.5 text-pink-600">
                                                 <!-- Heroicon name: mini/check -->
                                                 <svg x-show="selected === 'Zakelijk - Carwash'" class="h-5 w-5"
                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
@@ -180,13 +180,13 @@
                                             </span>
                                         </li>
                                         <li @click="selected = 'Overig - Carwash'; $wire.set('subject', 'Overig - Carwash'); open = false;"
-                                            class="text-gray-900 relative cursor-default select-none py-2 pl-8 pr-4 hover:bg-pink-100"
+                                            class="relative cursor-default select-none py-2 pl-8 pr-4 text-gray-900 hover:bg-pink-100"
                                             id="listbox-option-3" role="option">
                                             <span
                                                 :class="selected === 'Overig - Carwash' ? 'font-extrabold' : 'font-normal'"
                                                 class="block truncate">{{ __('Overig - Carwash') }}</span>
                                             <span
-                                                class="text-pink-600 absolute inset-y-0 left-0 flex items-center pl-1.5">
+                                                class="absolute inset-y-0 left-0 flex items-center pl-1.5 text-pink-600">
                                                 <!-- Heroicon name: mini/check -->
                                                 <svg x-show="selected === 'Overig - Carwash'" class="h-5 w-5"
                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
@@ -199,7 +199,7 @@
                                         </li>
                                     </ul>
                                     @error('subject')
-                                        <span class="text-pink-600 text-sm">{{ $message }}</span>
+                                        <span class="text-sm text-pink-600">{{ $message }}</span>
                                     @enderror
                                 </div>
                             </div>
@@ -207,12 +207,12 @@
                     </div>
 
                     <div class="sm:col-span-6">
-                        <label for="comment"
+                        <label
                             class="block text-sm font-medium leading-6 text-gray-900">Omschrijving</label>
                         <textarea rows="4" wire:model="description" name="comment" id="comment" row=7
                             class="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pink-600 sm:py-1.5 sm:text-sm sm:leading-6"></textarea>
                         @error('description')
-                            <span class="text-pink-600 text-sm">{{ $message }}</span>
+                            <span class="text-sm text-pink-600">{{ $message }}</span>
                         @enderror
                     </div>
 
@@ -222,9 +222,9 @@
         <div class="pt-5">
             <div class="flex justify-end">
                 <button type="button" wire:click="send"
-                    class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-pink-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-600">
+                    class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-pink-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-600">
 
-                    <svg wire:loading wire:target="send" class="animate-spin mx-auto h-6 w-6 text-white"
+                    <svg wire:loading wire:target="send" class="mx-auto h-6 w-6 animate-spin text-white"
                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                         <circle class="opacity-25" cx="12" cy="12" r="10"
                             stroke="currentColor" stroke-width="4"></circle>
@@ -242,6 +242,6 @@
 
     <div x-transition x-show="done" class="pt-16">
         <h1 class="text-center text-5xl font-extrabold text-pink-600">{{ __('Succes!') }}<h1>
-                <h2 class="text-center text-lg mt-6">We hebben uw vraag correct ontvangen. U ontvangt binnen enkele seconden een bevestigings mail</h2>
+                <h2 class="mt-6 text-center text-lg">We hebben uw vraag correct ontvangen. U ontvangt binnen enkele seconden een bevestigings mail</h2>
     </div>
 </div>

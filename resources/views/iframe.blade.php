@@ -389,9 +389,11 @@
     </style>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-    <body>
-        @livewireStyles
-        @livewire('pricing', ['pricing' => false, 'iframe' => true])
-        @livewireScripts
-    </body>
+
+<body>
+    @livewireStyles
+    @livewire('pricing', ['iframe' => true])
+    @livewireScripts
+</body>
+
 </html>
