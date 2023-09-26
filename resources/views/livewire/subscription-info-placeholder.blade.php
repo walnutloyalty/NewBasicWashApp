@@ -1,5 +1,5 @@
 <div>
-    <form class="mt-12">
+    <form class="mt-12 py-1">
         <section aria-labelledby="cart-heading">
             <h2 id="cart-heading" class="sr-only"></h2>
 

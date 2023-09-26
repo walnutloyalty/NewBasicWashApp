@@ -8,7 +8,7 @@
             <h1 class="text-5xl font-bold tracking-tight text-gray-900 sm:text-center">{{ __('Onze abonnementen') }}</h1>
             <p class="mt-5 text-xl text-gray-500 sm:text-center">{{ __('Goedkoop autowassen voor iedereen') }}</p>
 
-            @livewire('products', ['home' => true, 'iframe' => false])
+            @livewire('products', ['home' => false, 'iframe' => false])
         </div>
     </div>
 </div>

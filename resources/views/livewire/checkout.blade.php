@@ -202,7 +202,7 @@
         </style>
         <div style="width:100%; " class="cart @if (!$home) bg-white @endif mr-4 lg:absolute lg:right-0">
             <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-0">
-                <form class="mt-12">
+                <form class="mt-12 py-1">
                     <section aria-labelledby="cart-heading">
                         <h2 id="cart-heading" class="sr-only"></h2>
 

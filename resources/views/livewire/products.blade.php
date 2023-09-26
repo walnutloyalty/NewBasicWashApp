@@ -1,4 +1,5 @@
-<div @checkout.window="checkout = true"
+<div x-data="{ maand: false }"
+    @checkout.window="checkout = true"
     @checkout-complete.window="checkout = true"
     class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
     @livewire('steps', key('type-selector'))
@@ -10,7 +11,7 @@
         @livewire('type-selector', key('type-selector'))
     </div>
 
-    @if (!$home)
+    {{-- @if (!$home)
         @if (!$iframe)
             <div x-transition x-show="! checkout" class="text-center text-pink-600">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -20,37 +21,35 @@
                 </svg>
             </div>
         @endif
-    @endif
+    @endif --}}
 
     <div x-show="!showTypeSelector" class="grid max-w-7xl grid-cols-1 gap-x-8 lg:grid-cols-2">
         <div x-show="! checkout">
-            @if (!$home)
+            {{-- @if (!$home)
                 @if (!$iframe)
                     <h1 class="text-center text-5xl font-extrabold text-pink-600">{{ __('Webshop') }}</h1>
                     <h2 class="mt-6 text-center text-lg">
                         {{ __('Sluit nu je abonnement af en komt direct onbeperkt autowassen!') }}</h2>
                 @endif
-            @endif
+            @endif --}}
 
-            <div x-data="{ maand: false }" class="sm:align-center sm:flex sm:flex-col">
-                @if (!$home)
-                    <div class="border-b border-gray-200">
-                        <nav class="mx-auto -mb-px mt-8 flex space-x-8" aria-label="Tabs">
-                            <!-- Current: "border-pink-500 text-pink-600", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
-                            <a href="#" @click="maand = true"
-                                :class="maand ?
-                                    'border-pink-500 text-pink-600 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium' :
-                                    'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium'"
-                                aria-current="page">Maandelijkse abonnementen</a>
+            <div class="sm:align-center sm:flex sm:flex-col">
+                <div class="border-b border-gray-200">
+                    <nav class="mx-auto -mb-px flex space-x-8" aria-label="Tabs">
+                        <!-- Current: "border-pink-500 text-pink-600", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
+                        <a href="#" @click="maand = true"
+                            :class="maand ?
+                                'border-pink-500 text-pink-600 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium' :
+                                'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium'"
+                            aria-current="page">Maandelijkse abonnementen</a>
 
-                            <a href="#" @click="maand = false"
-                                :class="!maand ?
-                                    'border-pink-500 text-pink-600 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium' :
-                                    'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium'"
-                                aria-current="page">Jaarlijkse abonnementen</a>
-                        </nav>
-                    </div>
-                @endif
+                        <a href="#" @click="maand = false"
+                            :class="!maand ?
+                                'border-pink-500 text-pink-600 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium' :
+                                'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium'"
+                            aria-current="page">Jaarlijkse abonnementen</a>
+                    </nav>
+                </div>
 
                 <div class="mt-12 grid-cols-2 space-y-4 sm:grid sm:gap-6 sm:space-y-0 lg:mx-auto lg:max-w-4xl xl:mx-0 xl:max-w-none">
                     @foreach ($privateSubscriptions ?? [] as $key => $subscription)
