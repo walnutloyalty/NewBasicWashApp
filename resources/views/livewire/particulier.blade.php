@@ -27,13 +27,13 @@
                 <div class="border-b border-gray-200">
                     <nav class="mx-auto -mb-px mt-8 flex space-x-8" aria-label="Tabs">
                         <!-- Current: "border-pink-500 text-pink-600", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
-                        <a href="#" @click="maand = true"
+                        <a @click="maand = true"
                             :class="maand ?
                                 'border-pink-500 text-pink-600 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium' :
                                 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium'"
                             aria-current="page">Maandelijkse abonnementen</a>
 
-                        <a href="#" @click="maand = false"
+                        <a @click="maand = false"
                             :class="!maand ?
                                 'border-pink-500 text-pink-600 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium' :
                                 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium'"

@@ -2,7 +2,7 @@
     <div class="grid max-w-7xl grid-cols-1 gap-x-8 lg:grid-cols-2">
         <div>
             <div class="mt-12 divide-y divide-gray-200 overflow-hidden rounded-lg bg-gray-200 shadow sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0">
-                <div @click="private = true; showTypeSelector = false;" class="group relative rounded-tl-lg rounded-tr-lg bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 sm:rounded-tr-none">
+                <div @click="private = true; showTypeSelector = false;" class="group relative cursor-pointer rounded-tl-lg rounded-tr-lg bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 sm:rounded-tr-none">
                     <div>
                         <span class="inline-flex rounded-lg bg-teal-50 p-3 text-teal-700 ring-4 ring-white">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
@@ -12,7 +12,7 @@
                     </div>
                     <div class="mt-8">
                         <h3 class="text-base font-semibold leading-6 text-gray-900">
-                            <a href="#" class="focus:outline-none">
+                            <a class="focus:outline-none">
                                 <span class="absolute inset-0" aria-hidden="true"></span>
                                 Particulieren abonnementen
                             </a>
@@ -25,7 +25,7 @@
                         </svg>
                     </span>
                 </div>
-                <div @click="private = false; showTypeSelector = false;" class="group relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 sm:rounded-tr-lg">
+                <div @click="private = false; showTypeSelector = false;" class="group relative cursor-pointer bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 sm:rounded-tr-lg">
                     <div>
                         <span class="inline-flex rounded-lg bg-purple-50 p-3 text-purple-700 ring-4 ring-white">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
@@ -35,7 +35,7 @@
                     </div>
                     <div class="mt-8">
                         <h3 class="text-base font-semibold leading-6 text-gray-900">
-                            <a href="#" class="focus:outline-none">
+                            <a class="focus:outline-none">
                                 <span class="absolute inset-0" aria-hidden="true"></span>
                                 Zakelijke abonnementen
                             </a>

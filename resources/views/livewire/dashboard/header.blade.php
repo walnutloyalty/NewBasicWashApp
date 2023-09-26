@@ -61,7 +61,7 @@
                 </div>
                 <div>
                     <nav class="grid gap-y-8">
-                        <a href="#" class="-m-3 flex items-center rounded-md p-3"
+                        <a class="-m-3 flex items-center rounded-md p-3"
                             @click="mobileSub1 = true; mobileSub2 = false; mobileSub3 = false"
                             :class="mobileSub1 ? 'bg-pink-100' : ''">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -71,7 +71,7 @@
                             </svg>
                             <span class="ml-3 text-base font-medium text-gray-900">{{ __('Webshop') }}</span>
                         </a>
-                        <a href="#" class="-m-3 flex items-center rounded-md p-3"
+                        <a class="-m-3 flex items-center rounded-md p-3"
                             @click="mobileSub2 = true; mobileSub1 = false; mobileSub3 = false"
                             :class="mobileSub2 ? 'bg-pink-100' : ''">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -81,7 +81,7 @@
                             </svg>
                             <span class="ml-3 text-base font-medium text-gray-900">{{ __('Locaties') }}</span>
                         </a>
-                        <a href="#" class="-m-3 flex items-center rounded-md p-3"
+                        <a class="-m-3 flex items-center rounded-md p-3"
                             @click="mobileSub3 = true; mobileSub1 = false; mobileSub2 = false"
                             :class="mobileSub3 ? 'bg-pink-100' : ''">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
