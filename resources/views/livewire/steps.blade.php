@@ -1,16 +1,16 @@
 <div class="relative col-span-full flex justify-end border-b border-gray-200 sm:justify-center">
     <div class="flex-1 self-end">
-        <button class="whitespace-nowrap border-b-2 border-transparent px-1 py-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+        <button class="mr-3 whitespace-nowrap border-b-2 border-transparent px-1 py-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
             x-show="nav_step > 0 && showTypeSelector === false"
             @click="checkout = false; nav_step = 0;">← Terug</button>
-        <button class="whitespace-nowrap border-b-2 border-transparent px-1 py-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+        <button class="mr-3 whitespace-nowrap border-b-2 border-transparent px-1 py-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
             x-show="nav_step == 0 && showTypeSelector === false"
             @click="checkout = false; nav_step = 0; showTypeSelector = true;">← Terug</button>
     </div>
     <div>
         <div aria-label="Progress" class="py-4 sm:block">
-            <ol role="list" class="flex space-x-1">
-                <li class="flex items-center">
+            <ol role="list" class="flex flex-wrap sm:flex-nowrap">
+                <li class="mr-1 flex items-center">
                     <button type="button" @click="checkout = false; nav_step = 0;" aria-current="page"
                         :class="!checkout && 'text-pink-600'">{{ __('Kies abonnement') }}
                     </button>
@@ -22,7 +22,7 @@
                             clip-rule="evenodd" />
                     </svg>
                 </li>
-                <li class="flex items-center">
+                <li class="mr-1 flex items-center">
                     <button type="button" wire:click="$emit('step', 1)" aria-current="page"
                         :class="checkout && nav_step === 1 && 'text-pink-600'">{{ __('Contact informatie') }}
                     </button>
@@ -34,7 +34,7 @@
                             clip-rule="evenodd" />
                     </svg>
                 </li>
-                <li class="flex items-center">
+                <li class="mr-1 flex items-center">
                     <button type="button" wire:click="$emit('step', 2)" :class="checkout && nav_step === 2 && 'text-pink-600'">
                         {{ __('Kenteken') }}
                     </button>
