@@ -232,7 +232,7 @@
                             <p class="mt-1 text-sm text-blue-500" wire:loading wire:target="applyVoucher">{{ __('Kortingscode wordt gecontroleerd...') }}</p>
                             @if ($applyVoucherFailed)
                                 <div wire:loading.class='hidden' wire:target="applyVoucher">
-                                    <button class="mt-1 inline-block cursor-pointer text-sm text-red-600 hover:text-red-800" wire:click="$set('applyVoucherFailed', false)">X</button>
+                                    <button type='button' class="mt-1 inline-block cursor-pointer text-sm text-red-600 hover:text-red-800" wire:click="$set('applyVoucherFailed', false)">X</button>
                                     <p class="mt-1 inline-block text-sm text-red-500">{{ __('Kortingscode ongeldig') }}</p>
                                 </div>
                             @endif
