@@ -32,14 +32,28 @@
                     </nav>
                 </div>
 
-                <div class="mt-12 grid-cols-2 space-y-4 sm:grid sm:gap-6 sm:space-y-0 lg:mx-auto lg:max-w-4xl xl:mx-0 xl:max-w-none">
+                {{-- <div class="mt-12 grid-cols-2 space-y-4 sm:grid sm:gap-6 sm:space-y-0 lg:mx-auto lg:max-w-4xl xl:mx-0 xl:max-w-none">
                     @foreach ($privateSubscriptions ?? [] as $key => $subscription)
                         @livewire('product', ['subscription' => $subscription, 'key' => $key, 'isBusiness' => false, 'home' => $home])
                     @endforeach
                     @foreach ($businessSubscriptions ?? [] as $key => $subscription)
                         @livewire('product', ['subscription' => $subscription, 'key' => $key, 'isBusiness' => true, 'home' => $home])
                     @endforeach
+                </div> --}}
+
+                <div>
+                    <table class="w-full">
+                        <tbody>
+                            @foreach ($privateSubscriptions ?? [] as $key => $subscription)
+                                @livewire('producttable', ['subscription' => $subscription, 'key' => $key, 'isBusiness' => false, 'home' => $home])
+                            @endforeach
+                            @foreach ($businessSubscriptions ?? [] as $key => $subscription)
+                                @livewire('producttable', ['subscription' => $subscription, 'key' => $key, 'isBusiness' => true, 'home' => $home])
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
+
             </div>
         </div>
         <div x-show="checkout === false">
