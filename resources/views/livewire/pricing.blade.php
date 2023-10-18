@@ -1,5 +1,5 @@
-<div x-data="{ private: true, showTypeSelector: true, nav_step: 0, checkout: false }"
-    @setnavstep.window="console.log('123'); nav_step = $event.detail.step; console.log('navstep: ', nav_step, typeof nav_step, $event.detail.step)"
+<div x-data="{ private: {{ $private ? 'true' : 'false' }}, showTypeSelector: {{ $hideselector ? 'false' : 'true' }}, hideTypeSelector: {{ $hideselector ? 'true' : 'false' }}, nav_step: 0, checkout: false }"
+    @setnavstep.window="nav_step = $event.detail.step; console.log('navstep: ', nav_step, typeof nav_step, $event.detail.step)"
     @setshowtypeselector.window="showTypeSelector = $event.detail.status"
     @setprivate.window="private = $event.detail.status"
     class="@if ($iframe) bg-white @else bg-gray-50 @endif">

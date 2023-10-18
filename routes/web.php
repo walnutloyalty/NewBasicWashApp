@@ -15,90 +15,98 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', static function () {
     return view('index');
 });
 
-Route::get('iframe', function () {
+Route::get('iframe', static function () {
     return view('iframe');
 })->middleware('AddXFrameOptionsHeader');
 
-Route::get('iframed', function () {
+Route::get('privateiframe', static function () {
+    return view('privateiframe');
+})->middleware('AddXFrameOptionsHeader');
+
+Route::get('businessiframe', static function () {
+    return view('businessiframe');
+})->middleware('AddXFrameOptionsHeader');
+
+Route::get('iframed', static function () {
     return view('iframed');
 });
 
-Route::get('job', function () {
+Route::get('job', static function () {
     (new \App\Jobs\FetchProducts())->handle();
 });
 
 // particuliere checkout
-Route::get('/particulier', function () {
+Route::get('/particulier', static function () {
     return view('webshop/particulier');
 })->name('particulier');
 
 Route::get('/checkout/particulier/', [ParticuliereCheckout::class, 'render'])->name('particuliere-checkout');
 
 // zakelijke checkout
-Route::get('/zakelijk', function () {
+Route::get('/zakelijk', static function () {
     return view('webshop/zakelijk');
 })->name('zakelijk');
 
 Route::get('/checkout/zakelijk/', [ZakelijkeCheckout::class, 'render'])->name('zakelijke-checkout');
 
 // alle locaties
-Route::get('/locaties', function () {
+Route::get('/locaties', static function () {
     return view('locaties/index');
 })->name('locaties');
 
-Route::get('/breda', function () {
+Route::get('/breda', static function () {
     return view('locaties/breda');
 })->name('breda');
 
-Route::get('/hellevoetsluis', function () {
+Route::get('/hellevoetsluis', static function () {
     return view('locaties/hellevoetsluis');
 })->name('hellevoetsluis');
 
-Route::get('/sint-willebrord', function () {
+Route::get('/sint-willebrord', static function () {
     return view('locaties/sint-willebrord');
 })->name('sint-willebrord');
 
-Route::get('/terheijden', function () {
+Route::get('/terheijden', static function () {
     return view('locaties/terheijden');
 })->name('terheijden');
 
-Route::get('/ulvenhout', function () {
+Route::get('/ulvenhout', static function () {
     return view('locaties/ulvenhout');
 })->name('ulvenhout');
 
-Route::get('/klantenportaal', function () {
+Route::get('/klantenportaal', static function () {
     return view('klantenservice/klantenportaal');
 })->name('klantenportaal');
 
-Route::get('/kentekencheck', function () {
+Route::get('/kentekencheck', static function () {
     return view('klantenservice/kentekencheck');
 })->name('kentekencheck');
 
-Route::get('/FAQ', function () {
+Route::get('/FAQ', static function () {
     return view('klantenservice/FAQ');
 })->name('FAQ');
 
-Route::get('/invulformulier', function () {
+Route::get('/invulformulier', static function () {
     return view('invul-form/index');
 })->name('invulformulier');
 
-Route::get('/over-ons', function () {
+Route::get('/over-ons', static function () {
     return view('klantenservice/over-ons');
 })->name('over-ons');
 
-Route::get('/contact', function () {
+Route::get('/contact', static function () {
     return view('klantenservice/contact');
 })->name('contact');
 
-Route::get('/algemene-voorwaarden', function () {
+Route::get('/algemene-voorwaarden', static function () {
     return view('voorwaarden/algemene');
 })->name('algemene-voorwaarden');
 
-Route::get('/abonnements-voorwaarden', function () {
+Route::get('/abonnements-voorwaarden', static function () {
     return view('voorwaarden/abonnements');
 })->name('abonnements-voorwaarden');
 

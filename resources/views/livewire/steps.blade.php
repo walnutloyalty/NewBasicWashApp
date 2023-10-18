@@ -4,7 +4,7 @@
             x-show="nav_step > 0 && showTypeSelector === false"
             @click="checkout = false; nav_step = 0;">← Terug</button>
         <button class="mr-3 whitespace-nowrap border-b-2 border-transparent px-1 py-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-            x-show="nav_step == 0 && showTypeSelector === false"
+            x-show="nav_step == 0 && showTypeSelector === false && hideTypeSelector === false"
             @click="checkout = false; nav_step = 0; showTypeSelector = true;">← Terug</button>
     </div>
     <div>
