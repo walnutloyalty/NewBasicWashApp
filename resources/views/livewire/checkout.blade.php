@@ -336,7 +336,7 @@
                                 <span class="text-sm font-medium leading-6 text-gray-900"
                                     id="availability-label">Voorwaarden</span>
                                 <span class="text-sm text-gray-500" id="availability-description">Door verder te gaan,
-                                    accepteer ik de voorwaarden van BasicWash</span>
+                                    accepteer ik de <a class="text-blue-600 underline" href="https://www.basicwash.nl/algemene-voorwaarden/" target="_blank">algemene voorwaarden</a> en <a class="text-blue-600 underline" href="https://www.basicwash.nl/algemene-voorwaarden/" target="_blank">privacybeleid</a> van BasicWash</span>
                             </span>
                             <!-- Enabled: "bg-indigo-600", Not Enabled: "bg-gray-200" -->
                             <button wire:click="toggleTop" type="button"
