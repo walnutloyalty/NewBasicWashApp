@@ -142,7 +142,7 @@ class Checkout extends Component
             return;
         }
         if ($this->selected && (! $this->selected['zakelijk']) && LicenseplateFacade::isCompanyCar($licenseplate)) {
-            $this->addError('licenseplate', 'Dit is een bedrijfsauto kenteken, deze kan niet gebruikt worden voor particulieren abonnementen.');
+            $this->addError('licenseplate', 'Dit is een bedrijfsauto kenteken, deze kan niet gebruikt worden voor particuliere abonnementen.');
             return;
         }
         if (LicenseplateFacade::isDealerLicensePlate($licenseplate)) {

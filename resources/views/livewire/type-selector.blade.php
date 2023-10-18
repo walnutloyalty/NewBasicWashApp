@@ -14,10 +14,10 @@
                         <h3 class="text-base font-semibold leading-6 text-gray-900">
                             <a class="focus:outline-none">
                                 <span class="absolute inset-0" aria-hidden="true"></span>
-                                Particulieren abonnementen
+                                Particuliere abonnementen
                             </a>
                         </h3>
-                        <p class="mt-2 text-sm text-gray-500">Zie hier de optie voor particulieren abonnementen</p>
+                        <p class="mt-2 text-sm text-gray-500">Zie hier de optie voor particuliere abonnementen</p>
                     </div>
                     <span class="pointer-events-none absolute right-6 top-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
                         <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
