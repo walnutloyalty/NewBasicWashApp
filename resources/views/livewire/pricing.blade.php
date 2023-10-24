@@ -1,5 +1,5 @@
 <div x-data="{ private: {{ $private ? 'true' : 'false' }}, showTypeSelector: {{ $hideselector ? 'false' : 'true' }}, hideTypeSelector: {{ $hideselector ? 'true' : 'false' }}, nav_step: 0, checkout: false }"
-    @setnavstep.window="nav_step = $event.detail.step; setTimeout(() => { window.scrollTo(0,0) }, 150); if(nav_step == 2){ setTimeout(() => { document.getElementById('userLicensePlate').focus() }, 200 ) } console.log('navstep: ', nav_step, typeof nav_step, $event.detail.step)"
+    @setnavstep.window="nav_step = $event.detail.step; setTimeout(() => { window.scrollTo(0,0) }, 150); if(nav_step == 2){ setTimeout(() => { document.getElementById('userLicensePlate').focus() }, 200 ) }"
     @setshowtypeselector.window="showTypeSelector = $event.detail.status"
     @setprivate.window="private = $event.detail.status"
     class="@if ($iframe) @else @endif bg-gray-50 bg-white">
